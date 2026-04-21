@@ -9,6 +9,10 @@
         tailwind.config = { theme: { extend: { colors: { dark: '#0f172a', card: '#1e293b' } } } }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
 </head>
 <body class="bg-dark text-slate-300 font-sans antialiased selection:bg-fuchsia-500 selection:text-white pt-16">
 
@@ -56,112 +60,201 @@
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="grid grid-cols-1 xl:grid-cols-3 gap-10">
-            <!-- Lewa kolumna: Opis i Screeny -->
-            <div class="xl:col-span-2 space-y-12">
-                <!-- Opis -->
-                <section>
-                    <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
-                        <i class="fa-solid fa-book-open mr-3 text-fuchsia-400"></i> <span data-i18n="descTitle">Description</span>
-                    </h2>
-                    <div class="bg-card p-6 rounded-2xl border border-slate-800 text-slate-400 space-y-4 leading-relaxed">
-                        <p>Miejsce na szczegółowy opis DTT. Wytłumacz graczom, w jakiej zakładce znajdą nowe okno, jak go używać do teleportacji i z jakimi innymi addonami współpracuje.</p>
-                        <p>Główne cechy:</p>
-                        <ul class="list-disc list-inside space-y-2 ml-2">
-                            <li>Nowa zakładka w standardowym oknie LFG/Spellbooku</li>
-                            <li>Wizualna lista wszystkich dostępnych teleportów do lochów</li>
-                            <li>Podział na sezony lub dodatki</li>
-                        </ul>
-                    </div>
-                </section>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
+        
+        <!-- SEKCJA 1: Screeny (Slider) -->
+        <section class="max-w-7xl mx-auto">
+            <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
+                <i class="fa-solid fa-image mr-3 text-fuchsia-400"></i> <span data-i18n="screenshotsTitle">Screenshots</span>
+            </h2>
+            
+            <div class="relative flex items-center gap-4">
+                <!-- Lewa strzałka -->
+                <button onclick="scrollSlider('slider-dtt', -1)" id="btn-left-dtt" class="flex-shrink-0 bg-card hover:bg-fuchsia-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border border-slate-700 hover:border-fuchsia-500 transition-colors hidden md:flex disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-card disabled:hover:border-slate-700">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
 
-                <!-- Screeny -->
-                <section>
-                    <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
-                        <i class="fa-solid fa-image mr-3 text-fuchsia-400"></i> <span data-i18n="screenshotsTitle">Screenshots</span>
-                    </h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="aspect-video bg-slate-800 rounded-xl border border-slate-700 flex items-center justify-center overflow-hidden relative group">
-                            <!-- <img src="URL" alt="Screen 1" class="w-full h-full object-cover"> -->
-                            <span class="text-slate-500 group-hover:scale-110 transition-transform absolute"><i class="fa-solid fa-camera text-2xl mb-2 block text-center"></i>Miejsce na Screen 1</span>
-                        </div>
-                        <div class="aspect-video bg-slate-800 rounded-xl border border-slate-700 flex items-center justify-center overflow-hidden relative group">
-                            <!-- <img src="URL" alt="Screen 2" class="w-full h-full object-cover"> -->
-                            <span class="text-slate-500 group-hover:scale-110 transition-transform absolute"><i class="fa-solid fa-camera text-2xl mb-2 block text-center"></i>Miejsce na Screen 2</span>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <!-- Prawa kolumna: Changelog -->
-            <div class="xl:col-span-1">
-                <section class="sticky top-24">
-                    <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
-                        <i class="fa-solid fa-timeline mr-3 text-fuchsia-400"></i> <span data-i18n="changelog">Changelog</span>
-                    </h2>
+                <!-- Pojemnik ze zdjęciami (Płynny scroll, 4 widoczne elementy) -->
+                <div id="slider-dtt" class="flex-grow flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 hide-scrollbar justify-center">
                     
-                    <!-- Accordion Changelog -->
-                    <div class="space-y-3">
-                        
-                        <!-- Główna Grupa Wersji -->
-                        <div class="border border-fuchsia-900/40 rounded-xl bg-card overflow-hidden">
-                            <button class="w-full px-5 py-4 flex justify-between items-center hover:bg-slate-800 transition-colors group" onclick="toggleChangelog('dtt-v2-0')">
-                                <div class="flex items-center gap-3">
-                                    <span class="font-bold text-white group-hover:text-fuchsia-400 transition-colors">v2.0</span>
-                                    <span class="text-xs text-fuchsia-200/50 px-2 py-1 bg-fuchsia-950/50 border border-fuchsia-900/50 rounded-md">Builds 100-199</span>
-                                </div>
-                                <i class="fa-solid fa-chevron-down text-fuchsia-500/50 transition-transform duration-300" id="icon-dtt-v2-0"></i>
-                            </button>
-                            
-                            <div class="px-5 pb-5 pt-2 hidden" id="content-dtt-v2-0">
-                                <div class="space-y-6 border-l-2 border-slate-700/50 ml-2 pl-4 mt-2">
-                                    <div class="relative">
-                                        <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-fuchsia-500 shadow-[0_0_8px_rgba(217,70,239,0.5)]"></div>
-                                        <h4 class="text-fuchsia-400 font-bold mb-2 flex items-center gap-2"><span data-i18n="buildText">Build</span> 110 <span class="text-xs font-normal text-slate-500 bg-slate-800 px-2 rounded">Latest</span></h4>
-                                        <ul class="list-none space-y-1.5 text-sm text-slate-300">
-                                            <li><span class="text-emerald-400 font-bold mr-1" data-i18n="tagAdded">[Added]</span> Teleporty dla nowego sezonu.</li>
-                                            <li><span class="text-red-400 font-bold mr-1" data-i18n="tagFixed">[Fixed]</span> Błąd przy otwieraniu panelu w trakcie walki.</li>
-                                        </ul>
-                                    </div>
-                                    <div class="relative">
-                                        <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-600"></div>
-                                        <h4 class="text-slate-300 font-bold mb-2 flex items-center gap-2"><span data-i18n="buildText">Build</span> 100</h4>
-                                        <ul class="list-none space-y-1.5 text-sm text-slate-400">
-                                            <li><span class="text-blue-400 font-bold mr-1" data-i18n="tagChanged">[Changed]</span> Przepisano cały interfejs dla wersji 2.0.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                    <!-- Screen 1 -->
+                    <div class="aspect-video bg-slate-800/40 rounded-xl border border-slate-700/60 flex flex-col items-center justify-center overflow-hidden relative group cursor-pointer snap-start shrink-0 w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)] hover:border-fuchsia-500/50 transition-colors" onclick="openLightbox(this)">
+                        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjMWUyOTNiIiBmaWxsLW9wYWNpdHk9IjAuNSI+PC9yZWN0Pgo8cGF0aCBkPSJNMCAwTDggOFpNMCA4TDggMFoiIHN0cm9rZT0iIzBmMTcyYSIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+Cjwvc3ZnPg==')] opacity-30 group-hover:opacity-10 transition-opacity"></div>
+                        <img src="media/screens/DungeonTeleportsTab/dungeonteleports1.png" class="screenshot-src w-full h-full object-cover relative z-10" alt="Current Season" onerror="this.onerror=null; this.classList.add('hidden'); this.previousElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.remove('hidden');" />
+                        <!-- Fallback (Brak zdjęcia) - ukryty dopóki zdjęcie działa -->
+                        <div class="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none hidden fallback-content">
+                             <i class="fa-regular fa-images text-4xl text-slate-500 mb-3 group-hover:scale-110 transition-transform"></i>
+                             <span class="text-sm font-medium text-slate-400 px-4 text-center" data-i18n="noScreenshot">Image Coming Soon</span>
                         </div>
-
-                        <!-- Stara Wersja -->
-                        <div class="border border-slate-800 rounded-xl bg-dark overflow-hidden">
-                            <button class="w-full px-5 py-4 flex justify-between items-center hover:bg-slate-800/80 transition-colors group" onclick="toggleChangelog('dtt-v1-0')">
-                                <div class="flex items-center gap-3">
-                                    <span class="font-bold text-slate-400 group-hover:text-white transition-colors">v1.0</span>
-                                    <span class="text-xs text-slate-500 px-2 py-1 bg-slate-900 border border-slate-800 rounded-md">Builds 0-99</span>
-                                </div>
-                                <i class="fa-solid fa-chevron-down text-slate-600 transition-transform duration-300" id="icon-dtt-v1-0"></i>
-                            </button>
-                            
-                            <div class="px-5 pb-5 pt-2 hidden" id="content-dtt-v1-0">
-                                <div class="space-y-6 border-l-2 border-slate-800 ml-2 pl-4 mt-2">
-                                    <div class="relative">
-                                        <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-600"></div>
-                                        <h4 class="text-slate-400 font-bold mb-2 flex items-center gap-2"><span data-i18n="buildText">Build</span> 99</h4>
-                                        <ul class="list-none space-y-1.5 text-sm text-slate-500">
-                                            <li><span class="text-emerald-500/70 font-bold mr-1" data-i18n="tagAdded">[Added]</span> Zakończenie cyklu życia V1.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
-                </section>
+
+                    <!-- Screen 2 -->
+                    <div class="aspect-video bg-slate-800/40 rounded-xl border border-slate-700/60 flex flex-col items-center justify-center overflow-hidden relative group cursor-pointer snap-start shrink-0 w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)] hover:border-fuchsia-500/50 transition-colors" onclick="openLightbox(this)">
+                        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjMWUyOTNiIiBmaWxsLW9wYWNpdHk9IjAuNSI+PC9yZWN0Pgo8cGF0aCBkPSJNMCAwTDggOFpNMCA4TDggMFoiIHN0cm9rZT0iIzBmMTcyYSIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+Cjwvc3ZnPg==')] opacity-30 group-hover:opacity-10 transition-opacity"></div>
+                        <img src="media/screens/DungeonTeleportsTab/dungeonteleports2.png" class="screenshot-src w-full h-full object-cover relative z-10" alt="Expansion Selection" onerror="this.onerror=null; this.classList.add('hidden'); this.previousElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.remove('hidden');" />
+                         <!-- Fallback (Brak zdjęcia) - ukryty dopóki zdjęcie działa -->
+                         <div class="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none hidden fallback-content">
+                             <i class="fa-regular fa-images text-4xl text-slate-500 mb-3 group-hover:scale-110 transition-transform"></i>
+                             <span class="text-sm font-medium text-slate-400 px-4 text-center" data-i18n="noScreenshot">Image Coming Soon</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Prawa strzałka -->
+                <button onclick="scrollSlider('slider-dtt', 1)" id="btn-right-dtt" class="flex-shrink-0 bg-card hover:bg-fuchsia-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border border-slate-700 hover:border-fuchsia-500 transition-colors hidden md:flex disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-card disabled:hover:border-slate-700">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
             </div>
-        </div>
+        </section>
+
+        <!-- SEKCJA 2: Opis -->
+        <section class="max-w-7xl mx-auto">
+            <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
+                <i class="fa-solid fa-book-open mr-3 text-fuchsia-400"></i> <span data-i18n="descTitle">Description</span>
+            </h2>
+            <div class="bg-card p-8 rounded-2xl border border-slate-800 text-slate-300 space-y-6 leading-relaxed text-lg">
+                <p data-i18n="dttMainDesc">Dungeon Teleports Tab adds a new tab to the Group Finder window, allowing you to quickly teleport to any dungeon or raid.</p>
+                
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-3" data-i18n="dttFeaturesTitle">Features</h3>
+                    <ul class="list-disc list-inside space-y-2 ml-2 text-slate-400">
+                        <li data-i18n="dttFeat1">Adds a dedicated Dungeon Teleports tab to the Group Finder</li>
+                        <li data-i18n="dttFeat2">Displays all unlocked dungeon and raid teleports</li>
+                        <li data-i18n="dttFeat3">Supports all teleports from every expansion</li>
+                    </ul>
+                </div>
+
+                <div class="border-t border-slate-800 pt-6">
+                    <h3 class="text-xl font-bold text-fuchsia-400 mb-2" data-i18n="dttSeasonTitle">Default Current Season</h3>
+                    <p class="text-slate-400 mb-6" data-i18n="dttSeasonDesc">By default, the addon opens the Current Season tab (currently Midnight – Season 1).</p>
+                    <div class="cursor-pointer group relative rounded-xl overflow-hidden border border-slate-700 hover:border-fuchsia-500 transition-colors shadow-lg shadow-black/50 w-full sm:w-1/3" onclick="openLightbox(this)">
+                        <div class="absolute inset-0 bg-fuchsia-500/0 group-hover:bg-fuchsia-500/10 transition-colors z-10"></div>
+                        <i class="fa-solid fa-magnifying-glass-plus absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl text-white opacity-0 group-hover:opacity-100 transition-opacity z-20 drop-shadow-md"></i>
+                        <img src="media/screens/DungeonTeleportsTab/dungeonteleports1.png" class="screenshot-src w-full h-auto object-cover relative z-0" alt="Current Season" />
+                    </div>
+                </div>
+
+                <div class="border-t border-slate-800 pt-6">
+                    <h3 class="text-xl font-bold text-fuchsia-400 mb-2" data-i18n="dttExpansionTitle">Expansion Selection</h3>
+                    <p class="text-slate-400 mb-6" data-i18n="dttExpansionDesc">Easily switch between expansions using the menu.</p>
+                    <div class="cursor-pointer group relative rounded-xl overflow-hidden border border-slate-700 hover:border-fuchsia-500 transition-colors shadow-lg shadow-black/50 w-full sm:w-1/3" onclick="openLightbox(this)">
+                        <div class="absolute inset-0 bg-fuchsia-500/0 group-hover:bg-fuchsia-500/10 transition-colors z-10"></div>
+                        <i class="fa-solid fa-magnifying-glass-plus absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl text-white opacity-0 group-hover:opacity-100 transition-opacity z-20 drop-shadow-md"></i>
+                        <img src="media/screens/DungeonTeleportsTab/dungeonteleports2.png" class="screenshot-src w-full h-auto object-cover relative z-0" alt="Expansion Selection" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEKCJA 3: Changelog -->
+        <section class="max-w-7xl mx-auto">
+            <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
+                <i class="fa-solid fa-timeline mr-3 text-fuchsia-400"></i> <span data-i18n="changelog">Changelog</span>
+            </h2>
+            
+            <!-- Accordion Changelog -->
+            <div class="space-y-3">
+                
+                <!-- Najnowsze Zmiany -->
+                <div class="border border-fuchsia-900/40 rounded-xl bg-card overflow-hidden">
+                    <button class="w-full px-5 py-4 flex justify-between items-center hover:bg-slate-800 transition-colors group" onclick="toggleChangelog('dtt-recent')">
+                        <div class="flex items-center gap-3">
+                            <span class="font-bold text-white group-hover:text-fuchsia-400 transition-colors">v1.0 - v1.6.1</span>
+                            <span class="text-xs text-fuchsia-200/50 px-2 py-1 bg-fuchsia-950/50 border border-fuchsia-900/50 rounded-md">All Updates</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-fuchsia-500/50 transition-transform duration-300" id="icon-dtt-recent"></i>
+                    </button>
+                    
+                    <div class="px-5 pb-5 pt-2 hidden" id="content-dtt-recent">
+                        <div class="space-y-6 border-l-2 border-slate-700/50 ml-2 pl-4 mt-2">
+                            
+                            <!-- v1.6.1 -->
+                            <div class="relative">
+                                <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-fuchsia-500 shadow-[0_0_8px_rgba(217,70,239,0.5)]"></div>
+                                <h4 class="text-fuchsia-400 font-bold mb-2 flex items-center gap-2">v1.6.1 <span class="text-xs font-normal text-slate-500 bg-slate-800 px-2 rounded">Latest</span></h4>
+                                <ul class="list-none space-y-1.5 text-sm text-slate-300">
+                                    <li><span class="text-red-400 font-bold mr-1" data-i18n="tagFixed">[Fixed]</span> <span data-i18n="dtt_v1_6_1_1">Fix for not working Seat of the Triumvirate teleport</span></li>
+                                </ul>
+                            </div>
+
+                            <!-- v1.6 -->
+                            <div class="relative">
+                                <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+                                <h4 class="text-slate-300 font-bold mb-2">v1.6</h4>
+                                <ul class="list-none space-y-1.5 text-sm text-slate-400">
+                                    <li><span class="text-emerald-400 font-bold mr-1" data-i18n="tagAdded">[Added]</span> <span data-i18n="dtt_v1_6_1">Added missing Dawn of the Infinite teleport</span></li>
+                                    <li><span class="text-red-400 font-bold mr-1" data-i18n="tagFixed">[Fixed]</span> <span data-i18n="dtt_v1_6_2">Fixed active dungeon teleports tab color</span></li>
+                                </ul>
+                            </div>
+
+                            <!-- v1.5 -->
+                            <div class="relative">
+                                <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+                                <h4 class="text-slate-300 font-bold mb-2">v1.5</h4>
+                                <ul class="list-none space-y-1.5 text-sm text-slate-400">
+                                    <li><span class="text-emerald-400 font-bold mr-1" data-i18n="tagAdded">[Added]</span> <span data-i18n="dtt_v1_5_1">Added support for Mists of Pandaria Classic</span></li>
+                                </ul>
+                            </div>
+
+                            <!-- v1.4 -->
+                            <div class="relative">
+                                <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+                                <h4 class="text-slate-300 font-bold mb-2">v1.4</h4>
+                                <ul class="list-none space-y-1.5 text-sm text-slate-400">
+                                    <li><span class="text-red-400 font-bold mr-1" data-i18n="tagFixed">[Fixed]</span> <span data-i18n="dtt_v1_4_1">Fixed wrong Midnight Season 1 start date</span></li>
+                                    <li><span class="text-orange-400 font-bold mr-1" data-i18n="tagRemoved">[Removed]</span> <span data-i18n="dtt_v1_4_2">Removed TWW season tables</span></li>
+                                </ul>
+                            </div>
+
+                            <!-- v1.3 -->
+                            <div class="relative">
+                                <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+                                <h4 class="text-slate-300 font-bold mb-2">v1.3</h4>
+                                <ul class="list-none space-y-1.5 text-sm text-slate-400">
+                                    <li><span class="text-emerald-400 font-bold mr-1" data-i18n="tagAdded">[Added]</span> <span data-i18n="dtt_v1_3_1">Added other regions support for season timers</span></li>
+                                    <li><span class="text-emerald-400 font-bold mr-1" data-i18n="tagAdded">[Added]</span> <span data-i18n="dtt_v1_3_2">Added season start/end info at season heading</span></li>
+                                    <li><span class="text-red-400 font-bold mr-1" data-i18n="tagFixed">[Fixed]</span> <span data-i18n="dtt_v1_3_3">Minor bug fixes</span></li>
+                                </ul>
+                            </div>
+
+                            <!-- v1.2 -->
+                            <div class="relative">
+                                <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+                                <h4 class="text-slate-300 font-bold mb-2">v1.2</h4>
+                                <ul class="list-none space-y-1.5 text-sm text-slate-400">
+                                    <li><span class="text-red-400 font-bold mr-1" data-i18n="tagFixed">[Fixed]</span> <span data-i18n="dtt_v1_2_1">Fixed issue with not working Motherlode portal for Horde players</span></li>
+                                    <li><span class="text-emerald-400 font-bold mr-1" data-i18n="tagAdded">[Added]</span> <span data-i18n="dtt_v1_2_2">Added a custom tooltip with information on how to unlock each portal</span></li>
+                                    <li><span class="text-emerald-400 font-bold mr-1" data-i18n="tagAdded">[Added]</span> <span data-i18n="dtt_v1_2_3">Added information about season start and end dates on portal tooltip</span></li>
+                                </ul>
+                            </div>
+
+                            <!-- v1.1 -->
+                            <div class="relative">
+                                <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+                                <h4 class="text-slate-300 font-bold mb-2">v1.1</h4>
+                                <ul class="list-none space-y-1.5 text-sm text-slate-400">
+                                    <li><span class="text-red-400 font-bold mr-1" data-i18n="tagFixed">[Fixed]</span> <span data-i18n="dtt_v1_1_1">Fixed bug that prevented buttons from working for some players</span></li>
+                                    <li><span class="text-red-400 font-bold mr-1" data-i18n="tagFixed">[Fixed]</span> <span data-i18n="dtt_v1_1_2">Fixed missing textures</span></li>
+                                </ul>
+                            </div>
+
+                            <!-- v1.0 -->
+                            <div class="relative">
+                                <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+                                <h4 class="text-slate-300 font-bold mb-2">v1.0</h4>
+                                <ul class="list-none space-y-1.5 text-sm text-slate-400">
+                                    <li><span class="text-emerald-400 font-bold mr-1" data-i18n="tagAdded">[Added]</span> <span data-i18n="dtt_v1_0_1">Added standalone addon (ported from mQoL module)</span></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
     </main>
 
     <script src="js/main.js"></script>

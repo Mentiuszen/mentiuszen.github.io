@@ -9,6 +9,10 @@
         tailwind.config = { theme: { extend: { colors: { dark: '#0f172a', card: '#1e293b' } } } }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
 </head>
 <body class="bg-dark text-slate-300 font-sans antialiased selection:bg-emerald-500 selection:text-white pt-16">
 
@@ -56,127 +60,137 @@
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="grid grid-cols-1 xl:grid-cols-3 gap-10">
-            <!-- Lewa kolumna: Opis i Screeny -->
-            <div class="xl:col-span-2 space-y-12">
-                <!-- Opis -->
-                <section>
-                    <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
-                        <i class="fa-solid fa-book-open mr-3 text-emerald-400"></i> <span data-i18n="descTitle">Description</span>
-                    </h2>
-                    <div class="bg-card p-6 rounded-2xl border border-slate-800 text-slate-400 space-y-4 leading-relaxed">
-                        <p>Miejsce na Twój szczegółowy opis działania addonu. Możesz tu opisać, jakie ułatwienia wprowadza, jak go skonfigurować i dlaczego powstał.</p>
-                        <p>Tutaj możesz dodać listę funkcji:</p>
-                        <ul class="list-disc list-inside space-y-2 ml-2">
-                            <li>Automatyczna sprzedaż śmieci</li>
-                            <li>Szybka naprawa ekwipunku u NPC</li>
-                            <li>Wygodniejsze sortowanie plecaka</li>
-                        </ul>
-                    </div>
-                </section>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
+        
+        <!-- SEKCJA 1: Screeny (Slider) -->
+        <section class="max-w-7xl mx-auto">
+            <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
+                <i class="fa-solid fa-image mr-3 text-emerald-400"></i> <span data-i18n="screenshotsTitle">Screenshots</span>
+            </h2>
+            
+            <div class="relative flex items-center gap-4">
+                <!-- Lewa strzałka -->
+                <button onclick="scrollSlider('slider-mqol', -1)" id="btn-left-mqol" class="flex-shrink-0 bg-card hover:bg-emerald-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border border-slate-700 hover:border-emerald-500 transition-colors hidden md:flex disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-card disabled:hover:border-slate-700">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
 
-                <!-- Screeny -->
-                <section>
-                    <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
-                        <i class="fa-solid fa-image mr-3 text-emerald-400"></i> <span data-i18n="screenshotsTitle">Screenshots</span>
-                    </h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <!-- Zastąp href URLami do Twoich zdjęć -->
-                        <div class="aspect-video bg-slate-800 rounded-xl border border-slate-700 flex items-center justify-center overflow-hidden relative group">
-                            <!-- <img src="URL" alt="Screen 1" class="w-full h-full object-cover"> -->
-                            <span class="text-slate-500 group-hover:scale-110 transition-transform absolute"><i class="fa-solid fa-camera text-2xl mb-2 block text-center"></i>Miejsce na Screen 1</span>
-                        </div>
-                        <div class="aspect-video bg-slate-800 rounded-xl border border-slate-700 flex items-center justify-center overflow-hidden relative group">
-                            <!-- <img src="URL" alt="Screen 2" class="w-full h-full object-cover"> -->
-                            <span class="text-slate-500 group-hover:scale-110 transition-transform absolute"><i class="fa-solid fa-camera text-2xl mb-2 block text-center"></i>Miejsce na Screen 2</span>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <!-- Prawa kolumna: Changelog -->
-            <div class="xl:col-span-1">
-                <section class="sticky top-24">
-                    <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
-                        <i class="fa-solid fa-timeline mr-3 text-emerald-400"></i> <span data-i18n="changelog">Changelog</span>
-                    </h2>
+                <!-- Pojemnik ze zdjęciami (Płynny scroll, 4 widoczne elementy) -->
+                <div id="slider-mqol" class="flex-grow flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 hide-scrollbar justify-center">
                     
-                    <!-- Accordion Changelog -->
-                    <div class="space-y-3">
-                        
-                        <!-- Główna Grupa Wersji: np. 1.1 -->
-                        <div class="border border-emerald-900/40 rounded-xl bg-card overflow-hidden">
-                            <button class="w-full px-5 py-4 flex justify-between items-center hover:bg-slate-800 transition-colors group" onclick="toggleChangelog('mqol-v1-1')">
-                                <div class="flex items-center gap-3">
-                                    <span class="font-bold text-white group-hover:text-emerald-400 transition-colors">v1.1</span>
-                                    <span class="text-xs text-emerald-200/50 px-2 py-1 bg-emerald-950/50 border border-emerald-900/50 rounded-md">Builds 100-199</span>
-                                </div>
-                                <i class="fa-solid fa-chevron-down text-emerald-500/50 transition-transform duration-300" id="icon-mqol-v1-1"></i>
-                            </button>
-                            
-                            <!-- Lista Buildów ukryta na start (usuń klasę 'hidden' z najnowszej wersji, jeśli chcesz by była otwarta domyślnie) -->
-                            <div class="px-5 pb-5 pt-2 hidden" id="content-mqol-v1-1">
-                                <div class="space-y-6 border-l-2 border-slate-700/50 ml-2 pl-4 mt-2">
-                                    
-                                    <!-- Pojedynczy Build -->
-                                    <div class="relative">
-                                        <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
-                                        <h4 class="text-emerald-400 font-bold mb-2 flex items-center gap-2"><span data-i18n="buildText">Build</span> 105 <span class="text-xs font-normal text-slate-500 bg-slate-800 px-2 rounded">Latest</span></h4>
-                                        <ul class="list-none space-y-1.5 text-sm text-slate-300">
-                                            <li><span class="text-emerald-400 font-bold mr-1" data-i18n="tagAdded">[Added]</span> Nowa funkcja X.</li>
-                                            <li><span class="text-blue-400 font-bold mr-1" data-i18n="tagChanged">[Changed]</span> Optymalizacja Y.</li>
-                                        </ul>
-                                    </div>
-
-                                    <!-- Kolejny Build w tej wersji -->
-                                    <div class="relative">
-                                        <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-600"></div>
-                                        <h4 class="text-slate-300 font-bold mb-2 flex items-center gap-2"><span data-i18n="buildText">Build</span> 100</h4>
-                                        <ul class="list-none space-y-1.5 text-sm text-slate-400">
-                                            <li><span class="text-emerald-400 font-bold mr-1" data-i18n="tagAdded">[Added]</span> Inicjalizacja paczki funkcji 1.1.</li>
-                                        </ul>
-                                    </div>
-
-                                </div>
-                            </div>
+                    <!-- Szablon pustego screena (Klonuj to dla kolejnych) -->
+                    <!-- Dodaj src do znacznika img.screenshot-src aby podpiąć prawdziwy zrzut -->
+                    <div class="aspect-video bg-slate-800/40 rounded-xl border border-slate-700/60 flex flex-col items-center justify-center overflow-hidden relative group cursor-pointer snap-start shrink-0 w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)] hover:border-emerald-500/50 transition-colors" onclick="openLightbox(this)">
+                        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjMWUyOTNiIiBmaWxsLW9wYWNpdHk9IjAuNSI+PC9yZWN0Pgo8cGF0aCBkPSJNMCAwTDggOFpNMCA4TDggMFoiIHN0cm9rZT0iIzBmMTcyYSIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+Cjwvc3ZnPg==')] opacity-30 group-hover:opacity-10 transition-opacity"></div>
+                        <img src="" class="hidden screenshot-src w-full h-full object-cover relative z-10" alt="Screenshot 1" onerror="this.onerror=null; this.classList.add('hidden'); this.previousElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.remove('hidden');" />
+                        <!-- Fallback (Brak zdjęcia) - ukryty dopóki zdjęcie działa -->
+                        <div class="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none fallback-content">
+                             <i class="fa-regular fa-images text-4xl text-slate-500 mb-3 group-hover:scale-110 transition-transform"></i>
+                             <span class="text-sm font-medium text-slate-400 px-4 text-center" data-i18n="noScreenshot">Image Coming Soon</span>
                         </div>
-
-                        <!-- Główna Grupa Wersji: np. 1.0 -->
-                        <div class="border border-slate-800 rounded-xl bg-dark overflow-hidden">
-                            <button class="w-full px-5 py-4 flex justify-between items-center hover:bg-slate-800/80 transition-colors group" onclick="toggleChangelog('mqol-v1-0')">
-                                <div class="flex items-center gap-3">
-                                    <span class="font-bold text-slate-400 group-hover:text-white transition-colors">v1.0</span>
-                                    <span class="text-xs text-slate-500 px-2 py-1 bg-slate-900 border border-slate-800 rounded-md">Builds 0-99</span>
-                                </div>
-                                <i class="fa-solid fa-chevron-down text-slate-600 transition-transform duration-300" id="icon-mqol-v1-0"></i>
-                            </button>
-                            
-                            <div class="px-5 pb-5 pt-2 hidden" id="content-mqol-v1-0">
-                                <div class="space-y-6 border-l-2 border-slate-800 ml-2 pl-4 mt-2">
-                                    <!-- Stare buildy -->
-                                    <div class="relative">
-                                        <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-600"></div>
-                                        <h4 class="text-slate-400 font-bold mb-2 flex items-center gap-2"><span data-i18n="buildText">Build</span> 99</h4>
-                                        <ul class="list-none space-y-1.5 text-sm text-slate-500">
-                                            <li><span class="text-red-400 font-bold mr-1" data-i18n="tagFixed">[Fixed]</span> Błędy wieku niemowlęcego.</li>
-                                        </ul>
-                                    </div>
-                                    <div class="relative">
-                                        <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-700"></div>
-                                        <h4 class="text-slate-500 font-bold mb-2 flex items-center gap-2"><span data-i18n="buildText">Build</span> 0</h4>
-                                        <ul class="list-none space-y-1.5 text-sm text-slate-600">
-                                            <li><span class="text-emerald-500/70 font-bold mr-1" data-i18n="tagAdded">[Added]</span> Start projektu.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
-                </section>
+
+                </div>
+
+                <!-- Prawa strzałka -->
+                <button onclick="scrollSlider('slider-mqol', 1)" id="btn-right-mqol" class="flex-shrink-0 bg-card hover:bg-emerald-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border border-slate-700 hover:border-emerald-500 transition-colors hidden md:flex disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-card disabled:hover:border-slate-700">
+                </button>
             </div>
-        </div>
+        </section>
+
+        <!-- SEKCJA 2: Opis -->
+        <section class="max-w-7xl mx-auto">
+            <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
+                <i class="fa-solid fa-book-open mr-3 text-emerald-400"></i> <span data-i18n="descTitle">Description</span>
+            </h2>
+            <div class="bg-card p-8 rounded-2xl border border-slate-800 text-slate-400 space-y-4 leading-relaxed text-lg">
+                <p>Miejsce na Twój szczegółowy opis działania addonu. Możesz tu opisać, jakie ułatwienia wprowadza, jak go skonfigurować i dlaczego powstał.</p>
+                <p>Tutaj możesz dodać listę funkcji:</p>
+                <ul class="list-disc list-inside space-y-2 ml-2">
+                    <li>Automatyczna sprzedaż śmieci</li>
+                    <li>Szybka naprawa ekwipunku u NPC</li>
+                    <li>Wygodniejsze sortowanie plecaka</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SEKCJA 3: Changelog -->
+        <section class="max-w-7xl mx-auto">
+            <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
+                <i class="fa-solid fa-timeline mr-3 text-emerald-400"></i> <span data-i18n="changelog">Changelog</span>
+            </h2>
+            
+            <!-- Accordion Changelog -->
+            <div class="space-y-3">
+                
+                <!-- Główna Grupa Wersji: np. 1.1 -->
+                <div class="border border-emerald-900/40 rounded-xl bg-card overflow-hidden">
+                    <button class="w-full px-5 py-4 flex justify-between items-center hover:bg-slate-800 transition-colors group" onclick="toggleChangelog('mqol-v1-1')">
+                        <div class="flex items-center gap-3">
+                            <span class="font-bold text-white group-hover:text-emerald-400 transition-colors">v1.1</span>
+                            <span class="text-xs text-emerald-200/50 px-2 py-1 bg-emerald-950/50 border border-emerald-900/50 rounded-md">Builds 100-199</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-emerald-500/50 transition-transform duration-300" id="icon-mqol-v1-1"></i>
+                    </button>
+                    
+                    <div class="px-5 pb-5 pt-2 hidden" id="content-mqol-v1-1">
+                        <div class="space-y-6 border-l-2 border-slate-700/50 ml-2 pl-4 mt-2">
+                            
+                            <!-- Pojedynczy Build -->
+                            <div class="relative">
+                                <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                                <h4 class="text-emerald-400 font-bold mb-2 flex items-center gap-2"><span data-i18n="buildText">Build</span> 105 <span class="text-xs font-normal text-slate-500 bg-slate-800 px-2 rounded">Latest</span></h4>
+                                <ul class="list-none space-y-1.5 text-sm text-slate-300">
+                                    <li><span class="text-emerald-400 font-bold mr-1" data-i18n="tagAdded">[Added]</span> Nowa funkcja X.</li>
+                                    <li><span class="text-blue-400 font-bold mr-1" data-i18n="tagChanged">[Changed]</span> Optymalizacja Y.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Kolejny Build -->
+                            <div class="relative">
+                                <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+                                <h4 class="text-slate-300 font-bold mb-2 flex items-center gap-2"><span data-i18n="buildText">Build</span> 100</h4>
+                                <ul class="list-none space-y-1.5 text-sm text-slate-400">
+                                    <li><span class="text-emerald-400 font-bold mr-1" data-i18n="tagAdded">[Added]</span> Inicjalizacja paczki funkcji 1.1.</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Główna Grupa Wersji: np. 1.0 -->
+                <div class="border border-slate-800 rounded-xl bg-dark overflow-hidden">
+                    <button class="w-full px-5 py-4 flex justify-between items-center hover:bg-slate-800/80 transition-colors group" onclick="toggleChangelog('mqol-v1-0')">
+                        <div class="flex items-center gap-3">
+                            <span class="font-bold text-slate-400 group-hover:text-white transition-colors">v1.0</span>
+                            <span class="text-xs text-slate-500 px-2 py-1 bg-slate-900 border border-slate-800 rounded-md">Builds 0-99</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-slate-600 transition-transform duration-300" id="icon-mqol-v1-0"></i>
+                    </button>
+                    
+                    <div class="px-5 pb-5 pt-2 hidden" id="content-mqol-v1-0">
+                        <div class="space-y-6 border-l-2 border-slate-800 ml-2 pl-4 mt-2">
+                            <div class="relative">
+                                <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+                                <h4 class="text-slate-400 font-bold mb-2 flex items-center gap-2"><span data-i18n="buildText">Build</span> 99</h4>
+                                <ul class="list-none space-y-1.5 text-sm text-slate-500">
+                                    <li><span class="text-red-400 font-bold mr-1" data-i18n="tagFixed">[Fixed]</span> Błędy wieku niemowlęcego.</li>
+                                </ul>
+                            </div>
+                            <div class="relative">
+                                <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-700"></div>
+                                <h4 class="text-slate-500 font-bold mb-2 flex items-center gap-2"><span data-i18n="buildText">Build</span> 0</h4>
+                                <ul class="list-none space-y-1.5 text-sm text-slate-600">
+                                    <li><span class="text-emerald-500/70 font-bold mr-1" data-i18n="tagAdded">[Added]</span> Start projektu.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
     </main>
 
     <script src="js/main.js"></script>
