@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentiuszen - Projects</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { dark: '#0f172a', card: '#1e293b' } } } }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-dark text-slate-300 font-sans antialiased selection:bg-indigo-500 selection:text-white pt-16">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 bg-dark/80 backdrop-blur-md border-b border-slate-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex-shrink-0 font-bold text-xl text-white">
+                    <span class="text-indigo-400">Mentiuszen</span>.<span class="text-slate-500">hub</span>
+                </a>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-gray-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-i18n="navHome">Home</a>
+                        <a href="projects.html" class="text-white bg-slate-800 px-3 py-2 rounded-md text-sm font-medium" data-i18n="navProjects">Projects</a>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="changeLanguage('en')" id="btn-en" class="text-sm font-medium text-white bg-indigo-600/50 hover:bg-indigo-600 px-2 py-1 rounded transition-colors">EN</button>
+                    <button onclick="changeLanguage('pl')" id="btn-pl" class="text-sm font-medium text-slate-400 hover:text-white px-2 py-1 rounded transition-colors">PL</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h1 class="text-3xl font-bold text-white mb-10 border-b border-slate-700 pb-4"><i class="fa-solid fa-layer-group mr-3 text-indigo-400"></i><span data-i18n="projectsTitle">Public Projects</span></h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- mQoL Card -->
+            <div class="bg-card rounded-2xl border border-slate-700/50 p-6 hover:border-emerald-500/50 transition-all duration-300 shadow-lg hover:shadow-emerald-500/10 flex flex-col h-full group">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-4 rounded-xl bg-emerald-500/10 text-emerald-400 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-wand-magic-sparkles text-3xl"></i>
+                    </div>
+                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-slate-800 text-slate-300 border border-slate-700">Mod</span>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">mQoL</h3>
+                <p class="text-slate-400 mb-8 flex-grow" data-i18n="mQoLDesc">Quality of Life improvements and tweaks for a better experience.</p>
+                <a href="mQoL.html" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white text-center py-3 rounded-xl font-medium transition-colors">
+                    <span data-i18n="btnViewProject">View Project</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <!-- DungeonTeleportsTab Card -->
+            <div class="bg-card rounded-2xl border border-slate-700/50 p-6 hover:border-fuchsia-500/50 transition-all duration-300 shadow-lg hover:shadow-fuchsia-500/10 flex flex-col h-full group">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-4 rounded-xl bg-fuchsia-500/10 text-fuchsia-400 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-dungeon text-3xl"></i>
+                    </div>
+                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-slate-800 text-slate-300 border border-slate-700">UI / Plugin</span>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-fuchsia-400 transition-colors">DungeonTeleportsTab</h3>
+                <p class="text-slate-400 mb-8 flex-grow" data-i18n="dttDesc">A tab interface for quick and easy dungeon teleports.</p>
+                <a href="DungeonTeleportsTab.html" class="w-full bg-fuchsia-600 hover:bg-fuchsia-500 text-white text-center py-3 rounded-xl font-medium transition-colors">
+                    <span data-i18n="btnViewProject">View Project</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t border-slate-800 py-8 text-center text-slate-500 text-sm mt-auto">
+        <p><span data-i18n="footerText">&copy; 2026 Mentiuszen. All rights reserved.</span></p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

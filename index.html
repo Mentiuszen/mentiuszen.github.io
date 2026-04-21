@@ -28,15 +28,15 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <!-- Logo -->
-                <div class="flex-shrink-0 font-bold text-xl text-white cursor-pointer" onclick="scrollToTop()">
+                <a href="index.html" class="flex-shrink-0 font-bold text-xl text-white">
                     <span class="text-indigo-400">Mentiuszen</span>.<span class="text-slate-500">hub</span>
-                </div>
+                </a>
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#projects" class="text-gray-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-i18n="navProjects">Projects</a>
-                        <a href="#changelog" class="text-gray-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-i18n="navChangelog">Changelog</a>
+                        <a href="index.html" class="text-white bg-slate-800 px-3 py-2 rounded-md text-sm font-medium" data-i18n="navHome">Home</a>
+                        <a href="projects.html" class="text-gray-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-i18n="navProjects">Projects</a>
                     </div>
                 </div>
 
@@ -50,216 +50,46 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative overflow-hidden py-20 sm:py-32">
+    <header class="relative overflow-hidden py-20 sm:py-32 lg:py-40">
         <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/20 via-dark to-dark"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6">
-                <span data-i18n="heroTitleStart">Welcome to </span><span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400" data-i18n="heroTitleHighlight">my code world</span>
+            <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight text-white mb-6">
+                <span data-i18n="heroStart">Welcome to </span><span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400" data-i18n="heroHighlight">Mentiuszen Hub</span>
             </h1>
-            <p class="mt-4 text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto" data-i18n="heroDescription">
-                You will find here all my public projects, downloads and changelogs. 
-                Choose a project below to get started.
+            <p class="mt-4 text-xl text-slate-400 max-w-2xl mx-auto mb-10" data-i18n="heroDesc">
+                My personal space for sharing public projects, quality of life tweaks, and scripts.
             </p>
+            <a href="projects.html" class="inline-flex items-center bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-lg shadow-indigo-600/30 hover:shadow-indigo-500/50 hover:-translate-y-1">
+                <span data-i18n="btnBrowse">Browse Projects</span> <i class="fa-solid fa-arrow-right ml-3"></i>
+            </a>
         </div>
     </header>
 
-    <!-- Główne menu / Kategorie -->
+    <!-- Features / Info -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-        
-        <!-- Sekcja Projektów -->
-        <section id="projects" class="mb-20 pt-8 mt-[-2rem]">
-            <h2 class="text-2xl font-bold text-white mb-8 border-b border-slate-700 pb-2"><i class="fa-solid fa-rocket mr-2 text-indigo-400"></i> <span data-i18n="sectionProjects">My Projects</span></h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <!-- Karta Projektu 1 -->
-                <div class="bg-card rounded-2xl border border-slate-700/50 p-6 hover:border-indigo-500/50 transition-colors shadow-lg hover:shadow-indigo-500/10 flex flex-col h-full">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="p-3 rounded-lg bg-indigo-500/10 text-indigo-400">
-                            <i class="fa-solid fa-gamepad text-2xl"></i>
-                        </div>
-                        <span class="px-3 py-1 text-xs font-semibold rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">v1.2.0</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2" data-i18n="proj1Title">Project Example Alpha</h3>
-                    <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="proj1Desc">Modern application supporting daily tasks. Fast, optimized and easy to use.</p>
-                    <div class="flex gap-3 mt-auto">
-                        <a href="#" class="flex-1 bg-indigo-600 hover:bg-indigo-500 text-white text-center py-2 px-4 rounded-xl font-medium transition-colors">
-                            <i class="fa-solid fa-download mr-1"></i> <span data-i18n="btnDownload">Download</span>
-                        </a>
-                        <a href="#changelog" class="bg-slate-700 hover:bg-slate-600 text-white py-2 px-4 rounded-xl font-medium transition-colors" title="View changes">
-                            <i class="fa-solid fa-list-ul"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Karta Projektu 2 -->
-                <div class="bg-card rounded-2xl border border-slate-700/50 p-6 hover:border-cyan-500/50 transition-colors shadow-lg hover:shadow-cyan-500/10 flex flex-col h-full">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="p-3 rounded-lg bg-cyan-500/10 text-cyan-400">
-                            <i class="fa-solid fa-terminal text-2xl"></i>
-                        </div>
-                        <span class="px-3 py-1 text-xs font-semibold rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">v2.0.1</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2" data-i18n="proj2Title">Tool Beta</h3>
-                    <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="proj2Desc">Script automating the most boring processes. Works in background and saves time.</p>
-                    <div class="flex gap-3 mt-auto">
-                        <a href="#" class="flex-1 bg-cyan-600 hover:bg-cyan-500 text-white text-center py-2 px-4 rounded-xl font-medium transition-colors">
-                            <i class="fa-solid fa-download mr-1"></i> <span data-i18n="btnDownload">Download</span>
-                        </a>
-                        <a href="#changelog" class="bg-slate-700 hover:bg-slate-600 text-white py-2 px-4 rounded-xl font-medium transition-colors" title="View changes">
-                            <i class="fa-solid fa-list-ul"></i>
-                        </a>
-                    </div>
-                </div>
-
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="bg-card/50 p-8 rounded-2xl border border-slate-800">
+                <div class="text-indigo-400 text-4xl mb-4"><i class="fa-brands fa-github"></i></div>
+                <h3 class="text-2xl font-bold text-white mb-2" data-i18n="feat1Title">Open Source</h3>
+                <p class="text-slate-400" data-i18n="feat1Desc">Explore the code behind my public repositories on GitHub.</p>
             </div>
-        </section>
-
-        <!-- Sekcja Changelog (Oś czasu) -->
-        <section id="changelog" class="mb-10 pt-8 mt-[-2rem]">
-            <h2 class="text-2xl font-bold text-white mb-8 border-b border-slate-700 pb-2"><i class="fa-solid fa-clock-rotate-left mr-2 text-indigo-400"></i> <span data-i18n="sectionChangelog">Global Changelog</span></h2>
-            
-            <div class="relative border-l border-slate-700 ml-3 md:ml-6 space-y-8 pb-4">
-                
-                <!-- Wpis w changelogu 1 -->
-                <div class="relative pl-8 md:pl-12">
-                    <div class="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-indigo-400 bg-dark"></div>
-                    <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-2">
-                        <h3 class="text-lg font-bold text-white"><span data-i18n="proj1Title">Project Example Alpha</span> <span class="text-indigo-400 ml-1">v1.2.0</span></h3>
-                        <time class="text-sm text-slate-500" data-i18n="date1">April 21, 2026</time>
-                    </div>
-                    <div class="bg-card rounded-xl p-4 border border-slate-700/50">
-                        <ul class="list-disc list-inside text-sm text-slate-400 space-y-1">
-                            <li><span class="text-emerald-400 font-semibold" data-i18n="tagAdded">[Added]</span> <span data-i18n="chlog1_1">New notification system.</span></li>
-                            <li><span class="text-blue-400 font-semibold" data-i18n="tagChanged">[Changed]</span> <span data-i18n="chlog1_2">Optimized data loading process by 40%.</span></li>
-                            <li><span class="text-red-400 font-semibold" data-i18n="tagFixed">[Fixed]</span> <span data-i18n="chlog1_3">Bug causing app to crash when using Alt+F4.</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Wpis w changelogu 2 -->
-                <div class="relative pl-8 md:pl-12">
-                    <div class="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-slate-600 bg-dark"></div>
-                    <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-2">
-                        <h3 class="text-lg font-bold text-white"><span data-i18n="proj2Title">Tool Beta</span> <span class="text-cyan-400 ml-1">v2.0.0</span></h3>
-                        <time class="text-sm text-slate-500" data-i18n="date2">April 10, 2026</time>
-                    </div>
-                    <div class="bg-card rounded-xl p-4 border border-slate-700/50">
-                        <ul class="list-disc list-inside text-sm text-slate-400 space-y-1">
-                            <li><span class="text-emerald-400 font-semibold" data-i18n="tagAdded">[Added]</span> <span data-i18n="chlog2_1">Completely new user interface.</span></li>
-                            <li><span class="text-emerald-400 font-semibold" data-i18n="tagAdded">[Added]</span> <span data-i18n="chlog2_2">Linux system support.</span></li>
-                        </ul>
-                    </div>
-                </div>
-
+            <div class="bg-card/50 p-8 rounded-2xl border border-slate-800">
+                <div class="text-emerald-400 text-4xl mb-4"><i class="fa-solid fa-star"></i></div>
+                <h3 class="text-2xl font-bold text-white mb-2" data-i18n="feat2Title">Quality of Life</h3>
+                <p class="text-slate-400" data-i18n="feat2Desc">Focusing on small improvements that make a big difference in daily usage.</p>
             </div>
-        </section>
-
+        </div>
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-800 py-8 text-center text-slate-500 text-sm">
+    <footer class="border-t border-slate-800 py-8 text-center text-slate-500 text-sm mt-auto">
         <p><span data-i18n="footerText">&copy; 2026 Mentiuszen. All rights reserved.</span></p>
         <div class="mt-4 flex justify-center gap-4">
             <a href="https://github.com/mentiuszen" class="hover:text-white transition-colors text-xl"><i class="fa-brands fa-github"></i></a>
         </div>
     </footer>
 
-    <!-- Skrypty do obsługi języków i nawigacji -->
-    <script>
-        // Słownik z tłumaczeniami
-        const translations = {
-            en: {
-                pageTitle: "Mentiuszen - Projects Hub",
-                navProjects: "Projects",
-                navChangelog: "Changelog",
-                heroTitleStart: "Welcome to ",
-                heroTitleHighlight: "my code world",
-                heroDescription: "You will find here all my public projects, downloads and changelogs. Choose a project below to get started.",
-                sectionProjects: "My Projects",
-                btnDownload: "Download",
-                sectionChangelog: "Global Changelog",
-                
-                // Projekty
-                proj1Title: "Project Example Alpha",
-                proj1Desc: "Modern application supporting daily tasks. Fast, optimized and easy to use.",
-                proj2Title: "Tool Beta",
-                proj2Desc: "Script automating the most boring processes. Works in background and saves time.",
-                
-                // Changelog i Tagi
-                date1: "April 21, 2026",
-                date2: "April 10, 2026",
-                tagAdded: "[Added]",
-                tagChanged: "[Changed]",
-                tagFixed: "[Fixed]",
-                chlog1_1: "New notification system.",
-                chlog1_2: "Optimized data loading process by 40%.",
-                chlog1_3: "Bug causing app to crash when using Alt+F4.",
-                chlog2_1: "Completely new user interface.",
-                chlog2_2: "Linux system support.",
-                
-                footerText: "&copy; 2026 Mentiuszen. All rights reserved."
-            },
-            pl: {
-                pageTitle: "Mentiuszen - Hub Projektów",
-                navProjects: "Projekty",
-                navChangelog: "Changelog",
-                heroTitleStart: "Witaj w ",
-                heroTitleHighlight: "moim świecie kodu",
-                heroDescription: "Znajdziesz tutaj wszystkie moje publiczne projekty, pliki do pobrania oraz historię zmian (changelog). Wybierz projekt poniżej, aby zacząć.",
-                sectionProjects: "Moje Projekty",
-                btnDownload: "Pobierz",
-                sectionChangelog: "Globalny Changelog",
-                
-                // Projekty
-                proj1Title: "Projekt Przykład Alpha",
-                proj1Desc: "Nowoczesna aplikacja wspomagająca codzienne zadania. Szybka, zoptymalizowana i łatwa w obsłudze.",
-                proj2Title: "Narzędzie Beta",
-                proj2Desc: "Skrypt automatyzujący najnudniejsze procesy. Działa w tle i oszczędza czas.",
-                
-                // Changelog i Tagi
-                date1: "21 Kwietnia 2026",
-                date2: "10 Kwietnia 2026",
-                tagAdded: "[Dodano]",
-                tagChanged: "[Zmieniono]",
-                tagFixed: "[Naprawiono]",
-                chlog1_1: "Nowy system powiadomień.",
-                chlog1_2: "Zoptymalizowano proces ładowania danych o 40%.",
-                chlog1_3: "Błąd powodujący zamykanie się aplikacji przy użyciu skrótu Alt+F4.",
-                chlog2_1: "Kompletnie nowy interfejs użytkownika.",
-                chlog2_2: "Wsparcie dla systemu Linux.",
-                
-                footerText: "&copy; 2026 Mentiuszen. Wszelkie prawa zastrzeżone."
-            }
-        };
-
-        // Zmiana języka
-        function changeLanguage(lang) {
-            const elements = document.querySelectorAll('[data-i18n]');
-            elements.forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
-                }
-            });
-
-            // Aktualizacja stylów przycisków
-            const btnEn = document.getElementById('btn-en');
-            const btnPl = document.getElementById('btn-pl');
-            
-            if (lang === 'en') {
-                btnEn.className = "text-sm font-medium text-white bg-indigo-600/50 hover:bg-indigo-600 px-2 py-1 rounded transition-colors";
-                btnPl.className = "text-sm font-medium text-slate-400 hover:text-white px-2 py-1 rounded transition-colors";
-            } else {
-                btnPl.className = "text-sm font-medium text-white bg-indigo-600/50 hover:bg-indigo-600 px-2 py-1 rounded transition-colors";
-                btnEn.className = "text-sm font-medium text-slate-400 hover:text-white px-2 py-1 rounded transition-colors";
-            }
-        }
-
-        // Płynne przewijanie do góry
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
+    <!-- Skrypty -->
+    <script src="js/main.js"></script>
 </body>
 </html>
