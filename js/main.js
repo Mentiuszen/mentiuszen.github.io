@@ -19,7 +19,11 @@ const translations = {
         footerText: "&copy; 2026 Mentiuszen. All rights reserved.",
         tagAdded: "[Added]",
         tagFixed: "[Fixed]",
-        tagChanged: "[Changed]"
+        tagChanged: "[Changed]",
+        addonBadge: "World of Warcraft Addon",
+        descTitle: "Description",
+        screenshotsTitle: "Screenshots",
+        buildText: "Build"
     },
     pl: {
         navHome: "Strona Główna",
@@ -41,9 +45,26 @@ const translations = {
         footerText: "&copy; 2026 Mentiuszen. Wszelkie prawa zastrzeżone.",
         tagAdded: "[Dodano]",
         tagFixed: "[Naprawiono]",
-        tagChanged: "[Zmieniono]"
+        tagChanged: "[Zmieniono]",
+        addonBadge: "Dodatek do World of Warcraft",
+        descTitle: "Opis działania",
+        screenshotsTitle: "Zrzuty ekranu",
+        buildText: "Kompilacja (Build)"
     }
 };
+
+// Obsługa rozwijanego Changeloga (Akordeon)
+function toggleChangelog(id) {
+    const content = document.getElementById('content-' + id);
+    const icon = document.getElementById('icon-' + id);
+    if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+    } else {
+        content.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+    }
+}
 
 function initLang() {
     let lang = localStorage.getItem('lang') || 'en';
