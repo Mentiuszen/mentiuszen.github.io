@@ -74,25 +74,27 @@
                     <i class="fa-solid fa-chevron-left"></i>
                 </button>
 
-                <!-- Pojemnik ze zdjęciami (Płynny scroll, 4 widoczne elementy) -->
-                <div id="slider-mqol" class="flex-grow flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 hide-scrollbar justify-center">
-                    
-                    <!-- Szablon pustego screena (Klonuj to dla kolejnych) -->
-                    <!-- Dodaj src do znacznika img.screenshot-src aby podpiąć prawdziwy zrzut -->
-                    <div class="aspect-video bg-slate-800/40 rounded-xl border border-slate-700/60 flex flex-col items-center justify-center overflow-hidden relative group cursor-pointer snap-start shrink-0 w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)] hover:border-emerald-500/50 transition-colors" onclick="openLightbox(this)">
-                        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjMWUyOTNiIiBmaWxsLW9wYWNpdHk9IjAuNSI+PC9yZWN0Pgo8cGF0aCBkPSJNMCAwTDggOFpNMCA4TDggMFoiIHN0cm9rZT0iIzBmMTcyYSIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+Cjwvc3ZnPg==')] opacity-30 group-hover:opacity-10 transition-opacity"></div>
-                        <img src="" class="hidden screenshot-src w-full h-full object-cover relative z-10" alt="Screenshot 1" onerror="this.onerror=null; this.classList.add('hidden'); this.previousElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.remove('hidden');" />
-                        <!-- Fallback (Brak zdjęcia) - ukryty dopóki zdjęcie działa -->
-                        <div class="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none fallback-content">
-                             <i class="fa-regular fa-images text-4xl text-slate-500 mb-3 group-hover:scale-110 transition-transform"></i>
-                             <span class="text-sm font-medium text-slate-400 px-4 text-center" data-i18n="noScreenshot">Image Coming Soon</span>
-                        </div>
-                    </div>
-
+                <!-- Pojemnik ze zdjęciami (Płynny scroll) -->
+                <div id="slider-mqol" class="flex-grow flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 hide-scrollbar snap-always">
+                    <script>
+                        for(let i=1; i<=11; i++) {
+                            document.write(`
+                            <div class="aspect-video bg-slate-800/40 rounded-xl border border-slate-700/60 flex flex-col items-center justify-center overflow-hidden relative group cursor-pointer snap-start shrink-0 w-[calc(100%-1rem)] sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.75rem)] hover:border-emerald-500/50 transition-colors" onclick="openLightbox(this)">
+                                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjMWUyOTNiIiBmaWxsLW9wYWNpdHk9IjAuNSI+PC9yZWN0Pgo8cGF0aCBkPSJNMCAwTDggOFpNMCA4TDggMFoiIHN0cm9rZT0iIzBmMTcyYSIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+Cjwvc3ZnPg==')] opacity-30 group-hover:opacity-10 transition-opacity"></div>
+                                <img src="media/screens/mQoL/mQoL${i}.png" class="screenshot-src w-full h-full object-cover relative z-10" alt="Screenshot ${i}" onerror="this.onerror=null; this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');" />
+                                <div class="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none hidden fallback-content">
+                                     <i class="fa-regular fa-images text-4xl text-slate-500 mb-3 group-hover:scale-110 transition-transform"></i>
+                                     <span class="text-sm font-medium text-slate-400 px-4 text-center" data-i18n="noScreenshot">Image Coming Soon</span>
+                                </div>
+                            </div>
+                            `);
+                        }
+                    </script>
                 </div>
 
                 <!-- Prawa strzałka -->
                 <button onclick="scrollSlider('slider-mqol', 1)" id="btn-right-mqol" class="flex-shrink-0 bg-card hover:bg-emerald-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border border-slate-700 hover:border-emerald-500 transition-colors hidden md:flex disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-card disabled:hover:border-slate-700">
+                    <i class="fa-solid fa-chevron-right"></i>
                 </button>
             </div>
         </section>
@@ -102,14 +104,51 @@
             <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
                 <i class="fa-solid fa-book-open mr-3 text-emerald-400"></i> <span data-i18n="descTitle">Description</span>
             </h2>
-            <div class="bg-card p-8 rounded-2xl border border-slate-800 text-slate-400 space-y-4 leading-relaxed text-lg">
-                <p>Miejsce na Twój szczegółowy opis działania addonu. Możesz tu opisać, jakie ułatwienia wprowadza, jak go skonfigurować i dlaczego powstał.</p>
-                <p>Tutaj możesz dodać listę funkcji:</p>
-                <ul class="list-disc list-inside space-y-2 ml-2">
-                    <li>Automatyczna sprzedaż śmieci</li>
-                    <li>Szybka naprawa ekwipunku u NPC</li>
-                    <li>Wygodniejsze sortowanie plecaka</li>
-                </ul>
+            <div class="bg-card p-8 rounded-2xl border border-slate-800 text-slate-300 space-y-8 leading-relaxed text-lg">
+                <p data-i18n="mqolMainDesc">MQoL is a quality-of-life addon designed to synchronize World of Warcraft character settings across all characters and provide targeted UI improvements, with special support for older expansions.</p>
+                
+                <div>
+                    <h3 class="text-xl font-bold text-emerald-400 mb-3" data-i18n="mqolNewFeatTitle">New Features (v1.1.0)</h3>
+                    <ul class="list-disc list-inside space-y-2 ml-2 text-slate-400">
+                        <li data-i18n="mqolNewFeat1">Raid Profiles Synchronization - Shares saved raid profiles across all characters with full automation.</li>
+                        <li data-i18n="mqolNewFeat2">Full Addon UI Rework - A completely refreshed addon look.</li>
+                        <li data-i18n="mqolNewFeat3">Modules Manager - Easily control which parts of the addon you want to use.</li>
+                        <li data-i18n="mqolNewFeat4">Improved Option Control - Allows disabling or ignoring options you’re not interested in.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-3" data-i18n="mqolFeatTitle">Features</h3>
+                    <ul class="list-disc list-inside space-y-2 ml-2 text-slate-400">
+                        <li data-i18n="mqolFeat1">Action Bars synchronization - Keeps action bar settings across all characters.</li>
+                        <li data-i18n="mqolFeat2">Nameplates synchronization - Keeps nameplate settings across all characters.</li>
+                        <li data-i18n="mqolFeat3">General settings synchronization - Keeps common interface options such as "Auto Loot" and "My Name".</li>
+                        <li data-i18n="mqolFeat4">Force Edit Mode profile on login - Selected Edit Mode profile is applied on every login.</li>
+                    </ul>
+                </div>
+
+                <div class="border-t border-slate-800 pt-6">
+                    <h3 class="text-xl font-bold text-emerald-400 mb-3" data-i18n="mqolOptFeatTitle">Optional Features</h3>
+                    <ul class="list-disc list-inside space-y-2 ml-2 text-slate-400">
+                        <li data-i18n="mqolOptFeat1">Mailbox side panel - Adds a mailbox side panel with a character list and quick-send buttons with item categories.</li>
+                        <li data-i18n="mqolOptFeat2">Automatic mail subject - Allows setting a default subject for mail.</li>
+                        <li data-i18n="mqolOptFeat3">Improved Consolidated Buffs (Mists of Pandaria) - Enhances the default consolidated buffs look.</li>
+                        <li><span data-i18n="mqolOptFeat4">Blizzard bug fixes on Mists of Pandaria Classic - Fixes multiple interface issues, including:</span>
+                            <ul class="list-[circle] list-inside ml-8 mt-2 space-y-1 text-slate-400">
+                                <li data-i18n="mqolOptFeat4_1">Missing PvP reward display.</li>
+                                <li data-i18n="mqolOptFeat4_2">Broken map navigation on Pandaria.</li>
+                                <li data-i18n="mqolOptFeat4_3">Incorrect World Boss display on the World Map.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="border-t border-slate-800 pt-6">
+                    <h3 class="text-xl font-bold text-emerald-400 mb-3" data-i18n="mqolPlannedTitle">Planned / Future Updates</h3>
+                    <ul class="list-disc list-inside space-y-2 ml-2 text-slate-400">
+                        <li data-i18n="mqolPlanned1">All Characer-Wide settings synchronization. (WiP)</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -119,80 +158,15 @@
                 <i class="fa-solid fa-timeline mr-3 text-emerald-400"></i> <span data-i18n="changelog">Changelog</span>
             </h2>
             
-            <!-- Accordion Changelog -->
-            <div class="space-y-3">
-                
-                <!-- Główna Grupa Wersji: np. 1.1 -->
-                <div class="border border-emerald-900/40 rounded-xl bg-card overflow-hidden">
-                    <button class="w-full px-5 py-4 flex justify-between items-center hover:bg-slate-800 transition-colors group" onclick="toggleChangelog('mqol-v1-1')">
-                        <div class="flex items-center gap-3">
-                            <span class="font-bold text-white group-hover:text-emerald-400 transition-colors">v1.1</span>
-                            <span class="text-xs text-emerald-200/50 px-2 py-1 bg-emerald-950/50 border border-emerald-900/50 rounded-md">Builds 100-199</span>
-                        </div>
-                        <i class="fa-solid fa-chevron-down text-emerald-500/50 transition-transform duration-300" id="icon-mqol-v1-1"></i>
-                    </button>
-                    
-                    <div class="px-5 pb-5 pt-2 hidden" id="content-mqol-v1-1">
-                        <div class="space-y-6 border-l-2 border-slate-700/50 ml-2 pl-4 mt-2">
-                            
-                            <!-- Pojedynczy Build -->
-                            <div class="relative">
-                                <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
-                                <h4 class="text-emerald-400 font-bold mb-2 flex items-center gap-2"><span data-i18n="buildText">Build</span> 105 <span class="text-xs font-normal text-slate-500 bg-slate-800 px-2 rounded">Latest</span></h4>
-                                <ul class="list-none space-y-1.5 text-sm text-slate-300">
-                                    <li><span class="text-emerald-400 font-bold mr-1" data-i18n="tagAdded">[Added]</span> Nowa funkcja X.</li>
-                                    <li><span class="text-blue-400 font-bold mr-1" data-i18n="tagChanged">[Changed]</span> Optymalizacja Y.</li>
-                                </ul>
-                            </div>
-
-                            <!-- Kolejny Build -->
-                            <div class="relative">
-                                <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-600"></div>
-                                <h4 class="text-slate-300 font-bold mb-2 flex items-center gap-2"><span data-i18n="buildText">Build</span> 100</h4>
-                                <ul class="list-none space-y-1.5 text-sm text-slate-400">
-                                    <li><span class="text-emerald-400 font-bold mr-1" data-i18n="tagAdded">[Added]</span> Inicjalizacja paczki funkcji 1.1.</li>
-                                </ul>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Główna Grupa Wersji: np. 1.0 -->
-                <div class="border border-slate-800 rounded-xl bg-dark overflow-hidden">
-                    <button class="w-full px-5 py-4 flex justify-between items-center hover:bg-slate-800/80 transition-colors group" onclick="toggleChangelog('mqol-v1-0')">
-                        <div class="flex items-center gap-3">
-                            <span class="font-bold text-slate-400 group-hover:text-white transition-colors">v1.0</span>
-                            <span class="text-xs text-slate-500 px-2 py-1 bg-slate-900 border border-slate-800 rounded-md">Builds 0-99</span>
-                        </div>
-                        <i class="fa-solid fa-chevron-down text-slate-600 transition-transform duration-300" id="icon-mqol-v1-0"></i>
-                    </button>
-                    
-                    <div class="px-5 pb-5 pt-2 hidden" id="content-mqol-v1-0">
-                        <div class="space-y-6 border-l-2 border-slate-800 ml-2 pl-4 mt-2">
-                            <div class="relative">
-                                <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-600"></div>
-                                <h4 class="text-slate-400 font-bold mb-2 flex items-center gap-2"><span data-i18n="buildText">Build</span> 99</h4>
-                                <ul class="list-none space-y-1.5 text-sm text-slate-500">
-                                    <li><span class="text-red-400 font-bold mr-1" data-i18n="tagFixed">[Fixed]</span> Błędy wieku niemowlęcego.</li>
-                                </ul>
-                            </div>
-                            <div class="relative">
-                                <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-700"></div>
-                                <h4 class="text-slate-500 font-bold mb-2 flex items-center gap-2"><span data-i18n="buildText">Build</span> 0</h4>
-                                <ul class="list-none space-y-1.5 text-sm text-slate-600">
-                                    <li><span class="text-emerald-500/70 font-bold mr-1" data-i18n="tagAdded">[Added]</span> Start projektu.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+            <!-- Accordion Changelog Container -->
+            <div id="mqol-changelog-container" class="space-y-3">
+                <!-- Dynamically generated via main.js -->
             </div>
         </section>
 
     </main>
 
     <script src="js/main.js"></script>
+    <script src="js/mqol-changelog.js"></script>
 </body>
 </html>

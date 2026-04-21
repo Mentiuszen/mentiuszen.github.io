@@ -37,6 +37,29 @@ const translations = {
         dttExpansionTitle: "Expansion Selection",
         dttExpansionDesc: "Easily switch between expansions using the menu.",
         
+        // mQoL Description
+        mqolMainDesc: "MQoL is a quality-of-life addon designed to synchronize World of Warcraft character settings across all characters and provide targeted UI improvements, with special support for older expansions.",
+        mqolNewFeatTitle: "New Features (v1.1.0)",
+        mqolNewFeat1: "Raid Profiles Synchronization - Shares saved raid profiles across all characters with full automation.",
+        mqolNewFeat2: "Full Addon UI Rework - A completely refreshed addon look.",
+        mqolNewFeat3: "Modules Manager - Easily control which parts of the addon you want to use.",
+        mqolNewFeat4: "Improved Option Control - Allows disabling or ignoring options you’re not interested in.",
+        mqolFeatTitle: "Features",
+        mqolFeat1: "Action Bars synchronization - Keeps action bar settings across all characters.",
+        mqolFeat2: "Nameplates synchronization - Keeps nameplate settings across all characters.",
+        mqolFeat3: "General settings synchronization - Keeps common interface options such as \"Auto Loot\" and \"My Name\".",
+        mqolFeat4: "Force Edit Mode profile on login - Selected Edit Mode profile is applied on every login.",
+        mqolOptFeatTitle: "Optional Features",
+        mqolOptFeat1: "Mailbox side panel - Adds a mailbox side panel with a character list and quick-send buttons with item categories.",
+        mqolOptFeat2: "Automatic mail subject - Allows setting a default subject for mail.",
+        mqolOptFeat3: "Improved Consolidated Buffs (Mists of Pandaria) - Enhances the default consolidated buffs look.",
+        mqolOptFeat4: "Blizzard bug fixes on Mists of Pandaria Classic - Fixes multiple interface issues, including:",
+        mqolOptFeat4_1: "Missing PvP reward display.",
+        mqolOptFeat4_2: "Broken map navigation on Pandaria.",
+        mqolOptFeat4_3: "Incorrect World Boss display on the World Map.",
+        mqolPlannedTitle: "Planned / Future Updates",
+        mqolPlanned1: "All Characer-Wide settings synchronization. (WiP)",
+        
         tagRemoved: "[Removed]",
         dtt_v1_6_1_1: "Fix for not working Seat of the Triumvirate teleport",
         dtt_v1_6_1: "Added missing Dawn of the Infinite teleport",
@@ -92,6 +115,29 @@ const translations = {
         dttExpansionTitle: "Wybór Dodatku",
         dttExpansionDesc: "Łatwe przełączanie między starymi dodatkami przy użyciu menu.",
         
+        // mQoL Description
+        mqolMainDesc: "MQoL to dodatek Quality of Life zaprojektowany do synchronizacji ustawień World of Warcraft między postaciami oraz zapewniający konkretne ulepszenia interfejsu, ze szczególnym wsparciem dla starszych dodatków.",
+        mqolNewFeatTitle: "Nowe Funkcje (v1.1.0)",
+        mqolNewFeat1: "Synchronizacja Profili Rajdowych - Współdzieli zapisane profile rajdowe pomiędzy postaciami z pełną automatyzacją.",
+        mqolNewFeat2: "Całkowita przebudowa interfejsu - Zupełnie odświeżony wygląd addonu.",
+        mqolNewFeat3: "Menedżer Modułów - Łatwo kontroluj, z których części addonu chcesz korzystać.",
+        mqolNewFeat4: "Ulepszona Kontrola Opcji - Pozwala na wyłączanie lub ignorowanie opcji, którymi nie jesteś zainteresowany.",
+        mqolFeatTitle: "Główne Cechy",
+        mqolFeat1: "Synchronizacja pasków akcji - Zachowuje ustawienia pasków na wszystkich postaciach.",
+        mqolFeat2: "Synchronizacja pasków zdrowia (Nameplates) - Zachowuje ustawienia pasków życia wokół postaci.",
+        mqolFeat3: "Synchronizacja ogólnych ustawień - Utrzymuje popularne opcje, takie jak \"Auto Loot\" czy wyświetlanie swojego imienia.",
+        mqolFeat4: "Wymuszanie profilu Edit Mode - Wybrany profil trybu edycji jest ładowany przy każdym logowaniu.",
+        mqolOptFeatTitle: "Opcjonalne Funkcje",
+        mqolOptFeat1: "Boczny panel skrzynki pocztowej - Dodaje panel boczny z listą postaci oraz przyciskami szybkiego wysyłania podzielonymi na kategorie przedmiotów.",
+        mqolOptFeat2: "Automatyczny temat wiadomości - Pozwala ustawić domyślny temat dla poczty w grze.",
+        mqolOptFeat3: "Ulepszone skonsolidowane buffy (Mists of Pandaria) - Poprawia wygląd domyślnego grupowania buffów.",
+        mqolOptFeat4: "Poprawki błędów Blizzarda w MoP Classic - Naprawia kilka problemów z interfejsem, w tym:",
+        mqolOptFeat4_1: "Brak wyświetlania nagród PvP.",
+        mqolOptFeat4_2: "Zepsuta nawigacja po mapie Pandarii.",
+        mqolOptFeat4_3: "Nieprawidłowe wyświetlanie World Bossów na mapie świata.",
+        mqolPlannedTitle: "Planowane Aktualizacje",
+        mqolPlanned1: "Pełna synchronizacja wszystkich ustawień na całe konto. (WiP)",
+        
         tagRemoved: "[Usunięto]",
         dtt_v1_6_1_1: "Poprawka dla niedziałającego teleportu do Seat of the Triumvirate",
         dtt_v1_6_1: "Dodano brakujący teleport do Dawn of the Infinite",
@@ -115,8 +161,8 @@ const translations = {
 function scrollSlider(id, direction) {
     const slider = document.getElementById(id);
     if(slider) {
-        // Przewija o 80% widocznej szerokości
-        const scrollAmount = slider.clientWidth * 0.8;
+        // Przewija dokładnie o szerokość widocznego kontenera, uwzględniając luki między elementami (gap)
+        const scrollAmount = slider.clientWidth;
         slider.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
     }
 }
@@ -236,6 +282,11 @@ function changeLanguage(lang) {
             btnPl.className = "text-sm font-medium text-white bg-indigo-600/50 hover:bg-indigo-600 px-2 py-1 rounded transition-colors";
             btnEn.className = "text-sm font-medium text-slate-400 hover:text-white px-2 py-1 rounded transition-colors";
         }
+    }
+    
+    // Odbudowanie changelogu mQoL jeśli jesteśmy na tej stronie
+    if(typeof renderMqolChangelog === 'function') {
+        renderMqolChangelog(lang);
     }
 }
 
