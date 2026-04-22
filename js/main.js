@@ -10,11 +10,21 @@ const translations = {
         feat1Desc: "Explore the code behind my public repositories on GitHub.",
         feat2Title: "Quality of Life",
         feat2Desc: "Focusing on small improvements that make a big difference in daily usage.",
+        
+        // Index additions
+        indexAboutTitle: "About Me",
+        indexAboutDesc: "I am a passionate developer who enjoys creating addons and quality-of-life improvements for World of Warcraft using Lua. Beyond the WoW UI, I also work on standalone applications in C# and C++, ranging from custom game launchers to advanced 3D graphics programming.",
+        indexSkillsTitle: "Technologies & Skills",
+        indexSocialTitle: "Find Me",
+        btnGithub: "My GitHub",
+        
         projectsTitle: "Public Projects",
         mQoLDesc: "Quality of Life improvements and tweaks for a better experience.",
         dttDesc: "A tab interface for quick and easy dungeon teleports.",
         btnViewProject: "View Project",
         download: "Download Latest",
+        downloadStable: "Download Release",
+        downloadBeta: "Download Beta",
         changelog: "Changelog",
         footerText: "&copy; 2026 Mentiuszen. All rights reserved.",
         tagAdded: "[Added]",
@@ -88,11 +98,21 @@ const translations = {
         feat1Desc: "Odkryj kod stojący za moimi publicznymi repozytoriami na GitHubie.",
         feat2Title: "Jakość Życia",
         feat2Desc: "Skupiam się na drobnych ulepszeniach, które robią wielką różnicę w codziennym użytkowaniu.",
+        
+        // Index additions
+        indexAboutTitle: "O mnie",
+        indexAboutDesc: "Jestem pasjonatem programowania, który uwielbia tworzyć addony i ulepszenia Quality of Life dla World of Warcraft w języku Lua. Poza interfejsem gry, pracuję również nad niezależnymi aplikacjami w C# i C++, od tworzenia własnych launcherów po zaawansowane programowanie grafiki 3D.",
+        indexSkillsTitle: "Technologie i Umiejętności",
+        indexSocialTitle: "Znajdziesz mnie tutaj",
+        btnGithub: "Mój GitHub",
+        
         projectsTitle: "Publiczne Projekty",
         mQoLDesc: "Zbiór poprawek i ulepszeń typu Quality of Life ułatwiających rozgrywkę.",
         dttDesc: "Interfejs zakładek do szybkiego i łatwego teleportowania się po lochach.",
         btnViewProject: "Zobacz Projekt",
         download: "Pobierz najnowszą",
+        downloadStable: "Wersja Stabilna",
+        downloadBeta: "Wersja Beta",
         changelog: "Historia Zmian",
         footerText: "&copy; 2026 Mentiuszen. Wszelkie prawa zastrzeżone.",
         tagAdded: "[Dodano]",
