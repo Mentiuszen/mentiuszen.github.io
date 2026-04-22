@@ -33,39 +33,111 @@
         </div>
     </nav>
 
+    <!-- Page Header -->
+    <header class="relative py-12 sm:py-16 mt-16 border-b border-slate-800">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-b from-slate-800/50 to-dark"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl font-extrabold text-white tracking-tight mb-4 flex items-center justify-center">
+                <i class="fa-solid fa-layer-group text-indigo-400 mr-4"></i>
+                <span data-i18n="projectsTitle">Public Projects</span>
+            </h1>
+            <p class="text-lg text-slate-400 max-w-2xl mx-auto" data-i18n="heroDesc">
+                My personal space for sharing public projects, quality of life tweaks, and scripts.
+            </p>
+        </div>
+    </header>
+
+    <!-- Projects Grid -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h1 class="text-3xl font-bold text-white mb-10 border-b border-slate-700 pb-4"><i class="fa-solid fa-layer-group mr-3 text-indigo-400"></i><span data-i18n="projectsTitle">Public Projects</span></h1>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            
             <!-- mQoL Card -->
-            <div class="bg-card rounded-2xl border border-slate-700/50 p-6 hover:border-emerald-500/50 transition-all duration-300 shadow-lg hover:shadow-emerald-500/10 flex flex-col h-full group">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="p-4 rounded-xl bg-emerald-500/10 text-emerald-400 group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-wand-magic-sparkles text-3xl"></i>
+            <div class="bg-card rounded-3xl border border-slate-700/50 hover:border-emerald-500/50 transition-all duration-300 shadow-xl hover:shadow-emerald-500/10 flex flex-col h-full group overflow-hidden relative">
+                <!-- Tło z poświatą -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -mr-20 -mt-20 group-hover:bg-emerald-500/20 transition-colors pointer-events-none"></div>
+                
+                <div class="p-8 flex-grow flex flex-col relative z-10">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 shadow-lg shadow-emerald-900/20 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-wand-magic-sparkles text-4xl"></i>
+                        </div>
+                        <div class="flex flex-col items-end gap-2">
+                            <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full bg-slate-800/80 text-emerald-400 border border-emerald-500/30" data-i18n="addonBadge">World of Warcraft Addon</span>
+                            <span class="text-xs font-mono text-slate-500 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">v1.2.0</span>
+                        </div>
                     </div>
-                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-slate-800 text-slate-300 border border-slate-700">Mod</span>
+                    
+                    <h3 class="text-3xl font-extrabold text-white mb-4 group-hover:text-emerald-400 transition-colors">mQoL</h3>
+                    <p class="text-slate-400 mb-4 text-lg leading-relaxed flex-grow" data-i18n="mQoLDesc">Quality of Life improvements and tweaks for a better experience.</p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-1 text-xs font-semibold rounded bg-slate-800 text-slate-400 border border-slate-700"><i class="fa-solid fa-check text-emerald-500 mr-1"></i> Raid Profiles</span>
+                        <span class="px-2 py-1 text-xs font-semibold rounded bg-slate-800 text-slate-400 border border-slate-700"><i class="fa-solid fa-check text-emerald-500 mr-1"></i> Edit Mode Sync</span>
+                        <span class="px-2 py-1 text-xs font-semibold rounded bg-slate-800 text-slate-400 border border-slate-700"><i class="fa-solid fa-check text-emerald-500 mr-1"></i> Action Bars</span>
+                        <span class="px-2 py-1 text-xs font-semibold rounded bg-slate-800 text-slate-400 border border-slate-700"><i class="fa-solid fa-check text-emerald-500 mr-1"></i> Vault Viewer</span>
+                        <span class="px-2 py-1 text-xs font-semibold rounded bg-slate-800 text-slate-400 border border-slate-700"><i class="fa-solid fa-check text-emerald-500 mr-1"></i> Gold Chart</span>
+                    </div>
+
+                    <div class="border-t border-slate-700/50 pt-4 mt-auto">
+                        <span class="text-xs text-slate-500 uppercase font-bold tracking-wider mb-2 block">Supported Expansions:</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Midnight</span>
+                            <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">Classic Era</span>
+                            <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-green-500/10 text-green-400 border border-green-500/20">BCC</span>
+                            <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-teal-500/10 text-teal-400 border border-teal-500/20">MoP Classic</span>
+                            <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-emerald-600/10 text-emerald-500 border border-emerald-600/20">Legion</span>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">mQoL</h3>
-                <p class="text-slate-400 mb-8 flex-grow" data-i18n="mQoLDesc">Quality of Life improvements and tweaks for a better experience.</p>
-                <a href="mQoL.html" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white text-center py-3 rounded-xl font-medium transition-colors">
-                    <span data-i18n="btnViewProject">View Project</span> <i class="fa-solid fa-arrow-right ml-2"></i>
-                </a>
+                
+                <div class="p-6 border-t border-slate-700/50 bg-slate-800/30 relative z-10">
+                    <a href="mQoL.html" class="flex items-center justify-center w-full bg-emerald-600 hover:bg-emerald-500 text-white py-4 rounded-xl font-bold transition-all shadow-lg shadow-emerald-900/30 hover:shadow-emerald-500/25">
+                        <span data-i18n="btnViewProject">View Project</span> <i class="fa-solid fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
             </div>
 
             <!-- DungeonTeleportsTab Card -->
-            <div class="bg-card rounded-2xl border border-slate-700/50 p-6 hover:border-fuchsia-500/50 transition-all duration-300 shadow-lg hover:shadow-fuchsia-500/10 flex flex-col h-full group">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="p-4 rounded-xl bg-fuchsia-500/10 text-fuchsia-400 group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-dungeon text-3xl"></i>
+            <div class="bg-card rounded-3xl border border-slate-700/50 hover:border-fuchsia-500/50 transition-all duration-300 shadow-xl hover:shadow-fuchsia-500/10 flex flex-col h-full group overflow-hidden relative">
+                <!-- Tło z poświatą -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-fuchsia-500/10 rounded-full blur-3xl -mr-20 -mt-20 group-hover:bg-fuchsia-500/20 transition-colors pointer-events-none"></div>
+                
+                <div class="p-8 flex-grow flex flex-col relative z-10">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="p-4 rounded-2xl bg-fuchsia-500/10 border border-fuchsia-500/20 text-fuchsia-400 shadow-lg shadow-fuchsia-900/20 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-dungeon text-4xl"></i>
+                        </div>
+                        <div class="flex flex-col items-end gap-2">
+                            <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full bg-slate-800/80 text-fuchsia-400 border border-fuchsia-500/30" data-i18n="addonBadge">World of Warcraft Addon</span>
+                            <span class="text-xs font-mono text-slate-500 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">v1.6.1</span>
+                        </div>
                     </div>
-                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-slate-800 text-slate-300 border border-slate-700">UI / Plugin</span>
+                    
+                    <h3 class="text-3xl font-extrabold text-white mb-4 group-hover:text-fuchsia-400 transition-colors">DungeonTeleportsTab</h3>
+                    <p class="text-slate-400 mb-4 text-lg leading-relaxed flex-grow" data-i18n="dttDesc">A tab interface for quick and easy dungeon teleports.</p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-1 text-xs font-semibold rounded bg-slate-800 text-slate-400 border border-slate-700"><i class="fa-solid fa-bolt text-fuchsia-500 mr-1"></i> Quick Travel</span>
+                        <span class="px-2 py-1 text-xs font-semibold rounded bg-slate-800 text-slate-400 border border-slate-700"><i class="fa-solid fa-bolt text-fuchsia-500 mr-1"></i> Native UI Integration</span>
+                        <span class="px-2 py-1 text-xs font-semibold rounded bg-slate-800 text-slate-400 border border-slate-700"><i class="fa-solid fa-bolt text-fuchsia-500 mr-1"></i> Combat Safe</span>
+                    </div>
+
+                    <div class="border-t border-slate-700/50 pt-4 mt-auto">
+                        <span class="text-xs text-slate-500 uppercase font-bold tracking-wider mb-2 block">Supported Expansions:</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Midnight</span>
+                            <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-teal-500/10 text-teal-400 border border-teal-500/20">MoP Classic</span>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-fuchsia-400 transition-colors">DungeonTeleportsTab</h3>
-                <p class="text-slate-400 mb-8 flex-grow" data-i18n="dttDesc">A tab interface for quick and easy dungeon teleports.</p>
-                <a href="DungeonTeleportsTab.html" class="w-full bg-fuchsia-600 hover:bg-fuchsia-500 text-white text-center py-3 rounded-xl font-medium transition-colors">
-                    <span data-i18n="btnViewProject">View Project</span> <i class="fa-solid fa-arrow-right ml-2"></i>
-                </a>
+
+                <div class="p-6 border-t border-slate-700/50 bg-slate-800/30 relative z-10">
+                    <a href="DungeonTeleportsTab.html" class="flex items-center justify-center w-full bg-fuchsia-600 hover:bg-fuchsia-500 text-white py-4 rounded-xl font-bold transition-all shadow-lg shadow-fuchsia-900/30 hover:shadow-fuchsia-500/25">
+                        <span data-i18n="btnViewProject">View Project</span> <i class="fa-solid fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
             </div>
+
         </div>
     </main>
 
