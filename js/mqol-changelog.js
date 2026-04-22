@@ -1106,83 +1106,84 @@ function renderMqolChangelog(lang) {
         return `[${type}]`;
     };
 
-    // Struktura grupowania według patchów (zgodna z prośbą)
+    // Struktura grupowania według patchów
     const versionGroups = [
         { 
             id: 'v120', status: 'beta',
             nameEn: 'v1.2.0', namePl: 'Wersja 1.2.0', 
             descEn: 'Account Overview & Vault', descPl: 'Skarbiec i Przegląd Konta',
-            startIdx: 0, endIdx: 22 // Builds 229-200
+            revStartIdx: 161 // Builds 200+
         },
         { 
             id: 'v111', status: 'stable',
             nameEn: 'v1.1.1', namePl: 'Wersja 1.1.1', 
             descEn: 'Optimization & Advanced Modes', descPl: 'Optymalizacja i Zaawansowane Opcje',
-            startIdx: 23, endIdx: 29 // Builds 193-187
+            revStartIdx: 154 // Builds 187-193
         },
         { 
             id: 'v110', status: 'old',
             nameEn: 'v1.1.0', namePl: 'Wersja 1.1.0', 
             descEn: 'Major Hub Rework', descPl: 'Przebudowa UI',
-            startIdx: 30, endIdx: 116 // Builds 186-100
+            revStartIdx: 67 // Builds 100-186
         },
         { 
             id: 'v109', status: 'old',
             nameEn: 'v1.0.9', namePl: 'Wersja 1.0.9', 
             descEn: 'Midnight Logic Update', descPl: 'Aktualizacje Midnight',
-            startIdx: 117, endIdx: 117 // Build 67
+            revStartIdx: 66 // Build 67
         },
         { 
             id: 'v108', status: 'old',
             nameEn: 'v1.0.8', namePl: 'Wersja 1.0.8', 
             descEn: 'BCC Support', descPl: 'Wsparcie BCC',
-            startIdx: 118, endIdx: 118 // Build 66
+            revStartIdx: 65 // Build 66
         },
         { 
             id: 'v107', status: 'old',
             nameEn: 'v1.0.7', namePl: 'Wersja 1.0.7', 
             descEn: 'MoP Classic Fixes & PvP Rewards', descPl: 'Poprawki Blizzarda (MoP) i PvP',
-            startIdx: 119, endIdx: 132 // Builds 65-52
+            revStartIdx: 51 // Builds 52-65
         },
         { 
             id: 'v106', status: 'old',
             nameEn: 'v1.0.6', namePl: 'Wersja 1.0.6', 
             descEn: 'Major Database & Merger', descPl: 'Fuzja addonu i nowa Baza',
-            startIdx: 133, endIdx: 142 // Builds 51-42
+            revStartIdx: 41 // Builds 42-51
         },
         { 
             id: 'v105', status: 'old',
             nameEn: 'v1.0.5', namePl: 'Wersja 1.0.5', 
             descEn: 'Retail & Mailbox fixes', descPl: 'Poprawki Poczty',
-            startIdx: 143, endIdx: 146 // Builds 41-38
+            revStartIdx: 37 // Builds 38-41
         },
         { 
             id: 'v104', status: 'old',
             nameEn: 'v1.0.4', namePl: 'Wersja 1.0.4', 
             descEn: 'Mass Send Rewrite', descPl: 'Przebudowa Mass Send',
-            startIdx: 147, endIdx: 157 // Builds 37-27
+            revStartIdx: 26 // Builds 27-37
         },
         { 
             id: 'v103', status: 'old',
             nameEn: 'v1.0.3', namePl: 'Wersja 1.0.3', 
             descEn: 'Bug Fixes', descPl: 'Szybka poprawka',
-            startIdx: 158, endIdx: 158 // Build 26
+            revStartIdx: 25 // Build 26
         },
         { 
             id: 'v102', status: 'old',
             nameEn: 'v1.0.2', namePl: 'Wersja 1.0.2', 
             descEn: 'View Distance Patch', descPl: 'Poprawki dystansu widzenia',
-            startIdx: 159, endIdx: 159 // Build 25
+            revStartIdx: 24 // Build 25
         },
         { 
             id: 'v100', status: 'old',
             nameEn: 'v1.0.0', namePl: 'Wersja 1.0.0', 
             descEn: 'Initial Release Journey', descPl: 'Historia wczesnych wersji',
-            startIdx: 160, endIdx: 183 // Builds 24-1
+            revStartIdx: 0 // Builds 1-24
         }
     ];
 
     let html = '';
+    const totalBuilds = mqolChangelog.length;
 
     versionGroups.forEach((group, groupIndex) => {
         const isFirst = groupIndex === 0;
@@ -1206,7 +1207,17 @@ function renderMqolChangelog(lang) {
         html += '<div class="px-5 pb-5 pt-2 hidden" id="content-mqol-' + group.id + '">';
         html += '<div class="space-y-6 border-l-2 ' + (isFirst ? 'border-slate-700/50' : 'border-slate-800') + ' ml-2 pl-4 mt-2">';
         
-        for(let i = group.startIdx; i <= group.endIdx; i++) {
+        let revEndIdx;
+        if (groupIndex === 0) {
+            revEndIdx = totalBuilds - 1;
+        } else {
+            revEndIdx = versionGroups[groupIndex - 1].revStartIdx - 1;
+        }
+        
+        const actualStartIdx = totalBuilds - 1 - revEndIdx;
+        const actualEndIdx = totalBuilds - 1 - group.revStartIdx;
+        
+        for(let i = actualStartIdx; i <= actualEndIdx; i++) {
             const b = mqolChangelog[i];
             const title = lang === 'pl' ? b.tp : b.te;
             const buildText = lang === 'pl' ? 'Kompilacja' : 'Build';
@@ -1216,7 +1227,7 @@ function renderMqolChangelog(lang) {
             let dotColor = 'bg-slate-600';
             let titleColor = 'text-slate-400';
 
-            if (i === group.startIdx) {
+            if (i === actualStartIdx) {
                 if (group.status === 'beta') {
                     isLatestBuild = true;
                     dotColor = 'bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.5)]';

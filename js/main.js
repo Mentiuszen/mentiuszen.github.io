@@ -13,7 +13,7 @@ const translations = {
         
         // Index additions
         indexAboutTitle: "About Me",
-        indexAboutDesc: "I am a passionate developer who enjoys creating addons and quality-of-life improvements for World of Warcraft using Lua. Beyond the WoW UI, I also work on standalone applications in C# and C++, ranging from custom game launchers to advanced 3D graphics programming.",
+        indexAboutDesc: "I am a passionate developer who enjoys creating addons for World of Warcraft using Lua. Beyond the WoW UI, I also work on standalone applications in C# and C++, ranging from custom game launchers to advanced 3D graphics programming.",
         indexSkillsTitle: "Technologies & Skills",
         indexSocialTitle: "Find Me",
         btnGithub: "My GitHub",
@@ -101,7 +101,7 @@ const translations = {
         
         // Index additions
         indexAboutTitle: "O mnie",
-        indexAboutDesc: "Jestem pasjonatem programowania, który uwielbia tworzyć addony i ulepszenia Quality of Life dla World of Warcraft w języku Lua. Poza interfejsem gry, pracuję również nad niezależnymi aplikacjami w C# i C++, od tworzenia własnych launcherów po zaawansowane programowanie grafiki 3D.",
+        indexAboutDesc: "Jestem pasjonatem programowania, który uwielbia tworzyć addony dla World of Warcraft w języku Lua. Poza interfejsem gry, pracuję również nad niezależnymi aplikacjami w C# i C++, od tworzenia własnych launcherów po zaawansowane programowanie grafiki 3D.",
         indexSkillsTitle: "Technologie i Umiejętności",
         indexSocialTitle: "Znajdziesz mnie tutaj",
         btnGithub: "Mój GitHub",
