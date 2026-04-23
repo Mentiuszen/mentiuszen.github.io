@@ -1129,7 +1129,7 @@ function renderMqolChangelog(lang) {
             revStartIdx: 161 // Builds 200-230
         },
         { 
-            id: 'v111', status: 'stable',
+            id: 'v111', status: 'old',
             nameEn: 'v1.1.1', namePl: 'Wersja 1.1.1', 
             descEn: 'Optimization & Advanced Modes', descPl: 'Optymalizacja i Zaawansowane Opcje',
             revStartIdx: 154 // Builds 187-193
