@@ -1,4 +1,7 @@
 const mqolChangelog = [
+    {b: "231", te: "Patch 1.2.1 - Who's know", tp: "Patch 1.2.1 - Kto wie?", c: [
+        { t: "Fixed", e: "placeholder", p: "placeholder" },
+    ]},
     { b: "230", te: "Update 1.2.0 - Release", tp: "Aktualizacja 1.2.0 - Wydanie", c: [
         { t: "Added", e: "Added genuine season detection logic for the Legion client.", p: "Dodano realną logikę detekcji sezonu na kliencie Legion." },
         { t: "Changed", e: "The Vault interface is now dynamically renamed to 'Weekly Chest' on the Legion client.", p: "Vault od teraz dynamicznie zmienia nazwę na 'Weekly Chest' na kliencie Legion." },
