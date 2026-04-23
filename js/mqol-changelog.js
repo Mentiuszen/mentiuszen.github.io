@@ -1,4 +1,12 @@
 const mqolChangelog = [
+    { b: "230", te: "Update 1.2.0 - Release", tp: "Aktualizacja 1.2.0 - Wydanie", c: [
+        { t: "Added", e: "Added genuine season detection logic for the Legion client.", p: "Dodano realną logikę detekcji sezonu na kliencie Legion." },
+        { t: "Changed", e: "The Vault interface is now dynamically renamed to 'Weekly Chest' on the Legion client.", p: "Vault od teraz dynamicznie zmienia nazwę na 'Weekly Chest' na kliencie Legion." },
+        { t: "Added", e: "Added a tooltip notification about the Vault preview availability on Retail.", p: "Dodano do tooltipa powiadomienie o możliwości podglądu skarbca (Vault preview) na kliencie Retail." },
+        { t: "Fixed", e: "Fixed the gold chart line rotation on the Legion client (lines were previously completely straight).", p: "Naprawiono obrót linii wykresu złota na Legionie (linie były wcześniej całkowicie proste)." },
+        { t: "Changed", e: "Polished the changelog list shown on the Home screen.", p: "Poprawiono listę zmian na ekranie startowym (Home Screen)." },
+        { t: "Fixed", e: "Fixed a bug causing incomplete raid descriptions to appear in the Vault preview.", p: "Naprawiono błąd przez który pokazywał się niepełny opis raidu w podglądzie skarbca (Vault preview)." }
+    ]},
     { b: "229", te: "Changes and Test", tp: "Zmiany i Testy", c: [
         { t: "Changed", e: "Changed the internal release vendor tag to 'test'.", p: "Zmieniono wewnętrzny znacznik wersji z wydania głównego na 'test'." },
         { t: "Changed", e: "Renamed 'MythicPlus' references to 'Dungeons' inside the Weekly Reward Viewer.", p: "Zmieniono nazewnictwo z 'MythicPlus' na 'Dungeons' wewnątrz podglądu cotygodniowych nagród." },
@@ -1109,10 +1117,16 @@ function renderMqolChangelog(lang) {
     // Struktura grupowania według patchów
     const versionGroups = [
         { 
-            id: 'v120', status: 'beta',
+            id: 'v121', status: 'beta',
+            nameEn: 'v1.2.1', namePl: 'Wersja 1.2.1', 
+            descEn: 'Whos Know?', descPl: 'Kto wie?',
+            revStartIdx: 185 // Builds 231+
+        },
+        { 
+            id: 'v120', status: 'stable',
             nameEn: 'v1.2.0', namePl: 'Wersja 1.2.0', 
             descEn: 'Account Overview & Vault', descPl: 'Skarbiec i Przegląd Konta',
-            revStartIdx: 161 // Builds 200+
+            revStartIdx: 161 // Builds 200-230
         },
         { 
             id: 'v111', status: 'stable',
