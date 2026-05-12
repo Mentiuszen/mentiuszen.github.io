@@ -1158,6 +1158,12 @@ function renderMqolChangelog(lang) {
     // Struktura grupowania według patchów
     const versionGroups = [
         { 
+            id: 'v122', status: 'beta',
+            nameEn: 'v1.2.2', namePl: 'Wersja 1.2.2', 
+            descEn: 'Account Overview & Dungeon Teleports Changes', descPl: 'Zmiany w Account Overview oraz Dungeon Teleports',
+            revStartIdx: 195 // Builds 231-241
+        },
+        { 
             id: 'v121', status: 'stable',
             nameEn: 'v1.2.1', namePl: 'Wersja 1.2.1', 
             descEn: 'Account Overview & Fixes', descPl: 'Przegląd Konta i Poprawki',
