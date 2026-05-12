@@ -1,6 +1,44 @@
 const mqolChangelog = [
-    {b: "231", te: "Patch 1.2.1 - Who's know", tp: "Patch 1.2.1 - Kto wie?", c: [
-        { t: "Fixed", e: "placeholder", p: "placeholder" },
+    { b: "241", te: "Update 1.2.1 - Release", tp: "Aktualizacja 1.2.1 - Wydanie", c: [
+        { t: "Added", e: "Added hover information for Vault preview availability in the Account Overview.", p: "Dodano informację o dostępności podglądu skarbca po najechaniu kursorem w Przeglądzie Konta." },
+        { t: "Changed", e: "Improved the profession details messages displayed in the Account Overview.", p: "Poprawiono wyświetlanie komunikatów ze szczegółami profesji w Przeglądzie Konta." }
+    ]},
+    { b: "240", te: "Update 1.2.1 - Final Fixes", tp: "Aktualizacja 1.2.1 - Ostatnie poprawki", c: [
+        { t: "Fixed", e: "Fixed profession icons not appearing on Classic Era and BCC clients.", p: "Naprawiono brakujące ikony profesji na klientach Classic Era oraz BCC." },
+        { t: "Added", e: "Added a Great Vault icon with separate inactive and active progress states.", p: "Dodano ikonę Great Vault z dwoma stanami: wyszarzoną bez postępu oraz kolorową po wykonaniu aktywności." }
+    ]},
+    { b: "239", te: "Update 1.2.1 - Profession Changes", tp: "Aktualizacja 1.2.1 - Zmiany profesji", c: [
+        { t: "Fixed", e: "Fixed unlearned professions remaining saved in character data.", p: "Naprawiono błąd, przez który zapomniane profesje zostawały zapisane w danych postaci." },
+        { t: "Changed", e: "Profession hover text now uses full profession names instead of shortened labels.", p: "Tekst po najechaniu kursorem używa teraz pełnych nazw profesji zamiast skróconych etykiet." }
+    ]},
+    { b: "238", te: "Update 1.2.1 - Profession Fixes", tp: "Aktualizacja 1.2.1 - Poprawki profesji", c: [
+        { t: "Fixed", e: "Fixed secondary professions being incorrectly displayed as primary professions on the Legion client.", p: "Naprawiono błąd, przez który profesje pomocnicze na kliencie Legion były błędnie pokazywane jako główne." },
+        { t: "Fixed", e: "Fixed professions not being displayed at all on Classic Era and BCC clients.", p: "Naprawiono błąd, przez który profesje w ogóle nie wyświetlały się na klientach Classic Era oraz BCC." }
+    ]},
+    { b: "237", te: "Update 1.2.1 - Compatibility Fixes", tp: "Aktualizacja 1.2.1 - Poprawki kompatybilności", c: [
+        { t: "Changed", e: "Replaced the mQoL_EditMode safeguard with one based on the shared version detection system.", p: "Zmieniono zabezpieczenie mQoL_EditMode na wariant oparty o wspólny system wykrywania wersji klienta." },
+        { t: "Fixed", e: "Fixed the 'Use Raid Frames in 5-man party' option not working on the Legion client.", p: "Naprawiono niedziałającą opcję 'Use Raid Frames in 5-man party' na kliencie Legion." },
+        { t: "Removed", e: "Removed the 'Use Raid Frames in 5-man party' checkbox on Retail, BCC, and MoP Classic (SoO), where this behavior is handled by Edit Mode.", p: "Usunięto checkbox 'Use Raid Frames in 5-man party' na klientach Retail, BCC oraz MoP Classic (SoO), gdzie tę funkcję obsługuje natywny Edit Mode." }
+    ]},
+    { b: "236", te: "Update 1.2.1 - Dungeon Teleports Fixes", tp: "Aktualizacja 1.2.1 - Poprawki teleportów do lochów", c: [
+        { t: "Fixed", e: "Fixed dungeon highlight disappearing when the party became full.", p: "Naprawiono błąd, przez który podświetlenie lochu znikało po zapełnieniu grupy." },
+        { t: "Added", e: "Added per-dungeon artwork offset adjustments for Dungeon Teleport tiles.", p: "Dodano osobne przesunięcia grafiki dla kafelków teleportów, dopasowane indywidualnie do każdego lochu." }
+    ]},
+    { b: "235", te: "Update 1.2.1 - Dungeon Teleports UI Improvements", tp: "Aktualizacja 1.2.1 - Ulepszenia teleportów do lochów", c: [
+        { t: "Fixed", e: "Fixed broken artwork scaling in the Dungeon Teleports tab.", p: "Naprawiono nieprawidłowe skalowanie grafik w zakładce Dungeon Teleports." },
+        { t: "Added", e: "Added highlighting for the dungeon currently joined or listed by the player.", p: "Dodano podświetlanie lochu, do którego gracz dołączył lub który wystawił w wyszukiwarce." }
+    ]},
+    { b: "233", te: "Update 1.2.1 - Classic Edit Mode Fixes", tp: "Aktualizacja 1.2.1 - Poprawki Edit Mode na Classic", c: [
+        { t: "Changed", e: "Classic clients now select Edit Mode profiles by identifier instead of list index.", p: "Na klientach Classic profile Edit Mode są teraz wybierane po identyfikatorze zamiast po indeksie na liście." },
+        { t: "Fixed", e: "Fixed several logic issues inside the mQoL_EditMode module.", p: "Naprawiono kilka błędów logicznych w module mQoL_EditMode." }
+    ]},
+    { b: "232", te: "Update 1.2.1 - Mists of Pandaria Support", tp: "Aktualizacja 1.2.1 - Wsparcie Mists of Pandaria", c: [
+        { t: "Added", e: "Enabled the mQoL_EditMode module for Mists of Pandaria Classic.", p: "Włączono moduł mQoL_EditMode na kliencie Mists of Pandaria Classic." },
+        { t: "Added", e: "Added a safeguard that disables mQoL_EditMode on clients older than 5.5.4.", p: "Dodano zabezpieczenie wyłączające mQoL_EditMode na klientach starszych niż 5.5.4." }
+    ]},
+    { b: "231", te: "Update 1.2.1 - Gold Chart Fixes", tp: "Aktualizacja 1.2.1 - Poprawki wykresu złota", c: [
+        { t: "Fixed", e: "Fixed a bug where the Gold Chart grid sometimes did not appear or rendered only partially.", p: "Naprawiono błąd, przez który siatka wykresu złota czasami się nie pojawiała albo renderowała tylko częściowo." },
+        { t: "Changed", e: "Adjusted the minimum and maximum Gold Chart height for more consistent rendering.", p: "Poprawiono minimalną i maksymalną wysokość wykresu złota, żeby renderował się stabilniej." }
     ]},
     { b: "230", te: "Update 1.2.0 - Release", tp: "Aktualizacja 1.2.0 - Wydanie", c: [
         { t: "Added", e: "Added genuine season detection logic for the Legion client.", p: "Dodano realną logikę detekcji sezonu na kliencie Legion." },
@@ -1120,15 +1158,15 @@ function renderMqolChangelog(lang) {
     // Struktura grupowania według patchów
     const versionGroups = [
         { 
-            id: 'v121', status: 'beta',
+            id: 'v121', status: 'stable',
             nameEn: 'v1.2.1', namePl: 'Wersja 1.2.1', 
-            descEn: 'Whos Know?', descPl: 'Kto wie?',
-            revStartIdx: 185 // Builds 231+
+            descEn: 'Account Overview & Fixes', descPl: 'Przegląd Konta i Poprawki',
+            revStartIdx: 185 // Builds 231-241
         },
         { 
-            id: 'v120', status: 'stable',
+            id: 'v120', status: 'old',
             nameEn: 'v1.2.0', namePl: 'Wersja 1.2.0', 
-            descEn: 'Account Overview & Vault', descPl: 'Skarbiec i Przegląd Konta',
+            descEn: 'Account Overview', descPl: 'Przegląd Konta',
             revStartIdx: 161 // Builds 200-230
         },
         { 
