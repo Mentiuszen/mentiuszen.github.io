@@ -147,7 +147,7 @@ const translations = {
         mqolNewFeat1: "Przegląd Konta - Śledzi postacie, poziomy, klasy, złoto, czas gry, profesje i postęp cotygodniowych nagród na całym koncie.",
         mqolNewFeat2: "Wykres Złota - Dodaje interaktywny wykres historii majątku z poprawionym renderowaniem siatki i stabilniejszą wysokością.",
         mqolNewFeat3: "Podgląd cotygodniowych nagród - Pokazuje postęp Great Vault / Weekly Chest z danych zapisanych przez addon, razem z informacją po najechaniu i ikonami stanu.",
-        mqolNewFeat4: "Zakładka Dungeon Teleports - Dodaje zakładkę w Group Finderze z filtrami dodatków, cooldownami, grafikami lochów i podświetlaniem aktywnego lochu.",
+        mqolNewFeat4: "Zakładka Dungeon Teleports - Dodaje zakładkę w Group Finderze z filtrami dodatków, wyświetlaniem cooldownów i podświetlaniem aktywnego lochu.",
         mqolNewFeat5: "Śledzenie profesji - Zapisuje i wyświetla szczegóły profesji na wspieranych klientach, w tym Classic Era, BCC, Legion i Retail.",
         mqolNewFeat6: "Fast Autoloot - Zastępuje domyślne lootowanie oparte o CVAR szybszym, autorskim modułem.",
         mqolNewFeat7: "Rozszerzone wsparcie Edit Mode - Włącza mQoL_EditMode na Mists of Pandaria Classic z zabezpieczeniami opartymi o wykrywanie wersji.",
@@ -169,7 +169,7 @@ const translations = {
         mqolOptFeat4_2: "Zepsuta nawigacja po mapie Pandarii.",
         mqolOptFeat4_3: "Nieprawidłowe wyświetlanie World Bossów na mapie świata.",
         mqolPlannedTitle: "Planowane Aktualizacje",
-        mqolPlanned1: "Pełna synchronizacja wszystkich ustawień postaci na całe konto. (WiP)",
+        mqolPlanned1: "Aktywny plan dla wersji 1.2.2-1.2.5 obejmuje mniejsze usprawnienia, a wersja 1.3.0 skupi się na ulepszeniach poczty.",
         
         tagRemoved: "[Usunięto]",
         dtt_v1_6_1_1: "Poprawka dla niedziałającego teleportu do Seat of the Triumvirate",
