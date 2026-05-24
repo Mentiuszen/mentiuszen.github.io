@@ -321,6 +321,11 @@ function changeLanguage(lang) {
     if(typeof renderMqolChangelog === 'function') {
         renderMqolChangelog(lang);
     }
+
+    // Odbudowanie changelogu DungeonTeleportsTab jeśli jesteśmy na tej stronie
+    if(typeof renderDttChangelog === 'function') {
+        renderDttChangelog(lang);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {

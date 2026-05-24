@@ -153,110 +153,15 @@
                 <i class="fa-solid fa-timeline mr-3 text-fuchsia-400"></i> <span data-i18n="changelog">Changelog</span>
             </h2>
             
-            <!-- Accordion Changelog -->
-            <div class="space-y-3">
-                
-                <!-- Najnowsze Zmiany -->
-                <div class="border border-fuchsia-900/40 rounded-xl bg-card overflow-hidden">
-                    <button class="w-full px-5 py-4 flex justify-between items-center hover:bg-slate-800 transition-colors group" onclick="toggleChangelog('dtt-recent')">
-                        <div class="flex items-center gap-3">
-                            <span class="font-bold text-white group-hover:text-fuchsia-400 transition-colors">v1.0 - v1.6.1</span>
-                            <span class="text-xs text-fuchsia-200/50 px-2 py-1 bg-fuchsia-950/50 border border-fuchsia-900/50 rounded-md">All Updates</span>
-                        </div>
-                        <i class="fa-solid fa-chevron-down text-fuchsia-500/50 transition-transform duration-300" id="icon-dtt-recent"></i>
-                    </button>
-                    
-                    <div class="px-5 pb-5 pt-2 hidden" id="content-dtt-recent">
-                        <div class="space-y-6 border-l-2 border-slate-700/50 ml-2 pl-4 mt-2">
-                            
-                            <!-- v1.6.1 -->
-                            <div class="relative">
-                                <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-fuchsia-500 shadow-[0_0_8px_rgba(217,70,239,0.5)]"></div>
-                                <h4 class="text-fuchsia-400 font-bold mb-2 flex items-center gap-2">v1.6.1 <span class="text-xs font-normal text-slate-500 bg-slate-800 px-2 rounded">Latest</span></h4>
-                                <ul class="list-none space-y-1.5 text-sm text-slate-300">
-                                    <li><span class="text-red-400 font-bold mr-1" data-i18n="tagFixed">[Fixed]</span> <span data-i18n="dtt_v1_6_1_1">Fix for not working Seat of the Triumvirate teleport</span></li>
-                                </ul>
-                            </div>
-
-                            <!-- v1.6 -->
-                            <div class="relative">
-                                <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-600"></div>
-                                <h4 class="text-slate-300 font-bold mb-2">v1.6</h4>
-                                <ul class="list-none space-y-1.5 text-sm text-slate-400">
-                                    <li><span class="text-emerald-400 font-bold mr-1" data-i18n="tagAdded">[Added]</span> <span data-i18n="dtt_v1_6_1">Added missing Dawn of the Infinite teleport</span></li>
-                                    <li><span class="text-red-400 font-bold mr-1" data-i18n="tagFixed">[Fixed]</span> <span data-i18n="dtt_v1_6_2">Fixed active dungeon teleports tab color</span></li>
-                                </ul>
-                            </div>
-
-                            <!-- v1.5 -->
-                            <div class="relative">
-                                <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-600"></div>
-                                <h4 class="text-slate-300 font-bold mb-2">v1.5</h4>
-                                <ul class="list-none space-y-1.5 text-sm text-slate-400">
-                                    <li><span class="text-emerald-400 font-bold mr-1" data-i18n="tagAdded">[Added]</span> <span data-i18n="dtt_v1_5_1">Added support for Mists of Pandaria Classic</span></li>
-                                </ul>
-                            </div>
-
-                            <!-- v1.4 -->
-                            <div class="relative">
-                                <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-600"></div>
-                                <h4 class="text-slate-300 font-bold mb-2">v1.4</h4>
-                                <ul class="list-none space-y-1.5 text-sm text-slate-400">
-                                    <li><span class="text-red-400 font-bold mr-1" data-i18n="tagFixed">[Fixed]</span> <span data-i18n="dtt_v1_4_1">Fixed wrong Midnight Season 1 start date</span></li>
-                                    <li><span class="text-orange-400 font-bold mr-1" data-i18n="tagRemoved">[Removed]</span> <span data-i18n="dtt_v1_4_2">Removed TWW season tables</span></li>
-                                </ul>
-                            </div>
-
-                            <!-- v1.3 -->
-                            <div class="relative">
-                                <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-600"></div>
-                                <h4 class="text-slate-300 font-bold mb-2">v1.3</h4>
-                                <ul class="list-none space-y-1.5 text-sm text-slate-400">
-                                    <li><span class="text-emerald-400 font-bold mr-1" data-i18n="tagAdded">[Added]</span> <span data-i18n="dtt_v1_3_1">Added other regions support for season timers</span></li>
-                                    <li><span class="text-emerald-400 font-bold mr-1" data-i18n="tagAdded">[Added]</span> <span data-i18n="dtt_v1_3_2">Added season start/end info at season heading</span></li>
-                                    <li><span class="text-red-400 font-bold mr-1" data-i18n="tagFixed">[Fixed]</span> <span data-i18n="dtt_v1_3_3">Minor bug fixes</span></li>
-                                </ul>
-                            </div>
-
-                            <!-- v1.2 -->
-                            <div class="relative">
-                                <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-600"></div>
-                                <h4 class="text-slate-300 font-bold mb-2">v1.2</h4>
-                                <ul class="list-none space-y-1.5 text-sm text-slate-400">
-                                    <li><span class="text-red-400 font-bold mr-1" data-i18n="tagFixed">[Fixed]</span> <span data-i18n="dtt_v1_2_1">Fixed issue with not working Motherlode portal for Horde players</span></li>
-                                    <li><span class="text-emerald-400 font-bold mr-1" data-i18n="tagAdded">[Added]</span> <span data-i18n="dtt_v1_2_2">Added a custom tooltip with information on how to unlock each portal</span></li>
-                                    <li><span class="text-emerald-400 font-bold mr-1" data-i18n="tagAdded">[Added]</span> <span data-i18n="dtt_v1_2_3">Added information about season start and end dates on portal tooltip</span></li>
-                                </ul>
-                            </div>
-
-                            <!-- v1.1 -->
-                            <div class="relative">
-                                <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-600"></div>
-                                <h4 class="text-slate-300 font-bold mb-2">v1.1</h4>
-                                <ul class="list-none space-y-1.5 text-sm text-slate-400">
-                                    <li><span class="text-red-400 font-bold mr-1" data-i18n="tagFixed">[Fixed]</span> <span data-i18n="dtt_v1_1_1">Fixed bug that prevented buttons from working for some players</span></li>
-                                    <li><span class="text-red-400 font-bold mr-1" data-i18n="tagFixed">[Fixed]</span> <span data-i18n="dtt_v1_1_2">Fixed missing textures</span></li>
-                                </ul>
-                            </div>
-
-                            <!-- v1.0 -->
-                            <div class="relative">
-                                <div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-600"></div>
-                                <h4 class="text-slate-300 font-bold mb-2">v1.0</h4>
-                                <ul class="list-none space-y-1.5 text-sm text-slate-400">
-                                    <li><span class="text-emerald-400 font-bold mr-1" data-i18n="tagAdded">[Added]</span> <span data-i18n="dtt_v1_0_1">Added standalone addon (ported from mQoL module)</span></li>
-                                </ul>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
+            <!-- Accordion Changelog Container -->
+            <div id="dtt-changelog-container" class="space-y-3">
+                <!-- Dynamically generated via js/dtt-changelog.js -->
             </div>
         </section>
 
     </main>
 
     <script src="js/main.js"></script>
+    <script src="js/dtt-changelog.js"></script>
 </body>
 </html>
