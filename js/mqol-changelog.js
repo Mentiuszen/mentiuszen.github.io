@@ -1,4 +1,37 @@
 const mqolChangelog = [
+    { b: "250", te: "Update 1.2.2 - Slider Changes", tp: "Aktualizacja 1.2.2 - Zmiany sliderów", c: [
+        { t: "Removed", e: "Removed the automatic gap created by sliders.", p: "Usunieto automatyczny gap tworzony przez slider." },
+        { t: "Added", e: "Added manual gaps for sliders after removing the automatic gap.", p: "Dodano ręczne gapy dla sliderów po usunięciu automatycznego gapu." },
+        { t: "Changed", e: "Slightly adjusted the min/max text font size and positioning.", p: "Zmieniono lekko wielkość czcionki tekstu min/max oraz jego położenie." }
+    ]},
+    { b: "249", te: "Update 1.2.2 - Fast Autoloot Speed", tp: "Aktualizacja 1.2.2 - Prędkość Fast Autoloot", c: [
+        { t: "Added", e: "Added autoloot speed customization from 0.01s to 0.10s.", p: "Dodano opcję customizacji autoloot speed od 0.01s do 0.10s." }
+    ]},
+    { b: "248", te: "Update 1.2.2 - Popup Fix", tp: "Aktualizacja 1.2.2 - Poprawka popupu", c: [
+        { t: "Fixed", e: "Fixed a bug where the popup disappeared after using another spell.", p: "Naprawiono błąd przez który popup znikał jak użyło się innego spella." }
+    ]},
+    { b: "247", te: "Update 1.2.2 - Dungeon Teleport Popup", tp: "Aktualizacja 1.2.2 - Popup teleportu do dungeona", c: [
+        { t: "Added", e: "Added a popup asking whether you want to teleport to the dungeon you joined.", p: "Dodano popup który pyta się czy chcesz się teleportować do dungeona na który dołączyłeś." }
+    ]},
+    { b: "246", te: "Update 1.2.2 - Legion Changes", tp: "Aktualizacja 1.2.2 - Zmiany Legion", c: [
+        { t: "Changed", e: "The Blizzard auto raid profile manager no longer appears in the Raid Profiles window.", p: "Blizzardowy auto raid profile menadżer już nie wyświetla się w oknie raid profiles." },
+        { t: "Added", e: "Added automatic disabling of everything configured in the Blizzard raid profiles manager.", p: "Dodano automatyczne wyłączanie wszystkiego ustawionego w blizzardowym raid profiles menadżerze." }
+    ]},
+    { b: "245", te: "Update 1.2.2 - Missing Raid Profiles CVARs", tp: "Aktualizacja 1.2.2 - Brakujące CVARy Raid Profiles", c: [
+        { t: "Added", e: "Added missing Raid Profiles CVARs.", p: "Dodano brakujące CVARy raid profiles." },
+        { t: "Added", e: "Added the ModernClassic table for BCC and MoP Classic (5.5.4).", p: "Dodano tabelkę ModernClassic dla BCC oraz MoP Classic (5.5.4)." }
+    ]},
+    { b: "244", te: "Update 1.2.2 - MoP Classic PTR and Legion", tp: "Aktualizacja 1.2.2 - MoP Classic PTR i Legion", c: [
+        { t: "Added", e: "Added the missing button for saving a raid profile to mQoL.", p: "Dodano brakujący przycisk do zapisywania raid profile do mQoL." },
+        { t: "Added", e: "Added missing disabling of the Blizzard auto raid profile manager on Legion.", p: "Dodano brakujące wyłączanie blizzardowego auto raid profile menadżera na Legionie." }
+    ]},
+    { b: "243", te: "Update 1.2.2 - Raid Profiles and Dungeon Teleport Fixes", tp: "Aktualizacja 1.2.2 - Poprawki Raid Profiles i Dungeon Teleport", c: [
+        { t: "Removed", e: "Removed all combat protection from the Raid Profiles module.", p: "Usunięto wszystkie combat protection z modułu Raid Profiles." },
+        { t: "Fixed", e: "Fixed a bug where the dungeon portal did not highlight when joining as the last party member.", p: "Naprawiono błąd przez który portal do dungeona nie podświetlał się gdy dołączało się jako ostatni członek party." }
+    ]},
+    { b: "242", te: "Update 1.2.1a - Professions Fix", tp: "Aktualizacja 1.2.1a - Poprawka profesji", c: [
+        { t: "Fixed", e: "Fixed a bug where professions disappeared from the Account Overview after logging out of a character.", p: "Naprawiono błąd przez który profesje znikały z account overview po wylogowaniu się z postaci." }
+    ]},
     { b: "241", te: "Update 1.2.1 - Release", tp: "Aktualizacja 1.2.1 - Wydanie", c: [
         { t: "Added", e: "Added hover information for Vault preview availability in the Account Overview.", p: "Dodano informację o dostępności podglądu skarbca po najechaniu kursorem w Przeglądzie Konta." },
         { t: "Changed", e: "Improved the profession details messages displayed in the Account Overview.", p: "Poprawiono wyświetlanie komunikatów ze szczegółami profesji w Przeglądzie Konta." }
@@ -1158,10 +1191,16 @@ function renderMqolChangelog(lang) {
     // Struktura grupowania według patchów
     const versionGroups = [
         { 
+            id: 'v123', status: 'beta',
+            nameEn: 'v1.2.3', namePl: 'Wersja 1.2.3', 
+            descEn: 'Account Overview Changes', descPl: 'Zmiany w Account Overview',
+            revStartIdx: 204 // Builds 243-250
+        },
+        { 
             id: 'v122', status: 'beta',
             nameEn: 'v1.2.2', namePl: 'Wersja 1.2.2', 
-            descEn: 'Account Overview & Dungeon Teleports Changes', descPl: 'Zmiany w Account Overview oraz Dungeon Teleports',
-            revStartIdx: 195 // Builds 231-241
+            descEn: 'Dungeon Teleports & Overall Changes', descPl: 'Ogólne Zmiany oraz Dungeon Teleports',
+            revStartIdx: 196 // Builds 243-250
         },
         { 
             id: 'v121', status: 'stable',
@@ -1287,18 +1326,27 @@ function renderMqolChangelog(lang) {
             let buildBadge = '';
             let dotColor = 'bg-slate-600';
             let titleColor = 'text-slate-400';
+            const isHotfixBuild = /\d+\.\d+\.\d+[a-z]/i.test(title);
+            const isReleaseBuild = group.status === 'stable' && /release|wydanie/i.test(title);
 
-            if (i === actualStartIdx) {
+            if (isHotfixBuild) {
+                isLatestBuild = true;
+                dotColor = 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.5)]';
+                titleColor = 'text-red-400';
+                buildBadge = '<span class="text-[10px] font-bold uppercase tracking-wider text-red-400 bg-red-500/10 border border-red-500/20 px-2 py-0.5 rounded ml-2">Hotfix</span>';
+            } else if (isReleaseBuild) {
+                isLatestBuild = true;
+                dotColor = 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]';
+                titleColor = 'text-emerald-400';
+                buildBadge = '<span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded ml-2">Release</span>';
+            }
+
+            if (!buildBadge && i === actualStartIdx) {
                 if (group.status === 'beta') {
                     isLatestBuild = true;
                     dotColor = 'bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.5)]';
                     titleColor = 'text-amber-400';
                     buildBadge = '<span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded ml-2">' + (lang === 'pl' ? 'Najnowsza Beta' : 'Latest Beta') + '</span>';
-                } else if (group.status === 'stable') {
-                    isLatestBuild = true;
-                    dotColor = 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]';
-                    titleColor = 'text-emerald-400';
-                    buildBadge = '<span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded ml-2">' + (lang === 'pl' ? 'Najnowsza Stabilna' : 'Latest Stable') + '</span>';
                 }
             }
             
