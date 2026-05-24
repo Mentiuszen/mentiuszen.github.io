@@ -1,5 +1,5 @@
 const mqolChangelog = [
-    { b: "250", te: "Update 1.2.2 - Slider Changes", tp: "Aktualizacja 1.2.2 - Zmiany sliderów", c: [
+    { b: "250", type: "release", te: "Update 1.2.2 - Slider Changes", tp: "Aktualizacja 1.2.2 - Zmiany sliderów", c: [
         { t: "Removed", e: "Removed the automatic gap created by sliders.", p: "Usunieto automatyczny gap tworzony przez slider." },
         { t: "Added", e: "Added manual gaps for sliders after removing the automatic gap.", p: "Dodano ręczne gapy dla sliderów po usunięciu automatycznego gapu." },
         { t: "Changed", e: "Slightly adjusted the min/max text font size and positioning.", p: "Zmieniono lekko wielkość czcionki tekstu min/max oraz jego położenie." }
@@ -29,10 +29,10 @@ const mqolChangelog = [
         { t: "Removed", e: "Removed all combat protection from the Raid Profiles module.", p: "Usunięto wszystkie combat protection z modułu Raid Profiles." },
         { t: "Fixed", e: "Fixed a bug where the dungeon portal did not highlight when joining as the last party member.", p: "Naprawiono błąd przez który portal do dungeona nie podświetlał się gdy dołączało się jako ostatni członek party." }
     ]},
-    { b: "242", te: "Update 1.2.1a - Professions Fix", tp: "Aktualizacja 1.2.1a - Poprawka profesji", c: [
+    { b: "242", type: "hotfix", te: "Update 1.2.1a - Professions Fix", tp: "Aktualizacja 1.2.1a - Poprawka profesji", c: [
         { t: "Fixed", e: "Fixed a bug where professions disappeared from the Account Overview after logging out of a character.", p: "Naprawiono błąd przez który profesje znikały z account overview po wylogowaniu się z postaci." }
     ]},
-    { b: "241", te: "Update 1.2.1 - Release", tp: "Aktualizacja 1.2.1 - Wydanie", c: [
+    { b: "241", type: "release", te: "Update 1.2.1 - Release", tp: "Aktualizacja 1.2.1 - Wydanie", c: [
         { t: "Added", e: "Added hover information for Vault preview availability in the Account Overview.", p: "Dodano informację o dostępności podglądu skarbca po najechaniu kursorem w Przeglądzie Konta." },
         { t: "Changed", e: "Improved the profession details messages displayed in the Account Overview.", p: "Poprawiono wyświetlanie komunikatów ze szczegółami profesji w Przeglądzie Konta." }
     ]},
@@ -73,7 +73,7 @@ const mqolChangelog = [
         { t: "Fixed", e: "Fixed a bug where the Gold Chart grid sometimes did not appear or rendered only partially.", p: "Naprawiono błąd, przez który siatka wykresu złota czasami się nie pojawiała albo renderowała tylko częściowo." },
         { t: "Changed", e: "Adjusted the minimum and maximum Gold Chart height for more consistent rendering.", p: "Poprawiono minimalną i maksymalną wysokość wykresu złota, żeby renderował się stabilniej." }
     ]},
-    { b: "230", te: "Update 1.2.0 - Release", tp: "Aktualizacja 1.2.0 - Wydanie", c: [
+    { b: "230", type: "release", te: "Update 1.2.0 - Release", tp: "Aktualizacja 1.2.0 - Wydanie", c: [
         { t: "Added", e: "Added genuine season detection logic for the Legion client.", p: "Dodano realną logikę detekcji sezonu na kliencie Legion." },
         { t: "Changed", e: "The Vault interface is now dynamically renamed to 'Weekly Chest' on the Legion client.", p: "Vault od teraz dynamicznie zmienia nazwę na 'Weekly Chest' na kliencie Legion." },
         { t: "Added", e: "Added a tooltip notification about the Vault preview availability on Retail.", p: "Dodano do tooltipa powiadomienie o możliwości podglądu skarbca (Vault preview) na kliencie Retail." },
@@ -189,7 +189,7 @@ const mqolChangelog = [
         { t: "Added", e: "Added a brand new 'Dungeon Teleports' tab to the official Group Finder window (currently Retail only).", p: "Dodano kompletnie nową, autorską zakładkę 'Dungeon Teleports' bezpośrednio do oficjalnego okna Group Findera Blizzarda (na tę chwilę tylko w wersji Retail)." },
         { t: "Added", e: "Set up baseline formatting and title structures for the newly integrated window.", p: "Ustawiono fundamenty nowego okna (tytuły, osadzenie, podstawowe ramki)." }
     ]},
-    { b: "193", te: "Patch 1.1.1 - Code Improvements", tp: "Patch 1.1.1 - Usprawnienia użyteczności", c: [
+    { b: "193", type: "release", te: "Patch 1.1.1 - Code Improvements", tp: "Patch 1.1.1 - Usprawnienia użyteczności", c: [
         { t: "Added", e: "Input box popups now automatically grab typing focus (cursor) right after opening.", p: "Od teraz popup z polem tekstowym automatycznie przejmuje fokus klawiatury od razu po otwarciu, by pisać bez klikania." },
         { t: "Added", e: "Pressing the ESC key now dynamically closes 'Save Raid Profile' and 'Manage Raid Profiles' popups.", p: "Klawisz ESC na klawiaturze od teraz poprawnie zamyka wszystkie aktywne okienka związane z profilami rajdowymi." }
     ]},
@@ -220,14 +220,14 @@ const mqolChangelog = [
     { b: "187", te: "Patch 1.1.1 - Optimizations", tp: "Patch 1.1.1 - Optymalizacje procesora", c: [
         { t: "Changed", e: "Changed heavy frame-by-frame loop checking events to highly optimized OnEventUpdate structures.", p: "W trosce o FPSy usunięto najcięższe nasłuchiwacze odświeżające się co ułamek sekundy i zastąpiono je zoptymalizowanymi wywołaniami OnEventUpdate." }
     ]},
-    { b: "186", te: "Update 1.1 - Post Release Hotfix", tp: "Aktualizacja 1.1 - Poprawka po wydaniu", c: [
+    { b: "186", type: "hotfix", te: "Update 1.1 - Post Release Hotfix", tp: "Aktualizacja 1.1 - Poprawka po wydaniu", c: [
         { t: "Fixed", e: "Fixed a bug where raid frames did not refresh when someone left the party during combat.", p: "Naprawiono błąd, przez który ramki rajdowe nie odświeżały się po wyjściu kogoś z grupy podczas walki." }
     ]},
-    { b: "185", te: "Update 1.1 - Hotfixes", tp: "Aktualizacja 1.1 - Gorące poprawki", c: [
+    { b: "185", type: "hotfix", te: "Update 1.1 - Hotfixes", tp: "Aktualizacja 1.1 - Gorące poprawki", c: [
         { t: "Fixed", e: "Fixed a bug where situational profiles were not applied immediately upon selection.", p: "Naprawiono błąd, przez który profile sytuacyjne nie aktywowały się natychmiast po zaznaczeniu." },
         { t: "Fixed", e: "Fixed an issue where Mercenary Mode was not detected correctly during Battlegrounds.", p: "Naprawiono błąd uniemożliwiający prawidłowe wykrywanie Trybu Najemnika (Mercenary Mode) na BG." }
     ]},
-    { b: "184", te: "Update 1.1 - Release", tp: "Aktualizacja 1.1 - Pełne Wydanie", c: [
+    { b: "184", type: "release", te: "Update 1.1 - Release", tp: "Aktualizacja 1.1 - Pełne Wydanie", c: [
         { t: "Changed", e: "Replaced the explanation frame with a more detailed one, better describing options and potential issues.", p: "Zastąpiono ramkę z wyjaśnieniami bardziej szczegółową wersją, lepiej opisującą opcje i potencjalne skutki uboczne." },
         { t: "Fixed", e: "Fixed a bug where advanced mode raid frames would overflow the panel when the explanation box was active.", p: "Naprawiono błąd, przez który ramki rajdowe w trybie zaawansowanym wychodziły poza okno przy włączonym panelu wyjaśnień." },
         { t: "Fixed", e: "Fixed a bug with the World Map fix that prevented zooming out while the mouse was hovering over the navigation box.", p: "Naprawiono usterkę poprawki mapy świata, która blokowała oddalanie widoku (zoom out), gdy kursor znajdował się nad panelem nawigacji." }
@@ -760,33 +760,33 @@ const mqolChangelog = [
         { t: "Added", e: "Added highlighting logic for the currently active button.", p: "Dodano stałe podświetlenie dla obecnie aktywnego/klikniętego przycisku." },
         { t: "Added", e: "Implemented the visual interface for an options search bar (logic to be added later).", p: "Dodano wizualną wyszukiwarkę opcji (logika została dodana w kolejnych łatkach)." }
     ]},
-    { b: "67", te: "Patch 1.0.9 - Last Fixes", tp: "Patch 1.0.9 - Końcowe poprawki", c: [
+    { b: "67", type: "release", te: "Patch 1.0.9 - Last Fixes", tp: "Patch 1.0.9 - Końcowe poprawki", c: [
         { t: "Fixed", e: "Fixed friendly nameplates logic (updated for Midnight expansion changes).", p: "Naprawiono logikę wyświetlania przyjaznych pasków zdrowia (dostosowano do zmian z Midnight)." },
         { t: "Fixed", e: "Fixed an issue where the database checksum was not generated if the user chose to keep their settings during the first setup.", p: "Naprawiono brak generowania sumy kontrolnej po wyborze własnych ustawień podczas pierwszej konfiguracji." },
         { t: "Removed", e: "Disabled database checksum validation on game versions other than Retail.", p: "Wyłączono weryfikację sumy kontrolnej bazy danych dla klientów innych niż Retail." },
         { t: "Fixed", e: "Fixed a bug where the addon attempted to read a secret internal Blizzard value.", p: "Naprawiono błąd przez który addon bezprawnie próbował odczytać tajną wartość systemową gry." }
     ]},
-    { b: "66", te: "Patch 1.0.8 - BCC", tp: "Patch 1.0.8 - Burning Crusade Classic", c: [
+    { b: "66", type: "release", te: "Patch 1.0.8 - BCC", tp: "Patch 1.0.8 - Burning Crusade Classic", c: [
         { t: "Added", e: "Added official support for the Burning Crusade Classic client.", p: "Dodano oficjalne wsparcie dla klienta Burning Crusade Classic." },
         { t: "Fixed", e: "Fixed functional issues with UI sliders.", p: "Naprawiono usterki techniczne związane z suwakami opcji." }
     ]},
-    { b: "65", te: "Patch 1.0.7 - Hotfix 4", tp: "Patch 1.0.7 - Szybka poprawka 4", c: [
+    { b: "65", type: "hotfix", te: "Patch 1.0.7 - Hotfix 4", tp: "Patch 1.0.7 - Szybka poprawka 4", c: [
         { t: "Fixed", e: "Permanently resolved the addon interference preventing players from changing talents.", p: "Tym razem definitywnie załatano problem blokady zmiany talentów powodowanej przez addon." }
     ]},
-    { b: "64", te: "Patch 1.0.7 - Hotfix 3", tp: "Patch 1.0.7 - Szybka poprawka 3", c: [
+    { b: "64", type: "hotfix", te: "Patch 1.0.7 - Hotfix 3", tp: "Patch 1.0.7 - Szybka poprawka 3", c: [
         { t: "Fixed", e: "Finally fixed the critical 'taint' issue affecting the Special Ability Button.", p: "Ostatecznie naprawiono błąd taintujący przycisk Specjalnej Umiejętności." },
         { t: "Added", e: "Added a mandatory UI reload popup upon logging into a character for the very first time.", p: "Dodano powiadomienie wymuszające /reload przy pierwszym w życiu logowaniu na nową postać." },
         { t: "Changed", e: "Separated Action Bars applying logic from ApplySettings into its own ApplyBarsSettings function.", p: "Rozdzielono funkcję nakładającą ustawienia pasków do nowej instancji ApplyBarsSettings." },
         { t: "Changed", e: "ApplyBarsSettings now triggers strictly on the first login or when detecting bar changes.", p: "Logika pasków od teraz aktywuje się wyłącznie na start lub kiedy addon wykryje realną zmianę ustawień." }
     ]},
-    { b: "63", te: "Patch 1.0.7 - Hotfix 2", tp: "Patch 1.0.7 - Szybka poprawka 2", c: [
+    { b: "63", type: "hotfix", te: "Patch 1.0.7 - Hotfix 2", tp: "Patch 1.0.7 - Szybka poprawka 2", c: [
         { t: "Fixed", e: "Fixed a bug where the addon sporadically blocked users from swapping talents.", p: "Naprawiono problem, przez który addon sporadycznie blokował możliwość zmiany talentów." }
     ]},
-    { b: "62", te: "Patch 1.0.7 - Test Version Fixes #1", tp: "Patch 1.0.7 - Poprawki wersji testowej #1", c: [
+    { b: "62", type: "hotfix", te: "Patch 1.0.7 - Hotfix 1", tp: "Patch 1.0.7 - Szybka poprawka 1", c: [
         { t: "Changed", e: "Relocated vreg.lua from the Hub directory to the Core.", p: "Przeniesiono plik vreg.lua z katalogu Hub do jądra (Core)." },
         { t: "Fixed", e: "Fixed Lua errors stemming from the transition from char.lua to vreg.lua.", p: "Naprawiono błędy Lua występujące po podmianie starego char.lua na vreg.lua." }
     ]},
-    { b: "61", te: "Patch 1.0.7 - Code Fixes", tp: "Patch 1.0.7 - Poprawki Kodu", c: [
+    { b: "61", type: "release", te: "Patch 1.0.7 - Code Fixes", tp: "Patch 1.0.7 - Poprawki Kodu", c: [
         { t: "Added", e: "Added missing buff IDs into the consolidated buffs logic.", p: "Uzupełniono kody ID dla brakujących buffów w systemie ich grupowania." },
         { t: "Fixed", e: "Fixed a visual bug causing consolidated buffs to display incorrect remaining durations.", p: "Naprawiono błąd przez który zgrupowane wzmocnienia pokazywały błędny pozostały czas trwania." },
         { t: "Changed", e: "Replaced the legacy char.lua module with a new vreg.lua module.", p: "Stary plik char.lua został całkowicie wyparty przez nowy system vreg.lua." }
@@ -837,7 +837,7 @@ const mqolChangelog = [
         { t: "Added", e: "Restored missing reward displays for Battlegrounds, Arenas, and RBGs.", p: "Przywrócono i dodano brakujące panele nagród za BG, Areny oraz RBG." },
         { t: "Changed", e: "Adjusted Challenge Mode fixes to ensure they don't overlap or interfere with normal non-Challenge group code.", p: "Poprawiono kod łatek Challenge Mode, by upewnić się, że nie psują kodu zwykłych grup." }
     ]},
-    { b: "51", te: "Patch 1.0.6 - Remix Fixes", tp: "Patch 1.0.6 - Poprawki Remix", c: [
+    { b: "51", type: "release", te: "Patch 1.0.6 - Remix Fixes", tp: "Patch 1.0.6 - Poprawki Remix", c: [
         { t: "Fixed", e: "Fixed a bug on Retail where the extra ability action bar was blocked (Visions and MoP Remix).", p: "Naprawiono zablokowany extra ability action bar na kliencie Retail (dotyczy Visions oraz Remix)." },
         { t: "Added", e: "Added internal vendor naming checks for future features.", p: "Dodano deweloperskie sprawdzanie nazw vendorów na poczet przyszłych funkcji." }
     ]},
@@ -904,7 +904,7 @@ const mqolChangelog = [
         { t: "Removed", e: "Removed MentiuszenHub_Cata.toc due to Cataclysm Classic support being discontinued.", p: "Wykasowano specyficzny plik TOC dla Cataclysm, w związku z porzuceniem wsparcia dla tej wersji." },
         { t: "Changed", e: "Updated core .toc files to support the 5.5.1 patch on Classic Mists of Pandaria.", p: "Podbito numery wspieranej wersji (TOC) dla środowiska Classic MoP do łatki 5.5.1." }
     ]},
-    { b: "41", te: "Update 1.0.5 - Final Fixes & Release", tp: "Patch 1.0.5 - Wydanie stabilne", c: [
+    { b: "41", type: "release", te: "Update 1.0.5 - Final Fixes & Release", tp: "Patch 1.0.5 - Wydanie stabilne", c: [
         { t: "Fixed", e: "Fixed an issue duplicating /mhv chat replies with the realm name appended incorrectly.", p: "Poprawiono błąd dublujący automatyczną odpowiedź addonu, co kończyło się spamem nazwy serwera." },
         { t: "Changed", e: "Performed a global codebase cleanup across all active files.", p: "Przeprowadzono gruntowne sprzątanie i wyrównanie we wszystkich plikach lua." },
         { t: "Fixed", e: "Fixed a Mailbox bug preventing the recipient's name from staying populated after sending the first parcel.", p: "Naprawiono błąd pamięci poczty (nick odbiorcy ginął po wysłaniu pierwszej paczki z masowej kolejki)." }
@@ -925,7 +925,7 @@ const mqolChangelog = [
         { t: "Changed", e: "Updated the .toc structure for addon versions 1.0 and 1.1 to target build 110200.", p: "Zmieniono parametry w plikach .toc pod najnowszą wersję gry (110200)." },
         { t: "Changed", e: "Updated minimum TOC detection logic in MentiuszenHub to 110200.", p: "Podbito logikę detekcji klienta z minimalnej 110107 do 110200." }
     ]},
-    { b: "37", te: "Patch 1.0.4 - Release Build", tp: "Patch 1.0.4 - Wydanie stabilne", c: [
+    { b: "37", type: "release", te: "Patch 1.0.4 - Release Build", tp: "Patch 1.0.4 - Wydanie stabilne", c: [
         { t: "Removed", e: "Removed 90% of development debuggers.", p: "Usunięto 90% logów służących do debugowania." },
         { t: "Changed", e: "Localized remaining Polish variables/names to English.", p: "Podmieniono nazwy wewnętrzne na angielskie." },
         { t: "Changed", e: "Standardized the Database Migration system in MentiuszenMailbox and MentiuszenHub to match MentiuszenQoL.", p: "Zastąpiono system migracji bazy danych w modułach Mailbox i Hub systemem z MentiuszenQoL." }
@@ -1004,15 +1004,15 @@ const mqolChangelog = [
         { t: "Added", e: "Registered missing events: CHAT_MSG_PARTY, CHAT_MSG_RAID, CHAT_MSG_WHISPER.", p: "Zarejestrowano brakujące eventy czatu (Party, Raid, Whisper)." },
         { t: "Fixed", e: "Fixed a bug preventing the addon from recognizing commands in chat.", p: "Naprawiono błąd, który uniemożliwiał rozpoznawanie komend wpisywanych na czacie." }
     ]},
-    { b: "26", te: "Cloak/Head Fix", tp: "Opcje hełmu i peleryny", c: [
+    { b: "26", type: "release", te: "Cloak/Head Fix", tp: "Opcje hełmu i peleryny", c: [
         { t: "Fixed", e: "Fixed a bug causing configuration save issues for Show/Hide Cloak and Head.", p: "Naprawiono błąd powodujący problemy z zapisem konfiguracji ukrywania Hełmu i Peleryny." }
     ]},
-    { b: "25", te: "View Distance & Fog Fixes", tp: "Dystans widzenia i mgła", c: [
+    { b: "25", type: "release", te: "View Distance & Fog Fixes", tp: "Dystans widzenia i mgła", c: [
         { t: "Fixed", e: "Adjusted View Distance Level 3 from 2000 to 2112 units (Classic default).", p: "Poprawiono 3 poziom dystansu widzenia z 2000 na 2112 jednostek (domyślna wartość Classic)." },
         { t: "Fixed", e: "Adjusted Fog Distance Level 3 from 800 to 777 units (Classic default).", p: "Poprawiono 3 poziom dystansu mgły z 800 na 777 jednostek (domyślna wartość Classic)." },
         { t: "Changed", e: "Changed the base level of View and Fog Distance from 1 to 3.", p: "Zmieniono startowy, bazowy poziom dystansu widzenia i mgły z 1 na 3." }
     ]},
-    { b: "24", te: "Release", tp: "Premiera", c: [
+    { b: "24", type: "release", te: "Release", tp: "Premiera", c: [
         { t: "Added", e: "Added maximum fog distance identifiers for Pandaria zones.", p: "Dodano oznaczenia maksymalnego dystansu mgły dla stref w Pandarii." },
         { t: "Added", e: "Added version branding for MentiuszenHub.", p: "Dodano oznaczenia wersji dla MentiuszenHub." },
         { t: "Removed", e: "Removed all references to the old 'Forward' naming scheme from all files.", p: "Zmieniono nazewnictwo w całym kodzie, usuwając resztki odniesień do starej nazwy 'Forward'." }
@@ -1197,13 +1197,13 @@ function renderMqolChangelog(lang) {
             revStartIdx: 204 // Builds 243-250
         },
         { 
-            id: 'v122', status: 'beta',
+            id: 'v122', status: 'stable',
             nameEn: 'v1.2.2', namePl: 'Wersja 1.2.2', 
             descEn: 'Dungeon Teleports & Overall Changes', descPl: 'Ogólne Zmiany oraz Dungeon Teleports',
             revStartIdx: 196 // Builds 243-250
         },
         { 
-            id: 'v121', status: 'stable',
+            id: 'v121', status: 'old',
             nameEn: 'v1.2.1', namePl: 'Wersja 1.2.1', 
             descEn: 'Account Overview & Fixes', descPl: 'Przegląd Konta i Poprawki',
             revStartIdx: 185 // Builds 231-241
@@ -1326,8 +1326,9 @@ function renderMqolChangelog(lang) {
             let buildBadge = '';
             let dotColor = 'bg-slate-600';
             let titleColor = 'text-slate-400';
-            const isHotfixBuild = /\d+\.\d+\.\d+[a-z]/i.test(title);
-            const isReleaseBuild = group.status === 'stable' && /release|wydanie/i.test(title);
+            const buildType = b.type || (/\d+\.\d+\.\d+[a-z]/i.test(title) ? 'hotfix' : '');
+            const isHotfixBuild = buildType === 'hotfix';
+            const isReleaseBuild = buildType === 'release';
 
             if (isHotfixBuild) {
                 isLatestBuild = true;
