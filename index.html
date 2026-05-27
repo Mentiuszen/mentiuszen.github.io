@@ -1,146 +1,104 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="pageTitle">Mentiuszen - Projects Hub</title>
-    <!-- Ładujemy Tailwind CSS do szybkiego i nowoczesnego stylowania -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        dark: '#0f172a',
-                        card: '#1e293b'
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Ikonki z FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="Mentiuszen portfolio hub for C++ rendering, graphics programming, and World of Warcraft Lua addon development.">
+    <title>Mentiuszen - Graphics & Addon Development</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="js/main.js" defer></script>
 </head>
-<body class="bg-dark text-slate-300 font-sans antialiased selection:bg-indigo-500 selection:text-white pt-16">
+<body>
+    <div id="navbar"></div>
 
-    <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-50 bg-dark/80 backdrop-blur-md border-b border-slate-800 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <!-- Logo -->
-                <a href="index.html" class="flex-shrink-0 font-bold text-xl text-white">
-                    <span class="text-indigo-400">Mentiuszen</span>.<span class="text-slate-500">hub</span>
-                </a>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="index.html" class="text-white bg-slate-800 px-3 py-2 rounded-md text-sm font-medium" data-i18n="navHome">Home</a>
-                        <a href="projects.html" class="text-gray-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-i18n="navProjects">Projects</a>
+    <main class="site-shell">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="container hero-grid">
+                <div>
+                    <span class="eyebrow">C++ / Rendering / Lua</span>
+                    <h1 id="hero-title" data-i18n="heroStart">Rendering work, addon tooling, and focused UI systems.</h1>
+                    <p class="hero-copy" data-i18n="heroDesc">
+                        I work on C++ rendering, graphics tooling, and Lua addons with the same bias: predictable systems, fast iteration, and interfaces that stay out of the player's way.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="projects.html">
+                            <span data-i18n="btnBrowse">Browse Projects</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                        <a class="button" href="https://github.com/mentiuszen" target="_blank" rel="noreferrer">
+                            <span data-i18n="btnGithub">My GitHub</span>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Language Switcher -->
-                <div class="flex items-center gap-2">
-                    <button onclick="changeLanguage('en')" id="btn-en" class="text-sm font-medium text-white bg-indigo-600/50 hover:bg-indigo-600 px-2 py-1 rounded transition-colors">EN</button>
-                    <button onclick="changeLanguage('pl')" id="btn-pl" class="text-sm font-medium text-slate-400 hover:text-white px-2 py-1 rounded transition-colors">PL</button>
+                <svg class="hero-mark" viewBox="0 0 220 220" role="img" aria-label="Abstract geometric Mentiuszen monogram">
+                    <path d="M22 178V42h36l52 88 52-88h36v136h-30V86l-46 78H98L52 86v92H22Z" fill="currentColor"/>
+                    <path class="mark-line" d="M22 178h176M58 42h104M110 130v34" fill="none" stroke-width="6" stroke-linecap="square"/>
+                    <path d="M22 42h36l52 88 52-88h36" fill="none" stroke="currentColor" stroke-width="4" opacity=".22"/>
+                </svg>
+            </div>
+        </section>
+
+        <section class="section" id="about" aria-labelledby="about-title">
+            <div class="container about-grid">
+                <div>
+                    <span class="eyebrow">About</span>
+                    <h2 class="section-title" id="about-title" data-i18n="indexAboutTitle">About Me</h2>
+                    <div class="prose">
+                        <p data-i18n="indexAboutDesc">
+                            I work close to the frame: C++ rendering, graphics tooling, and pragmatic Lua addons for World of Warcraft. This hub collects the public pieces of that work.
+                        </p>
+                        <p data-i18n="indexWorkDesc">
+                            I prefer small, observable systems over decorative complexity: code paths that are easy to profile, UI that keeps state clear, and tools that reduce repeated manual work.
+                        </p>
+                    </div>
+                    <div class="tag-list" aria-label="Technologies and skills">
+                        <span class="tag is-accent">C++20</span>
+                        <span class="tag is-accent">Rendering</span>
+                        <span class="tag">Graphics tools</span>
+                        <span class="tag">GPU debugging</span>
+                        <span class="tag">Lua</span>
+                        <span class="tag">WoW API</span>
+                        <span class="tag">Git</span>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <header class="relative overflow-hidden py-20 sm:py-32 lg:py-40">
-        <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/20 via-dark to-dark"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight text-white mb-6">
-                <span data-i18n="heroStart">Welcome to </span><span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400" data-i18n="heroHighlight">Mentiuszen Hub</span>
-            </h1>
-            <p class="mt-4 text-xl text-slate-400 max-w-2xl mx-auto mb-10" data-i18n="heroDesc">
-                My personal space for sharing public projects, quality of life tweaks, and scripts.
-            </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="projects.html" class="inline-flex items-center bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-lg shadow-indigo-600/30 hover:shadow-indigo-500/50 hover:-translate-y-1 w-full sm:w-auto justify-center">
-                    <span data-i18n="btnBrowse">Browse Projects</span> <i class="fa-solid fa-arrow-right ml-3"></i>
-                </a>
-                <a href="#about" class="inline-flex items-center bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 px-8 rounded-xl transition-all border border-slate-700 hover:border-slate-500 hover:-translate-y-1 w-full sm:w-auto justify-center">
-                    <span data-i18n="indexAboutTitle">About Me</span>
-                </a>
+                <aside class="side-panel stats-panel" aria-label="Work focus">
+                    <div class="stat">
+                        <span class="stat-value">01</span>
+                        <span class="stat-label">C++ rendering and graphics work</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">02</span>
+                        <span class="stat-label">addon systems for repeated play</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">03</span>
+                        <span class="stat-label">public releases and practical tooling</span>
+                    </div>
+                </aside>
             </div>
-        </div>
-    </header>
+        </section>
 
-    <!-- Main Content / About Section -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 space-y-24" id="about">
-        
-        <!-- O Mnie -->
-        <section class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div class="space-y-6">
-                <h2 class="text-3xl font-bold text-white border-b border-slate-800 pb-4 inline-block pr-10">
-                    <i class="fa-solid fa-terminal text-indigo-400 mr-2"></i> <span data-i18n="indexAboutTitle">About Me</span>
-                </h2>
-                <p class="text-lg text-slate-400 leading-relaxed" data-i18n="indexAboutDesc">
-                    I'm a passionate developer focusing on interface enhancements, custom toolings, and making digital life easier. I craft Quality of Life solutions primarily using Lua within the World of Warcraft API, but I'm always open to modern web frameworks.
+        <section class="section" aria-labelledby="principles-title">
+            <div class="container">
+                <span class="eyebrow">Principles</span>
+                <h2 class="section-title" id="principles-title" data-i18n="indexPrinciplesTitle">Built like tools, not billboards.</h2>
+                <p class="note" data-i18n="indexPrinciplesDesc">
+                    Public projects here are treated as working software first: clear release paths, restrained interfaces, and implementation choices that can survive real use. The visual layer follows the same rule: typography, spacing, and surface hierarchy carry the page instead of glow effects.
                 </p>
-                <div class="flex gap-4 pt-4">
-                    <a href="https://github.com/mentiuszen" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-white px-6 py-3 rounded-lg flex items-center transition-colors border border-slate-700 hover:border-indigo-500/50">
-                        <i class="fa-brands fa-github text-xl mr-2"></i> <span data-i18n="btnGithub">My GitHub</span>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Skille (Grid ikon) -->
-            <div class="bg-card/30 p-8 rounded-3xl border border-slate-800 shadow-xl shadow-black/20">
-                <h3 class="text-xl font-bold text-white mb-6 text-center" data-i18n="indexSkillsTitle">Technologies & Skills</h3>
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
-                    <!-- Zastępujemy luźne grafiki ikonami, możesz tu wstawić technologie z jakimi pracujesz -->
-                    <div class="flex flex-col items-center justify-center p-4 bg-slate-800/50 rounded-xl border border-slate-700/50 hover:border-indigo-500/50 hover:bg-slate-800 transition-colors group">
-                        <i class="fa-solid fa-moon text-3xl text-indigo-400 mb-2 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-sm text-slate-400 font-medium">Lua</span>
-                    </div>
-                    <div class="flex flex-col items-center justify-center p-4 bg-slate-800/50 rounded-xl border border-slate-700/50 hover:border-purple-500/50 hover:bg-slate-800 transition-colors group">
-                        <i class="fa-solid fa-code text-3xl text-purple-500 mb-2 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-sm text-slate-400 font-medium">C#</span>
-                    </div>
-                    <div class="flex flex-col items-center justify-center p-4 bg-slate-800/50 rounded-xl border border-slate-700/50 hover:border-blue-500/50 hover:bg-slate-800 transition-colors group">
-                        <i class="fa-solid fa-microchip text-3xl text-blue-500 mb-2 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-sm text-slate-400 font-medium">C++</span>
-                    </div>
-                    <div class="flex flex-col items-center justify-center p-4 bg-slate-800/50 rounded-xl border border-slate-700/50 hover:border-slate-400/50 hover:bg-slate-800 transition-colors group">
-                        <i class="fa-brands fa-git-alt text-3xl text-slate-300 mb-2 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-sm text-slate-400 font-medium">Git</span>
-                    </div>
-                </div>
             </div>
         </section>
-
-        <!-- Features / Info -->
-        <section>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div class="bg-card/50 p-8 rounded-2xl border border-slate-800 hover:border-indigo-500/30 transition-colors">
-                    <div class="text-indigo-400 text-4xl mb-4"><i class="fa-solid fa-code"></i></div>
-                    <h3 class="text-2xl font-bold text-white mb-2" data-i18n="feat1Title">Open Source</h3>
-                    <p class="text-slate-400" data-i18n="feat1Desc">Explore the code behind my public repositories on GitHub.</p>
-                </div>
-                <div class="bg-card/50 p-8 rounded-2xl border border-slate-800 hover:border-emerald-500/30 transition-colors">
-                    <div class="text-emerald-400 text-4xl mb-4"><i class="fa-solid fa-star"></i></div>
-                    <h3 class="text-2xl font-bold text-white mb-2" data-i18n="feat2Title">Quality of Life</h3>
-                    <p class="text-slate-400" data-i18n="feat2Desc">Focusing on small improvements that make a big difference in daily usage.</p>
-                </div>
-            </div>
-        </section>
-
     </main>
 
-    <!-- Footer -->
-    <footer class="border-t border-slate-800 py-8 text-center text-slate-500 text-sm mt-auto">
-        <p><span data-i18n="footerText">&copy; 2026 Mentiuszen. All rights reserved.</span></p>
-        <div class="mt-4 flex justify-center gap-4">
-            <a href="https://github.com/mentiuszen" class="hover:text-white transition-colors text-xl"><i class="fa-brands fa-github"></i></a>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <span data-i18n="footerText">&copy; 2026 Mentiuszen. All rights reserved.</span>
+            <div class="footer-links">
+                <a href="https://github.com/mentiuszen" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="projects.html" data-i18n="navProjects">Projects</a>
+            </div>
         </div>
     </footer>
-
-    <!-- Skrypty -->
-    <script src="js/main.js"></script>
 </body>
 </html>

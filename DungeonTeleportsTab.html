@@ -4,52 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DungeonTeleportsTab - Mentiuszen</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com" defer></script>
     <script>
         tailwind.config = { theme: { extend: { colors: { dark: '#0f172a', card: '#1e293b' } } } }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="bg-dark text-slate-300 font-sans antialiased selection:bg-fuchsia-500 selection:text-white pt-16">
+<body class="project-detail bg-dark text-slate-300 font-sans antialiased selection:bg-green-500 selection:text-white pt-16">
 
-    <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-50 bg-dark/80 backdrop-blur-md border-b border-slate-800 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <a href="index.html" class="flex-shrink-0 font-bold text-xl text-white">
-                    <span class="text-indigo-400">Mentiuszen</span>.<span class="text-slate-500">hub</span>
-                </a>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="index.html" class="text-gray-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-i18n="navHome">Home</a>
-                        <a href="projects.html" class="text-gray-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-i18n="navProjects">Projects</a>
-                    </div>
-                </div>
-                <div class="flex items-center gap-2">
-                    <button onclick="changeLanguage('en')" id="btn-en" class="text-sm font-medium text-white bg-indigo-600/50 hover:bg-indigo-600 px-2 py-1 rounded transition-colors">EN</button>
-                    <button onclick="changeLanguage('pl')" id="btn-pl" class="text-sm font-medium text-slate-400 hover:text-white px-2 py-1 rounded transition-colors">PL</button>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <div id="navbar"></div>
 
-    <!-- Fuchsia Project Header -->
-    <header class="relative overflow-hidden py-16 border-b border-fuchsia-900/30">
-        <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-fuchsia-900/20 via-dark to-dark"></div>
+    <!-- Project Header -->
+    <header class="relative overflow-hidden py-16 border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8">
-            <div class="p-6 rounded-2xl bg-fuchsia-500/10 border border-fuchsia-500/20 text-fuchsia-400">
-                <i class="fa-solid fa-dungeon text-6xl"></i>
+            <div class="p-4 rounded-lg bg-slate-900 border border-slate-700 text-green-300">
+                <svg viewBox="0 0 64 64" class="w-16 h-16" role="img" aria-label="DungeonTeleportsTab project mark">
+                    <path d="M10 12h44v40H10V12Zm9 9v22h26V21H19Zm7 7h12v8H26v-8Z" fill="currentColor"/>
+                </svg>
             </div>
             <div class="text-center md:text-left">
-                <span class="px-3 py-1 text-xs font-semibold rounded-full bg-fuchsia-500/20 text-fuchsia-300 border border-fuchsia-500/30 mb-4 inline-block shadow-sm" data-i18n="addonBadge">World of Warcraft Addon</span>
+                <span class="px-3 py-1 text-xs font-semibold rounded-full bg-slate-800 text-green-300 border border-slate-700 mb-4 inline-block shadow-sm" data-i18n="addonBadge">World of Warcraft Addon</span>
                 <h1 class="text-4xl font-extrabold text-white mb-2">DungeonTeleportsTab</h1>
-                <p class="text-xl text-fuchsia-100/60 mb-6" data-i18n="dttDesc">A tab interface for quick and easy dungeon teleports.</p>
+                <p class="text-xl text-slate-400 mb-6" data-i18n="dttDesc">A tab interface for quick and easy dungeon teleports.</p>
                 <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-                    <a href="https://github.com/mentiuszen/DungeonTeleportsTab/releases/latest" target="_blank" class="bg-fuchsia-600 hover:bg-fuchsia-500 text-white py-2 px-6 rounded-lg font-bold transition-colors flex items-center shadow-lg shadow-fuchsia-600/20">
+                    <a href="https://github.com/mentiuszen/DungeonTeleportsTab/releases/latest" target="_blank" class="bg-green-600 hover:bg-green-500 text-white py-2 px-6 rounded-lg font-bold transition-colors flex items-center shadow-lg shadow-green-600/20">
                         <i class="fa-solid fa-download mr-2"></i> <span data-i18n="download">Download Latest</span>
                     </a>
                     <a href="https://github.com/mentiuszen/DungeonTeleportsTab" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-white py-2 px-6 rounded-lg font-medium transition-colors border border-slate-700 flex items-center">
@@ -65,12 +48,12 @@
         <!-- SEKCJA 1: Screeny (Slider) -->
         <section class="max-w-7xl mx-auto">
             <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
-                <i class="fa-solid fa-image mr-3 text-fuchsia-400"></i> <span data-i18n="screenshotsTitle">Screenshots</span>
+                <i class="fa-solid fa-image mr-3 text-green-400"></i> <span data-i18n="screenshotsTitle">Screenshots</span>
             </h2>
             
             <div class="relative flex items-center gap-4">
                 <!-- Lewa strzałka -->
-                <button onclick="scrollSlider('slider-dtt', -1)" id="btn-left-dtt" class="flex-shrink-0 bg-card hover:bg-fuchsia-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border border-slate-700 hover:border-fuchsia-500 transition-colors hidden md:flex disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-card disabled:hover:border-slate-700">
+                <button onclick="scrollSlider('slider-dtt', -1)" id="btn-left-dtt" class="flex-shrink-0 bg-card hover:bg-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border border-slate-700 hover:border-green-500 transition-colors hidden md:flex disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-card disabled:hover:border-slate-700">
                     <i class="fa-solid fa-chevron-left"></i>
                 </button>
 
@@ -78,7 +61,7 @@
                 <div id="slider-dtt" class="flex-grow flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 hide-scrollbar sm:justify-center">
                     
                     <!-- Screen 1 -->
-                    <div class="aspect-video bg-slate-800/40 rounded-xl border border-slate-700/60 flex flex-col items-center justify-center overflow-hidden relative group cursor-pointer snap-start shrink-0 w-[calc(100%-1rem)] sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.75rem)] hover:border-fuchsia-500/50 transition-colors" onclick="openLightbox(this)">
+                    <div class="aspect-video bg-slate-800/40 rounded-xl border border-slate-700/60 flex flex-col items-center justify-center overflow-hidden relative group cursor-pointer snap-start shrink-0 w-[calc(100%-1rem)] sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.75rem)] hover:border-green-500/50 transition-colors" onclick="openLightbox(this)">
                         <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjMWUyOTNiIiBmaWxsLW9wYWNpdHk9IjAuNSI+PC9yZWN0Pgo8cGF0aCBkPSJNMCAwTDggOFpNMCA4TDggMFoiIHN0cm9rZT0iIzBmMTcyYSIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+Cjwvc3ZnPg==')] opacity-30 group-hover:opacity-10 transition-opacity"></div>
                         <img src="media/screens/DungeonTeleportsTab/dungeonteleports1.png" class="screenshot-src w-full h-full object-cover relative z-10" alt="Current Season" onerror="this.onerror=null; this.classList.add('hidden'); this.previousElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.remove('hidden');" />
                         <!-- Fallback (Brak zdjęcia) - ukryty dopóki zdjęcie działa -->
@@ -89,7 +72,7 @@
                     </div>
 
                     <!-- Screen 2 -->
-                    <div class="aspect-video bg-slate-800/40 rounded-xl border border-slate-700/60 flex flex-col items-center justify-center overflow-hidden relative group cursor-pointer snap-start shrink-0 w-[calc(100%-1rem)] sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.75rem)] hover:border-fuchsia-500/50 transition-colors" onclick="openLightbox(this)">
+                    <div class="aspect-video bg-slate-800/40 rounded-xl border border-slate-700/60 flex flex-col items-center justify-center overflow-hidden relative group cursor-pointer snap-start shrink-0 w-[calc(100%-1rem)] sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.75rem)] hover:border-green-500/50 transition-colors" onclick="openLightbox(this)">
                         <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjMWUyOTNiIiBmaWxsLW9wYWNpdHk9IjAuNSI+PC9yZWN0Pgo8cGF0aCBkPSJNMCAwTDggOFpNMCA4TDggMFoiIHN0cm9rZT0iIzBmMTcyYSIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+Cjwvc3ZnPg==')] opacity-30 group-hover:opacity-10 transition-opacity"></div>
                         <img src="media/screens/DungeonTeleportsTab/dungeonteleports2.png" class="screenshot-src w-full h-full object-cover relative z-10" alt="Expansion Selection" onerror="this.onerror=null; this.classList.add('hidden'); this.previousElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.remove('hidden');" />
                          <!-- Fallback (Brak zdjęcia) - ukryty dopóki zdjęcie działa -->
@@ -102,7 +85,7 @@
                 </div>
 
                 <!-- Prawa strzałka -->
-                <button onclick="scrollSlider('slider-dtt', 1)" id="btn-right-dtt" class="flex-shrink-0 bg-card hover:bg-fuchsia-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border border-slate-700 hover:border-fuchsia-500 transition-colors hidden md:flex disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-card disabled:hover:border-slate-700">
+                <button onclick="scrollSlider('slider-dtt', 1)" id="btn-right-dtt" class="flex-shrink-0 bg-card hover:bg-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border border-slate-700 hover:border-green-500 transition-colors hidden md:flex disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-card disabled:hover:border-slate-700">
                     <i class="fa-solid fa-chevron-right"></i>
                 </button>
             </div>
@@ -111,7 +94,7 @@
         <!-- SEKCJA 2: Opis -->
         <section class="max-w-7xl mx-auto">
             <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
-                <i class="fa-solid fa-book-open mr-3 text-fuchsia-400"></i> <span data-i18n="descTitle">Description</span>
+                <i class="fa-solid fa-book-open mr-3 text-green-400"></i> <span data-i18n="descTitle">Description</span>
             </h2>
             <div class="bg-card p-8 rounded-2xl border border-slate-800 text-slate-300 space-y-6 leading-relaxed text-lg">
                 <p data-i18n="dttMainDesc">Dungeon Teleports Tab adds a new tab to the Group Finder window, allowing you to quickly teleport to any dungeon or raid.</p>
@@ -126,20 +109,20 @@
                 </div>
 
                 <div class="border-t border-slate-800 pt-6">
-                    <h3 class="text-xl font-bold text-fuchsia-400 mb-2" data-i18n="dttSeasonTitle">Default Current Season</h3>
+                    <h3 class="text-xl font-bold text-green-400 mb-2" data-i18n="dttSeasonTitle">Default Current Season</h3>
                     <p class="text-slate-400 mb-6" data-i18n="dttSeasonDesc">By default, the addon opens the Current Season tab (currently Midnight – Season 1).</p>
-                    <div class="cursor-pointer group relative rounded-xl overflow-hidden border border-slate-700 hover:border-fuchsia-500 transition-colors shadow-lg shadow-black/50 w-full sm:w-1/3" onclick="openLightbox(this)">
-                        <div class="absolute inset-0 bg-fuchsia-500/0 group-hover:bg-fuchsia-500/10 transition-colors z-10"></div>
+                    <div class="cursor-pointer group relative rounded-xl overflow-hidden border border-slate-700 hover:border-green-500 transition-colors shadow-lg shadow-black/50 w-full sm:w-1/3" onclick="openLightbox(this)">
+                        <div class="absolute inset-0 bg-green-500/0 group-hover:bg-green-500/10 transition-colors z-10"></div>
                         <i class="fa-solid fa-magnifying-glass-plus absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl text-white opacity-0 group-hover:opacity-100 transition-opacity z-20 drop-shadow-md"></i>
                         <img src="media/screens/DungeonTeleportsTab/dungeonteleports1.png" class="screenshot-src w-full h-auto object-cover relative z-0" alt="Current Season" />
                     </div>
                 </div>
 
                 <div class="border-t border-slate-800 pt-6">
-                    <h3 class="text-xl font-bold text-fuchsia-400 mb-2" data-i18n="dttExpansionTitle">Expansion Selection</h3>
+                    <h3 class="text-xl font-bold text-green-400 mb-2" data-i18n="dttExpansionTitle">Expansion Selection</h3>
                     <p class="text-slate-400 mb-6" data-i18n="dttExpansionDesc">Easily switch between expansions using the menu.</p>
-                    <div class="cursor-pointer group relative rounded-xl overflow-hidden border border-slate-700 hover:border-fuchsia-500 transition-colors shadow-lg shadow-black/50 w-full sm:w-1/3" onclick="openLightbox(this)">
-                        <div class="absolute inset-0 bg-fuchsia-500/0 group-hover:bg-fuchsia-500/10 transition-colors z-10"></div>
+                    <div class="cursor-pointer group relative rounded-xl overflow-hidden border border-slate-700 hover:border-green-500 transition-colors shadow-lg shadow-black/50 w-full sm:w-1/3" onclick="openLightbox(this)">
+                        <div class="absolute inset-0 bg-green-500/0 group-hover:bg-green-500/10 transition-colors z-10"></div>
                         <i class="fa-solid fa-magnifying-glass-plus absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl text-white opacity-0 group-hover:opacity-100 transition-opacity z-20 drop-shadow-md"></i>
                         <img src="media/screens/DungeonTeleportsTab/dungeonteleports2.png" class="screenshot-src w-full h-auto object-cover relative z-0" alt="Expansion Selection" />
                     </div>
@@ -150,7 +133,7 @@
         <!-- SEKCJA 3: Changelog -->
         <section class="max-w-7xl mx-auto">
             <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
-                <i class="fa-solid fa-timeline mr-3 text-fuchsia-400"></i> <span data-i18n="changelog">Changelog</span>
+                <i class="fa-solid fa-timeline mr-3 text-green-400"></i> <span data-i18n="changelog">Changelog</span>
             </h2>
             
             <!-- Accordion Changelog Container -->
@@ -161,7 +144,7 @@
 
     </main>
 
-    <script src="js/main.js"></script>
-    <script src="js/dtt-changelog.js"></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/dtt-changelog.js" defer></script>
 </body>
 </html>

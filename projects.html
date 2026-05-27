@@ -3,148 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Public Mentiuszen projects: World of Warcraft addons and utility work.">
     <title>Mentiuszen - Projects</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = { theme: { extend: { colors: { dark: '#0f172a', card: '#1e293b' } } } }
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="js/main.js" defer></script>
 </head>
-<body class="bg-dark text-slate-300 font-sans antialiased selection:bg-indigo-500 selection:text-white pt-16">
+<body>
+    <div id="navbar"></div>
 
-    <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-50 bg-dark/80 backdrop-blur-md border-b border-slate-800 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <a href="index.html" class="flex-shrink-0 font-bold text-xl text-white">
-                    <span class="text-indigo-400">Mentiuszen</span>.<span class="text-slate-500">hub</span>
-                </a>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="index.html" class="text-gray-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-i18n="navHome">Home</a>
-                        <a href="projects.html" class="text-white bg-slate-800 px-3 py-2 rounded-md text-sm font-medium" data-i18n="navProjects">Projects</a>
-                    </div>
-                </div>
-                <div class="flex items-center gap-2">
-                    <button onclick="changeLanguage('en')" id="btn-en" class="text-sm font-medium text-white bg-indigo-600/50 hover:bg-indigo-600 px-2 py-1 rounded transition-colors">EN</button>
-                    <button onclick="changeLanguage('pl')" id="btn-pl" class="text-sm font-medium text-slate-400 hover:text-white px-2 py-1 rounded transition-colors">PL</button>
-                </div>
+    <main class="site-shell">
+        <header class="page-header">
+            <div class="container">
+                <p class="eyebrow page-kicker">Public releases</p>
+                <h1 class="page-title" data-i18n="projectsTitle">Project Index</h1>
+                <p class="page-lede" data-i18n="heroDesc">
+                    I work on C++ rendering, graphics tooling, and Lua addons with the same bias: predictable systems, fast iteration, and interfaces that stay out of the player's way.
+                </p>
             </div>
-        </div>
-    </nav>
+        </header>
 
-    <!-- Page Header -->
-    <header class="relative py-12 sm:py-16 mt-16 border-b border-slate-800">
-        <div class="absolute inset-0 -z-10 bg-gradient-to-b from-slate-800/50 to-dark"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl font-extrabold text-white tracking-tight mb-4 flex items-center justify-center">
-                <i class="fa-solid fa-layer-group text-indigo-400 mr-4"></i>
-                <span data-i18n="projectsTitle">Public Projects</span>
-            </h1>
-            <p class="text-lg text-slate-400 max-w-2xl mx-auto" data-i18n="heroDesc">
-                My personal space for sharing public projects, quality of life tweaks, and scripts.
-            </p>
-        </div>
-    </header>
-
-    <!-- Projects Grid -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            
-            <!-- mQoL Card -->
-            <div class="bg-card rounded-3xl border border-slate-700/50 hover:border-emerald-500/50 transition-all duration-300 shadow-xl hover:shadow-emerald-500/10 flex flex-col h-full group overflow-hidden relative">
-                <!-- Tło z poświatą -->
-                <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -mr-20 -mt-20 group-hover:bg-emerald-500/20 transition-colors pointer-events-none"></div>
-                
-                <div class="p-8 flex-grow flex flex-col relative z-10">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 shadow-lg shadow-emerald-900/20 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-wand-magic-sparkles text-4xl"></i>
-                        </div>
-                        <div class="flex flex-col items-end gap-2">
-                            <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full bg-slate-800/80 text-emerald-400 border border-emerald-500/30" data-i18n="addonBadge">World of Warcraft Addon</span>
-                            <span class="text-xs font-mono text-slate-500 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">v1.2.1</span>
-                        </div>
+        <section class="container projects-list" aria-label="Projects">
+            <article class="project-card">
+                <div class="project-card-main">
+                    <h2>mQoL</h2>
+                    <div class="project-meta">
+                        <span class="tag is-accent" data-i18n="addonBadge">World of Warcraft Addon</span>
+                        <span class="tag">v1.2.1</span>
+                        <span class="tag">Lua</span>
                     </div>
-                    
-                    <h3 class="text-3xl font-extrabold text-white mb-4 group-hover:text-emerald-400 transition-colors">mQoL</h3>
-                    <p class="text-slate-400 mb-4 text-lg leading-relaxed flex-grow" data-i18n="mQoLDesc">Quality of Life improvements and tweaks for a better experience.</p>
-                    
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="px-2 py-1 text-xs font-semibold rounded bg-slate-800 text-slate-400 border border-slate-700"><i class="fa-solid fa-check text-emerald-500 mr-1"></i> Raid Profiles</span>
-                        <span class="px-2 py-1 text-xs font-semibold rounded bg-slate-800 text-slate-400 border border-slate-700"><i class="fa-solid fa-check text-emerald-500 mr-1"></i> Edit Mode Sync</span>
-                        <span class="px-2 py-1 text-xs font-semibold rounded bg-slate-800 text-slate-400 border border-slate-700"><i class="fa-solid fa-check text-emerald-500 mr-1"></i> Action Bars</span>
-                        <span class="px-2 py-1 text-xs font-semibold rounded bg-slate-800 text-slate-400 border border-slate-700"><i class="fa-solid fa-check text-emerald-500 mr-1"></i> Vault Viewer</span>
-                        <span class="px-2 py-1 text-xs font-semibold rounded bg-slate-800 text-slate-400 border border-slate-700"><i class="fa-solid fa-check text-emerald-500 mr-1"></i> Gold Chart</span>
-                    </div>
-
-                    <div class="border-t border-slate-700/50 pt-4 mt-auto">
-                        <span class="text-xs text-slate-500 uppercase font-bold tracking-wider mb-2 block">Supported Expansions:</span>
-                        <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Midnight</span>
-                            <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">Classic Era</span>
-                            <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-green-500/10 text-green-400 border border-green-500/20">BCC</span>
-                            <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-teal-500/10 text-teal-400 border border-teal-500/20">MoP Classic</span>
-                            <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-emerald-600/10 text-emerald-500 border border-emerald-600/20">Legion</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="p-6 border-t border-slate-700/50 bg-slate-800/30 relative z-10">
-                    <a href="mQoL.html" class="flex items-center justify-center w-full bg-emerald-600 hover:bg-emerald-500 text-white py-4 rounded-xl font-bold transition-all shadow-lg shadow-emerald-900/30 hover:shadow-emerald-500/25">
-                        <span data-i18n="btnViewProject">View Project</span> <i class="fa-solid fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- DungeonTeleportsTab Card -->
-            <div class="bg-card rounded-3xl border border-slate-700/50 hover:border-fuchsia-500/50 transition-all duration-300 shadow-xl hover:shadow-fuchsia-500/10 flex flex-col h-full group overflow-hidden relative">
-                <!-- Tło z poświatą -->
-                <div class="absolute top-0 right-0 w-64 h-64 bg-fuchsia-500/10 rounded-full blur-3xl -mr-20 -mt-20 group-hover:bg-fuchsia-500/20 transition-colors pointer-events-none"></div>
-                
-                <div class="p-8 flex-grow flex flex-col relative z-10">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="p-4 rounded-2xl bg-fuchsia-500/10 border border-fuchsia-500/20 text-fuchsia-400 shadow-lg shadow-fuchsia-900/20 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-dungeon text-4xl"></i>
-                        </div>
-                        <div class="flex flex-col items-end gap-2">
-                            <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full bg-slate-800/80 text-fuchsia-400 border border-fuchsia-500/30" data-i18n="addonBadge">World of Warcraft Addon</span>
-                            <span class="text-xs font-mono text-slate-500 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">v1.7.0</span>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-3xl font-extrabold text-white mb-4 group-hover:text-fuchsia-400 transition-colors">DungeonTeleportsTab</h3>
-                    <p class="text-slate-400 mb-4 text-lg leading-relaxed flex-grow" data-i18n="dttDesc">A tab interface for quick and easy dungeon teleports.</p>
-                    
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="px-2 py-1 text-xs font-semibold rounded bg-slate-800 text-slate-400 border border-slate-700"><i class="fa-solid fa-bolt text-fuchsia-500 mr-1"></i> Quick Travel</span>
-                        <span class="px-2 py-1 text-xs font-semibold rounded bg-slate-800 text-slate-400 border border-slate-700"><i class="fa-solid fa-bolt text-fuchsia-500 mr-1"></i> Native UI Integration</span>
-                        <span class="px-2 py-1 text-xs font-semibold rounded bg-slate-800 text-slate-400 border border-slate-700"><i class="fa-solid fa-bolt text-fuchsia-500 mr-1"></i> Combat Safe</span>
-                    </div>
-
-                    <div class="border-t border-slate-700/50 pt-4 mt-auto">
-                        <span class="text-xs text-slate-500 uppercase font-bold tracking-wider mb-2 block">Supported Expansions:</span>
-                        <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Midnight</span>
-                            <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-teal-500/10 text-teal-400 border border-teal-500/20">MoP Classic</span>
-                        </div>
-                    </div>
+                    <p class="project-desc" data-i18n="mQoLDesc">
+                        A modular World of Warcraft quality-of-life addon focused on account overview, UI synchronization, weekly rewards, and small automation that removes repeated friction.
+                    </p>
                 </div>
 
-                <div class="p-6 border-t border-slate-700/50 bg-slate-800/30 relative z-10">
-                    <a href="DungeonTeleportsTab.html" class="flex items-center justify-center w-full bg-fuchsia-600 hover:bg-fuchsia-500 text-white py-4 rounded-xl font-bold transition-all shadow-lg shadow-fuchsia-900/30 hover:shadow-fuchsia-500/25">
-                        <span data-i18n="btnViewProject">View Project</span> <i class="fa-solid fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                </div>
-            </div>
+                <div>
+                    <p class="label" data-i18n="projectFeaturesLabel">Feature surface</p>
+                    <ul class="feature-lines">
+                        <li data-i18n="mqolCardFeat1">Raid profile and Edit Mode synchronization across characters.</li>
+                        <li data-i18n="mqolCardFeat2">Account overview with gold, professions, played time, and weekly reward progress.</li>
+                        <li data-i18n="mqolCardFeat3">Fast autoloot, mailbox helpers, settings modules, and WoW client-specific fixes.</li>
+                    </ul>
 
-        </div>
+                    <p class="label" style="margin-top: 24px;" data-i18n="supportedExpansions">Supported expansions</p>
+                    <div class="expansions" aria-label="Supported expansions">
+                        <span class="tag">Midnight</span>
+                        <span class="tag">Classic Era</span>
+                        <span class="tag">BCC</span>
+                        <span class="tag">MoP Classic</span>
+                        <span class="tag">Legion</span>
+                    </div>
+
+                    <div class="project-actions">
+                        <a class="button button-primary" href="mQoL.html">
+                            <span data-i18n="btnViewProject">View Project</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-card-main">
+                    <h2>Dungeon Teleports</h2>
+                    <div class="project-meta">
+                        <span class="tag is-accent" data-i18n="addonBadge">World of Warcraft Addon</span>
+                        <span class="tag">v1.7.0</span>
+                        <span class="tag">Lua</span>
+                    </div>
+                    <p class="project-desc" data-i18n="dttDesc">
+                        A focused World of Warcraft addon that adds a dungeon teleport tab to Group Finder, with expansion filtering and fast access to unlocked portals.
+                    </p>
+                </div>
+
+                <div>
+                    <p class="label" data-i18n="projectFeaturesLabel">Feature surface</p>
+                    <ul class="feature-lines">
+                        <li data-i18n="dttCardFeat1">Native Group Finder tab for dungeon and raid teleport spells.</li>
+                        <li data-i18n="dttCardFeat2">Expansion filters, current-season defaults, and active dungeon highlighting.</li>
+                        <li data-i18n="dttCardFeat3">Combat-safe interaction model with clear portal unlock information.</li>
+                    </ul>
+
+                    <p class="label" style="margin-top: 24px;" data-i18n="supportedExpansions">Supported expansions</p>
+                    <div class="expansions" aria-label="Supported expansions">
+                        <span class="tag">Midnight</span>
+                        <span class="tag">MoP Classic</span>
+                    </div>
+
+                    <div class="project-actions">
+                        <a class="button button-primary" href="DungeonTeleportsTab.html">
+                            <span data-i18n="btnViewProject">View Project</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </section>
     </main>
 
-    <footer class="border-t border-slate-800 py-8 text-center text-slate-500 text-sm mt-auto">
-        <p><span data-i18n="footerText">&copy; 2026 Mentiuszen. All rights reserved.</span></p>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <span data-i18n="footerText">&copy; 2026 Mentiuszen. All rights reserved.</span>
+            <div class="footer-links">
+                <a href="https://github.com/mentiuszen" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="index.html" data-i18n="navHome">Home</a>
+            </div>
+        </div>
     </footer>
-
-    <script src="js/main.js"></script>
 </body>
 </html>

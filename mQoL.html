@@ -4,52 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mQoL - Mentiuszen</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com" defer></script>
     <script>
         tailwind.config = { theme: { extend: { colors: { dark: '#0f172a', card: '#1e293b' } } } }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="bg-dark text-slate-300 font-sans antialiased selection:bg-emerald-500 selection:text-white pt-16">
+<body class="project-detail bg-dark text-slate-300 font-sans antialiased selection:bg-green-500 selection:text-white pt-16">
 
-    <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-50 bg-dark/80 backdrop-blur-md border-b border-slate-800 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <a href="index.html" class="flex-shrink-0 font-bold text-xl text-white">
-                    <span class="text-indigo-400">Mentiuszen</span>.<span class="text-slate-500">hub</span>
-                </a>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="index.html" class="text-gray-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-i18n="navHome">Home</a>
-                        <a href="projects.html" class="text-gray-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-i18n="navProjects">Projects</a>
-                    </div>
-                </div>
-                <div class="flex items-center gap-2">
-                    <button onclick="changeLanguage('en')" id="btn-en" class="text-sm font-medium text-white bg-indigo-600/50 hover:bg-indigo-600 px-2 py-1 rounded transition-colors">EN</button>
-                    <button onclick="changeLanguage('pl')" id="btn-pl" class="text-sm font-medium text-slate-400 hover:text-white px-2 py-1 rounded transition-colors">PL</button>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <div id="navbar"></div>
 
-    <!-- Emerald Project Header -->
-    <header class="relative overflow-hidden py-16 border-b border-emerald-900/30">
-        <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-900/20 via-dark to-dark"></div>
+    <!-- Project Header -->
+    <header class="relative overflow-hidden py-16 border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8">
-            <div class="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
-                <i class="fa-solid fa-wand-magic-sparkles text-6xl"></i>
+            <div class="p-4 rounded-lg bg-slate-900 border border-slate-700 text-green-300">
+                <svg viewBox="0 0 64 64" class="w-16 h-16" role="img" aria-label="mQoL project mark">
+                    <path d="M8 52V12h10l14 24 14-24h10v40h-9V27L35 48h-6L17 27v25H8Z" fill="currentColor"/>
+                </svg>
             </div>
             <div class="text-center md:text-left">
-                <span class="px-3 py-1 text-xs font-semibold rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 mb-4 inline-block shadow-sm" data-i18n="addonBadge">World of Warcraft Addon</span>
+                <span class="px-3 py-1 text-xs font-semibold rounded-full bg-slate-800 text-green-300 border border-slate-700 mb-4 inline-block shadow-sm" data-i18n="addonBadge">World of Warcraft Addon</span>
                 <h1 class="text-4xl font-extrabold text-white mb-2">mQoL</h1>
-                <p class="text-xl text-emerald-100/60 mb-6" data-i18n="mQoLDesc">Quality of Life improvements and tweaks for a better experience.</p>
+                <p class="text-xl text-slate-400 mb-6" data-i18n="mQoLDesc">Quality of Life improvements and tweaks for a better experience.</p>
                 <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-                    <a href="https://github.com/Mentiuszen/mQoL/releases/tag/1.2.2" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white py-2 px-6 rounded-lg font-bold transition-colors flex items-center shadow-lg shadow-emerald-600/20">
+                    <a href="https://github.com/Mentiuszen/mQoL/releases/tag/1.2.2" target="_blank" class="bg-green-600 hover:bg-green-500 text-white py-2 px-6 rounded-lg font-bold transition-colors flex items-center shadow-lg shadow-green-600/20">
                         <i class="fa-solid fa-download mr-2"></i> <span data-i18n="downloadStable">Download Release</span>
                     </a>
                     <a href="https://github.com/Mentiuszen/mQoL" target="_blank" class="bg-amber-600 hover:bg-amber-500 text-white py-2 px-6 rounded-lg font-bold transition-colors flex items-center shadow-lg shadow-amber-600/20">
@@ -68,12 +51,12 @@
         <!-- SEKCJA 1: Screeny (Slider) -->
         <section class="max-w-7xl mx-auto">
             <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
-                <i class="fa-solid fa-image mr-3 text-emerald-400"></i> <span data-i18n="screenshotsTitle">Screenshots</span>
+                <i class="fa-solid fa-image mr-3 text-green-400"></i> <span data-i18n="screenshotsTitle">Screenshots</span>
             </h2>
             
             <div class="relative flex items-center gap-4">
                 <!-- Lewa strzałka -->
-                <button onclick="scrollSlider('slider-mqol', -1)" id="btn-left-mqol" class="flex-shrink-0 bg-card hover:bg-emerald-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border border-slate-700 hover:border-emerald-500 transition-colors hidden md:flex disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-card disabled:hover:border-slate-700">
+                <button onclick="scrollSlider('slider-mqol', -1)" id="btn-left-mqol" class="flex-shrink-0 bg-card hover:bg-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border border-slate-700 hover:border-green-500 transition-colors hidden md:flex disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-card disabled:hover:border-slate-700">
                     <i class="fa-solid fa-chevron-left"></i>
                 </button>
 
@@ -82,7 +65,7 @@
                     <script>
                         for(let i=1; i<=11; i++) {
                             document.write(`
-                            <div class="aspect-video bg-slate-800/40 rounded-xl border border-slate-700/60 flex flex-col items-center justify-center overflow-hidden relative group cursor-pointer snap-start shrink-0 w-[calc(100%-1rem)] sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.75rem)] hover:border-emerald-500/50 transition-colors" onclick="openLightbox(this)">
+                            <div class="aspect-video bg-slate-800/40 rounded-xl border border-slate-700/60 flex flex-col items-center justify-center overflow-hidden relative group cursor-pointer snap-start shrink-0 w-[calc(100%-1rem)] sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.75rem)] hover:border-green-500/50 transition-colors" onclick="openLightbox(this)">
                                 <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjMWUyOTNiIiBmaWxsLW9wYWNpdHk9IjAuNSI+PC9yZWN0Pgo8cGF0aCBkPSJNMCAwTDggOFpNMCA4TDggMFoiIHN0cm9rZT0iIzBmMTcyYSIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+Cjwvc3ZnPg==')] opacity-30 group-hover:opacity-10 transition-opacity"></div>
                                 <img src="media/screens/mQoL/mQoL${i}.png" class="screenshot-src w-full h-full object-cover relative z-10" alt="Screenshot ${i}" onerror="this.onerror=null; this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');" />
                                 <div class="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none hidden fallback-content">
@@ -96,7 +79,7 @@
                 </div>
 
                 <!-- Prawa strzałka -->
-                <button onclick="scrollSlider('slider-mqol', 1)" id="btn-right-mqol" class="flex-shrink-0 bg-card hover:bg-emerald-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border border-slate-700 hover:border-emerald-500 transition-colors hidden md:flex disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-card disabled:hover:border-slate-700">
+                <button onclick="scrollSlider('slider-mqol', 1)" id="btn-right-mqol" class="flex-shrink-0 bg-card hover:bg-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border border-slate-700 hover:border-green-500 transition-colors hidden md:flex disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-card disabled:hover:border-slate-700">
                     <i class="fa-solid fa-chevron-right"></i>
                 </button>
             </div>
@@ -105,13 +88,13 @@
         <!-- SEKCJA 2: Opis -->
         <section class="max-w-7xl mx-auto">
             <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
-                <i class="fa-solid fa-book-open mr-3 text-emerald-400"></i> <span data-i18n="descTitle">Description</span>
+                <i class="fa-solid fa-book-open mr-3 text-green-400"></i> <span data-i18n="descTitle">Description</span>
             </h2>
             <div class="bg-card p-8 rounded-2xl border border-slate-800 text-slate-300 space-y-8 leading-relaxed text-lg">
                 <p data-i18n="mqolMainDesc">MQoL is a modular quality-of-life addon focused on account-wide character overview, UI synchronization, Dungeon Teleports, Weekly Rewards tracking, and targeted improvements across supported World of Warcraft clients.</p>
                 
                 <div>
-                    <h3 class="text-xl font-bold text-emerald-400 mb-3" data-i18n="mqolNewFeatTitle">New Features (v1.2.0 - v1.2.1)</h3>
+                    <h3 class="text-xl font-bold text-green-400 mb-3" data-i18n="mqolNewFeatTitle">New Features (v1.2.0 - v1.2.1)</h3>
                     <ul class="list-disc list-inside space-y-2 ml-2 text-slate-400">
                         <li data-i18n="mqolNewFeat1">Account Overview - Tracks characters, levels, classes, gold, played time, professions, and weekly reward progress across the account.</li>
                         <li data-i18n="mqolNewFeat2">Gold Chart - Adds an interactive wealth history chart with improved grid rendering and stable height handling.</li>
@@ -124,7 +107,7 @@
                 </div>
 
                 <div>
-                    <h3 class="text-xl font-bold text-emerald-400 mb-3" data-i18n="mqolFeatTitle">Features</h3>
+                    <h3 class="text-xl font-bold text-green-400 mb-3" data-i18n="mqolFeatTitle">Features</h3>
                     <ul class="list-disc list-inside space-y-2 ml-2 text-slate-400">
                         <li data-i18n="mqolFeat1">Action Bars synchronization - Keeps action bar settings across all characters.</li>
                         <li data-i18n="mqolFeat2">Nameplates synchronization - Keeps nameplate settings across all characters.</li>
@@ -138,7 +121,7 @@
                 </div>
 
                 <div class="border-t border-slate-800 pt-6">
-                    <h3 class="text-xl font-bold text-emerald-400 mb-3" data-i18n="mqolOptFeatTitle">Optional Features</h3>
+                    <h3 class="text-xl font-bold text-green-400 mb-3" data-i18n="mqolOptFeatTitle">Optional Features</h3>
                     <ul class="list-disc list-inside space-y-2 ml-2 text-slate-400">
                         <li data-i18n="mqolOptFeat1">Mailbox side panel - Adds a mailbox side panel with a character list and quick-send buttons with item categories.</li>
                         <li data-i18n="mqolOptFeat2">Automatic mail subject - Allows setting a default subject for mail.</li>
@@ -154,7 +137,7 @@
                 </div>
 
                 <div class="border-t border-slate-800 pt-6">
-                    <h3 class="text-xl font-bold text-emerald-400 mb-3" data-i18n="mqolPlannedTitle">Planned / Future Updates</h3>
+                    <h3 class="text-xl font-bold text-green-400 mb-3" data-i18n="mqolPlannedTitle">Planned / Future Updates</h3>
                     <ul class="list-disc list-inside space-y-2 ml-2 text-slate-400">
                         <li data-i18n="mqolPlanned1">All Character-Wide settings synchronization. (WiP)</li>
                     </ul>
@@ -165,7 +148,7 @@
         <!-- SEKCJA 3: Changelog -->
         <section class="max-w-7xl mx-auto">
             <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
-                <i class="fa-solid fa-timeline mr-3 text-emerald-400"></i> <span data-i18n="changelog">Changelog</span>
+                <i class="fa-solid fa-timeline mr-3 text-green-400"></i> <span data-i18n="changelog">Changelog</span>
             </h2>
             
             <!-- Accordion Changelog Container -->
@@ -176,7 +159,7 @@
 
     </main>
 
-    <script src="js/main.js"></script>
-    <script src="js/mqol-changelog.js"></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/mqol-changelog.js" defer></script>
 </body>
 </html>

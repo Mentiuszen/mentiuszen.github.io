@@ -2,9 +2,12 @@ const translations = {
     en: {
         navHome: "Home",
         navProjects: "Projects",
-        heroStart: "Welcome to ",
+        heroStart: "Rendering work, addon tooling, and focused UI systems.",
         heroHighlight: "Mentiuszen Hub",
-        heroDesc: "My personal space for sharing public projects, quality of life tweaks, and scripts.",
+        heroDesc: "I work on C++ rendering, graphics tooling, and Lua addons with the same bias: predictable systems, fast iteration, and interfaces that stay out of the player's way.",
+        indexWorkDesc: "I prefer small, observable systems over decorative complexity: code paths that are easy to profile, UI that keeps state clear, and tools that reduce repeated manual work.",
+        indexPrinciplesTitle: "Built like tools, not billboards.",
+        indexPrinciplesDesc: "Public projects here are treated as working software first: clear release paths, restrained interfaces, and implementation choices that can survive real use. The visual layer follows the same rule: typography, spacing, and surface hierarchy carry the page instead of glow effects.",
         btnBrowse: "Browse Projects",
         feat1Title: "Open Source",
         feat1Desc: "Explore the code behind my public repositories on GitHub.",
@@ -13,14 +16,14 @@ const translations = {
         
         // Index additions
         indexAboutTitle: "About Me",
-        indexAboutDesc: "I am a passionate developer who enjoys creating addons for World of Warcraft using Lua. Beyond the WoW UI, I also work on standalone applications in C# and C++, ranging from custom game launchers to advanced 3D graphics programming.",
+        indexAboutDesc: "I work close to the frame: C++ rendering, graphics tooling, and pragmatic Lua addons for World of Warcraft. This hub collects the public pieces of that work.",
         indexSkillsTitle: "Technologies & Skills",
         indexSocialTitle: "Find Me",
         btnGithub: "My GitHub",
         
-        projectsTitle: "Public Projects",
-        mQoLDesc: "Quality of Life improvements and tweaks for a better experience.",
-        dttDesc: "A tab interface for quick and easy dungeon teleports.",
+        projectsTitle: "Project Index",
+        mQoLDesc: "A modular World of Warcraft quality-of-life addon focused on account overview, UI synchronization, weekly rewards, and small automation that removes repeated friction.",
+        dttDesc: "A focused World of Warcraft addon that adds a dungeon teleport tab to Group Finder, with expansion filtering and fast access to unlocked portals.",
         btnViewProject: "View Project",
         download: "Download Latest",
         downloadStable: "Download Release",
@@ -31,6 +34,14 @@ const translations = {
         tagFixed: "[Fixed]",
         tagChanged: "[Changed]",
         addonBadge: "World of Warcraft Addon",
+        projectFeaturesLabel: "Feature surface",
+        supportedExpansions: "Supported expansions",
+        mqolCardFeat1: "Raid profile and Edit Mode synchronization across characters.",
+        mqolCardFeat2: "Account overview with gold, professions, played time, and weekly reward progress.",
+        mqolCardFeat3: "Fast autoloot, mailbox helpers, settings modules, and WoW client-specific fixes.",
+        dttCardFeat1: "Native Group Finder tab for dungeon and raid teleport spells.",
+        dttCardFeat2: "Expansion filters, current-season defaults, and active dungeon highlighting.",
+        dttCardFeat3: "Combat-safe interaction model with clear portal unlock information.",
         descTitle: "Description",
         screenshotsTitle: "Screenshots",
         buildText: "Build",
@@ -94,12 +105,15 @@ const translations = {
         dtt_v1_0_1: "Added standalone addon (ported from mQoL module)"
     },
     pl: {
-        navHome: "Strona Główna",
+        navHome: "Strona główna",
         navProjects: "Projekty",
-        heroStart: "Witaj w ",
+        heroStart: "Rendering, narzędzia addonów i skupione systemy UI.",
         heroHighlight: "Mentiuszen Hub",
-        heroDesc: "Moja osobista przestrzeń do dzielenia się publicznymi projektami, poprawkami i skryptami.",
-        btnBrowse: "Przeglądaj Projekty",
+        heroDesc: "Pracuję przy renderingu C++, narzędziach graficznych i addonach Lua z tym samym podejściem: przewidywalne systemy, szybka iteracja i interfejsy, które nie przeszkadzają graczowi.",
+        indexWorkDesc: "Wolę małe, obserwowalne systemy niż dekoracyjną złożoność: ścieżki kodu, które łatwo profilować, UI z czytelnym stanem i narzędzia zdejmujące powtarzalną pracę.",
+        indexPrinciplesTitle: "Budowane jak narzędzia, nie billboardy.",
+        indexPrinciplesDesc: "Publiczne projekty traktuję najpierw jako działające oprogramowanie: czytelne release pathy, powściągliwe interfejsy i decyzje implementacyjne, które wytrzymują realne użycie. Warstwa wizualna działa tak samo: typografia, spacing i hierarchia powierzchni zamiast efektów glow.",
+        btnBrowse: "Przeglądaj projekty",
         feat1Title: "Otwarte Źródło",
         feat1Desc: "Odkryj kod stojący za moimi publicznymi repozytoriami na GitHubie.",
         feat2Title: "Jakość Życia",
@@ -107,15 +121,15 @@ const translations = {
         
         // Index additions
         indexAboutTitle: "O mnie",
-        indexAboutDesc: "Jestem pasjonatem programowania, który uwielbia tworzyć addony dla World of Warcraft w języku Lua. Poza interfejsem gry, pracuję również nad niezależnymi aplikacjami w C# i C++, od tworzenia własnych launcherów po zaawansowane programowanie grafiki 3D.",
-        indexSkillsTitle: "Technologie i Umiejętności",
+        indexAboutDesc: "Pracuję blisko klatki: rendering C++, narzędzia graficzne i praktyczne addony Lua do World of Warcraft. Ten hub zbiera publiczne części tej pracy.",
+        indexSkillsTitle: "Technologie i umiejętności",
         indexSocialTitle: "Znajdziesz mnie tutaj",
         btnGithub: "Mój GitHub",
         
-        projectsTitle: "Publiczne Projekty",
-        mQoLDesc: "Zbiór poprawek i ulepszeń typu Quality of Life ułatwiających rozgrywkę.",
-        dttDesc: "Interfejs zakładek do szybkiego i łatwego teleportowania się po lochach.",
-        btnViewProject: "Zobacz Projekt",
+        projectsTitle: "Indeks projektów",
+        mQoLDesc: "Modułowy addon quality-of-life do World of Warcraft skupiony na przeglądzie konta, synchronizacji UI, cotygodniowych nagrodach i automatyzacji drobnych powtórek.",
+        dttDesc: "Skupiony addon do World of Warcraft, który dodaje zakładkę teleportów do Group Findera, z filtrowaniem dodatków i szybkim dostępem do odblokowanych portali.",
+        btnViewProject: "Zobacz projekt",
         download: "Pobierz najnowszą",
         downloadStable: "Wersja Stabilna",
         downloadBeta: "Wersja Beta",
@@ -125,6 +139,14 @@ const translations = {
         tagFixed: "[Naprawiono]",
         tagChanged: "[Zmieniono]",
         addonBadge: "Dodatek do World of Warcraft",
+        projectFeaturesLabel: "Zakres funkcji",
+        supportedExpansions: "Wspierane dodatki",
+        mqolCardFeat1: "Synchronizacja profili rajdowych i Edit Mode między postaciami.",
+        mqolCardFeat2: "Przegląd konta ze złotem, profesjami, czasem gry i postępem cotygodniowych nagród.",
+        mqolCardFeat3: "Szybki autoloot, pomocniki poczty, moduły ustawień i poprawki zależne od klienta WoW.",
+        dttCardFeat1: "Natywna zakładka Group Findera dla teleportów do lochów i rajdów.",
+        dttCardFeat2: "Filtry dodatków, domyślny obecny sezon i podświetlanie aktywnego lochu.",
+        dttCardFeat3: "Combat-safe model interakcji z czytelną informacją o odblokowaniu portali.",
         descTitle: "Opis działania",
         screenshotsTitle: "Zrzuty ekranu",
         buildText: "Kompilacja (Build)",
@@ -289,6 +311,137 @@ function toggleChangelog(id) {
     }
 }
 
+const siteIcons = {
+    menu: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+    close: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+    sun: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4V2m0 20v-2m8-8h2M2 12h2m14.95-6.95 1.41-1.41M3.64 20.36l1.41-1.41m0-13.9L3.64 3.64m16.72 16.72-1.41-1.41M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+    moon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A7.5 7.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>'
+};
+
+const THEME_KEY = 'mentiuszen-hub-theme';
+const LEGACY_THEME_KEY = 'theme';
+
+function isTheme(value) {
+    return value === 'light' || value === 'dark';
+}
+
+function logoSvg() {
+    return `
+        <svg class="brand-mark" viewBox="0 0 64 64" role="img" aria-label="Mentiuszen mark">
+            <path d="M8 52V12h10l14 24 14-24h10v40h-9V27L35 48h-6L17 27v25H8Z" fill="currentColor"/>
+            <path d="M8 52h48M17 12h30" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" opacity=".36"/>
+        </svg>
+    `;
+}
+
+function injectNavbar() {
+    const mount = document.getElementById('navbar');
+    if (!mount) return;
+
+    const current = window.location.pathname.split('/').pop() || 'index.html';
+    const isProjects = current === 'projects.html' || current === 'mQoL.html' || current === 'DungeonTeleportsTab.html';
+
+    mount.innerHTML = `
+        <header class="site-nav">
+            <div class="container nav-inner">
+                <a class="brand" href="index.html" aria-label="Mentiuszen Hub home">
+                    ${logoSvg()}
+                    <span class="brand-text">
+                        <span class="brand-name">Mentiuszen</span>
+                        <span class="brand-sub">graphics / addons</span>
+                    </span>
+                </a>
+                <nav class="nav-links" aria-label="Primary navigation">
+                    <a class="nav-link" href="index.html" data-i18n="navHome" ${current === 'index.html' ? 'aria-current="page"' : ''}>Home</a>
+                    <a class="nav-link" href="projects.html" data-i18n="navProjects" ${isProjects ? 'aria-current="page"' : ''}>Projects</a>
+                </nav>
+                <div class="nav-actions">
+                    <div class="segmented" aria-label="Language">
+                        <button type="button" id="btn-en" data-lang="en" aria-label="Switch language to English">EN</button>
+                        <button type="button" id="btn-pl" data-lang="pl" aria-label="Przełącz język na polski">PL</button>
+                    </div>
+                    <button class="icon-button" type="button" id="theme-toggle" aria-label="Toggle light mode">${siteIcons.sun}</button>
+                    <button class="menu-toggle" type="button" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">${siteIcons.menu}</button>
+                </div>
+            </div>
+        </header>
+        <div class="mobile-panel" id="mobile-menu">
+            <nav class="container" aria-label="Mobile navigation">
+                <a class="nav-link" href="index.html" data-i18n="navHome" ${current === 'index.html' ? 'aria-current="page"' : ''}>Home</a>
+                <a class="nav-link" href="projects.html" data-i18n="navProjects" ${isProjects ? 'aria-current="page"' : ''}>Projects</a>
+            </nav>
+        </div>
+    `;
+}
+
+function readStoredTheme() {
+    try {
+        const stored = localStorage.getItem(THEME_KEY)
+            || localStorage.getItem(LEGACY_THEME_KEY)
+            || sessionStorage.getItem(THEME_KEY)
+            || sessionStorage.getItem(LEGACY_THEME_KEY);
+
+        if (isTheme(stored)) return stored;
+    } catch (_) {
+        // Some browser privacy modes can block storage; cookie fallback keeps page-to-page navigation stable.
+    }
+
+    const match = document.cookie.match(/(?:^|;\s*)mentiuszen-hub-theme=(light|dark)(?:;|$)/)
+        || document.cookie.match(/(?:^|;\s*)theme=(light|dark)(?:;|$)/);
+    return match ? match[1] : null;
+}
+
+function writeStoredTheme(theme) {
+    if (!isTheme(theme)) return;
+
+    try {
+        localStorage.setItem(THEME_KEY, theme);
+        localStorage.setItem(LEGACY_THEME_KEY, theme);
+        sessionStorage.setItem(THEME_KEY, theme);
+        sessionStorage.setItem(LEGACY_THEME_KEY, theme);
+    } catch (_) {
+        // Cookie fallback below.
+    }
+
+    document.cookie = `mentiuszen-hub-theme=${theme}; path=/; max-age=31536000; SameSite=Lax`;
+    document.cookie = `theme=${theme}; path=/; max-age=31536000; SameSite=Lax`;
+}
+
+function initTheme() {
+    const stored = readStoredTheme();
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    setTheme(stored || (prefersLight ? 'light' : 'dark'));
+
+    document.getElementById('theme-toggle')?.addEventListener('click', () => {
+        setTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
+    });
+}
+
+function setTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    writeStoredTheme(theme);
+
+    const toggle = document.getElementById('theme-toggle');
+    if (toggle) {
+        toggle.innerHTML = theme === 'light' ? siteIcons.moon : siteIcons.sun;
+        toggle.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+    }
+}
+
+function initMenu() {
+    const toggle = document.getElementById('menu-toggle');
+    const panel = document.getElementById('mobile-menu');
+    if (!toggle || !panel) return;
+
+    toggle.addEventListener('click', () => {
+        const open = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!open));
+        toggle.innerHTML = open ? siteIcons.menu : siteIcons.close;
+        panel.classList.toggle('is-open', !open);
+        document.body.classList.toggle('nav-open', !open);
+    });
+}
+
 function initLang() {
     let lang = localStorage.getItem('lang') || 'en';
     changeLanguage(lang);
@@ -296,6 +449,7 @@ function initLang() {
 
 function changeLanguage(lang) {
     localStorage.setItem('lang', lang);
+    document.documentElement.lang = lang;
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
@@ -309,26 +463,42 @@ function changeLanguage(lang) {
     
     if(btnEn && btnPl) {
         if (lang === 'en') {
-            btnEn.className = "text-sm font-medium text-white bg-indigo-600/50 hover:bg-indigo-600 px-2 py-1 rounded transition-colors";
-            btnPl.className = "text-sm font-medium text-slate-400 hover:text-white px-2 py-1 rounded transition-colors";
+            btnEn.className = "is-active";
+            btnPl.className = "";
         } else {
-            btnPl.className = "text-sm font-medium text-white bg-indigo-600/50 hover:bg-indigo-600 px-2 py-1 rounded transition-colors";
-            btnEn.className = "text-sm font-medium text-slate-400 hover:text-white px-2 py-1 rounded transition-colors";
+            btnPl.className = "is-active";
+            btnEn.className = "";
         }
     }
     
     // Odbudowanie changelogu mQoL jeśli jesteśmy na tej stronie
+    document.querySelectorAll('[data-lang]').forEach(button => {
+        button.classList.toggle('is-active', button.dataset.lang === lang);
+    });
+
     if(typeof renderMqolChangelog === 'function') {
         renderMqolChangelog(lang);
     }
 
     // Odbudowanie changelogu DungeonTeleportsTab jeśli jesteśmy na tej stronie
-    if(typeof renderDttChangelog === 'function') {
+if(typeof renderDttChangelog === 'function') {
         renderDttChangelog(lang);
     }
 }
 
+function applyInitialThemeAttribute() {
+    const stored = readStoredTheme();
+    if (stored) {
+        document.documentElement.dataset.theme = stored;
+    }
+}
+
+applyInitialThemeAttribute();
+
 document.addEventListener('DOMContentLoaded', () => {
+    injectNavbar();
+    initTheme();
+    initMenu();
     initLang();
     
     // Inicjalizuj i dodaj nasłuchiwanie na scroll dla wyłączania strzałek
@@ -341,4 +511,15 @@ document.addEventListener('DOMContentLoaded', () => {
             window.addEventListener('resize', checkSliderButtons);
         }
     });
+
+    document.querySelectorAll('[data-lang]').forEach(button => {
+        button.addEventListener('click', () => changeLanguage(button.dataset.lang));
+    });
+});
+
+window.addEventListener('storage', (event) => {
+    if (event.key !== THEME_KEY && event.key !== LEGACY_THEME_KEY) return;
+    if (isTheme(event.newValue)) {
+        setTheme(event.newValue);
+    }
 });
