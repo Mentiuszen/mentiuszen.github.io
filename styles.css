@@ -524,10 +524,11 @@ button {
 }
 
 .project-card h2 {
-  font-size: clamp(2rem, 4.1vw, 3.25rem);
+  font-size: clamp(1.72rem, 3.15vw, 2.62rem);
   font-weight: 900;
   line-height: 0.98;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .project-meta {
@@ -649,6 +650,7 @@ button {
 .project-detail {
   background: var(--bg) !important;
   color: var(--text) !important;
+  padding-top: var(--nav-height);
 }
 
 .project-detail header,
@@ -657,10 +659,65 @@ button {
   background: transparent !important;
 }
 
+.project-detail > header {
+  padding: 64px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.project-detail > header > div,
+.project-detail > main {
+  width: min(100% - 40px, var(--container));
+  margin: 0 auto;
+}
+
+.project-detail > header > div {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.project-detail main {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.project-detail section + section {
+  margin-top: 80px;
+}
+
+.project-detail #slider-mqol,
+.project-detail #slider-dtt {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.project-detail #slider-mqol > div,
+.project-detail #slider-dtt > div {
+  width: min(100%, 360px);
+  aspect-ratio: 16 / 9;
+  flex: 0 0 min(100%, 360px);
+  overflow: hidden;
+}
+
+.project-detail .screenshot-src {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
+
 .project-detail .bg-card,
 .project-detail .bg-slate-800,
 .project-detail .bg-slate-900 {
   background-color: var(--surface-1) !important;
+}
+
+.project-detail .project-mark {
+  width: 64px !important;
+  height: 64px !important;
+  max-width: 64px !important;
+  flex: 0 0 64px !important;
 }
 
 .project-detail .border-slate-700,
@@ -701,6 +758,13 @@ button {
 .project-detail a.bg-slate-800 {
   background-color: var(--surface-2) !important;
   color: var(--text) !important;
+}
+
+@media (max-width: 760px) {
+  .project-detail > header > div {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 @media (min-width: 760px) {

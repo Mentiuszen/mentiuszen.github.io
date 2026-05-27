@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DungeonTeleportsTab - Mentiuszen</title>
-    <script src="https://cdn.tailwindcss.com" defer></script>
     <script>
-        tailwind.config = { theme: { extend: { colors: { dark: '#0f172a', card: '#1e293b' } } } }
+        window.tailwind = window.tailwind || {};
+        window.tailwind.config = { theme: { extend: { colors: { dark: '#0f172a', card: '#1e293b' } } } };
     </script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
@@ -23,7 +24,7 @@
     <header class="relative overflow-hidden py-16 border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8">
             <div class="p-4 rounded-lg bg-slate-900 border border-slate-700 text-green-300">
-                <svg viewBox="0 0 64 64" class="w-16 h-16" role="img" aria-label="DungeonTeleportsTab project mark">
+                <svg viewBox="0 0 64 64" width="64" height="64" style="width: 64px; height: 64px; flex: 0 0 64px;" class="project-mark w-16 h-16" role="img" aria-label="DungeonTeleportsTab project mark">
                     <path d="M10 12h44v40H10V12Zm9 9v22h26V21H19Zm7 7h12v8H26v-8Z" fill="currentColor"/>
                 </svg>
             </div>
