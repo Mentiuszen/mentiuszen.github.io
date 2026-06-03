@@ -13,14 +13,14 @@ const translations = {
         feat1Desc: "Explore the code behind my public repositories on GitHub.",
         feat2Title: "Quality of Life",
         feat2Desc: "Focusing on small improvements that make a big difference in daily usage.",
-        
+
         // Index additions
         indexAboutTitle: "About Me",
         indexAboutDesc: "I work close to the frame: C++ rendering, graphics tooling, and pragmatic Lua addons for World of Warcraft. This hub collects the public pieces of that work.",
         indexSkillsTitle: "Technologies & Skills",
         indexSocialTitle: "Find Me",
         btnGithub: "My GitHub",
-        
+
         projectsTitle: "Project Index",
         mQoLDesc: "A modular World of Warcraft quality-of-life addon focused on account overview, UI synchronization, weekly rewards, and small automation that removes repeated friction.",
         dttDesc: "A focused World of Warcraft addon that adds a dungeon teleport tab to Group Finder, with expansion filtering and fast access to unlocked portals.",
@@ -46,7 +46,7 @@ const translations = {
         screenshotsTitle: "Screenshots",
         buildText: "Build",
         noScreenshot: "Image Coming Soon",
-        
+
         // Dungeon Teleports Tab Description
         dttMainDesc: "Dungeon Teleports Tab adds a new tab to the Group Finder window, allowing you to quickly teleport to any dungeon or raid.",
         dttFeaturesTitle: "Features",
@@ -57,10 +57,10 @@ const translations = {
         dttSeasonDesc: "By default, the addon opens the Current Season tab (currently Midnight – Season 1).",
         dttExpansionTitle: "Expansion Selection",
         dttExpansionDesc: "Easily switch between expansions using the menu.",
-        
+
         // mQoL Description
         mqolMainDesc: "MQoL is a modular quality-of-life addon focused on account-wide character overview, UI synchronization, Dungeon Teleports, Weekly Rewards tracking, and targeted improvements across supported World of Warcraft clients.",
-        mqolNewFeatTitle: "New Features (v1.2.0 - v1.2.3 Beta)",
+        mqolNewFeatTitle: "New Features (v1.2.0 - v1.2.3)",
         mqolNewFeat1: "Account Overview - Tracks characters, levels, classes, gold, played time, professions, and weekly reward progress across the account.",
         mqolNewFeat2: "Gold Chart - Adds an interactive wealth history chart with improved grid rendering and stable height handling.",
         mqolNewFeat3: "Weekly Rewards Preview - Shows Great Vault / Weekly Chest progress from saved addon data, including hover information and status icons.",
@@ -86,7 +86,7 @@ const translations = {
         mqolOptFeat4_3: "Incorrect World Boss display on the World Map.",
         mqolPlannedTitle: "Planned / Future Updates",
         mqolPlanned1: "Active plan for version 1.2.2-1.2.5 with minor improvements and 1.3.0 that will focus on mailbox improvements.",
-        
+
         tagRemoved: "[Removed]",
         dtt_v1_6_1_1: "Fix for not working Seat of the Triumvirate teleport",
         dtt_v1_6_1: "Added missing Dawn of the Infinite teleport",
@@ -118,14 +118,14 @@ const translations = {
         feat1Desc: "Odkryj kod stojący za moimi publicznymi repozytoriami na GitHubie.",
         feat2Title: "Jakość Życia",
         feat2Desc: "Skupiam się na drobnych ulepszeniach, które robią wielką różnicę w codziennym użytkowaniu.",
-        
+
         // Index additions
         indexAboutTitle: "O mnie",
         indexAboutDesc: "Pracuję blisko klatki: rendering C++, narzędzia graficzne i praktyczne addony Lua do World of Warcraft. Ten hub zbiera publiczne części tej pracy.",
         indexSkillsTitle: "Technologie i umiejętności",
         indexSocialTitle: "Znajdziesz mnie tutaj",
         btnGithub: "Mój GitHub",
-        
+
         projectsTitle: "Indeks projektów",
         mQoLDesc: "Modułowy addon quality-of-life do World of Warcraft skupiony na przeglądzie konta, synchronizacji UI, cotygodniowych nagrodach i automatyzacji drobnych powtórek.",
         dttDesc: "Skupiony addon do World of Warcraft, który dodaje zakładkę teleportów do Group Findera, z filtrowaniem dodatków i szybkim dostępem do odblokowanych portali.",
@@ -151,7 +151,7 @@ const translations = {
         screenshotsTitle: "Zrzuty ekranu",
         buildText: "Kompilacja (Build)",
         noScreenshot: "Zdjęcie wkrótce",
-        
+
         // Dungeon Teleports Tab Description
         dttMainDesc: "Dungeon Teleports Tab dodaje nową zakładkę do okna wyszukiwania grup (Group Finder), pozwalając na szybki teleport do dowolnego lochu lub rajdu.",
         dttFeaturesTitle: "Główne cechy",
@@ -162,10 +162,10 @@ const translations = {
         dttSeasonDesc: "Domyślnie addon otwiera zakładkę obecnego sezonu (obecnie Midnight – Sezon 1).",
         dttExpansionTitle: "Wybór Dodatku",
         dttExpansionDesc: "Łatwe przełączanie między starymi dodatkami przy użyciu menu.",
-        
+
         // mQoL Description
         mqolMainDesc: "MQoL to modułowy addon Quality of Life skupiony na przeglądzie konta, synchronizacji UI, teleportach do lochów, śledzeniu cotygodniowych nagród i konkretnych usprawnieniach na wspieranych klientach World of Warcraft.",
-        mqolNewFeatTitle: "Nowe Funkcje (v1.2.0 - v1.2.3 Beta)",
+        mqolNewFeatTitle: "Nowe Funkcje (v1.2.0 - v1.2.3)",
         mqolNewFeat1: "Przegląd Konta - Śledzi postacie, poziomy, klasy, złoto, czas gry, profesje i postęp cotygodniowych nagród na całym koncie.",
         mqolNewFeat2: "Wykres Złota - Dodaje interaktywny wykres historii majątku z poprawionym renderowaniem siatki i stabilniejszą wysokością.",
         mqolNewFeat3: "Podgląd cotygodniowych nagród - Pokazuje postęp Great Vault / Weekly Chest z danych zapisanych przez addon, razem z informacją po najechaniu i ikonami stanu.",
@@ -192,7 +192,7 @@ const translations = {
         mqolOptFeat4_3: "Nieprawidłowe wyświetlanie World Bossów na mapie świata.",
         mqolPlannedTitle: "Planowane Aktualizacje",
         mqolPlanned1: "Aktywny plan dla wersji 1.2.2-1.2.5 obejmuje mniejsze usprawnienia, a wersja 1.3.0 skupi się na ulepszeniach poczty.",
-        
+
         tagRemoved: "[Usunięto]",
         dtt_v1_6_1_1: "Poprawka dla niedziałającego teleportu do Seat of the Triumvirate",
         dtt_v1_6_1: "Dodano brakujący teleport do Dawn of the Infinite",
@@ -215,7 +215,7 @@ const translations = {
 // Obsługa Slidera (Screeny)
 function scrollSlider(id, direction) {
     const slider = document.getElementById(id);
-    if(slider) {
+    if (slider) {
         // Przewija dokładnie o szerokość widocznego kontenera, uwzględniając luki między elementami (gap)
         const scrollAmount = slider.clientWidth;
         slider.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
@@ -226,14 +226,14 @@ function scrollSlider(id, direction) {
 function openLightbox(element) {
     let src = '';
     const img = element.querySelector('.screenshot-src');
-    
+
     // Jeśli nie ma źródła lub jest to pusty obrazek (z tej samej domeny bez pliku) - nie otwieraj
     if (img && img.src && !img.src.endsWith(window.location.host + window.location.pathname) && !img.src.includes('data:image')) {
         src = img.src;
     }
-    
-    if (!src) return; 
-    
+
+    if (!src) return;
+
     let lightbox = document.getElementById('global-lightbox');
     if (!lightbox) {
         lightbox = document.createElement('div');
@@ -247,11 +247,11 @@ function openLightbox(element) {
         document.body.appendChild(lightbox);
         lightbox = document.getElementById('global-lightbox');
     }
-    
+
     document.getElementById('lightbox-img').src = src;
     lightbox.classList.remove('hidden');
     lightbox.classList.add('flex');
-    
+
     // Wymuszenie reflow dla animacji
     void lightbox.offsetWidth;
     lightbox.classList.remove('opacity-0');
@@ -259,7 +259,7 @@ function openLightbox(element) {
 
 function closeLightbox() {
     const lightbox = document.getElementById('global-lightbox');
-    if(lightbox) {
+    if (lightbox) {
         lightbox.classList.add('opacity-0');
         setTimeout(() => {
             lightbox.classList.add('hidden');
@@ -272,16 +272,16 @@ function closeLightbox() {
 // Sprawdza czy slider wymaga scrollowania i uaktualnia stan strzałek (wyszarzone jeśli nie)
 function checkSliderButtons() {
     const sliders = ['slider-mqol', 'slider-dtt'];
-    
+
     sliders.forEach(id => {
         const slider = document.getElementById(id);
         if (!slider) return;
-        
+
         // Zależnie od id projektu mamy różne ID przycisków
-        const proj = id.split('-')[1]; 
+        const proj = id.split('-')[1];
         const btnLeft = document.getElementById(`btn-left-${proj}`);
         const btnRight = document.getElementById(`btn-right-${proj}`);
-        
+
         if (!btnLeft || !btnRight) return;
 
         // Jeśli szerokość zawartości jest mniejsza lub równa szerokości pojemnika, wyłącz strzałki
@@ -291,7 +291,7 @@ function checkSliderButtons() {
         } else {
             // Logika dla lewej strzałki (jeśli jesteśmy na początku)
             btnLeft.disabled = slider.scrollLeft <= 0;
-            
+
             // Logika dla prawej strzałki (jeśli jesteśmy na końcu)
             btnRight.disabled = slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 1; // -1 bo mogą być ułamki pixeli
         }
@@ -460,8 +460,8 @@ function changeLanguage(lang) {
     // Aktualizacja przycisków w navbarze
     const btnEn = document.getElementById('btn-en');
     const btnPl = document.getElementById('btn-pl');
-    
-    if(btnEn && btnPl) {
+
+    if (btnEn && btnPl) {
         if (lang === 'en') {
             btnEn.className = "is-active";
             btnPl.className = "";
@@ -470,18 +470,18 @@ function changeLanguage(lang) {
             btnEn.className = "";
         }
     }
-    
+
     // Odbudowanie changelogu mQoL jeśli jesteśmy na tej stronie
     document.querySelectorAll('[data-lang]').forEach(button => {
         button.classList.toggle('is-active', button.dataset.lang === lang);
     });
 
-    if(typeof renderMqolChangelog === 'function') {
+    if (typeof renderMqolChangelog === 'function') {
         renderMqolChangelog(lang);
     }
 
     // Odbudowanie changelogu DungeonTeleportsTab jeśli jesteśmy na tej stronie
-if(typeof renderDttChangelog === 'function') {
+    if (typeof renderDttChangelog === 'function') {
         renderDttChangelog(lang);
     }
 }
@@ -500,13 +500,13 @@ document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initMenu();
     initLang();
-    
+
     // Inicjalizuj i dodaj nasłuchiwanie na scroll dla wyłączania strzałek
     checkSliderButtons();
     const sliders = ['slider-mqol', 'slider-dtt'];
     sliders.forEach(id => {
         const s = document.getElementById(id);
-        if(s) {
+        if (s) {
             s.addEventListener('scroll', checkSliderButtons);
             window.addEventListener('resize', checkSliderButtons);
         }
