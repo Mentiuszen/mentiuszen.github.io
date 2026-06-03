@@ -60,7 +60,7 @@ const translations = {
         
         // mQoL Description
         mqolMainDesc: "MQoL is a modular quality-of-life addon focused on account-wide character overview, UI synchronization, Dungeon Teleports, Weekly Rewards tracking, and targeted improvements across supported World of Warcraft clients.",
-        mqolNewFeatTitle: "New Features (v1.2.0 - v1.2.1)",
+        mqolNewFeatTitle: "New Features (v1.2.0 - v1.2.3 Beta)",
         mqolNewFeat1: "Account Overview - Tracks characters, levels, classes, gold, played time, professions, and weekly reward progress across the account.",
         mqolNewFeat2: "Gold Chart - Adds an interactive wealth history chart with improved grid rendering and stable height handling.",
         mqolNewFeat3: "Weekly Rewards Preview - Shows Great Vault / Weekly Chest progress from saved addon data, including hover information and status icons.",
@@ -85,7 +85,7 @@ const translations = {
         mqolOptFeat4_2: "Broken map navigation on Pandaria.",
         mqolOptFeat4_3: "Incorrect World Boss display on the World Map.",
         mqolPlannedTitle: "Planned / Future Updates",
-        mqolPlanned1: "Active plan for version 1.2.2-1.2.5 with lasser improvements and 1.3.0 that will focus on mailbox improvements.",
+        mqolPlanned1: "Active plan for version 1.2.2-1.2.5 with minor improvements and 1.3.0 that will focus on mailbox improvements.",
         
         tagRemoved: "[Removed]",
         dtt_v1_6_1_1: "Fix for not working Seat of the Triumvirate teleport",
@@ -165,7 +165,7 @@ const translations = {
         
         // mQoL Description
         mqolMainDesc: "MQoL to modułowy addon Quality of Life skupiony na przeglądzie konta, synchronizacji UI, teleportach do lochów, śledzeniu cotygodniowych nagród i konkretnych usprawnieniach na wspieranych klientach World of Warcraft.",
-        mqolNewFeatTitle: "Nowe Funkcje (v1.2.0 - v1.2.1)",
+        mqolNewFeatTitle: "Nowe Funkcje (v1.2.0 - v1.2.3 Beta)",
         mqolNewFeat1: "Przegląd Konta - Śledzi postacie, poziomy, klasy, złoto, czas gry, profesje i postęp cotygodniowych nagród na całym koncie.",
         mqolNewFeat2: "Wykres Złota - Dodaje interaktywny wykres historii majątku z poprawionym renderowaniem siatki i stabilniejszą wysokością.",
         mqolNewFeat3: "Podgląd cotygodniowych nagród - Pokazuje postęp Great Vault / Weekly Chest z danych zapisanych przez addon, razem z informacją po najechaniu i ikonami stanu.",

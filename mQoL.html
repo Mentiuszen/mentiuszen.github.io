@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,11 +13,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
-<body class="project-detail bg-dark text-slate-300 font-sans antialiased selection:bg-green-500 selection:text-white pt-16">
+
+<body
+    class="project-detail bg-dark text-slate-300 font-sans antialiased selection:bg-green-500 selection:text-white pt-16">
 
     <div id="navbar"></div>
 
@@ -24,22 +33,30 @@
     <header class="relative overflow-hidden py-16 border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8">
             <div class="p-4 rounded-lg bg-slate-900 border border-slate-700 text-green-300">
-                <svg viewBox="0 0 64 64" width="64" height="64" style="width: 64px; height: 64px; flex: 0 0 64px;" class="project-mark w-16 h-16" role="img" aria-label="mQoL project mark">
-                    <path d="M8 52V12h10l14 24 14-24h10v40h-9V27L35 48h-6L17 27v25H8Z" fill="currentColor"/>
+                <svg viewBox="0 0 64 64" width="64" height="64" style="width: 64px; height: 64px; flex: 0 0 64px;"
+                    class="project-mark w-16 h-16" role="img" aria-label="mQoL project mark">
+                    <path d="M8 52V12h10l14 24 14-24h10v40h-9V27L35 48h-6L17 27v25H8Z" fill="currentColor" />
                 </svg>
             </div>
             <div class="text-center md:text-left">
-                <span class="px-3 py-1 text-xs font-semibold rounded-full bg-slate-800 text-green-300 border border-slate-700 mb-4 inline-block shadow-sm" data-i18n="addonBadge">World of Warcraft Addon</span>
+                <span
+                    class="px-3 py-1 text-xs font-semibold rounded-full bg-slate-800 text-green-300 border border-slate-700 mb-4 inline-block shadow-sm"
+                    data-i18n="addonBadge">World of Warcraft Addon</span>
                 <h1 class="text-4xl font-extrabold text-white mb-2">mQoL</h1>
-                <p class="text-xl text-slate-400 mb-6" data-i18n="mQoLDesc">Quality of Life improvements and tweaks for a better experience.</p>
+                <p class="text-xl text-slate-400 mb-6" data-i18n="mQoLDesc">Quality of Life improvements and tweaks for
+                    a better experience.</p>
                 <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-                    <a href="https://github.com/Mentiuszen/mQoL/releases/tag/1.2.2" target="_blank" class="bg-green-600 hover:bg-green-500 text-white py-2 px-6 rounded-lg font-bold transition-colors flex items-center shadow-lg shadow-green-600/20">
-                        <i class="fa-solid fa-download mr-2"></i> <span data-i18n="downloadStable">Download Release</span>
+                    <a href="https://github.com/Mentiuszen/mQoL/releases/tag/1.2.2" target="_blank"
+                        class="bg-green-600 hover:bg-green-500 text-white py-2 px-6 rounded-lg font-bold transition-colors flex items-center shadow-lg shadow-green-600/20">
+                        <i class="fa-solid fa-download mr-2"></i> <span data-i18n="downloadStable">Download
+                            Release</span>
                     </a>
-                    <a href="https://github.com/Mentiuszen/mQoL" target="_blank" class="bg-amber-600 hover:bg-amber-500 text-white py-2 px-6 rounded-lg font-bold transition-colors flex items-center shadow-lg shadow-amber-600/20">
+                    <a href="https://github.com/Mentiuszen/mQoL" target="_blank"
+                        class="bg-amber-600 hover:bg-amber-500 text-white py-2 px-6 rounded-lg font-bold transition-colors flex items-center shadow-lg shadow-amber-600/20">
                         <i class="fa-solid fa-flask mr-2"></i> <span data-i18n="downloadBeta">Download Beta</span>
                     </a>
-                    <a href="https://github.com/mentiuszen/mQoL" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-white py-2 px-6 rounded-lg font-medium transition-colors border border-slate-700 flex items-center">
+                    <a href="https://github.com/mentiuszen/mQoL" target="_blank"
+                        class="bg-slate-800 hover:bg-slate-700 text-white py-2 px-6 rounded-lg font-medium transition-colors border border-slate-700 flex items-center">
                         <i class="fa-brands fa-github mr-2"></i> Source Code
                     </a>
                 </div>
@@ -48,23 +65,26 @@
     </header>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
-        
+
         <!-- SEKCJA 1: Screeny (Slider) -->
         <section class="max-w-7xl mx-auto">
             <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
-                <i class="fa-solid fa-image mr-3 text-green-400"></i> <span data-i18n="screenshotsTitle">Screenshots</span>
+                <i class="fa-solid fa-image mr-3 text-green-400"></i> <span
+                    data-i18n="screenshotsTitle">Screenshots</span>
             </h2>
-            
+
             <div class="relative flex items-center gap-4">
                 <!-- Lewa strzałka -->
-                <button onclick="scrollSlider('slider-mqol', -1)" id="btn-left-mqol" class="flex-shrink-0 bg-card hover:bg-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border border-slate-700 hover:border-green-500 transition-colors hidden md:flex disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-card disabled:hover:border-slate-700">
+                <button onclick="scrollSlider('slider-mqol', -1)" id="btn-left-mqol"
+                    class="flex-shrink-0 bg-card hover:bg-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border border-slate-700 hover:border-green-500 transition-colors hidden md:flex disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-card disabled:hover:border-slate-700">
                     <i class="fa-solid fa-chevron-left"></i>
                 </button>
 
                 <!-- Pojemnik ze zdjęciami (Płynny scroll) -->
-                <div id="slider-mqol" class="flex-grow flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 hide-scrollbar snap-always">
+                <div id="slider-mqol"
+                    class="flex-grow flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 hide-scrollbar snap-always">
                     <script>
-                        for(let i=1; i<=11; i++) {
+                        for (let i = 1; i <= 11; i++) {
                             document.write(`
                             <div class="aspect-video bg-slate-800/40 rounded-xl border border-slate-700/60 flex flex-col items-center justify-center overflow-hidden relative group cursor-pointer snap-start shrink-0 w-[calc(100%-1rem)] sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.75rem)] hover:border-green-500/50 transition-colors" onclick="openLightbox(this)">
                                 <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjMWUyOTNiIiBmaWxsLW9wYWNpdHk9IjAuNSI+PC9yZWN0Pgo8cGF0aCBkPSJNMCAwTDggOFpNMCA4TDggMFoiIHN0cm9rZT0iIzBmMTcyYSIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+Cjwvc3ZnPg==')] opacity-30 group-hover:opacity-10 transition-opacity"></div>
@@ -80,7 +100,8 @@
                 </div>
 
                 <!-- Prawa strzałka -->
-                <button onclick="scrollSlider('slider-mqol', 1)" id="btn-right-mqol" class="flex-shrink-0 bg-card hover:bg-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border border-slate-700 hover:border-green-500 transition-colors hidden md:flex disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-card disabled:hover:border-slate-700">
+                <button onclick="scrollSlider('slider-mqol', 1)" id="btn-right-mqol"
+                    class="flex-shrink-0 bg-card hover:bg-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border border-slate-700 hover:border-green-500 transition-colors hidden md:flex disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-card disabled:hover:border-slate-700">
                     <i class="fa-solid fa-chevron-right"></i>
                 </button>
             </div>
@@ -91,43 +112,67 @@
             <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
                 <i class="fa-solid fa-book-open mr-3 text-green-400"></i> <span data-i18n="descTitle">Description</span>
             </h2>
-            <div class="bg-card p-8 rounded-2xl border border-slate-800 text-slate-300 space-y-8 leading-relaxed text-lg">
-                <p data-i18n="mqolMainDesc">MQoL is a modular quality-of-life addon focused on account-wide character overview, UI synchronization, Dungeon Teleports, Weekly Rewards tracking, and targeted improvements across supported World of Warcraft clients.</p>
-                
+            <div
+                class="bg-card p-8 rounded-2xl border border-slate-800 text-slate-300 space-y-8 leading-relaxed text-lg">
+                <p data-i18n="mqolMainDesc">MQoL is a modular quality-of-life addon focused on account-wide character
+                    overview, UI synchronization, Dungeon Teleports, Weekly Rewards tracking, and targeted improvements
+                    across supported World of Warcraft clients.</p>
+
                 <div>
-                    <h3 class="text-xl font-bold text-green-400 mb-3" data-i18n="mqolNewFeatTitle">New Features (v1.2.0 - v1.2.1)</h3>
+                    <h3 class="text-xl font-bold text-green-400 mb-3" data-i18n="mqolNewFeatTitle">New Features (v1.2.0
+                        - v1.2.3)</h3>
                     <ul class="list-disc list-inside space-y-2 ml-2 text-slate-400">
-                        <li data-i18n="mqolNewFeat1">Account Overview - Tracks characters, levels, classes, gold, played time, professions, and weekly reward progress across the account.</li>
-                        <li data-i18n="mqolNewFeat2">Gold Chart - Adds an interactive wealth history chart with improved grid rendering and stable height handling.</li>
-                        <li data-i18n="mqolNewFeat3">Weekly Rewards Preview - Shows Great Vault / Weekly Chest progress from saved addon data, including hover information and status icons.</li>
-                        <li data-i18n="mqolNewFeat4">Dungeon Teleports Tab - Adds a Group Finder tab with expansion filters, cooldown display, dungeon artwork, and active dungeon highlighting.</li>
-                        <li data-i18n="mqolNewFeat5">Profession Tracking - Saves and displays profession details across supported clients, including Classic Era, BCC, Legion, and Retail.</li>
-                        <li data-i18n="mqolNewFeat6">Fast Autoloot - Replaces the default CVAR-based looting flow with a faster custom module.</li>
-                        <li data-i18n="mqolNewFeat7">Expanded Edit Mode Support - Enables mQoL_EditMode on Mists of Pandaria Classic with version-aware safeguards.</li>
+                        <li data-i18n="mqolNewFeat1">Account Overview - Tracks characters, levels, classes, gold, played
+                            time, professions, and weekly reward progress across the account.</li>
+                        <li data-i18n="mqolNewFeat2">Gold Chart - Adds an interactive wealth history chart with improved
+                            grid rendering and stable height handling.</li>
+                        <li data-i18n="mqolNewFeat3">Weekly Rewards Preview - Shows Great Vault / Weekly Chest progress
+                            from saved addon data, including hover information and status icons.</li>
+                        <li data-i18n="mqolNewFeat4">Dungeon Teleports Tab - Adds a Group Finder tab with expansion
+                            filters, cooldown display, dungeon artwork, and active dungeon highlighting.</li>
+                        <li data-i18n="mqolNewFeat5">Profession Tracking - Saves and displays profession details across
+                            supported clients, including Classic Era, BCC, Legion, and Retail.</li>
+                        <li data-i18n="mqolNewFeat6">Fast Autoloot - Replaces the default CVAR-based looting flow with a
+                            faster custom module.</li>
+                        <li data-i18n="mqolNewFeat7">Expanded Edit Mode Support - Enables mQoL_EditMode on Mists of
+                            Pandaria Classic with version-aware safeguards.</li>
                     </ul>
                 </div>
 
                 <div>
                     <h3 class="text-xl font-bold text-green-400 mb-3" data-i18n="mqolFeatTitle">Features</h3>
                     <ul class="list-disc list-inside space-y-2 ml-2 text-slate-400">
-                        <li data-i18n="mqolFeat1">Action Bars synchronization - Keeps action bar settings across all characters.</li>
-                        <li data-i18n="mqolFeat2">Nameplates synchronization - Keeps nameplate settings across all characters.</li>
-                        <li data-i18n="mqolFeat3">General settings synchronization - Keeps common interface options such as "Auto Loot" and "My Name".</li>
-                        <li data-i18n="mqolFeat4">Force Edit Mode profile on login - Selected Edit Mode profile is applied on every login.</li>
-                        <li data-i18n="mqolFeat5">Raid Profiles Synchronization - Shares saved raid profiles across all characters with full automation.</li>
-                        <li data-i18n="mqolFeat6">Modules Manager - Lets you control which parts of the addon are active.</li>
-                        <li data-i18n="mqolFeat7">Improved Option Control - Allows disabling or ignoring options you are not interested in.</li>
-                        <li data-i18n="mqolFeat8">Modern addon interface - Provides a refreshed, consistent UI for addon settings and panels.</li>
+                        <li data-i18n="mqolFeat1">Action Bars synchronization - Keeps action bar settings across all
+                            characters.</li>
+                        <li data-i18n="mqolFeat2">Nameplates synchronization - Keeps nameplate settings across all
+                            characters.</li>
+                        <li data-i18n="mqolFeat3">General settings synchronization - Keeps common interface options such
+                            as "Auto Loot" and "My Name".</li>
+                        <li data-i18n="mqolFeat4">Force Edit Mode profile on login - Selected Edit Mode profile is
+                            applied on every login.</li>
+                        <li data-i18n="mqolFeat5">Raid Profiles Synchronization - Shares saved raid profiles across all
+                            characters with full automation.</li>
+                        <li data-i18n="mqolFeat6">Modules Manager - Lets you control which parts of the addon are
+                            active.</li>
+                        <li data-i18n="mqolFeat7">Improved Option Control - Allows disabling or ignoring options you are
+                            not interested in.</li>
+                        <li data-i18n="mqolFeat8">Modern addon interface - Provides a refreshed, consistent UI for addon
+                            settings and panels.</li>
                     </ul>
                 </div>
 
                 <div class="border-t border-slate-800 pt-6">
-                    <h3 class="text-xl font-bold text-green-400 mb-3" data-i18n="mqolOptFeatTitle">Optional Features</h3>
+                    <h3 class="text-xl font-bold text-green-400 mb-3" data-i18n="mqolOptFeatTitle">Optional Features
+                    </h3>
                     <ul class="list-disc list-inside space-y-2 ml-2 text-slate-400">
-                        <li data-i18n="mqolOptFeat1">Mailbox side panel - Adds a mailbox side panel with a character list and quick-send buttons with item categories.</li>
-                        <li data-i18n="mqolOptFeat2">Automatic mail subject - Allows setting a default subject for mail.</li>
-                        <li data-i18n="mqolOptFeat3">Improved Consolidated Buffs (Mists of Pandaria) - Enhances the default consolidated buffs look.</li>
-                        <li><span data-i18n="mqolOptFeat4">Blizzard bug fixes on Mists of Pandaria Classic - Fixes multiple interface issues, including:</span>
+                        <li data-i18n="mqolOptFeat1">Mailbox side panel - Adds a mailbox side panel with a character
+                            list and quick-send buttons with item categories.</li>
+                        <li data-i18n="mqolOptFeat2">Automatic mail subject - Allows setting a default subject for mail.
+                        </li>
+                        <li data-i18n="mqolOptFeat3">Improved Consolidated Buffs (Mists of Pandaria) - Enhances the
+                            default consolidated buffs look.</li>
+                        <li><span data-i18n="mqolOptFeat4">Blizzard bug fixes on Mists of Pandaria Classic - Fixes
+                                multiple interface issues, including:</span>
                             <ul class="list-[circle] list-inside ml-8 mt-2 space-y-1 text-slate-400">
                                 <li data-i18n="mqolOptFeat4_1">Missing PvP reward display.</li>
                                 <li data-i18n="mqolOptFeat4_2">Broken map navigation on Pandaria.</li>
@@ -138,7 +183,8 @@
                 </div>
 
                 <div class="border-t border-slate-800 pt-6">
-                    <h3 class="text-xl font-bold text-green-400 mb-3" data-i18n="mqolPlannedTitle">Planned / Future Updates</h3>
+                    <h3 class="text-xl font-bold text-green-400 mb-3" data-i18n="mqolPlannedTitle">Planned / Future
+                        Updates</h3>
                     <ul class="list-disc list-inside space-y-2 ml-2 text-slate-400">
                         <li data-i18n="mqolPlanned1">All Character-Wide settings synchronization. (WiP)</li>
                     </ul>
@@ -151,7 +197,7 @@
             <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
                 <i class="fa-solid fa-timeline mr-3 text-green-400"></i> <span data-i18n="changelog">Changelog</span>
             </h2>
-            
+
             <!-- Accordion Changelog Container -->
             <div id="mqol-changelog-container" class="space-y-3">
                 <!-- Dynamically generated via main.js -->
@@ -163,4 +209,5 @@
     <script src="js/main.js" defer></script>
     <script src="js/mqol-changelog.js" defer></script>
 </body>
+
 </html>
