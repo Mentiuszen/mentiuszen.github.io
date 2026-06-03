@@ -1,38 +1,41 @@
 const dttChangelog = [
+    { v: "1.8.0", release: true, e: "Release", p: "Wydanie", c: [
+        { t: "Added", e: "Added a popup dialog asking to teleport to the dungeon you joined or listed.", p: "Dodano wyskakujące okienko (popup) z zapytaniem o chęć teleportacji do lochu, do którego dołączyłeś lub który wystawiłeś." }
+    ]},
     { v: "1.7.0", release: true, e: "Release", p: "Wydanie", c: [
-        { t: "Fixed", e: "Fixed broken artwork scaling in the Dungeon Teleports Tab.", p: "Naprawiono zepsute skalowanie grafik w Dungeon Teleports Tab." },
-        { t: "Added", e: "Added highlighting for the dungeon currently joined or listed by the player.", p: "Dodano podswietlanie lochu, do ktorego gracz dolaczyl lub ktory wystawil w wyszukiwarce." }
+        { t: "Fixed", e: "Fixed broken artwork scaling in the Dungeon Teleports Tab.", p: "Naprawiono nieprawidłowe skalowanie grafik w zakładce Dungeon Teleports." },
+        { t: "Added", e: "Added highlighting for the dungeon currently joined or listed by the player.", p: "Dodano podświetlanie lochu, do którego gracz dołączył lub który wystawił w wyszukiwarce." }
     ]},
     { v: "1.6.1", e: "Hotfix", p: "Hotfix", c: [
-        { t: "Fixed", e: "Fix for not working Seat of the Triumvirate teleport.", p: "Poprawka niedzialajacego teleportu do Seat of the Triumvirate." }
+        { t: "Fixed", e: "Fixed the Seat of the Triumvirate teleport not working.", p: "Naprawiono błąd uniemożliwiający działanie teleportu do Seat of the Triumvirate." }
     ]},
     { v: "1.6.0", e: "Update", p: "Aktualizacja", c: [
-        { t: "Added", e: "Added missing Dawn of the Infinite teleport.", p: "Dodano brakujacy teleport do Dawn of the Infinite." },
-        { t: "Fixed", e: "Fixed active dungeon teleports tab color.", p: "Naprawiono kolor aktywnej zakladki teleportow do lochow." }
+        { t: "Added", e: "Added the missing Dawn of the Infinite teleport.", p: "Dodano brakujący teleport do Dawn of the Infinite." },
+        { t: "Fixed", e: "Fixed the active dungeon teleports tab color.", p: "Naprawiono kolor aktywnej zakładki teleportów do lochów." }
     ]},
     { v: "1.5.0", e: "Update", p: "Aktualizacja", c: [
         { t: "Added", e: "Added support for Mists of Pandaria Classic.", p: "Dodano wsparcie dla Mists of Pandaria Classic." }
     ]},
     { v: "1.4.0", e: "Update", p: "Aktualizacja", c: [
-        { t: "Fixed", e: "Fixed wrong Midnight Season 1 start date.", p: "Naprawiono bledna date startu 1. Sezonu Midnight." },
-        { t: "Removed", e: "Removed TWW season tables.", p: "Usunieto tabele sezonowe z TWW." }
+        { t: "Fixed", e: "Fixed the incorrect Midnight Season 1 start date.", p: "Naprawiono błędną datę startu 1. Sezonu Midnight." },
+        { t: "Removed", e: "Removed TWW season tables.", p: "Usunięto tabele sezonowe z dodatku TWW." }
     ]},
     { v: "1.3.0", e: "Update", p: "Aktualizacja", c: [
-        { t: "Added", e: "Added other regions support for season timers.", p: "Dodano wsparcie czasow sezonow dla innych regionow." },
-        { t: "Added", e: "Added season start/end info at season heading.", p: "Dodano informacje o dacie rozpoczecia i zakonczenia przy naglowku sezonu." },
-        { t: "Fixed", e: "Minor bug fixes.", p: "Drobne poprawki bledow." }
+        { t: "Added", e: "Added support for season timers in other regions.", p: "Dodano obsługę czasów rozpoczęcia sezonów dla innych regionów." },
+        { t: "Added", e: "Added season start and end information to the season header.", p: "Dodano informację o dacie rozpoczęcia i zakończenia sezonu w nagłówku." },
+        { t: "Fixed", e: "Minor bug fixes.", p: "Drobne poprawki błędów." }
     ]},
     { v: "1.2.0", e: "Update", p: "Aktualizacja", c: [
-        { t: "Fixed", e: "Fixed issue with not working Motherlode portal for Horde players.", p: "Naprawiono problem z niedzialajacym portalem Motherlode dla graczy Hordy." },
-        { t: "Added", e: "Added a custom tooltip with information on how to unlock each portal.", p: "Dodano niestandardowy tooltip z informacjami jak odblokowac kazdy portal." },
-        { t: "Added", e: "Added information about season start and end dates on portal tooltip.", p: "Dodano informacje o datach startu i zakonczenia sezonu w tooltipie portalu." }
+        { t: "Fixed", e: "Fixed the Motherlode portal not working for Horde players.", p: "Naprawiono problem z niedziałającym portalem do Motherlode dla graczy Hordy." },
+        { t: "Added", e: "Added a custom tooltip showing how to unlock each portal.", p: "Dodano niestandardowy tooltip z informacjami, jak odblokować każdy portal." },
+        { t: "Added", e: "Added season start and end dates to the portal tooltip.", p: "Dodano informacje o dacie startu i zakończenia sezonu w tooltipie portalu." }
     ]},
     { v: "1.1.0", e: "Update", p: "Aktualizacja", c: [
-        { t: "Fixed", e: "Fixed bug that prevented buttons from working for some players.", p: "Naprawiono blad uniemozliwiajacy dzialanie przyciskow u niektorych graczy." },
-        { t: "Fixed", e: "Fixed missing textures.", p: "Naprawiono brakujace tekstury." }
+        { t: "Fixed", e: "Fixed a bug that prevented buttons from working for some players.", p: "Naprawiono błąd uniemożliwiający działanie przycisków u niektórych graczy." },
+        { t: "Fixed", e: "Fixed missing textures.", p: "Naprawiono brakujące tekstury." }
     ]},
     { v: "1.0.0", e: "Initial Release", p: "Pierwsze wydanie", c: [
-        { t: "Added", e: "Added standalone addon (ported from mQoL module).", p: "Wydano samodzielny addon, wczesniej dostepny jako modul w mQoL." }
+        { t: "Added", e: "Released the standalone version of the addon (ported from the mQoL module).", p: "Wydano samodzielny dodatek (wcześniej dostępny jako moduł w mQoL)." }
     ]}
 ];
 
@@ -53,7 +56,7 @@ function renderDttChangelog(lang) {
             if (type === 'Added') return '[Dodano]';
             if (type === 'Fixed') return '[Naprawiono]';
             if (type === 'Changed') return '[Zmieniono]';
-            if (type === 'Removed') return '[Usunieto]';
+            if (type === 'Removed') return '[Usunięto]';
         }
         return `[${type}]`;
     };
