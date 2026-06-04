@@ -5,9 +5,15 @@ const translations = {
         heroStart: "Rendering work, addon tooling, and focused UI systems.",
         heroHighlight: "Mentiuszen Hub",
         heroDesc: "I work on C++ rendering, graphics tooling, and Lua addons with the same bias: predictable systems, fast iteration, and interfaces that stay out of the player's way.",
+        projectsDesc: "An overview of my active projects, including World of Warcraft addons, tools, and graphics utilities.",
         indexWorkDesc: "I prefer small, observable systems over decorative complexity: code paths that are easy to profile, UI that keeps state clear, and tools that reduce repeated manual work.",
-        indexPrinciplesTitle: "Built like tools, not billboards.",
-        indexPrinciplesDesc: "Public projects here are treated as working software first: clear release paths, restrained interfaces, and implementation choices that can survive real use. The visual layer follows the same rule: typography, spacing, and surface hierarchy carry the page instead of glow effects.",
+        indexPillarsTitle: "Engineering Focus",
+        pillar1Title: "Predictable Systems",
+        pillar1Desc: "Low latency, ease of profiling, and clean C++ and Lua patterns built to survive real use.",
+        pillar2Title: "Zero Bloat",
+        pillar2Desc: "Refined, focused feature sets and direct execution paths instead of unnecessary bells and whistles.",
+        pillar3Title: "Focused UI",
+        pillar3Desc: "Aesthetic structure carried by spacing, typography, and visual hierarchy that stays out of the way.",
         btnBrowse: "Browse Projects",
         feat1Title: "Open Source",
         feat1Desc: "Explore the code behind my public repositories on GitHub.",
@@ -110,9 +116,15 @@ const translations = {
         heroStart: "Rendering, narzędzia addonów i skupione systemy UI.",
         heroHighlight: "Mentiuszen Hub",
         heroDesc: "Pracuję przy renderingu C++, narzędziach graficznych i addonach Lua z tym samym podejściem: przewidywalne systemy, szybka iteracja i interfejsy, które nie przeszkadzają graczowi.",
+        projectsDesc: "Przegląd moich aktywnych projektów, w tym addonów do World of Warcraft, narzędzi oraz programów graficznych.",
         indexWorkDesc: "Wolę małe, obserwowalne systemy niż dekoracyjną złożoność: ścieżki kodu, które łatwo profilować, UI z czytelnym stanem i narzędzia zdejmujące powtarzalną pracę.",
-        indexPrinciplesTitle: "Budowane jak narzędzia, nie billboardy.",
-        indexPrinciplesDesc: "Publiczne projekty traktuję najpierw jako działające oprogramowanie: czytelne release pathy, powściągliwe interfejsy i decyzje implementacyjne, które wytrzymują realne użycie. Warstwa wizualna działa tak samo: typografia, spacing i hierarchia powierzchni zamiast efektów glow.",
+        indexPillarsTitle: "Filozofia projektowania",
+        pillar1Title: "Przewidywalne systemy",
+        pillar1Desc: "Niskie opóźnienia, łatwość profilowania i czyste wzorce C++ oraz Lua stworzone by przetrwać realne użytkowanie.",
+        pillar2Title: "Bez zbędnego kodu",
+        pillar2Desc: "Dopracowane, skupione zestawy funkcji i bezpośrednie ścieżki wykonania zamiast niepotrzebnych ozdobników.",
+        pillar3Title: "Użyteczny interfejs",
+        pillar3Desc: "Estetyczna struktura oparta na odstępach, typografii i hierarchii wizualnej, która nie rozprasza uwagi.",
         btnBrowse: "Przeglądaj projekty",
         feat1Title: "Otwarte Źródło",
         feat1Desc: "Odkryj kod stojący za moimi publicznymi repozytoriami na GitHubie.",
@@ -328,8 +340,14 @@ function isTheme(value) {
 function logoSvg() {
     return `
         <svg class="brand-mark" viewBox="0 0 64 64" role="img" aria-label="Mentiuszen mark">
-            <path d="M8 52V12h10l14 24 14-24h10v40h-9V27L35 48h-6L17 27v25H8Z" fill="currentColor"/>
-            <path d="M8 52h48M17 12h30" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" opacity=".36"/>
+            <defs>
+                <linearGradient id="nav-logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#3ddc84" />
+                    <stop offset="100%" stop-color="#00e5ff" />
+                </linearGradient>
+            </defs>
+            <polygon points="32,4 58,19 58,45 32,60 6,45 6,19" fill="none" stroke="url(#nav-logo-grad)" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M19 40V24l13 11 13-11v16" fill="none" stroke="url(#nav-logo-grad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     `;
 }
@@ -493,6 +511,266 @@ function applyInitialThemeAttribute() {
     }
 }
 
+function initHeroCanvas() {
+    const canvas = document.getElementById('hero-canvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = canvas.offsetWidth;
+    let height = canvas.height = canvas.offsetHeight;
+
+    const particles = [];
+    const properties = {
+        bgColor: 'transparent',
+        particleColor: 'rgba(61, 220, 132, 0.25)',
+        particleGlowColor: 'rgba(0, 229, 255, 0.45)',
+        lineColor: 'rgba(61, 220, 132, 0.04)',
+        particleRadius: 2.2,
+        particleCount: 50,
+        maxVelocity: 0.4,
+        lineLength: 120,
+    };
+
+    const hero = canvas.closest('.hero');
+    let mouse = { x: null, y: null };
+
+    if (hero) {
+        hero.addEventListener('mousemove', (e) => {
+            const rect = hero.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
+
+        hero.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+    }
+
+    window.addEventListener('resize', () => {
+        width = canvas.width = canvas.offsetWidth;
+        height = canvas.height = canvas.offsetHeight;
+    });
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.velocityX = (Math.random() * 2 - 1) * properties.maxVelocity;
+            this.velocityY = (Math.random() * 2 - 1) * properties.maxVelocity;
+        }
+
+        position() {
+            this.x += this.velocityX;
+            this.y += this.velocityY;
+
+            if (mouse.x !== null && mouse.y !== null) {
+                const dx = mouse.x - this.x;
+                const dy = mouse.y - this.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 180) {
+                    const force = (180 - dist) / 180;
+                    this.x += (dx / dist) * force * 0.4;
+                    this.y += (dy / dist) * force * 0.4;
+                }
+            }
+
+            if (this.x < 0 || this.x > width) this.velocityX = -this.velocityX;
+            if (this.y < 0 || this.y > height) this.velocityY = -this.velocityY;
+            if (this.x < 0) this.x = 0;
+            if (this.x > width) this.x = width;
+            if (this.y < 0) this.y = 0;
+            if (this.y > height) this.y = height;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, properties.particleRadius, 0, Math.PI * 2);
+            ctx.closePath();
+
+            let isNearMouse = false;
+            if (mouse.x !== null && mouse.y !== null) {
+                const dx = mouse.x - this.x;
+                const dy = mouse.y - this.y;
+                if (Math.sqrt(dx * dx + dy * dy) < 120) {
+                    isNearMouse = true;
+                }
+            }
+
+            ctx.fillStyle = isNearMouse ? properties.particleGlowColor : properties.particleColor;
+            ctx.fill();
+            
+            if (isNearMouse) {
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = '#00e5ff';
+            } else {
+                ctx.shadowBlur = 0;
+            }
+        }
+    }
+
+    for (let i = 0; i < properties.particleCount; i++) {
+        particles.push(new Particle());
+    }
+
+    function drawLines() {
+        ctx.shadowBlur = 0;
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < properties.lineLength) {
+                    let isLineActive = false;
+                    if (mouse.x !== null && mouse.y !== null) {
+                        const mdx1 = mouse.x - particles[i].x;
+                        const mdy1 = mouse.y - particles[i].y;
+                        const mdx2 = mouse.x - particles[j].x;
+                        const mdy2 = mouse.y - particles[j].y;
+                        if (Math.sqrt(mdx1*mdx1 + mdy1*mdy1) < 120 && Math.sqrt(mdx2*mdx2 + mdy2*mdy2) < 120) {
+                            isLineActive = true;
+                        }
+                    }
+                    
+                    const alpha = (properties.lineLength - dist) / properties.lineLength;
+                    ctx.strokeStyle = isLineActive 
+                        ? `rgba(61, 220, 132, ${alpha * 0.16})` 
+                        : `rgba(61, 220, 132, ${alpha * 0.04})`;
+                    ctx.lineWidth = isLineActive ? 1.2 : 0.8;
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+
+    function loop() {
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach(p => {
+            p.position();
+            p.draw();
+        });
+        drawLines();
+        requestAnimationFrame(loop);
+    }
+
+    loop();
+}
+
+function renderChangelog(containerId, changelogData, versionGroups, lang) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    const getTagColor = (type) => {
+        if (type === 'Added') return 'text-emerald-400';
+        if (type === 'Fixed') return 'text-red-400';
+        if (type === 'Changed') return 'text-blue-400';
+        if (type === 'Removed') return 'text-orange-400';
+        return 'text-slate-400';
+    };
+
+    const getTagTranslation = (type, lang) => {
+        if (lang === 'pl') {
+            if (type === 'Added') return '[Dodano]';
+            if (type === 'Fixed') return '[Naprawiono]';
+            if (type === 'Changed') return '[Zmieniono]';
+            if (type === 'Removed') return '[Usunięto]';
+        }
+        return `[${type}]`;
+    };
+
+    let html = '';
+    const totalBuilds = changelogData.length;
+
+    versionGroups.forEach((group, groupIndex) => {
+        const isFirst = groupIndex === 0;
+
+        let statusBadge = '';
+        if (group.status === 'beta') {
+            statusBadge = '<span class="ml-3 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded border border-amber-500/50 text-amber-400 bg-amber-500/10">Beta</span>';
+        } else if (group.status === 'stable') {
+            statusBadge = '<span class="ml-3 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded border border-emerald-500/50 text-emerald-400 bg-emerald-500/10">Release</span>';
+        }
+
+        const cleanId = containerId + '-' + group.id;
+
+        html += '<div class="border ' + (isFirst ? 'border-emerald-900/40 bg-card' : 'border-slate-800 bg-dark') + ' rounded-xl overflow-hidden">';
+        html += '<button class="w-full px-5 py-4 flex justify-between items-center hover:bg-slate-800 transition-colors group" onclick="toggleChangelog(\'' + cleanId + '\')">';
+        html += '<div class="flex items-center gap-3">';
+        html += '<span class="font-bold ' + (isFirst ? 'text-white group-hover:text-emerald-400' : 'text-slate-400 group-hover:text-white') + ' transition-colors">' + (lang === 'pl' ? group.namePl : group.nameEn) + '</span>';
+        html += statusBadge;
+        html += '<span class="text-xs ' + (isFirst ? 'text-emerald-200/50 bg-emerald-950/50 border-emerald-900/50' : 'text-slate-500 bg-slate-900 border-slate-800') + ' px-2 py-1 border rounded-md hidden sm:block">' + (lang === 'pl' ? group.descPl : group.descEn) + '</span>';
+        html += '</div>';
+        html += '<i class="fa-solid fa-chevron-down ' + (isFirst ? 'text-emerald-500/50' : 'text-slate-600') + ' transition-transform duration-300" id="icon-' + cleanId + '"></i>';
+        html += '</button>';
+        html += '<div class="px-5 pb-5 pt-2 hidden" id="content-' + cleanId + '">';
+        html += '<div class="space-y-6 border-l-2 ' + (isFirst ? 'border-slate-700/50' : 'border-slate-800') + ' ml-2 pl-4 mt-2">';
+
+        let revEndIdx;
+        if (groupIndex === 0) {
+            revEndIdx = totalBuilds - 1;
+        } else {
+            revEndIdx = versionGroups[groupIndex - 1].revStartIdx - 1;
+        }
+
+        const actualStartIdx = totalBuilds - 1 - revEndIdx;
+        const actualEndIdx = totalBuilds - 1 - group.revStartIdx;
+
+        for (let i = actualStartIdx; i <= actualEndIdx; i++) {
+            const b = changelogData[i];
+            const title = lang === 'pl' ? b.tp : b.te;
+            const buildText = lang === 'pl' ? 'Kompilacja' : 'Build';
+
+            let isLatestBuild = false;
+            let buildBadge = '';
+            let dotColor = 'bg-slate-600';
+            let titleColor = 'text-slate-400';
+            
+            const buildType = b.type || (/\d+\.\d+\.\d+[a-z]/i.test(title) ? 'hotfix' : '');
+            const isHotfixBuild = buildType === 'hotfix';
+            const isReleaseBuild = buildType === 'release';
+
+            if (isHotfixBuild) {
+                isLatestBuild = true;
+                dotColor = 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.5)]';
+                titleColor = 'text-red-400';
+                buildBadge = '<span class="text-[10px] font-bold uppercase tracking-wider text-red-400 bg-red-500/10 border border-red-500/20 px-2 py-0.5 rounded ml-2">Hotfix</span>';
+            } else if (isReleaseBuild) {
+                isLatestBuild = true;
+                dotColor = 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]';
+                titleColor = 'text-emerald-400';
+                buildBadge = '<span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded ml-2">Release</span>';
+            }
+
+            if (!buildBadge && i === actualStartIdx) {
+                if (group.status === 'beta') {
+                    isLatestBuild = true;
+                    dotColor = 'bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.5)]';
+                    titleColor = 'text-amber-400';
+                    buildBadge = '<span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded ml-2">' + (lang === 'pl' ? 'Najnowsza Beta' : 'Latest Beta') + '</span>';
+                }
+            }
+
+            html += '<div class="relative">';
+            html += '<div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full ' + dotColor + '"></div>';
+            html += '<h4 class="' + titleColor + ' font-bold mb-2 flex items-center">' + buildText + ' ' + b.b + ' - ' + title + buildBadge + '</h4>';
+            html += '<ul class="list-none space-y-1.5 text-sm ' + (isLatestBuild ? 'text-slate-300' : 'text-slate-400') + '">';
+
+            b.c.forEach(c => {
+                const text = lang === 'pl' ? c.p : c.e;
+                html += '<li><span class="' + getTagColor(c.t) + ' font-bold mr-1">' + getTagTranslation(c.t, lang) + '</span> ' + text + '</li>';
+            });
+            html += '</ul></div>';
+        }
+        html += '</div></div></div>';
+    });
+
+    container.innerHTML = html;
+}
+
 applyInitialThemeAttribute();
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -500,6 +778,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initMenu();
     initLang();
+    initHeroCanvas();
 
     // Inicjalizuj i dodaj nasłuchiwanie na scroll dla wyłączania strzałek
     checkSliderButtons();

@@ -1627,204 +1627,99 @@ const mqolChangelog = [
     }
 ];
 
+const versionGroups = [
+    {
+        id: 'v123', status: 'beta',
+        nameEn: 'v1.2.3', namePl: 'Wersja 1.2.3',
+        descEn: 'Account Overview Changes', descPl: 'Zmiany w Account Overview',
+        revStartIdx: 204 // Builds 251-259
+    },
+    {
+        id: 'v122', status: 'stable',
+        nameEn: 'v1.2.2', namePl: 'Wersja 1.2.2',
+        descEn: 'Dungeon Teleports & Overall Changes', descPl: 'Ogólne Zmiany oraz Dungeon Teleports',
+        revStartIdx: 196 // Builds 243-250
+    },
+    {
+        id: 'v121', status: 'old',
+        nameEn: 'v1.2.1', namePl: 'Wersja 1.2.1',
+        descEn: 'Account Overview & Fixes', descPl: 'Przegląd Konta i Poprawki',
+        revStartIdx: 185 // Builds 231-241
+    },
+    {
+        id: 'v120', status: 'old',
+        nameEn: 'v1.2.0', namePl: 'Wersja 1.2.0',
+        descEn: 'Account Overview', descPl: 'Przegląd Konta',
+        revStartIdx: 161 // Builds 200-230
+    },
+    {
+        id: 'v111', status: 'old',
+        nameEn: 'v1.1.1', namePl: 'Wersja 1.1.1',
+        descEn: 'Optimization & Advanced Modes', descPl: 'Optymalizacja i Zaawansowane Opcje',
+        revStartIdx: 154 // Builds 187-193
+    },
+    {
+        id: 'v110', status: 'old',
+        nameEn: 'v1.1.0', namePl: 'Wersja 1.1.0',
+        descEn: 'Major Hub Rework', descPl: 'Przebudowa UI',
+        revStartIdx: 67 // Builds 100-186
+    },
+    {
+        id: 'v109', status: 'old',
+        nameEn: 'v1.0.9', namePl: 'Wersja 1.0.9',
+        descEn: 'Midnight Logic Update', descPl: 'Aktualizacje Midnight',
+        revStartIdx: 66 // Build 67
+    },
+    {
+        id: 'v108', status: 'old',
+        nameEn: 'v1.0.8', namePl: 'Wersja 1.0.8',
+        descEn: 'BCC Support', descPl: 'Wsparcie BCC',
+        revStartIdx: 65 // Build 66
+    },
+    {
+        id: 'v107', status: 'old',
+        nameEn: 'v1.0.7', namePl: 'Wersja 1.0.7',
+        descEn: 'MoP Classic Fixes & PvP Rewards', descPl: 'Poprawki Blizzarda (MoP) i PvP',
+        revStartIdx: 51 // Builds 52-65
+    },
+    {
+        id: 'v106', status: 'old',
+        nameEn: 'v1.0.6', namePl: 'Wersja 1.0.6',
+        descEn: 'Major Database & Merger', descPl: 'Fuzja addonu i nowa Baza',
+        revStartIdx: 41 // Builds 42-51
+    },
+    {
+        id: 'v105', status: 'old',
+        nameEn: 'v1.0.5', namePl: 'Wersja 1.0.5',
+        descEn: 'Retail & Mailbox fixes', descPl: 'Poprawki Poczty',
+        revStartIdx: 37 // Builds 38-41
+    },
+    {
+        id: 'v104', status: 'old',
+        nameEn: 'v1.0.4', namePl: 'Wersja 1.0.4',
+        descEn: 'Mass Send Rewrite', descPl: 'Przebudowa Mass Send',
+        revStartIdx: 26 // Builds 27-37
+    },
+    {
+        id: 'v103', status: 'old',
+        nameEn: 'v1.0.3', namePl: 'Wersja 1.0.3',
+        descEn: 'Bug Fixes', descPl: 'Szybka poprawka',
+        revStartIdx: 25 // Build 26
+    },
+    {
+        id: 'v102', status: 'old',
+        nameEn: 'v1.0.2', namePl: 'Wersja 1.0.2',
+        descEn: 'View Distance Patch', descPl: 'Poprawki dystansu widzenia',
+        revStartIdx: 24 // Build 25
+    },
+    {
+        id: 'v100', status: 'old',
+        nameEn: 'v1.0.0', namePl: 'Wersja 1.0.0',
+        descEn: 'Initial Release Journey', descPl: 'Historia wczesnych wersji',
+        revStartIdx: 0 // Builds 1-24
+    }
+];
+
 function renderMqolChangelog(lang) {
-    const container = document.getElementById('mqol-changelog-container');
-    if (!container) return;
-
-    const getTagColor = (type) => {
-        if (type === 'Added') return 'text-emerald-400';
-        if (type === 'Fixed') return 'text-red-400';
-        if (type === 'Changed') return 'text-blue-400';
-        if (type === 'Removed') return 'text-orange-400';
-        return 'text-slate-400';
-    };
-
-    const getTagTranslation = (type, lang) => {
-        if (lang === 'pl') {
-            if (type === 'Added') return '[Dodano]';
-            if (type === 'Fixed') return '[Naprawiono]';
-            if (type === 'Changed') return '[Zmieniono]';
-            if (type === 'Removed') return '[Usunięto]';
-        }
-        return `[${type}]`;
-    };
-
-    // Struktura grupowania według patchów
-    const versionGroups = [
-        {
-            id: 'v123', status: 'beta',
-            nameEn: 'v1.2.3', namePl: 'Wersja 1.2.3',
-            descEn: 'Account Overview Changes', descPl: 'Zmiany w Account Overview',
-            revStartIdx: 204 // Builds 251-259
-        },
-        {
-            id: 'v122', status: 'stable',
-            nameEn: 'v1.2.2', namePl: 'Wersja 1.2.2',
-            descEn: 'Dungeon Teleports & Overall Changes', descPl: 'Ogólne Zmiany oraz Dungeon Teleports',
-            revStartIdx: 196 // Builds 243-250
-        },
-        {
-            id: 'v121', status: 'old',
-            nameEn: 'v1.2.1', namePl: 'Wersja 1.2.1',
-            descEn: 'Account Overview & Fixes', descPl: 'Przegląd Konta i Poprawki',
-            revStartIdx: 185 // Builds 231-241
-        },
-        {
-            id: 'v120', status: 'old',
-            nameEn: 'v1.2.0', namePl: 'Wersja 1.2.0',
-            descEn: 'Account Overview', descPl: 'Przegląd Konta',
-            revStartIdx: 161 // Builds 200-230
-        },
-        {
-            id: 'v111', status: 'old',
-            nameEn: 'v1.1.1', namePl: 'Wersja 1.1.1',
-            descEn: 'Optimization & Advanced Modes', descPl: 'Optymalizacja i Zaawansowane Opcje',
-            revStartIdx: 154 // Builds 187-193
-        },
-        {
-            id: 'v110', status: 'old',
-            nameEn: 'v1.1.0', namePl: 'Wersja 1.1.0',
-            descEn: 'Major Hub Rework', descPl: 'Przebudowa UI',
-            revStartIdx: 67 // Builds 100-186
-        },
-        {
-            id: 'v109', status: 'old',
-            nameEn: 'v1.0.9', namePl: 'Wersja 1.0.9',
-            descEn: 'Midnight Logic Update', descPl: 'Aktualizacje Midnight',
-            revStartIdx: 66 // Build 67
-        },
-        {
-            id: 'v108', status: 'old',
-            nameEn: 'v1.0.8', namePl: 'Wersja 1.0.8',
-            descEn: 'BCC Support', descPl: 'Wsparcie BCC',
-            revStartIdx: 65 // Build 66
-        },
-        {
-            id: 'v107', status: 'old',
-            nameEn: 'v1.0.7', namePl: 'Wersja 1.0.7',
-            descEn: 'MoP Classic Fixes & PvP Rewards', descPl: 'Poprawki Blizzarda (MoP) i PvP',
-            revStartIdx: 51 // Builds 52-65
-        },
-        {
-            id: 'v106', status: 'old',
-            nameEn: 'v1.0.6', namePl: 'Wersja 1.0.6',
-            descEn: 'Major Database & Merger', descPl: 'Fuzja addonu i nowa Baza',
-            revStartIdx: 41 // Builds 42-51
-        },
-        {
-            id: 'v105', status: 'old',
-            nameEn: 'v1.0.5', namePl: 'Wersja 1.0.5',
-            descEn: 'Retail & Mailbox fixes', descPl: 'Poprawki Poczty',
-            revStartIdx: 37 // Builds 38-41
-        },
-        {
-            id: 'v104', status: 'old',
-            nameEn: 'v1.0.4', namePl: 'Wersja 1.0.4',
-            descEn: 'Mass Send Rewrite', descPl: 'Przebudowa Mass Send',
-            revStartIdx: 26 // Builds 27-37
-        },
-        {
-            id: 'v103', status: 'old',
-            nameEn: 'v1.0.3', namePl: 'Wersja 1.0.3',
-            descEn: 'Bug Fixes', descPl: 'Szybka poprawka',
-            revStartIdx: 25 // Build 26
-        },
-        {
-            id: 'v102', status: 'old',
-            nameEn: 'v1.0.2', namePl: 'Wersja 1.0.2',
-            descEn: 'View Distance Patch', descPl: 'Poprawki dystansu widzenia',
-            revStartIdx: 24 // Build 25
-        },
-        {
-            id: 'v100', status: 'old',
-            nameEn: 'v1.0.0', namePl: 'Wersja 1.0.0',
-            descEn: 'Initial Release Journey', descPl: 'Historia wczesnych wersji',
-            revStartIdx: 0 // Builds 1-24
-        }
-    ];
-
-    let html = '';
-    const totalBuilds = mqolChangelog.length;
-
-    versionGroups.forEach((group, groupIndex) => {
-        const isFirst = groupIndex === 0;
-
-        let statusBadge = '';
-        if (group.status === 'beta') {
-            statusBadge = '<span class="ml-3 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded border border-amber-500/50 text-amber-400 bg-amber-500/10">Beta</span>';
-        } else if (group.status === 'stable') {
-            statusBadge = '<span class="ml-3 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded border border-emerald-500/50 text-emerald-400 bg-emerald-500/10">Release</span>';
-        }
-
-        html += '<div class="border ' + (isFirst ? 'border-emerald-900/40 bg-card' : 'border-slate-800 bg-dark') + ' rounded-xl overflow-hidden">';
-        html += '<button class="w-full px-5 py-4 flex justify-between items-center hover:bg-slate-800 transition-colors group" onclick="toggleChangelog(\'mqol-' + group.id + '\')">';
-        html += '<div class="flex items-center gap-3">';
-        html += '<span class="font-bold ' + (isFirst ? 'text-white group-hover:text-emerald-400' : 'text-slate-400 group-hover:text-white') + ' transition-colors">' + (lang === 'pl' ? group.namePl : group.nameEn) + '</span>';
-        html += statusBadge;
-        html += '<span class="text-xs ' + (isFirst ? 'text-emerald-200/50 bg-emerald-950/50 border-emerald-900/50' : 'text-slate-500 bg-slate-900 border-slate-800') + ' px-2 py-1 border rounded-md hidden sm:block">' + (lang === 'pl' ? group.descPl : group.descEn) + '</span>';
-        html += '</div>';
-        html += '<i class="fa-solid fa-chevron-down ' + (isFirst ? 'text-emerald-500/50' : 'text-slate-600') + ' transition-transform duration-300" id="icon-mqol-' + group.id + '"></i>';
-        html += '</button>';
-        html += '<div class="px-5 pb-5 pt-2 hidden" id="content-mqol-' + group.id + '">';
-        html += '<div class="space-y-6 border-l-2 ' + (isFirst ? 'border-slate-700/50' : 'border-slate-800') + ' ml-2 pl-4 mt-2">';
-
-        let revEndIdx;
-        if (groupIndex === 0) {
-            revEndIdx = totalBuilds - 1;
-        } else {
-            revEndIdx = versionGroups[groupIndex - 1].revStartIdx - 1;
-        }
-
-        const actualStartIdx = totalBuilds - 1 - revEndIdx;
-        const actualEndIdx = totalBuilds - 1 - group.revStartIdx;
-
-        for (let i = actualStartIdx; i <= actualEndIdx; i++) {
-            const b = mqolChangelog[i];
-            const title = lang === 'pl' ? b.tp : b.te;
-            const buildText = lang === 'pl' ? 'Kompilacja' : 'Build';
-
-            let isLatestBuild = false;
-            let buildBadge = '';
-            let dotColor = 'bg-slate-600';
-            let titleColor = 'text-slate-400';
-            const buildType = b.type || (/\d+\.\d+\.\d+[a-z]/i.test(title) ? 'hotfix' : '');
-            const isHotfixBuild = buildType === 'hotfix';
-            const isReleaseBuild = buildType === 'release';
-
-            if (isHotfixBuild) {
-                isLatestBuild = true;
-                dotColor = 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.5)]';
-                titleColor = 'text-red-400';
-                buildBadge = '<span class="text-[10px] font-bold uppercase tracking-wider text-red-400 bg-red-500/10 border border-red-500/20 px-2 py-0.5 rounded ml-2">Hotfix</span>';
-            } else if (isReleaseBuild) {
-                isLatestBuild = true;
-                dotColor = 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]';
-                titleColor = 'text-emerald-400';
-                buildBadge = '<span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded ml-2">Release</span>';
-            }
-
-            if (!buildBadge && i === actualStartIdx) {
-                if (group.status === 'beta') {
-                    isLatestBuild = true;
-                    dotColor = 'bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.5)]';
-                    titleColor = 'text-amber-400';
-                    buildBadge = '<span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded ml-2">' + (lang === 'pl' ? 'Najnowsza Beta' : 'Latest Beta') + '</span>';
-                }
-            }
-
-            html += '<div class="relative">';
-            html += '<div class="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full ' + dotColor + '"></div>';
-            html += '<h4 class="' + titleColor + ' font-bold mb-2 flex items-center">' + buildText + ' ' + b.b + ' - ' + title + buildBadge + '</h4>';
-            html += '<ul class="list-none space-y-1.5 text-sm ' + (isLatestBuild ? 'text-slate-300' : 'text-slate-400') + '">';
-
-            b.c.forEach(c => {
-                const text = lang === 'pl' ? c.p : c.e;
-                html += '<li><span class="' + getTagColor(c.t) + ' font-bold mr-1">' + getTagTranslation(c.t, lang) + '</span> ' + text + '</li>';
-            });
-            html += '</ul></div>';
-        }
-        html += '</div></div></div>';
-    });
-
-    container.innerHTML = html;
+    renderChangelog('mqol-changelog-container', mqolChangelog, versionGroups, lang);
 }
