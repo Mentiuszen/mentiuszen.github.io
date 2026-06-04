@@ -378,7 +378,6 @@ function injectNavbar() {
                         <button type="button" id="btn-en" data-lang="en" aria-label="Switch language to English">EN</button>
                         <button type="button" id="btn-pl" data-lang="pl" aria-label="Przełącz język na polski">PL</button>
                     </div>
-                    <button class="icon-button" type="button" id="theme-toggle" aria-label="Toggle light mode">${siteIcons.sun}</button>
                     <button class="menu-toggle" type="button" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">${siteIcons.menu}</button>
                 </div>
             </div>
@@ -392,59 +391,7 @@ function injectNavbar() {
     `;
 }
 
-function readStoredTheme() {
-    try {
-        const stored = localStorage.getItem(THEME_KEY)
-            || localStorage.getItem(LEGACY_THEME_KEY)
-            || sessionStorage.getItem(THEME_KEY)
-            || sessionStorage.getItem(LEGACY_THEME_KEY);
 
-        if (isTheme(stored)) return stored;
-    } catch (_) {
-        // Some browser privacy modes can block storage; cookie fallback keeps page-to-page navigation stable.
-    }
-
-    const match = document.cookie.match(/(?:^|;\s*)mentiuszen-hub-theme=(light|dark)(?:;|$)/)
-        || document.cookie.match(/(?:^|;\s*)theme=(light|dark)(?:;|$)/);
-    return match ? match[1] : null;
-}
-
-function writeStoredTheme(theme) {
-    if (!isTheme(theme)) return;
-
-    try {
-        localStorage.setItem(THEME_KEY, theme);
-        localStorage.setItem(LEGACY_THEME_KEY, theme);
-        sessionStorage.setItem(THEME_KEY, theme);
-        sessionStorage.setItem(LEGACY_THEME_KEY, theme);
-    } catch (_) {
-        // Cookie fallback below.
-    }
-
-    document.cookie = `mentiuszen-hub-theme=${theme}; path=/; max-age=31536000; SameSite=Lax`;
-    document.cookie = `theme=${theme}; path=/; max-age=31536000; SameSite=Lax`;
-}
-
-function initTheme() {
-    const stored = readStoredTheme();
-    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-    setTheme(stored || (prefersLight ? 'light' : 'dark'));
-
-    document.getElementById('theme-toggle')?.addEventListener('click', () => {
-        setTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
-    });
-}
-
-function setTheme(theme) {
-    document.documentElement.dataset.theme = theme;
-    writeStoredTheme(theme);
-
-    const toggle = document.getElementById('theme-toggle');
-    if (toggle) {
-        toggle.innerHTML = theme === 'light' ? siteIcons.moon : siteIcons.sun;
-        toggle.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
-    }
-}
 
 function initMenu() {
     const toggle = document.getElementById('menu-toggle');
@@ -504,104 +451,150 @@ function changeLanguage(lang) {
     }
 }
 
-function applyInitialThemeAttribute() {
-    const stored = readStoredTheme();
-    if (stored) {
-        document.documentElement.dataset.theme = stored;
-    }
-}
-
-function initHeroCanvas() {
-    const canvas = document.getElementById('hero-canvas');
-    if (!canvas) return;
+function initBgCanvas() {
+    const canvas = document.createElement('canvas');
+    canvas.id = 'bg-canvas';
+    document.body.prepend(canvas);
 
     const ctx = canvas.getContext('2d');
-    let width = canvas.width = canvas.offsetWidth;
-    let height = canvas.height = canvas.offsetHeight;
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
 
     const particles = [];
     const properties = {
         bgColor: 'transparent',
-        particleColor: 'rgba(61, 220, 132, 0.25)',
+        particleColor: 'rgba(61, 220, 132, 0.22)',
         particleGlowColor: 'rgba(0, 229, 255, 0.45)',
         lineColor: 'rgba(61, 220, 132, 0.04)',
         particleRadius: 2.2,
-        particleCount: 50,
-        maxVelocity: 0.4,
-        lineLength: 120,
+        maxVelocity: 0.45,
+        lineLength: 130,
     };
 
-    const hero = canvas.closest('.hero');
     let mouse = { x: null, y: null };
+    let currentScrollY = window.scrollY || window.pageYOffset;
 
-    if (hero) {
-        hero.addEventListener('mousemove', (e) => {
-            const rect = hero.getBoundingClientRect();
-            mouse.x = e.clientX - rect.left;
-            mouse.y = e.clientY - rect.top;
-        });
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+    });
 
-        hero.addEventListener('mouseleave', () => {
-            mouse.x = null;
-            mouse.y = null;
-        });
-    }
+    window.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+    });
 
     window.addEventListener('resize', () => {
-        width = canvas.width = canvas.offsetWidth;
-        height = canvas.height = canvas.offsetHeight;
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        adjustParticleCount();
     });
 
     class Particle {
         constructor() {
             this.x = Math.random() * width;
             this.y = Math.random() * height;
-            this.velocityX = (Math.random() * 2 - 1) * properties.maxVelocity;
-            this.velocityY = (Math.random() * 2 - 1) * properties.maxVelocity;
+            
+            // Assign to one of 3 depth layers: Far (0), Mid (1), Near (2)
+            const rand = Math.random();
+            if (rand < 0.35) {
+                // Far background
+                this.layer = 0;
+                this.z = Math.random() * 0.12 + 0.08; // 0.08 to 0.20
+            } else if (rand < 0.8) {
+                // Midground
+                this.layer = 1;
+                this.z = Math.random() * 0.25 + 0.35; // 0.35 to 0.60
+            } else {
+                // Foreground
+                this.layer = 2;
+                this.z = Math.random() * 0.35 + 0.75; // 0.75 to 1.10
+            }
+
+            this.velocityX = (Math.random() * 2 - 1) * properties.maxVelocity * (this.z + 0.15);
+            this.velocityY = (Math.random() * 2 - 1) * properties.maxVelocity * (this.z + 0.15);
+            this.drawY = this.y;
         }
 
         position() {
             this.x += this.velocityX;
             this.y += this.velocityY;
 
+            // Attraction logic based on visible on-screen coordinate drawY
             if (mouse.x !== null && mouse.y !== null) {
                 const dx = mouse.x - this.x;
-                const dy = mouse.y - this.y;
+                const dy = mouse.y - this.drawY;
                 const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < 180) {
-                    const force = (180 - dist) / 180;
-                    this.x += (dx / dist) * force * 0.4;
-                    this.y += (dy / dist) * force * 0.4;
+                if (dist < 200) {
+                    const force = (200 - dist) / 200;
+                    // Near layer is more reactive to mouse attraction
+                    const layerScale = this.layer === 0 ? 0.2 : (this.layer === 1 ? 0.6 : 1.25);
+                    this.x += (dx / dist) * force * 0.45 * layerScale;
+                    this.y += (dy / dist) * force * 0.45 * layerScale;
                 }
             }
 
-            if (this.x < 0 || this.x > width) this.velocityX = -this.velocityX;
-            if (this.y < 0 || this.y > height) this.velocityY = -this.velocityY;
-            if (this.x < 0) this.x = 0;
-            if (this.x > width) this.x = width;
-            if (this.y < 0) this.y = 0;
-            if (this.y > height) this.y = height;
+            // Boundary checks for wrapping/recycling
+            if (this.x < 0) {
+                this.x = width;
+            } else if (this.x > width) {
+                this.x = 0;
+            }
+
+            if (this.y < 0) {
+                this.y = height;
+            } else if (this.y > height) {
+                this.y = 0;
+            }
+        }
+
+        updateDrawY(scrollY) {
+            // Apply parallax scrolling vertical offset with wrapping
+            let dy = (this.y - scrollY * this.z) % height;
+            if (dy < 0) dy += height;
+            this.drawY = dy;
         }
 
         draw() {
+            let size = properties.particleRadius;
+            let baseOpacity = 0.22;
+            
+            if (this.layer === 0) {
+                size = 1.0;
+                baseOpacity = 0.12;
+            } else if (this.layer === 1) {
+                size = 1.8;
+                baseOpacity = 0.26;
+            } else if (this.layer === 2) {
+                size = 2.8;
+                baseOpacity = 0.55;
+            }
+
             ctx.beginPath();
-            ctx.arc(this.x, this.y, properties.particleRadius, 0, Math.PI * 2);
+            ctx.arc(this.x, this.drawY, size, 0, Math.PI * 2);
             ctx.closePath();
 
             let isNearMouse = false;
+            let mouseRange = 130;
             if (mouse.x !== null && mouse.y !== null) {
                 const dx = mouse.x - this.x;
-                const dy = mouse.y - this.y;
-                if (Math.sqrt(dx * dx + dy * dy) < 120) {
+                const dy = mouse.y - this.drawY;
+                if (Math.sqrt(dx * dx + dy * dy) < mouseRange) {
                     isNearMouse = true;
                 }
             }
 
-            ctx.fillStyle = isNearMouse ? properties.particleGlowColor : properties.particleColor;
+            // Scale opacity based on mouse proximity
+            const opacity = isNearMouse ? 0.75 : baseOpacity;
+            const color = isNearMouse 
+                ? properties.particleGlowColor 
+                : `rgba(61, 220, 132, ${opacity})`;
+
+            ctx.fillStyle = color;
             ctx.fill();
             
             if (isNearMouse) {
-                ctx.shadowBlur = 8;
+                ctx.shadowBlur = 8 * this.z;
                 ctx.shadowColor = '#00e5ff';
             } else {
                 ctx.shadowBlur = 0;
@@ -609,38 +602,74 @@ function initHeroCanvas() {
         }
     }
 
-    for (let i = 0; i < properties.particleCount; i++) {
-        particles.push(new Particle());
+    function adjustParticleCount() {
+        const area = width * height;
+        const targetCount = Math.min(120, Math.max(30, Math.floor(area * 0.000035)));
+        
+        if (particles.length < targetCount) {
+            while (particles.length < targetCount) {
+                particles.push(new Particle());
+            }
+        } else if (particles.length > targetCount) {
+            particles.splice(targetCount);
+        }
     }
+
+    adjustParticleCount();
 
     function drawLines() {
         ctx.shadowBlur = 0;
         for (let i = 0; i < particles.length; i++) {
             for (let j = i + 1; j < particles.length; j++) {
+                // ONLY connect particles in the SAME depth layer
+                if (particles[i].layer !== particles[j].layer) continue;
+
                 const dx = particles[i].x - particles[j].x;
-                const dy = particles[i].y - particles[j].y;
+                const dy = particles[i].drawY - particles[j].drawY;
                 const dist = Math.sqrt(dx * dx + dy * dy);
 
                 if (dist < properties.lineLength) {
                     let isLineActive = false;
                     if (mouse.x !== null && mouse.y !== null) {
                         const mdx1 = mouse.x - particles[i].x;
-                        const mdy1 = mouse.y - particles[i].y;
+                        const mdy1 = mouse.y - particles[i].drawY;
                         const mdx2 = mouse.x - particles[j].x;
-                        const mdy2 = mouse.y - particles[j].y;
-                        if (Math.sqrt(mdx1*mdx1 + mdy1*mdy1) < 120 && Math.sqrt(mdx2*mdx2 + mdy2*mdy2) < 120) {
+                        const mdy2 = mouse.y - particles[j].drawY;
+                        if (Math.sqrt(mdx1*mdx1 + mdy1*mdy1) < 130 && Math.sqrt(mdx2*mdx2 + mdy2*mdy2) < 130) {
                             isLineActive = true;
                         }
                     }
                     
                     const alpha = (properties.lineLength - dist) / properties.lineLength;
-                    ctx.strokeStyle = isLineActive 
-                        ? `rgba(61, 220, 132, ${alpha * 0.16})` 
-                        : `rgba(61, 220, 132, ${alpha * 0.04})`;
-                    ctx.lineWidth = isLineActive ? 1.2 : 0.8;
+                    
+                    // Thicker and brighter lines for foreground layer
+                    let strokeColor;
+                    let lineWidth = 0.8;
+                    
+                    if (isLineActive) {
+                        strokeColor = `rgba(0, 229, 255, ${alpha * 0.3})`;
+                        lineWidth = 1.4;
+                    } else {
+                        if (particles[i].layer === 0) {
+                            // Far background - very faint lines
+                            strokeColor = `rgba(61, 220, 132, ${alpha * 0.025})`;
+                            lineWidth = 0.5;
+                        } else if (particles[i].layer === 1) {
+                            // Midground
+                            strokeColor = `rgba(61, 220, 132, ${alpha * 0.05})`;
+                            lineWidth = 0.8;
+                        } else {
+                            // Foreground
+                            strokeColor = `rgba(61, 220, 132, ${alpha * 0.12})`;
+                            lineWidth = 1.2;
+                        }
+                    }
+
+                    ctx.strokeStyle = strokeColor;
+                    ctx.lineWidth = lineWidth;
                     ctx.beginPath();
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.moveTo(particles[i].x, particles[i].drawY);
+                    ctx.lineTo(particles[j].x, particles[j].drawY);
                     ctx.stroke();
                 }
             }
@@ -649,8 +678,13 @@ function initHeroCanvas() {
 
     function loop() {
         ctx.clearRect(0, 0, width, height);
+        
+        // Update scroll offset inside loop for smooth frames (with cross-browser fallbacks)
+        currentScrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+
         particles.forEach(p => {
             p.position();
+            p.updateDrawY(currentScrollY);
             p.draw();
         });
         drawLines();
@@ -659,6 +693,8 @@ function initHeroCanvas() {
 
     loop();
 }
+
+document.documentElement.dataset.theme = 'dark';
 
 function renderChangelog(containerId, changelogData, versionGroups, lang) {
     const container = document.getElementById(containerId);
@@ -771,14 +807,11 @@ function renderChangelog(containerId, changelogData, versionGroups, lang) {
     container.innerHTML = html;
 }
 
-applyInitialThemeAttribute();
-
 document.addEventListener('DOMContentLoaded', () => {
     injectNavbar();
-    initTheme();
     initMenu();
     initLang();
-    initHeroCanvas();
+    initBgCanvas();
 
     // Inicjalizuj i dodaj nasłuchiwanie na scroll dla wyłączania strzałek
     checkSliderButtons();
@@ -794,11 +827,4 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-lang]').forEach(button => {
         button.addEventListener('click', () => changeLanguage(button.dataset.lang));
     });
-});
-
-window.addEventListener('storage', (event) => {
-    if (event.key !== THEME_KEY && event.key !== LEGACY_THEME_KEY) return;
-    if (isTheme(event.newValue)) {
-        setTheme(event.newValue);
-    }
 });

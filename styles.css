@@ -24,24 +24,6 @@
   --nav-height: 64px;
 }
 
-:root[data-theme="light"] {
-  color-scheme: light;
-  --bg: #f5f7f9;
-  --bg-soft: #eef2f5;
-  --surface-1: #ffffff;
-  --surface-2: #f7fafc;
-  --surface-3: #edf3f5;
-  --line: #d7e0e6;
-  --line-soft: #e5ebef;
-  --text: #111820;
-  --text-muted: #4e5c6a;
-  --text-soft: #73808d;
-  --accent: #188a52;
-  --accent-strong: #0f6f40;
-  --accent-soft: rgba(24, 138, 82, 0.11);
-  --shadow: 0 22px 60px rgba(16, 24, 40, 0.08);
-}
-
 * {
   box-sizing: border-box;
 }
@@ -830,14 +812,14 @@ button {
 }
 
 /* Custom Interactive Background & Modern Visual Effects */
-#hero-canvas {
-  position: absolute;
+#bg-canvas {
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
-  z-index: 1;
+  z-index: -1;
 }
 
 .hero-grid {

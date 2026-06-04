@@ -67,7 +67,7 @@ const dttVersionGroups = [
         revStartIdx: 9 // Build 10
     },
     {
-        id: "v170", status: "stable",
+        id: "v170", status: "old",
         nameEn: "v1.7.0", namePl: "Wersja 1.7.0",
         descEn: "Dungeon Highlighting", descPl: "Podświetlanie lochów",
         revStartIdx: 8 // Build 9
