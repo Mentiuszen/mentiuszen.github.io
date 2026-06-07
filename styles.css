@@ -870,19 +870,17 @@ button {
 }
 
 .animate-fade-in {
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .animate-fade-in-delayed {
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: 0.15s;
-  opacity: 0;
 }
 
 .animate-fade-in-delayed-2 {
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: 0.3s;
-  opacity: 0;
 }
 
 /* Core Engineering Pillars layout */

@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mQoL - Mentiuszen</title>
+    <title>mQoL - World of Warcraft Quality of Life Addon | Mentiuszen</title>
+    <meta name="description" content="mQoL is a modular World of Warcraft quality-of-life addon focused on account overview, UI synchronization, and daily automation.">
     <script>
         window.tailwind = window.tailwind || {};
         window.tailwind.config = { theme: { extend: { colors: { dark: '#0f172a', card: '#1e293b' } } } };
@@ -47,7 +48,7 @@
                 <p class="text-xl text-slate-400 mb-6" data-i18n="mQoLDesc">Quality of Life improvements and tweaks for
                     a better experience.</p>
                 <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-                    <a href="https://github.com/Mentiuszen/mQoL/releases/tag/1.2.3" target="_blank"
+                    <a href="https://github.com/Mentiuszen/mQoL/releases/latest" target="_blank"
                         class="bg-green-600 hover:bg-green-500 text-white py-2 px-6 rounded-lg font-bold transition-colors flex items-center shadow-lg shadow-green-600/20">
                         <i class="fa-solid fa-download mr-2"></i> <span data-i18n="downloadStable">Download
                             Release</span>
@@ -58,7 +59,7 @@
                     </a>
                     <a href="https://github.com/mentiuszen/mQoL" target="_blank"
                         class="bg-slate-800 hover:bg-slate-700 text-white py-2 px-6 rounded-lg font-medium transition-colors border border-slate-700 flex items-center">
-                        <i class="fa-brands fa-github mr-2"></i> Source Code
+                        <i class="fa-brands fa-github mr-2"></i> <span data-i18n="sourceCode">Source Code</span>
                     </a>
                 </div>
             </div>
@@ -120,23 +121,21 @@
                     across supported World of Warcraft clients.</p>
 
                 <div>
-                    <h3 class="text-xl font-bold text-green-400 mb-3" data-i18n="mqolNewFeatTitle">New Features (v1.2.0)
+                    <h3 class="text-xl font-bold text-green-400 mb-3" data-i18n="mqolNewFeatTitle">New Features (v1.2.3)
                     </h3>
                     <ul class="list-disc list-inside space-y-2 ml-2 text-slate-400">
-                        <li data-i18n="mqolNewFeat1">Account Overview - Tracks characters, levels, classes, gold, played
-                            time, professions, and weekly reward progress across the account.</li>
-                        <li data-i18n="mqolNewFeat2">Gold Chart - Adds an interactive wealth history chart with improved
-                            grid rendering and stable height handling.</li>
-                        <li data-i18n="mqolNewFeat3">Weekly Rewards Preview - Shows Great Vault / Weekly Chest progress
-                            from saved addon data, including hover information and status icons.</li>
-                        <li data-i18n="mqolNewFeat4">Dungeon Teleports Tab - Adds a Group Finder tab with expansion
-                            filters, cooldown display, dungeon artwork, and active dungeon highlighting.</li>
-                        <li data-i18n="mqolNewFeat5">Profession Tracking - Saves and displays profession details across
-                            supported clients, including Classic Era, BCC, Legion, and Retail.</li>
-                        <li data-i18n="mqolNewFeat6">Fast Autoloot - Replaces the default CVAR-based looting flow with a
-                            faster custom module.</li>
-                        <li data-i18n="mqolNewFeat7">Expanded Edit Mode Support - Enables mQoL_EditMode on Mists of
-                            Pandaria Classic with version-aware safeguards.</li>
+                        <li data-i18n="mqolNewFeat1">Played Time Tab - Tracks and graphs character played time and class
+                            percentages.</li>
+                        <li data-i18n="mqolNewFeat2">Character Sorting - Sorts character lists by name, level, Vault,
+                            played time, or gold.</li>
+                        <li data-i18n="mqolNewFeat3">Gold Chart Zooming - Zooms into specific areas of the overall gold
+                            chart with a quick reset button.</li>
+                        <li data-i18n="mqolNewFeat4">Gold History Tooltips - Shows detailed hover information for each
+                            recorded gold history checkpoint.</li>
+                        <li data-i18n="mqolNewFeat5">Secondary Professions Details - Generates detailed panels and lists
+                            for secondary skills.</li>
+                        <li data-i18n="mqolNewFeat6">Character Favorites - Pins preferred characters to the top of the
+                            Account Overview list.</li>
                     </ul>
                 </div>
 
@@ -159,6 +158,19 @@
                             not interested in.</li>
                         <li data-i18n="mqolFeat8">Modern addon interface - Provides a refreshed, consistent UI for addon
                             settings and panels.</li>
+                        <li data-i18n="mqolFeat9">Account Overview - Tracks characters, levels, classes, gold, played
+                            time, professions, and weekly reward progress across the account.</li>
+                        <li data-i18n="mqolFeat10">Gold Chart - Adds an interactive wealth history chart with improved
+                            grid rendering and stable height handling.</li>
+                        <li data-i18n="mqolFeat11">Weekly Rewards Preview - Shows Great Vault / Weekly Chest progress
+                            from saved addon data, including hover information and status icons.</li>
+                        <li data-i18n="mqolFeat12">Dungeon Teleports Tab - Adds a Group Finder tab with expansion
+                            filters, cooldown display, dungeon artwork, and active dungeon highlighting.</li>
+                        <li data-i18n="mqolFeat13">Profession Tracking - Saves and displays profession details across
+                            supported clients, including Classic Era, BCC, Legion, and Retail.</li>
+                        <li data-i18n="mqolFeat14">Fast Autoloot - Replaces the default CVAR-based looting flow with a
+                            faster custom module.</li>
+                        <li data-i18n="mqolFeat15">Party Keystones Listing - Tracks party members' mythic keystones and lists them in LFG with one click.</li>
                     </ul>
                 </div>
 
@@ -206,6 +218,17 @@
         </section>
 
     </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <span data-i18n="footerText">&copy; 2026 Mentiuszen. All rights reserved.</span>
+            <div class="footer-links">
+                <a href="https://github.com/mentiuszen" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="index.html" data-i18n="navHome">Home</a>
+                <a href="projects.html" data-i18n="navProjects">Projects</a>
+            </div>
+        </div>
+    </footer>
 
     <script src="js/main.js" defer></script>
     <script src="js/mqol-changelog.js" defer></script>

@@ -66,13 +66,13 @@ const translations = {
 
         // mQoL Description
         mqolMainDesc: "MQoL is a modular quality-of-life addon focused on account-wide character overview, UI synchronization, Dungeon Teleports, Weekly Rewards tracking, and targeted improvements across supported World of Warcraft clients.",
-        mqolNewFeatTitle: "New Features (v1.2.0 - v1.2.3)",
-        mqolNewFeat1: "Account Overview - Tracks characters, levels, classes, gold, played time, professions, and weekly reward progress across the account.",
-        mqolNewFeat2: "Gold Chart - Adds an interactive wealth history chart with improved grid rendering and stable height handling.",
-        mqolNewFeat3: "Weekly Rewards Preview - Shows Great Vault / Weekly Chest progress from saved addon data, including hover information and status icons.",
-        mqolNewFeat4: "Dungeon Teleports Tab - Adds a Group Finder tab with expansion filters, cooldown display and active dungeon highlighting.",
-        mqolNewFeat5: "Profession Tracking - Saves and displays profession details across supported clients, including Classic Era, BCC, Legion, and Retail.",
-        mqolNewFeat6: "Fast Autoloot - Replaces the default CVAR-based looting flow with a faster custom module.",
+        mqolNewFeatTitle: "New Features (v1.2.3)",
+        mqolNewFeat1: "Played Time Tab - Tracks and graphs character played time and class percentages.",
+        mqolNewFeat2: "Character Sorting - Sorts character lists by name, level, Vault, played time, or gold.",
+        mqolNewFeat3: "Gold Chart Zooming - Zooms into specific areas of the overall gold chart with a quick reset button.",
+        mqolNewFeat4: "Gold History Tooltips - Shows detailed hover information for each recorded gold history checkpoint.",
+        mqolNewFeat5: "Secondary Professions Details - Generates detailed panels and lists for secondary skills.",
+        mqolNewFeat6: "Character Favorites - Pins preferred characters to the top of the Account Overview list.",
         mqolFeatTitle: "Features",
         mqolFeat1: "Action Bars synchronization - Keeps action bar settings across all characters.",
         mqolFeat2: "Nameplates synchronization - Keeps nameplate settings across all characters.",
@@ -82,6 +82,13 @@ const translations = {
         mqolFeat6: "Modules Manager - Lets you control which parts of the addon are active.",
         mqolFeat7: "Improved Option Control - Allows disabling or ignoring options you are not interested in.",
         mqolFeat8: "Modern addon interface - Provides a refreshed, consistent UI for addon settings and panels.",
+        mqolFeat9: "Account Overview - Tracks characters, levels, classes, gold, played time, professions, and weekly reward progress across the account.",
+        mqolFeat10: "Gold Chart - Adds an interactive wealth history chart with improved grid rendering and stable height handling.",
+        mqolFeat11: "Weekly Rewards Preview - Shows Great Vault / Weekly Chest progress from saved addon data, including hover information and status icons.",
+        mqolFeat12: "Dungeon Teleports Tab - Adds a Group Finder tab with expansion filters, cooldown display, dungeon artwork, and active dungeon highlighting.",
+        mqolFeat13: "Profession Tracking - Saves and displays profession details across supported clients, including Classic Era, BCC, Legion, and Retail.",
+        mqolFeat14: "Fast Autoloot - Replaces the default CVAR-based looting flow with a faster custom module.",
+        mqolFeat15: "Party Keystones Listing - Tracks party members' mythic keystones and lists them in LFG with one click.",
         mqolOptFeatTitle: "Optional Features",
         mqolOptFeat1: "Mailbox side panel - Adds a mailbox side panel with a character list and quick-send buttons with item categories.",
         mqolOptFeat2: "Automatic mail subject - Allows setting a default subject for mail.",
@@ -91,7 +98,8 @@ const translations = {
         mqolOptFeat4_2: "Broken map navigation on Pandaria.",
         mqolOptFeat4_3: "Incorrect World Boss display on the World Map.",
         mqolPlannedTitle: "Planned / Future Updates",
-        mqolPlanned1: "Active plan for version 1.2.3-1.2.5 with minor improvements and 1.3.0 that will focus on mailbox improvements.",
+        mqolPlanned1: "Character-wide settings synchronization. (WiP)",
+        sourceCode: "Source Code",
 
         tagRemoved: "[Removed]",
         dtt_v1_6_1_1: "Fix for not working Seat of the Triumvirate teleport",
@@ -177,14 +185,13 @@ const translations = {
 
         // mQoL Description
         mqolMainDesc: "MQoL to modułowy addon Quality of Life skupiony na przeglądzie konta, synchronizacji UI, teleportach do lochów, śledzeniu cotygodniowych nagród i konkretnych usprawnieniach na wspieranych klientach World of Warcraft.",
-        mqolNewFeatTitle: "Nowe Funkcje (v1.2.0 - v1.2.3)",
-        mqolNewFeat1: "Przegląd Konta - Śledzi postacie, poziomy, klasy, złoto, czas gry, profesje i postęp cotygodniowych nagród na całym koncie.",
-        mqolNewFeat2: "Wykres Złota - Dodaje interaktywny wykres historii majątku z poprawionym renderowaniem siatki i stabilniejszą wysokością.",
-        mqolNewFeat3: "Podgląd cotygodniowych nagród - Pokazuje postęp Great Vault / Weekly Chest z danych zapisanych przez addon, razem z informacją po najechaniu i ikonami stanu.",
-        mqolNewFeat4: "Zakładka Dungeon Teleports - Dodaje zakładkę w Group Finderze z filtrami dodatków, wyświetlaniem cooldownów i podświetlaniem aktywnego lochu.",
-        mqolNewFeat5: "Śledzenie profesji - Zapisuje i wyświetla szczegóły profesji na wspieranych klientach, w tym Classic Era, BCC, Legion i Retail.",
-        mqolNewFeat6: "Fast Autoloot - Zastępuje domyślne lootowanie oparte o CVAR szybszym, autorskim modułem.",
-        mqolNewFeat7: "Rozszerzone wsparcie Edit Mode - Włącza mQoL_EditMode na Mists of Pandaria Classic z zabezpieczeniami opartymi o wykrywanie wersji.",
+        mqolNewFeatTitle: "Nowe Funkcje (v1.2.3)",
+        mqolNewFeat1: "Zakładka Played Time - Śledzi i wyświetla czas gry postaci oraz statystyki klas na wykresach.",
+        mqolNewFeat2: "Sortowanie postaci - Umożliwia sortowanie listy postaci po nazwie, poziomie, skarbcu (Vault), czasie gry lub złocie.",
+        mqolNewFeat3: "Zoom wykresu złota - Pozwala przybliżać wybrany obszar wykresu oraz resetować go jednym przyciskiem.",
+        mqolNewFeat4: "Tooltipy historii złota - Pokazuje szczegółowe informacje po najechaniu myszką na punkty zapisu stanu złota.",
+        mqolNewFeat5: "Szczegóły profesji pobocznych - Generuje dedykowane panele dla Cooking, Fishing i innych profesji pomocniczych.",
+        mqolNewFeat6: "Ulubione postacie - Pozwala oznaczyć postacie jako ulubione, przypinając je na samą górę zestawienia.",
         mqolFeatTitle: "Główne Cechy",
         mqolFeat1: "Synchronizacja pasków akcji - Zachowuje ustawienia pasków na wszystkich postaciach.",
         mqolFeat2: "Synchronizacja pasków zdrowia (Nameplates) - Zachowuje ustawienia pasków życia wokół postaci.",
@@ -194,6 +201,13 @@ const translations = {
         mqolFeat6: "Menedżer Modułów - Pozwala kontrolować, które części addonu są aktywne.",
         mqolFeat7: "Ulepszona Kontrola Opcji - Pozwala wyłączać albo ignorować opcje, którymi nie jesteś zainteresowany.",
         mqolFeat8: "Nowoczesny interfejs addonu - Zapewnia odświeżony, spójny wygląd ustawień i paneli addonu.",
+        mqolFeat9: "Przegląd Konta - Śledzi postacie, poziomy, klasy, złoto, czas gry, profesje i postęp cotygodniowych nagród na całym koncie.",
+        mqolFeat10: "Wykres Złota - Dodaje interaktywny wykres historii majątku z poprawionym renderowaniem siatki i stabilniejszą wysokością.",
+        mqolFeat11: "Podgląd cotygodniowych nagród - Pokazuje postęp Great Vault / Weekly Chest z danych zapisanych przez addon, razem z informacją po najechaniu i ikonami stanu.",
+        mqolFeat12: "Zakładka Dungeon Teleports - Dodaje zakładkę w Group Finderze z filtrami dodatków, wyświetlaniem cooldownów i podświetlaniem aktywnego lochu.",
+        mqolFeat13: "Śledzenie profesji - Zapisuje i wyświetla szczegóły profesji na wspieranych klientach, w tym Classic Era, BCC, Legion i Retail.",
+        mqolFeat14: "Fast Autoloot - Zastępuje domyślne lootowanie oparte o CVAR szybszym, autorskim modułem.",
+        mqolFeat15: "Wyświetlanie kluczy party - Śledzi klucze M+ członków grupy i umożliwia szybkie wystawienie ich w LFG jednym kliknięciem.",
         mqolOptFeatTitle: "Opcjonalne Funkcje",
         mqolOptFeat1: "Boczny panel skrzynki pocztowej - Dodaje panel boczny z listą postaci oraz przyciskami szybkiego wysyłania podzielonymi na kategorie przedmiotów.",
         mqolOptFeat2: "Automatyczny temat wiadomości - Pozwala ustawić domyślny temat dla poczty w grze.",
@@ -203,7 +217,8 @@ const translations = {
         mqolOptFeat4_2: "Zepsuta nawigacja po mapie Pandarii.",
         mqolOptFeat4_3: "Nieprawidłowe wyświetlanie World Bossów na mapie świata.",
         mqolPlannedTitle: "Planowane Aktualizacje",
-        mqolPlanned1: "Aktywny plan dla wersji 1.2.3-1.2.5 obejmuje mniejsze usprawnienia, a wersja 1.3.0 skupi się na ulepszeniach poczty.",
+        mqolPlanned1: "Synchronizacja ustawień dla wszystkich postaci. (w przygotowaniu)",
+        sourceCode: "Kod źródłowy",
 
         tagRemoved: "[Usunięto]",
         dtt_v1_6_1_1: "Poprawka dla niedziałającego teleportu do Seat of the Triumvirate",
@@ -239,8 +254,8 @@ function openLightbox(element) {
     let src = '';
     const img = element.querySelector('.screenshot-src');
 
-    // Jeśli nie ma źródła lub jest to pusty obrazek (z tej samej domeny bez pliku) - nie otwieraj
-    if (img && img.src && !img.src.endsWith(window.location.host + window.location.pathname) && !img.src.includes('data:image')) {
+    // Jeśli nie ma źródła, obrazek jest ukryty (błąd ładowania) lub jest to pusty obrazek - nie otwieraj
+    if (img && img.src && !img.classList.contains('hidden') && !img.src.endsWith(window.location.host + window.location.pathname) && !img.src.includes('data:image')) {
         src = img.src;
     }
 
@@ -422,21 +437,7 @@ function changeLanguage(lang) {
         }
     });
 
-    // Aktualizacja przycisków w navbarze
-    const btnEn = document.getElementById('btn-en');
-    const btnPl = document.getElementById('btn-pl');
-
-    if (btnEn && btnPl) {
-        if (lang === 'en') {
-            btnEn.className = "is-active";
-            btnPl.className = "";
-        } else {
-            btnPl.className = "is-active";
-            btnEn.className = "";
-        }
-    }
-
-    // Odbudowanie changelogu mQoL jeśli jesteśmy na tej stronie
+    // Aktualizacja stanu przycisków językowych
     document.querySelectorAll('[data-lang]').forEach(button => {
         button.classList.toggle('is-active', button.dataset.lang === lang);
     });
@@ -494,7 +495,7 @@ function initBgCanvas() {
         constructor() {
             this.x = Math.random() * width;
             this.y = Math.random() * height;
-            
+
             // Assign to one of 3 depth layers: Far (0), Mid (1), Near (2)
             const rand = Math.random();
             if (rand < 0.35) {
@@ -558,7 +559,7 @@ function initBgCanvas() {
         draw() {
             let size = properties.particleRadius;
             let baseOpacity = 0.22;
-            
+
             if (this.layer === 0) {
                 size = 1.0;
                 baseOpacity = 0.12;
@@ -586,13 +587,13 @@ function initBgCanvas() {
 
             // Scale opacity based on mouse proximity
             const opacity = isNearMouse ? 0.75 : baseOpacity;
-            const color = isNearMouse 
-                ? properties.particleGlowColor 
+            const color = isNearMouse
+                ? properties.particleGlowColor
                 : `rgba(61, 220, 132, ${opacity})`;
 
             ctx.fillStyle = color;
             ctx.fill();
-            
+
             if (isNearMouse) {
                 ctx.shadowBlur = 8 * this.z;
                 ctx.shadowColor = '#00e5ff';
@@ -605,7 +606,7 @@ function initBgCanvas() {
     function adjustParticleCount() {
         const area = width * height;
         const targetCount = Math.min(120, Math.max(30, Math.floor(area * 0.000035)));
-        
+
         if (particles.length < targetCount) {
             while (particles.length < targetCount) {
                 particles.push(new Particle());
@@ -635,17 +636,17 @@ function initBgCanvas() {
                         const mdy1 = mouse.y - particles[i].drawY;
                         const mdx2 = mouse.x - particles[j].x;
                         const mdy2 = mouse.y - particles[j].drawY;
-                        if (Math.sqrt(mdx1*mdx1 + mdy1*mdy1) < 130 && Math.sqrt(mdx2*mdx2 + mdy2*mdy2) < 130) {
+                        if (Math.sqrt(mdx1 * mdx1 + mdy1 * mdy1) < 130 && Math.sqrt(mdx2 * mdx2 + mdy2 * mdy2) < 130) {
                             isLineActive = true;
                         }
                     }
-                    
+
                     const alpha = (properties.lineLength - dist) / properties.lineLength;
-                    
+
                     // Thicker and brighter lines for foreground layer
                     let strokeColor;
                     let lineWidth = 0.8;
-                    
+
                     if (isLineActive) {
                         strokeColor = `rgba(0, 229, 255, ${alpha * 0.3})`;
                         lineWidth = 1.4;
@@ -678,7 +679,7 @@ function initBgCanvas() {
 
     function loop() {
         ctx.clearRect(0, 0, width, height);
-        
+
         // Update scroll offset inside loop for smooth frames (with cross-browser fallbacks)
         currentScrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 
@@ -720,9 +721,24 @@ function renderChangelog(containerId, changelogData, versionGroups, lang) {
 
     let html = '';
     const totalBuilds = changelogData.length;
+    let renderedCount = 0;
 
     versionGroups.forEach((group, groupIndex) => {
-        const isFirst = groupIndex === 0;
+        let revEndIdx;
+        if (groupIndex === 0) {
+            revEndIdx = totalBuilds - 1;
+        } else {
+            revEndIdx = versionGroups[groupIndex - 1].revStartIdx - 1;
+        }
+
+        const actualStartIdx = totalBuilds - 1 - revEndIdx;
+        const actualEndIdx = totalBuilds - 1 - group.revStartIdx;
+
+        // Skip rendering version group if it doesn't contain any builds yet
+        if (actualStartIdx > actualEndIdx) return;
+
+        const isFirst = renderedCount === 0;
+        renderedCount++;
 
         let statusBadge = '';
         if (group.status === 'beta') {
@@ -744,17 +760,6 @@ function renderChangelog(containerId, changelogData, versionGroups, lang) {
         html += '</button>';
         html += '<div class="px-5 pb-5 pt-2 hidden" id="content-' + cleanId + '">';
         html += '<div class="space-y-6 border-l-2 ' + (isFirst ? 'border-slate-700/50' : 'border-slate-800') + ' ml-2 pl-4 mt-2">';
-
-        let revEndIdx;
-        if (groupIndex === 0) {
-            revEndIdx = totalBuilds - 1;
-        } else {
-            revEndIdx = versionGroups[groupIndex - 1].revStartIdx - 1;
-        }
-
-        const actualStartIdx = totalBuilds - 1 - revEndIdx;
-        const actualEndIdx = totalBuilds - 1 - group.revStartIdx;
-
         for (let i = actualStartIdx; i <= actualEndIdx; i++) {
             const b = changelogData[i];
             const title = lang === 'pl' ? b.tp : b.te;
@@ -764,7 +769,7 @@ function renderChangelog(containerId, changelogData, versionGroups, lang) {
             let buildBadge = '';
             let dotColor = 'bg-slate-600';
             let titleColor = 'text-slate-400';
-            
+
             const buildType = b.type || (/\d+\.\d+\.\d+[a-z]/i.test(title) ? 'hotfix' : '');
             const isHotfixBuild = buildType === 'hotfix';
             const isReleaseBuild = buildType === 'release';
@@ -807,7 +812,7 @@ function renderChangelog(containerId, changelogData, versionGroups, lang) {
     container.innerHTML = html;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function initSite() {
     injectNavbar();
     initMenu();
     initLang();
@@ -827,4 +832,17 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-lang]').forEach(button => {
         button.addEventListener('click', () => changeLanguage(button.dataset.lang));
     });
-});
+
+    // Zamknij lightbox przy użyciu klawisza Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeLightbox();
+        }
+    });
+}
+
+if (document.readyState === 'complete') {
+    initSite();
+} else {
+    document.addEventListener('DOMContentLoaded', initSite);
+}
