@@ -1,5 +1,48 @@
 const mqolChangelog = [
     {
+        b: "266", type: "release", te: "Update 1.2.3 - Release", tp: "Aktualizacja 1.2.3 - Wydanie", c: [
+            { t: "Fixed", e: "Fixed a bug where switching tabs in the Account Overview could display an empty panel.", p: "Naprawiono błąd przez który podczas zmiany zakładek w Account Overview mógł się pojawić pusty panel." }
+        ]
+    },
+    {
+        b: "265", te: "Update 1.2.3 - Pre-Release Fixes", tp: "Aktualizacja 1.2.3 - Poprawki wersji przedpremierowej", c: [
+            { t: "Changed", e: "Improved the gold snapshot saving mechanism for the gold chart in the Account Overview.", p: "Usprawniono zapisywanie snapshotów golda dla gold chart w account overview." },
+            { t: "Changed", e: "Changed the overall Archive saving frequency again, from one daily save to two daily saves (AM and PM).", p: "Ponownie zmieniono częstość zapisu Overall Archive z jednego dziennego zapisu na dwa dzienne zapisy jeden AM oraz drugi PM." },
+            { t: "Added", e: "Added several safeguards in the Account Overview to prevent potential game freezes and Lua errors.", p: "Dodano kilka zabezpieczeń w account overview bez których gra mogła się zawieszać lub wywalać lua errory." }
+        ]
+    },
+    {
+        b: "264", te: "Update 1.2.3 - Pre-Release", tp: "Aktualizacja 1.2.3 - Wersja przedpremierowa", c: [
+            { t: "Fixed", e: "Fixed a layout issue with the secondary professions window when having only one secondary profession.", p: "Naprawiono błąd z wyglądem okna secondary professions jeśli się ma tylko jedną profesje tego typu." },
+            { t: "Changed", e: "Changed the column chart bar display when having fewer classes.", p: "Zmieniono wyświetlanie słupków w column chart jeśli się ma mniejszą ilość klas." },
+            { t: "Changed", e: "Slightly increased the secondary professions window size when having only one profession.", p: "Lekko Powiększono okno secondary professions jeśłi ma się tylko jedną profesje." }
+        ]
+    },
+    {
+        b: "263", te: "Update 1.2.3 - Overmouse Fixes", tp: "Aktualizacja 1.2.3 - Poprawki overmouse", c: [
+            { t: "Fixed", e: "Fixed a bug where the hover tooltip for gold chart points would repeatedly toggle on and off.", p: "Naprawiono błąd przez który overmouse punktów z gold chart potrawił się włączać i wyłączać." },
+            { t: "Changed", e: "Changed the pie chart hover tooltip anchor to ANCHOR_TOP.", p: "Zmieniono wyświetlanie overmouse na ANCHOR TOP w pie chart." }
+        ]
+    },
+    {
+        b: "262", te: "Update 1.2.3 - Gold Chart Fixes", tp: "Aktualizacja 1.2.3 - Poprawki wykresu złota", c: [
+            { t: "Fixed", e: "Fixed the overall Archive saving system which had stopped working at some point during addon development.", p: "Naprawiono system zapisu overall Archive który w pewnym momencie prac nad addonem przestał to robić." },
+            { t: "Changed", e: "Changed the overall Archive data saving frequency from every 3 days to daily.", p: "Zmieniono częstość zapisu danych do overall Archive z co 3 dni na codziennie." }
+        ]
+    },
+    {
+        b: "261", te: "Update 1.2.3 - Gold Chart Changes", tp: "Aktualizacja 1.2.3 - Zmiany w wykresie złota", c: [
+            { t: "Added", e: "Added tooltip/hover information when hovering over gold history checkpoints.", p: "Dodano informacje overmouse po najechaniu na punkt zapisu stanu golda." },
+            { t: "Added", e: "Added the ability to zoom in on the overall gold chart by selecting the area of interest.", p: "Dodano możliwość zoomu na overall gold chart przy pomocy zaznaczenia interesującego obszaru." },
+            { t: "Added", e: "Added a button to reset the overall gold chart zoom to its default state.", p: "Dodano przycisk do resetu zoom'a overall gold chart do stanu początkowego." }
+        ]
+    },
+    {
+        b: "260", te: "Update 1.2.3 - Pie Chart Changes", tp: "Aktualizacja 1.2.3 - Zmiany w wykresie kołowym (Pie Chart)", c: [
+            { t: "Fixed", e: "Fixed the display of lines between class names and the pie chart.", p: "Poprawiono wyświetlanie lini między nazwą klasy oraz pie chart." }
+        ]
+    },
+    {
         b: "259", te: "Update 1.2.3 - Played Time Tab Fixes", tp: "Aktualizacja 1.2.3 - Poprawki zakładki Played Time", c: [
             { t: "Fixed", e: "Fixed an issue where classes below 2% of the total played time were not displayed.", p: "Naprawiono problem, przez który klasy poniżej 2% łącznego czasu gry nie były wyświetlane." },
             { t: "Fixed", e: "Fixed layout issues causing empty spacing below the charts.", p: "Naprawiono problemy z pustą przestrzenią pod wykresami." },
@@ -1629,13 +1672,19 @@ const mqolChangelog = [
 
 const versionGroups = [
     {
-        id: 'v123', status: 'beta',
-        nameEn: 'v1.2.3', namePl: 'Wersja 1.2.3',
-        descEn: 'Account Overview Changes', descPl: 'Zmiany w Account Overview',
-        revStartIdx: 204 // Builds 251-259
+        id: 'v124', status: 'beta',
+        nameEn: 'v1.2.4', namePl: 'Wersja 1.2.4',
+        descEn: 'Work in Progress', descPl: 'W trakcie prac',
+        revStartIdx: 220 // Builds 267+
     },
     {
-        id: 'v122', status: 'stable',
+        id: 'v123', status: 'stable',
+        nameEn: 'v1.2.3', namePl: 'Wersja 1.2.3',
+        descEn: 'Account Overview Changes', descPl: 'Zmiany w Account Overview',
+        revStartIdx: 204 // Builds 251-266
+    },
+    {
+        id: 'v122', status: 'old',
         nameEn: 'v1.2.2', namePl: 'Wersja 1.2.2',
         descEn: 'Dungeon Teleports & Overall Changes', descPl: 'Ogólne Zmiany oraz Dungeon Teleports',
         revStartIdx: 196 // Builds 243-250

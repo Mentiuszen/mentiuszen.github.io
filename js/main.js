@@ -91,7 +91,7 @@ const translations = {
         mqolOptFeat4_2: "Broken map navigation on Pandaria.",
         mqolOptFeat4_3: "Incorrect World Boss display on the World Map.",
         mqolPlannedTitle: "Planned / Future Updates",
-        mqolPlanned1: "Active plan for version 1.2.2-1.2.5 with minor improvements and 1.3.0 that will focus on mailbox improvements.",
+        mqolPlanned1: "Active plan for version 1.2.3-1.2.5 with minor improvements and 1.3.0 that will focus on mailbox improvements.",
 
         tagRemoved: "[Removed]",
         dtt_v1_6_1_1: "Fix for not working Seat of the Triumvirate teleport",
@@ -203,7 +203,7 @@ const translations = {
         mqolOptFeat4_2: "Zepsuta nawigacja po mapie Pandarii.",
         mqolOptFeat4_3: "Nieprawidłowe wyświetlanie World Bossów na mapie świata.",
         mqolPlannedTitle: "Planowane Aktualizacje",
-        mqolPlanned1: "Aktywny plan dla wersji 1.2.2-1.2.5 obejmuje mniejsze usprawnienia, a wersja 1.3.0 skupi się na ulepszeniach poczty.",
+        mqolPlanned1: "Aktywny plan dla wersji 1.2.3-1.2.5 obejmuje mniejsze usprawnienia, a wersja 1.3.0 skupi się na ulepszeniach poczty.",
 
         tagRemoved: "[Usunięto]",
         dtt_v1_6_1_1: "Poprawka dla niedziałającego teleportu do Seat of the Triumvirate",
