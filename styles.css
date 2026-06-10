@@ -696,10 +696,10 @@ button {
 }
 
 .project-detail .project-mark {
-  width: 64px !important;
-  height: 64px !important;
-  max-width: 64px !important;
-  flex: 0 0 64px !important;
+  width: 96px !important;
+  height: 96px !important;
+  max-width: 96px !important;
+  flex: 0 0 96px !important;
 }
 
 .project-detail .border-slate-700,

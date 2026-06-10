@@ -98,7 +98,8 @@ const translations = {
         mqolOptFeat4_2: "Broken map navigation on Pandaria.",
         mqolOptFeat4_3: "Incorrect World Boss display on the World Map.",
         mqolPlannedTitle: "Planned / Future Updates",
-        mqolPlanned1: "Character-wide settings synchronization. (WiP)",
+        mqolPlanned1: "Version 1.3.0 - Focus on overall changes, e.g., thorough redesign of First Setup and adding functional import/export profile settings (previously dummy).",
+        mqolPlanned2: "Version 1.4.0 - Focus on Mailbox module changes (likely a complete rewrite).",
         sourceCode: "Source Code",
 
         tagRemoved: "[Removed]",
@@ -217,7 +218,8 @@ const translations = {
         mqolOptFeat4_2: "Zepsuta nawigacja po mapie Pandarii.",
         mqolOptFeat4_3: "Nieprawidłowe wyświetlanie World Bossów na mapie świata.",
         mqolPlannedTitle: "Planowane Aktualizacje",
-        mqolPlanned1: "Synchronizacja ustawień dla wszystkich postaci. (w przygotowaniu)",
+        mqolPlanned1: "Wersja 1.3.0 - Skupienie na ogólnych zmianach, np. gruntowna przebudowa First Setup oraz dodanie funkcjonalnego importu/eksportu profili (dotychczas nieaktywne).",
+        mqolPlanned2: "Wersja 1.4.0 - Skupienie na zmianach w module skrzynki pocztowej (prawdopodobnie całkowity rewrite).",
         sourceCode: "Kod źródłowy",
 
         tagRemoved: "[Usunięto]",

@@ -1,5 +1,12 @@
 const mqolChangelog = [
     {
+        b: "300", te: "Update 1.3.0 - MoP Classic Fixes", tp: "Aktualizacja 1.3.0 - Poprawki MoP Classic", c: [
+            { t: "Fixed", e: "Fixed broken Consolidated Buffs on Pandaria Classic.", p: "Naprawiono rozwalone Consolidated Buffs na Pandarii Classic." },
+            { t: "Added", e: "Added a new checkbox in General QoL - Enable Consolidated Buffs on Pandaria Classic.", p: "Dodano nowy checkbox w General QoL - Enable Consolidated Buffs na Pandarii Classic." },
+            { t: "Removed", e: "Removed show/hide head/cloak checkboxes that no longer work on Pandaria Classic.", p: "Usunięto niedziałające już na Pandarii Classic checkboxy show/hide head/cloak." }
+        ]
+    },
+    {
         b: "266", type: "release", te: "Update 1.2.3 - Release", tp: "Aktualizacja 1.2.3 - Wydanie", c: [
             { t: "Fixed", e: "Fixed a bug where switching tabs in the Account Overview could display an empty panel.", p: "Naprawiono błąd przez który podczas zmiany zakładek w Account Overview mógł się pojawić pusty panel." }
         ]
@@ -1672,10 +1679,10 @@ const mqolChangelog = [
 
 const versionGroups = [
     {
-        id: 'v124', status: 'beta',
-        nameEn: 'v1.2.4', namePl: 'Wersja 1.2.4',
+        id: 'v130', status: 'beta',
+        nameEn: 'v1.3.0', namePl: 'Wersja 1.3.0',
         descEn: 'Work in Progress', descPl: 'W trakcie prac',
-        revStartIdx: 220 // Builds 267+
+        revStartIdx: 220 // Builds 300+
     },
     {
         id: 'v123', status: 'stable',
