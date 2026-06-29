@@ -1,5 +1,4 @@
-@import url("https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=satoshi@500,700,900&display=swap");
-
+/* Fonty przeniesione do plików HTML (<head>) */
 :root {
   color-scheme: dark;
   --bg: #07090d;
@@ -648,24 +647,24 @@ button {
   padding-top: var(--nav-height);
 }
 
-.project-detail header,
+.project-detail header:not(.site-nav),
 .project-detail main,
 .project-detail section {
   background: transparent !important;
 }
 
-.project-detail>header {
+.project-detail>header:not(.site-nav) {
   padding: 64px 0;
   border-bottom: 1px solid var(--line);
 }
 
-.project-detail>header>div,
+.project-detail>header:not(.site-nav)>div,
 .project-detail>main {
   width: min(100% - 40px, var(--container));
   margin: 0 auto;
 }
 
-.project-detail>header>div {
+.project-detail>header:not(.site-nav)>div {
   display: flex;
   align-items: center;
   gap: 32px;
@@ -709,10 +708,10 @@ button {
 }
 
 .project-detail .project-mark {
-  width: 96px !important;
-  height: 96px !important;
-  max-width: 96px !important;
-  flex: 0 0 96px !important;
+  width: 128px !important;
+  height: 128px !important;
+  max-width: 128px !important;
+  flex: 0 0 128px !important;
 }
 
 .project-detail .border-slate-700,

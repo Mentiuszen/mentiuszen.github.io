@@ -267,32 +267,32 @@ function openLightbox(element) {
     if (!lightbox) {
         lightbox = document.createElement('div');
         lightbox.id = 'global-lightbox';
-        lightbox.className = 'fixed inset-0 z-[100] bg-dark/95 backdrop-blur-sm hidden flex-col items-center justify-center opacity-0 transition-opacity duration-300';
+        lightbox.className = 'lightbox';
         lightbox.innerHTML = `
             <div class="absolute inset-0" onclick="closeLightbox()"></div>
-            <button onclick="closeLightbox()" class="absolute top-6 right-6 text-slate-400 hover:text-white text-5xl transition-colors z-10">&times;</button>
-            <img id="lightbox-img" src="" class="max-w-[95vw] max-h-[90vh] object-contain rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-slate-700 relative z-10">
+            <button onclick="closeLightbox()" class="lightbox-close text-slate-400 hover:text-white text-5xl transition-colors z-10">&times;</button>
+            <img id="lightbox-img" src="" alt="Screenshot" class="relative z-10">
         `;
         document.body.appendChild(lightbox);
         lightbox = document.getElementById('global-lightbox');
     }
 
     document.getElementById('lightbox-img').src = src;
-    lightbox.classList.remove('hidden');
-    lightbox.classList.add('flex');
+    lightbox.classList.add('is-open');
 
-    // Wymuszenie reflow dla animacji
-    void lightbox.offsetWidth;
-    lightbox.classList.remove('opacity-0');
+    // Wymuszenie reflow dla animacji zamienione na non-blocking RqAF
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            // Opacity is handled by .active in CSS, but we ensure it's triggered
+        });
+    });
 }
 
 function closeLightbox() {
     const lightbox = document.getElementById('global-lightbox');
     if (lightbox) {
-        lightbox.classList.add('opacity-0');
+        lightbox.classList.remove('is-open');
         setTimeout(() => {
-            lightbox.classList.add('hidden');
-            lightbox.classList.remove('flex');
             document.getElementById('lightbox-img').src = "";
         }, 300);
     }
@@ -520,7 +520,7 @@ function initBgCanvas() {
     }
 
     // Funkcja wyzwalająca nagły dryf cząsteczek przy kliknięciu linku przed zmianą podstrony
-    window.triggerBgDrift = function(direction) {
+    window.triggerBgDrift = function (direction) {
         if (direction === 'forward') {
             driftVelocityX = -18;
         } else if (direction === 'backward') {
@@ -674,6 +674,7 @@ function initBgCanvas() {
 
     function drawLines() {
         ctx.shadowBlur = 0;
+        const maxDistSq = properties.lineLength * properties.lineLength;
         for (let i = 0; i < particles.length; i++) {
             for (let j = i + 1; j < particles.length; j++) {
                 // ONLY connect particles in the SAME depth layer
@@ -681,9 +682,10 @@ function initBgCanvas() {
 
                 const dx = particles[i].x - particles[j].x;
                 const dy = particles[i].drawY - particles[j].drawY;
-                const dist = Math.sqrt(dx * dx + dy * dy);
+                const distSq = dx * dx + dy * dy;
 
-                if (dist < properties.lineLength) {
+                if (distSq < maxDistSq) {
+                    const dist = Math.sqrt(distSq);
                     let isLineActive = false;
                     if (mouse.x !== null && mouse.y !== null) {
                         const mdx1 = mouse.x - particles[i].x;
@@ -809,7 +811,7 @@ function renderChangelog(containerId, changelogData, versionGroups, lang) {
 
         const cleanId = containerId + '-' + group.id;
 
-        html += '<div class="border ' + (isFirst ? 'border-emerald-900/40 bg-card' : 'border-slate-800 bg-dark') + ' rounded-xl overflow-hidden">';
+        html += '<div class="border ' + (isFirst ? 'border-emerald-900/40' : 'border-slate-800') + ' rounded-xl overflow-hidden">';
         html += '<button class="w-full px-5 py-4 flex justify-between items-center hover:bg-slate-800 transition-colors group" onclick="toggleChangelog(\'' + cleanId + '\')">';
         html += '<div class="flex items-center gap-3">';
         html += '<span class="font-bold ' + (isFirst ? 'text-white group-hover:text-emerald-400' : 'text-slate-400 group-hover:text-white') + ' transition-colors">' + (lang === 'pl' ? group.namePl : group.nameEn) + '</span>';
@@ -873,7 +875,7 @@ function renderChangelog(containerId, changelogData, versionGroups, lang) {
 }
 
 function initSite() {
-    injectNavbar();
+    // injectNavbar(); // Usunięto na rzecz statycznego HTML w plikach
     initMenu();
     initLang();
     initBgCanvas();
