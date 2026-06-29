@@ -74,8 +74,8 @@ const dttVersionGroups = [
     },
     {
         id: "v16x", status: "old",
-        nameEn: "v1.6.x", namePl: "Wersja 1.6.x",
-        descEn: "Hotfix & Dawn of the Infinite", descPl: "Poprawka i Dawn of the Infinite",
+        nameEn: "v1.6.0", namePl: "Wersja 1.6.0",
+        descEn: "Fixes", descPl: "Poprawki",
         revStartIdx: 6 // Builds 7-8
     },
     {

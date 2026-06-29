@@ -426,10 +426,10 @@ function initMenu() {
 
 function initLang() {
     let lang = localStorage.getItem('lang') || 'en';
-    changeLanguage(lang);
+    changeLanguage(lang, true);
 }
 
-function changeLanguage(lang) {
+function changeLanguage(lang, isInitial = false) {
     localStorage.setItem('lang', lang);
     document.documentElement.lang = lang;
     document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -444,13 +444,19 @@ function changeLanguage(lang) {
         button.classList.toggle('is-active', button.dataset.lang === lang);
     });
 
-    if (typeof renderMqolChangelog === 'function') {
-        renderMqolChangelog(lang);
-    }
+    const triggerRender = () => {
+        if (typeof renderMqolChangelog === 'function') {
+            renderMqolChangelog(lang);
+        }
+        if (typeof renderDttChangelog === 'function') {
+            renderDttChangelog(lang);
+        }
+    };
 
-    // Odbudowanie changelogu DungeonTeleportsTab jeśli jesteśmy na tej stronie
-    if (typeof renderDttChangelog === 'function') {
-        renderDttChangelog(lang);
+    if (isInitial) {
+        setTimeout(triggerRender, 400);
+    } else {
+        triggerRender();
     }
 }
 
@@ -476,6 +482,51 @@ function initBgCanvas() {
 
     let mouse = { x: null, y: null };
     let currentScrollY = window.scrollY || window.pageYOffset;
+    let driftVelocityX = 0;
+
+    // Ustalanie początkowego dryfu cząsteczek na podstawie poprzedniej strony (referrer)
+    try {
+        const referrer = document.referrer;
+        if (referrer) {
+            const refUrl = new URL(referrer);
+            const curUrl = new URL(window.location.href);
+            if (refUrl.origin === curUrl.origin) {
+                const getPathname = (url) => {
+                    const parts = url.pathname.split('/');
+                    let filename = parts.pop() || 'index.html';
+                    if (filename === '') filename = 'index.html';
+                    return filename;
+                };
+                const refPath = getPathname(refUrl);
+                const curPath = getPathname(curUrl);
+
+                const getIndex = (path) => {
+                    if (path === 'index.html') return 0;
+                    if (path === 'projects.html') return 1;
+                    return 2;
+                };
+                const refIdx = getIndex(refPath);
+                const curIdx = getIndex(curPath);
+
+                if (curIdx > refIdx) {
+                    driftVelocityX = -18; // Ruch w przód -> cząsteczki lecą w lewo
+                } else if (curIdx < refIdx) {
+                    driftVelocityX = 18;  // Ruch w tył -> cząsteczki lecą w prawo
+                }
+            }
+        }
+    } catch (e) {
+        // Ignoruj błędy
+    }
+
+    // Funkcja wyzwalająca nagły dryf cząsteczek przy kliknięciu linku przed zmianą podstrony
+    window.triggerBgDrift = function(direction) {
+        if (direction === 'forward') {
+            driftVelocityX = -18;
+        } else if (direction === 'backward') {
+            driftVelocityX = 18;
+        }
+    };
 
     window.addEventListener('mousemove', (e) => {
         mouse.x = e.clientX;
@@ -520,7 +571,8 @@ function initBgCanvas() {
         }
 
         position() {
-            this.x += this.velocityX;
+            // Dodaj dryf pomnożony przez głębię z (paralaksa 3D)
+            this.x += this.velocityX + driftVelocityX * (this.z * 0.75 + 0.25);
             this.y += this.velocityY;
 
             // Attraction logic based on visible on-screen coordinate drawY
@@ -682,6 +734,12 @@ function initBgCanvas() {
     function loop() {
         ctx.clearRect(0, 0, width, height);
 
+        // Płynne wygaszanie dryfu tła do 0
+        driftVelocityX *= 0.94;
+        if (Math.abs(driftVelocityX) < 0.01) {
+            driftVelocityX = 0;
+        }
+
         // Update scroll offset inside loop for smooth frames (with cross-browser fallbacks)
         currentScrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 
@@ -821,7 +879,7 @@ function initSite() {
     initBgCanvas();
 
     // Inicjalizuj i dodaj nasłuchiwanie na scroll dla wyłączania strzałek
-    checkSliderButtons();
+    setTimeout(checkSliderButtons, 400);
     const sliders = ['slider-mqol', 'slider-dtt'];
     sliders.forEach(id => {
         const s = document.getElementById(id);
@@ -839,6 +897,69 @@ function initSite() {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeLightbox();
+        }
+    });
+
+    // Zapobiegaj przeładowaniu i animacji przejścia przy klikaniu linków do bieżącej strony
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (!link) return;
+
+        try {
+            const targetUrl = new URL(link.href, window.location.href);
+            const currentUrl = new URL(window.location.href);
+
+            // Ignoruj linki zewnętrzne
+            if (targetUrl.origin !== currentUrl.origin) return;
+
+            // Ustal nazwę pliku (np. index.html)
+            const getPathname = (url) => {
+                const parts = url.pathname.split('/');
+                let filename = parts.pop() || 'index.html';
+                // Jeśli serwer obsługuje directory indexing (np. / to index.html)
+                if (filename === '') filename = 'index.html';
+                return filename;
+            };
+
+            const targetPath = getPathname(targetUrl);
+            const currentPath = getPathname(currentUrl);
+
+            if (targetPath === currentPath) {
+                // Link prowadzi do tej samej podstrony
+                if (targetUrl.hash) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetUrl.hash);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                        history.pushState(null, '', targetUrl.hash);
+                    }
+                } else {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    // Wyczyszczenie hasha w URL jeśli był obecny
+                    if (currentUrl.hash) {
+                        history.pushState(null, '', window.location.pathname);
+                    }
+                }
+            } else {
+                // Ruch do nowej podstrony -> wyzwól dryf tła przed przejściem
+                const getIndex = (path) => {
+                    if (path === 'index.html') return 0;
+                    if (path === 'projects.html') return 1;
+                    return 2;
+                };
+                const curIdx = getIndex(currentPath);
+                const tarIdx = getIndex(targetPath);
+                let direction = 'none';
+                if (tarIdx > curIdx) direction = 'forward';
+                else if (tarIdx < curIdx) direction = 'backward';
+
+                if (direction !== 'none' && window.triggerBgDrift) {
+                    window.triggerBgDrift(direction);
+                }
+            }
+        } catch (err) {
+            // Ignoruj błędy
         }
     });
 }
