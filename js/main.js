@@ -369,47 +369,6 @@ function logoSvg() {
     `;
 }
 
-function injectNavbar() {
-    const mount = document.getElementById('navbar');
-    if (!mount) return;
-
-    const current = window.location.pathname.split('/').pop() || 'index.html';
-    const isProjects = current === 'projects.html' || current === 'mQoL.html' || current === 'DungeonTeleportsTab.html';
-
-    mount.innerHTML = `
-        <header class="site-nav">
-            <div class="container nav-inner">
-                <a class="brand" href="index.html" aria-label="Mentiuszen Hub home">
-                    ${logoSvg()}
-                    <span class="brand-text">
-                        <span class="brand-name">Mentiuszen</span>
-                        <span class="brand-sub">graphics / addons</span>
-                    </span>
-                </a>
-                <nav class="nav-links" aria-label="Primary navigation">
-                    <a class="nav-link" href="index.html" data-i18n="navHome" ${current === 'index.html' ? 'aria-current="page"' : ''}>Home</a>
-                    <a class="nav-link" href="projects.html" data-i18n="navProjects" ${isProjects ? 'aria-current="page"' : ''}>Projects</a>
-                </nav>
-                <div class="nav-actions">
-                    <div class="segmented" aria-label="Language">
-                        <button type="button" id="btn-en" data-lang="en" aria-label="Switch language to English">EN</button>
-                        <button type="button" id="btn-pl" data-lang="pl" aria-label="Przełącz język na polski">PL</button>
-                    </div>
-                    <button class="menu-toggle" type="button" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">${siteIcons.menu}</button>
-                </div>
-            </div>
-        </header>
-        <div class="mobile-panel" id="mobile-menu">
-            <nav class="container" aria-label="Mobile navigation">
-                <a class="nav-link" href="index.html" data-i18n="navHome" ${current === 'index.html' ? 'aria-current="page"' : ''}>Home</a>
-                <a class="nav-link" href="projects.html" data-i18n="navProjects" ${isProjects ? 'aria-current="page"' : ''}>Projects</a>
-            </nav>
-        </div>
-    `;
-}
-
-
-
 function initMenu() {
     const toggle = document.getElementById('menu-toggle');
     const panel = document.getElementById('mobile-menu');
@@ -874,8 +833,23 @@ function renderChangelog(containerId, changelogData, versionGroups, lang) {
     container.innerHTML = html;
 }
 
+function highlightCurrentPage() {
+    const current = window.location.pathname.split('/').pop() || 'index.html';
+    const isProjects = current === 'projects.html' || current === 'mQoL.html' || current === 'DungeonTeleportsTab.html';
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.removeAttribute('aria-current');
+        const href = link.getAttribute('href');
+        if (href === 'index.html' && current === 'index.html') {
+            link.setAttribute('aria-current', 'page');
+        } else if (href === 'projects.html' && isProjects) {
+            link.setAttribute('aria-current', 'page');
+        }
+    });
+}
+
 function initSite() {
-    // injectNavbar(); // Usunięto na rzecz statycznego HTML w plikach
+    highlightCurrentPage();
     initMenu();
     initLang();
     initBgCanvas();
@@ -971,3 +945,4 @@ if (document.readyState === 'complete') {
 } else {
     document.addEventListener('DOMContentLoaded', initSite);
 }
+

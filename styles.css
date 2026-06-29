@@ -963,10 +963,15 @@ html::view-transition {
 }
 
 /* Wykluczenie animacji paska górnego (navbar), aby stał nieruchomo bez migania */
-::view-transition-group(main-nav),
-::view-transition-old(main-nav),
+::view-transition-group(main-nav) {
+  animation: none !important;
+}
+::view-transition-old(main-nav) {
+  display: none !important;
+}
 ::view-transition-new(main-nav) {
   animation: none !important;
+  opacity: 1 !important;
 }
 
 @keyframes slide-out {
