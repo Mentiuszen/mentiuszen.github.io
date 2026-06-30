@@ -244,11 +244,21 @@ button {
 .mobile-panel {
   display: none;
   position: fixed;
-  inset: var(--nav-height) 0 0;
+  top: calc(var(--nav-height) + 12px);
+  right: 20px;
+  width: 220px;
   z-index: 45;
-  padding: 18px 20px 28px;
-  border-top: 1px solid var(--line-soft);
-  background: var(--bg);
+  padding: 8px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  background: var(--surface-1);
+  box-shadow: var(--shadow);
+}
+
+.mobile-panel .container {
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 .mobile-panel.is-open {
@@ -696,6 +706,7 @@ button {
 }
 
 @media (min-width: 640px) {
+
   .project-detail #slider-mqol>div,
   .project-detail #slider-dtt>div {
     width: min(100%, 360px);
@@ -765,7 +776,7 @@ button {
 @media (max-width: 760px) {
   .project-detail>header:not(.site-nav)>div {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 }
 
@@ -974,9 +985,11 @@ html::view-transition {
 ::view-transition-group(main-nav) {
   animation: none !important;
 }
+
 ::view-transition-old(main-nav) {
   display: none !important;
 }
+
 ::view-transition-new(main-nav) {
   animation: none !important;
   opacity: 1 !important;
@@ -999,5 +1012,36 @@ html::view-transition {
 
   to {
     transform: translateX(0);
+  }
+}
+
+/* Missing Tailwind responsive classes for mQoL layout */
+@media (min-width: 640px) {
+  .sm\:flex-row {
+    flex-direction: row !important;
+  }
+
+  .sm\:w-auto {
+    width: auto !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:flex-row {
+    flex-direction: row !important;
+  }
+
+  .md\:justify-start {
+    justify-content: flex-start !important;
+  }
+
+  .md\:text-left {
+    text-align: left !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-mark {
+    display: none !important;
   }
 }
