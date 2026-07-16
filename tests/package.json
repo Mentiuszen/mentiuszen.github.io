@@ -1,0 +1,13 @@
+{
+  "name": "mentiuszen-site-tests",
+  "version": "1.1.0",
+  "description": "E2E responsiveness, layout and regression tests (mobile + desktop)",
+  "main": "mobile-check.js",
+  "type": "module",
+  "scripts": {
+    "test": "node mobile-check.js"
+  },
+  "dependencies": {
+    "puppeteer": "^22.12.0"
+  }
+}

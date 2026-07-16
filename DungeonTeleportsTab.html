@@ -11,25 +11,11 @@
     <link rel="icon" href="media/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="apple-touch-icon" href="media/apple-touch-icon.png">
     <link rel="preconnect" href="https://api.fontshare.com">
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
     <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=satoshi@500,700,900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="third-party/tailwind-build.css">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style"
-        onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    </noscript>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-    </style>
 </head>
 
 <body
@@ -84,7 +70,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8">
             <div
                 class="project-mark rounded-lg bg-slate-900/60 border border-slate-700/50 shadow-[0_0_15px_rgba(61,220,132,0.15)] backdrop-blur-md overflow-hidden shrink-0">
-                <img src="media/logos/dungeonteleportstab.png" alt="DungeonTeleportsTab logo" width="256" height="256"
+                <img src="media/logos/dungeonteleportstab.webp" alt="DungeonTeleportsTab logo" width="256" height="256"
                     class="w-full h-full object-cover" />
             </div>
             <div class="text-center md:text-left">
@@ -99,11 +85,11 @@
                 <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
                     <a href="https://github.com/mentiuszen/DungeonTeleportsTab/releases/latest" target="_blank" rel="noopener noreferrer"
                         class="bg-green-600 hover:bg-green-500 text-white py-2 px-6 rounded-lg font-bold transition-colors flex items-center justify-center shadow-lg shadow-green-600/20 w-full sm:w-auto">
-                        <i class="fa-solid fa-download mr-2"></i> <span data-i18n="download">Download Latest</span>
+                        <svg class="mr-2" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m-5-4 5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> <span data-i18n="download">Download Latest</span>
                     </a>
                     <a href="https://github.com/mentiuszen/DungeonTeleportsTab" target="_blank" rel="noopener noreferrer"
                         class="bg-slate-800 hover:bg-slate-700 text-white py-2 px-6 rounded-lg font-medium transition-colors border border-slate-700 flex items-center justify-center w-full sm:w-auto">
-                        <i class="fa-brands fa-github mr-2"></i> <span data-i18n="sourceCode">Source Code</span>
+                        <svg class="mr-2" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg> <span data-i18n="sourceCode">Source Code</span>
                     </a>
                 </div>
             </div>
@@ -115,15 +101,15 @@
         <!-- SEKCJA 1: Screeny (Slider) -->
         <section class="max-w-7xl mx-auto">
             <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
-                <i class="fa-solid fa-image mr-3 text-green-400"></i> <span
+                <svg class="mr-3 text-green-400" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="10" r="1.5" fill="currentColor"/><path d="m21 15-4.5-4.5L8 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> <span
                     data-i18n="screenshotsTitle">Screenshots</span>
             </h2>
 
             <div class="relative flex items-center gap-4">
                 <!-- Lewa strzałka -->
-                <button onclick="scrollSlider('slider-dtt', -1)" id="btn-left-dtt"
+                <button onclick="scrollSlider('slider-dtt', -1)" id="btn-left-dtt" aria-label="Previous screenshots"
                     class="flex-shrink-0 bg-card hover:bg-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border border-slate-700 hover:border-green-500 transition-colors hidden md:flex disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-card disabled:hover:border-slate-700">
-                    <i class="fa-solid fa-chevron-left"></i>
+                    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </button>
 
                 <!-- Pojemnik ze zdjęciami -->
@@ -133,18 +119,16 @@
                     <!-- Screen 1 -->
                     <div class="aspect-video bg-slate-800/40 rounded-xl border border-slate-700/60 flex flex-col items-center justify-center overflow-hidden relative group cursor-pointer snap-start shrink-0 w-[calc(100%-1rem)] sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.75rem)] hover:border-green-500/50 transition-colors"
                         onclick="openLightbox(this)">
-                        <div
-                            class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjMWUyOTNiIiBmaWxsLW9wYWNpdHk9IjAuNSI+PC9yZWN0Pgo8cGF0aCBkPSJNMCAwTDggOFpNMCA4TDggMFoiIHN0cm9rZT0iIzBmMTcyYSIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+Cjwvc3ZnPg==')] opacity-30 group-hover:opacity-10 transition-opacity">
+                        <div class="absolute inset-0 checker-bg opacity-30 group-hover:opacity-10 transition-opacity">
                         </div>
-                        <img src="media/screens/DungeonTeleportsTab/dungeonteleports1.png" width="724" height="606"
+                        <img src="media/screens/DungeonTeleportsTab/dungeonteleports1.webp" width="724" height="606"
                             decoding="async" class="screenshot-src w-full h-full object-cover relative z-10"
                             alt="Current Season"
                             onerror="this.onerror=null; this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');" />
                         <!-- Fallback (Brak zdjęcia) - ukryty dopóki zdjęcie działa -->
                         <div
                             class="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none hidden fallback-content">
-                            <i
-                                class="fa-regular fa-images text-4xl text-slate-500 mb-3 group-hover:scale-110 transition-transform"></i>
+                            <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true" class="text-slate-500 mb-3"><path d="M3 15V7a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="7" y="7" width="14" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="11.5" cy="11.5" r="1.4" fill="currentColor"/><path d="m21 16-3.2-3.2L11 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
                             <span class="text-sm font-medium text-slate-400 px-4 text-center"
                                 data-i18n="noScreenshot">Image Coming Soon</span>
                         </div>
@@ -153,18 +137,16 @@
                     <!-- Screen 2 -->
                     <div class="aspect-video bg-slate-800/40 rounded-xl border border-slate-700/60 flex flex-col items-center justify-center overflow-hidden relative group cursor-pointer snap-start shrink-0 w-[calc(100%-1rem)] sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.75rem)] hover:border-green-500/50 transition-colors"
                         onclick="openLightbox(this)">
-                        <div
-                            class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjMWUyOTNiIiBmaWxsLW9wYWNpdHk9IjAuNSI+PC9yZWN0Pgo8cGF0aCBkPSJNMCAwTDggOFpNMCA4TDggMFoiIHN0cm9rZT0iIzBmMTcyYSIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+Cjwvc3ZnPg==')] opacity-30 group-hover:opacity-10 transition-opacity">
+                        <div class="absolute inset-0 checker-bg opacity-30 group-hover:opacity-10 transition-opacity">
                         </div>
-                        <img src="media/screens/DungeonTeleportsTab/dungeonteleports2.png" width="731" height="615"
+                        <img src="media/screens/DungeonTeleportsTab/dungeonteleports2.webp" width="731" height="615"
                             loading="lazy" decoding="async"
                             class="screenshot-src w-full h-full object-cover relative z-10" alt="Expansion Selection"
                             onerror="this.onerror=null; this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');" />
                         <!-- Fallback (Brak zdjęcia) - ukryty dopóki zdjęcie działa -->
                         <div
                             class="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none hidden fallback-content">
-                            <i
-                                class="fa-regular fa-images text-4xl text-slate-500 mb-3 group-hover:scale-110 transition-transform"></i>
+                            <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true" class="text-slate-500 mb-3"><path d="M3 15V7a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="7" y="7" width="14" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="11.5" cy="11.5" r="1.4" fill="currentColor"/><path d="m21 16-3.2-3.2L11 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
                             <span class="text-sm font-medium text-slate-400 px-4 text-center"
                                 data-i18n="noScreenshot">Image Coming Soon</span>
                         </div>
@@ -173,9 +155,9 @@
                 </div>
 
                 <!-- Prawa strzałka -->
-                <button onclick="scrollSlider('slider-dtt', 1)" id="btn-right-dtt"
+                <button onclick="scrollSlider('slider-dtt', 1)" id="btn-right-dtt" aria-label="Next screenshots"
                     class="flex-shrink-0 bg-card hover:bg-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border border-slate-700 hover:border-green-500 transition-colors hidden md:flex disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-card disabled:hover:border-slate-700">
-                    <i class="fa-solid fa-chevron-right"></i>
+                    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </button>
             </div>
         </section>
@@ -183,7 +165,7 @@
         <!-- SEKCJA 2: Opis -->
         <section class="max-w-7xl mx-auto">
             <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
-                <i class="fa-solid fa-book-open mr-3 text-green-400"></i> <span data-i18n="descTitle">Description</span>
+                <svg class="mr-3 text-green-400" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2V4Zm20 0h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7V4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> <span data-i18n="descTitle">Description</span>
             </h2>
             <div
                 class="bg-card p-6 sm:p-8 rounded-2xl border border-slate-800 text-slate-300 space-y-6 leading-relaxed text-lg">
@@ -212,9 +194,9 @@
                         onclick="openLightbox(this)">
                         <div class="absolute inset-0 bg-green-500/0 group-hover:bg-green-500/10 transition-colors z-10">
                         </div>
-                        <i
-                            class="fa-solid fa-magnifying-glass-plus absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl text-white opacity-0 group-hover:opacity-100 transition-opacity z-20 drop-shadow-md"></i>
-                        <img src="media/screens/DungeonTeleportsTab/dungeonteleports1.png" width="724" height="606"
+                        <svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"
+                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white opacity-0 group-hover:opacity-100 transition-opacity z-20 drop-shadow-md"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m21 21-4.3-4.3M8 11h6m-3-3v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                        <img src="media/screens/DungeonTeleportsTab/dungeonteleports1.webp" width="724" height="606"
                             loading="lazy" decoding="async"
                             class="screenshot-src w-full h-auto object-cover relative z-0" alt="Current Season" />
                     </div>
@@ -229,9 +211,9 @@
                         onclick="openLightbox(this)">
                         <div class="absolute inset-0 bg-green-500/0 group-hover:bg-green-500/10 transition-colors z-10">
                         </div>
-                        <i
-                            class="fa-solid fa-magnifying-glass-plus absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl text-white opacity-0 group-hover:opacity-100 transition-opacity z-20 drop-shadow-md"></i>
-                        <img src="media/screens/DungeonTeleportsTab/dungeonteleports2.png" width="731" height="615"
+                        <svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"
+                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white opacity-0 group-hover:opacity-100 transition-opacity z-20 drop-shadow-md"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m21 21-4.3-4.3M8 11h6m-3-3v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                        <img src="media/screens/DungeonTeleportsTab/dungeonteleports2.webp" width="731" height="615"
                             loading="lazy" decoding="async"
                             class="screenshot-src w-full h-auto object-cover relative z-0" alt="Expansion Selection" />
                     </div>
@@ -242,7 +224,7 @@
         <!-- SEKCJA 3: Changelog -->
         <section class="max-w-7xl mx-auto">
             <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2 flex items-center">
-                <i class="fa-solid fa-timeline mr-3 text-green-400"></i> <span data-i18n="changelog">Changelog</span>
+                <svg class="mr-3 text-green-400" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> <span data-i18n="changelog">Changelog</span>
             </h2>
 
             <!-- Accordion Changelog Container -->
@@ -265,7 +247,6 @@
     </footer>
 
     <script src="js/main.js" defer></script>
-    <script src="js/dtt-changelog.js" defer></script>
 </body>
 
 </html>

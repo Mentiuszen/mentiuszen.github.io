@@ -197,6 +197,8 @@ const translations = {
     }
 };
 
+let currentLang = 'en';
+
 // Obsługa Slidera (Screeny)
 function scrollSlider(id, direction) {
     const slider = document.getElementById(id);
@@ -208,6 +210,8 @@ function scrollSlider(id, direction) {
 }
 
 // Obsługa Lightbox (Powiększanie screenów)
+let lightboxReturnFocus = null;
+
 function openLightbox(element) {
     let src = '';
     const img = element.querySelector('.screenshot-src');
@@ -224,37 +228,45 @@ function openLightbox(element) {
         lightbox = document.createElement('div');
         lightbox.id = 'global-lightbox';
         lightbox.className = 'lightbox';
+        lightbox.setAttribute('role', 'dialog');
+        lightbox.setAttribute('aria-modal', 'true');
+        lightbox.setAttribute('aria-label', 'Screenshot preview');
         lightbox.innerHTML = `
             <div class="absolute inset-0" onclick="closeLightbox()"></div>
-            <button onclick="closeLightbox()" class="lightbox-close text-slate-400 hover:text-white text-5xl transition-colors z-10">&times;</button>
+            <button onclick="closeLightbox()" class="lightbox-close text-slate-400 hover:text-white text-5xl transition-colors z-10" aria-label="Close preview">&times;</button>
             <img id="lightbox-img" src="" alt="Screenshot" class="relative z-10">
         `;
+        // Fokus zamknięty w dialogu: jedyny element interaktywny to przycisk zamknięcia
+        lightbox.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                e.preventDefault();
+                lightbox.querySelector('.lightbox-close').focus();
+            }
+        });
         document.body.appendChild(lightbox);
-        lightbox = document.getElementById('global-lightbox');
     }
 
+    lightboxReturnFocus = document.activeElement;
     document.getElementById('lightbox-img').src = src;
     lightbox.classList.add('is-open');
-
-    // Wymuszenie reflow dla animacji zamienione na non-blocking RqAF
-    requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-            // Opacity is handled by .active in CSS, but we ensure it's triggered
-        });
-    });
+    lightbox.querySelector('.lightbox-close').focus();
 }
 
 function closeLightbox() {
     const lightbox = document.getElementById('global-lightbox');
-    if (lightbox) {
+    if (lightbox && lightbox.classList.contains('is-open')) {
         lightbox.classList.remove('is-open');
         setTimeout(() => {
             document.getElementById('lightbox-img').src = "";
         }, 300);
+        if (lightboxReturnFocus && typeof lightboxReturnFocus.focus === 'function') {
+            lightboxReturnFocus.focus();
+        }
+        lightboxReturnFocus = null;
     }
 }
 
-// Sprawdza czy slider wymaga scrollowania i uaktualnia stan strzałek (wyszarzone jeśli nie)
+// Sprawdza czy slider wymaga scrollowania: stan strzałek + wskaźnik pozycji (np. "2 / 4")
 function checkSliderButtons() {
     const sliders = ['slider-mqol', 'slider-dtt'];
 
@@ -267,18 +279,26 @@ function checkSliderButtons() {
         const btnLeft = document.getElementById(`btn-left-${proj}`);
         const btnRight = document.getElementById(`btn-right-${proj}`);
 
-        if (!btnLeft || !btnRight) return;
+        if (btnLeft && btnRight) {
+            // Jeśli szerokość zawartości jest mniejsza lub równa szerokości pojemnika, wyłącz strzałki
+            if (slider.scrollWidth <= slider.clientWidth) {
+                btnLeft.disabled = true;
+                btnRight.disabled = true;
+            } else {
+                btnLeft.disabled = slider.scrollLeft <= 0;
+                btnRight.disabled = slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 1; // -1 bo mogą być ułamki pixeli
+            }
+        }
 
-        // Jeśli szerokość zawartości jest mniejsza lub równa szerokości pojemnika, wyłącz strzałki
-        if (slider.scrollWidth <= slider.clientWidth) {
-            btnLeft.disabled = true;
-            btnRight.disabled = true;
-        } else {
-            // Logika dla lewej strzałki (jeśli jesteśmy na początku)
-            btnLeft.disabled = slider.scrollLeft <= 0;
-
-            // Logika dla prawej strzałki (jeśli jesteśmy na końcu)
-            btnRight.disabled = slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 1; // -1 bo mogą być ułamki pixeli
+        // Wskaźnik pozycji: "ostatni widoczny screen / liczba screenów"
+        const indicator = document.getElementById(id + '-indicator');
+        if (indicator && slider.children.length > 0) {
+            const gap = 16;
+            const stride = slider.children[0].offsetWidth + gap;
+            const total = slider.children.length;
+            const lastVisible = Math.max(1, Math.min(total, Math.round((slider.scrollLeft + slider.clientWidth + gap) / stride)));
+            indicator.textContent = lastVisible + ' / ' + total;
+            indicator.hidden = slider.scrollWidth <= slider.clientWidth + 1;
         }
     });
 }
@@ -299,43 +319,34 @@ function toggleChangelog(id) {
 const siteIcons = {
     menu: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
     close: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
-    sun: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4V2m0 20v-2m8-8h2M2 12h2m14.95-6.95 1.41-1.41M3.64 20.36l1.41-1.41m0-13.9L3.64 3.64m16.72 16.72-1.41-1.41M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
-    moon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A7.5 7.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>'
+    images: '<svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true" class="text-slate-500"><path d="M3 15V7a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="7" y="7" width="14" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="11.5" cy="11.5" r="1.4" fill="currentColor"/><path d="m21 16-3.2-3.2L11 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>',
+    chevronDown: '<svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 };
-
-const THEME_KEY = 'mentiuszen-hub-theme';
-const LEGACY_THEME_KEY = 'theme';
-
-function isTheme(value) {
-    return value === 'light' || value === 'dark';
-}
-
-function logoSvg() {
-    return `
-        <svg class="brand-mark" viewBox="0 0 64 64" role="img" aria-label="Mentiuszen mark">
-            <defs>
-                <linearGradient id="nav-logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#3ddc84" />
-                    <stop offset="100%" stop-color="#00e5ff" />
-                </linearGradient>
-            </defs>
-            <polygon points="32,4 58,19 58,45 32,60 6,45 6,19" fill="none" stroke="url(#nav-logo-grad)" stroke-width="3" stroke-linejoin="round"/>
-            <path d="M19 40V24l13 11 13-11v16" fill="none" stroke="url(#nav-logo-grad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    `;
-}
 
 function initMenu() {
     const toggle = document.getElementById('menu-toggle');
     const panel = document.getElementById('mobile-menu');
     if (!toggle || !panel) return;
 
-    toggle.addEventListener('click', () => {
-        const open = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', String(!open));
-        toggle.innerHTML = open ? siteIcons.menu : siteIcons.close;
-        panel.classList.toggle('is-open', !open);
-        document.body.classList.toggle('nav-open', !open);
+    const setOpen = (open) => {
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.innerHTML = open ? siteIcons.close : siteIcons.menu;
+        panel.classList.toggle('is-open', open);
+    };
+
+    toggle.addEventListener('click', (e) => {
+        // stopPropagation: klik podmienia ikonę (innerHTML), więc handler "klik poza panelem"
+        // nie rozpoznałby już celu kliknięcia jako części przycisku i zamknąłby menu od razu
+        e.stopPropagation();
+        setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    // Zamykanie klawiszem Escape i kliknięciem/tapnięciem poza panelem
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') setOpen(false);
+    });
+    document.addEventListener('click', (e) => {
+        if (!panel.contains(e.target) && !toggle.contains(e.target)) setOpen(false);
     });
 }
 
@@ -348,7 +359,8 @@ function initLang() {
     changeLanguage(lang, true);
 }
 
-function changeLanguage(lang, isInitial = false) {
+function changeLanguage(lang) {
+    currentLang = lang;
     localStorage.setItem('lang', lang);
     document.documentElement.lang = lang;
     document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -361,32 +373,37 @@ function changeLanguage(lang, isInitial = false) {
     // Aktualizacja stanu przycisków językowych
     document.querySelectorAll('[data-lang]').forEach(button => {
         button.classList.toggle('is-active', button.dataset.lang === lang);
+        button.setAttribute('aria-pressed', String(button.dataset.lang === lang));
     });
 
-    const triggerRender = () => {
-        if (typeof renderMqolChangelog === 'function') {
-            renderMqolChangelog(lang);
-        }
-        if (typeof renderDttChangelog === 'function') {
-            renderDttChangelog(lang);
-        }
-    };
-
-    if (isInitial) {
-        setTimeout(triggerRender, 400);
-    } else {
-        triggerRender();
-    }
+    renderActiveChangelog();
 }
 
 function initBgCanvas() {
+    // Szanuj preferencję ograniczonego ruchu — bez animowanego tła
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    // Na urządzeniach dotykowych brak interakcji myszą — mocno zredukowana wersja
+    const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
     const canvas = document.createElement('canvas');
     canvas.id = 'bg-canvas';
     document.body.prepend(canvas);
 
     const ctx = canvas.getContext('2d');
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+
+    // Bufor canvasa skalowany przez devicePixelRatio (ostry render na hiDPI)
+    const applySize = () => {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = Math.round(width * dpr);
+        canvas.height = Math.round(height * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+    applySize();
 
     const particles = [];
     const properties = {
@@ -447,19 +464,20 @@ function initBgCanvas() {
         }
     };
 
-    window.addEventListener('mousemove', (e) => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-    });
+    if (!isCoarsePointer) {
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
 
-    window.addEventListener('mouseleave', () => {
-        mouse.x = null;
-        mouse.y = null;
-    });
+        window.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+    }
 
     window.addEventListener('resize', () => {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
+        applySize();
         adjustParticleCount();
     });
 
@@ -578,7 +596,9 @@ function initBgCanvas() {
 
     function adjustParticleCount() {
         const area = width * height;
-        const targetCount = Math.min(120, Math.max(30, Math.floor(area * 0.000035)));
+        const density = isCoarsePointer ? 0.000018 : 0.000035;
+        const cap = isCoarsePointer ? 45 : 100;
+        const targetCount = Math.min(cap, Math.max(24, Math.floor(area * density)));
 
         if (particles.length < targetCount) {
             while (particles.length < targetCount) {
@@ -676,9 +696,52 @@ function initBgCanvas() {
     loop();
 }
 
-document.documentElement.dataset.theme = 'dark';
+// Changelogi: dane ładowane przez wstrzyknięcie <script> (działa też z file://, gdzie fetch
+// jest blokowany przez CORS), render z paginacją grup wersji
+const changelogSources = {
+    'mqol-changelog-container': 'mqol',
+    'dtt-changelog-container': 'dtt'
+};
+const CHANGELOG_PAGE_SIZE = 4;
+let activeChangelog = null;
 
-function renderChangelog(containerId, changelogData, versionGroups, lang) {
+function initChangelog() {
+    const containerId = Object.keys(changelogSources).find(id => document.getElementById(id));
+    if (!containerId) return;
+    const key = changelogSources[containerId];
+
+    const showError = () => {
+        document.getElementById(containerId).innerHTML =
+            '<p class="text-slate-500">' + (currentLang === 'pl' ? 'Nie udało się wczytać changelogu.' : 'Failed to load the changelog.') + '</p>';
+    };
+
+    const script = document.createElement('script');
+    script.src = 'data/changelogs/' + key + '.js';
+    script.onload = () => {
+        const data = window.__changelogs && window.__changelogs[key];
+        if (!data) {
+            showError();
+            return;
+        }
+        activeChangelog = { containerId, data, visible: CHANGELOG_PAGE_SIZE };
+        renderActiveChangelog();
+    };
+    script.onerror = showError;
+    document.head.appendChild(script);
+}
+
+function renderActiveChangelog() {
+    if (!activeChangelog) return;
+    renderChangelog(activeChangelog.containerId, activeChangelog.data.builds, activeChangelog.data.groups, currentLang, activeChangelog.visible);
+}
+
+function showMoreChangelog() {
+    if (!activeChangelog) return;
+    activeChangelog.visible += CHANGELOG_PAGE_SIZE;
+    renderActiveChangelog();
+}
+
+function renderChangelog(containerId, changelogData, versionGroups, lang, limit) {
     const container = document.getElementById(containerId);
     if (!container) return;
 
@@ -703,6 +766,7 @@ function renderChangelog(containerId, changelogData, versionGroups, lang) {
     let html = '';
     const totalBuilds = changelogData.length;
     let renderedCount = 0;
+    let hiddenGroups = 0;
 
     versionGroups.forEach((group, groupIndex) => {
         let revEndIdx;
@@ -717,6 +781,12 @@ function renderChangelog(containerId, changelogData, versionGroups, lang) {
 
         // Skip rendering version group if it doesn't contain any builds yet
         if (actualStartIdx > actualEndIdx) return;
+
+        // Paginacja: grupy ponad limit trafiają pod przycisk "Pokaż starsze wersje"
+        if (limit && renderedCount >= limit) {
+            hiddenGroups++;
+            return;
+        }
 
         const isFirst = renderedCount === 0;
         renderedCount++;
@@ -737,7 +807,7 @@ function renderChangelog(containerId, changelogData, versionGroups, lang) {
         html += statusBadge;
         html += '<span class="text-xs ' + (isFirst ? 'text-emerald-200/50 bg-emerald-950/50 border-emerald-900/50' : 'text-slate-500 bg-slate-900 border-slate-800') + ' px-2 py-1 border rounded-md hidden sm:block">' + (lang === 'pl' ? group.descPl : group.descEn) + '</span>';
         html += '</div>';
-        html += '<i class="fa-solid fa-chevron-down ' + (isFirst ? 'text-emerald-500/50' : 'text-slate-600') + ' transition-transform duration-300" id="icon-' + cleanId + '"></i>';
+        html += '<span class="inline-block ' + (isFirst ? 'text-emerald-500/50' : 'text-slate-600') + ' transition-transform duration-300" id="icon-' + cleanId + '">' + siteIcons.chevronDown + '</span>';
         html += '</button>';
         html += '<div class="px-5 pb-5 pt-2 hidden" id="content-' + cleanId + '">';
         html += '<div class="space-y-6 border-l-2 ' + (isFirst ? 'border-slate-700/50' : 'border-slate-800') + ' ml-2 pl-4 mt-2">';
@@ -790,7 +860,38 @@ function renderChangelog(containerId, changelogData, versionGroups, lang) {
         html += '</div></div></div>';
     });
 
+    if (hiddenGroups > 0) {
+        const moreLabel = (lang === 'pl' ? 'Pokaż starsze wersje' : 'Show older versions') + ' (' + hiddenGroups + ')';
+        html += '<button type="button" onclick="showMoreChangelog()" class="w-full px-5 py-3 border border-slate-800 rounded-xl text-slate-500 hover:text-white hover:bg-slate-800 hover:border-slate-700 transition-colors font-bold">' + moreLabel + '</button>';
+    }
+
     container.innerHTML = html;
+}
+
+// Buduje kafelki slidera screenów (kontener z atrybutami data-screens/data-base/data-dims)
+function initScreenshotSlider() {
+    const slider = document.querySelector('[data-screens]');
+    if (!slider) return;
+
+    const count = parseInt(slider.dataset.screens, 10);
+    const base = slider.dataset.base;
+    const dims = JSON.parse(slider.dataset.dims || '[]');
+    const alt = slider.dataset.alt || 'Screenshot';
+
+    let html = '';
+    for (let i = 1; i <= count; i++) {
+        const d = dims[i - 1] || [1350, 810];
+        html += `
+            <div class="aspect-video bg-slate-800/40 rounded-xl border border-slate-700/60 flex flex-col items-center justify-center overflow-hidden relative group cursor-pointer snap-start shrink-0 w-[calc(100%-1rem)] sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.75rem)] hover:border-green-500/50 transition-colors" onclick="openLightbox(this)">
+                <div class="absolute inset-0 checker-bg opacity-30 group-hover:opacity-10 transition-opacity"></div>
+                <img src="${base}${i}.webp" srcset="${base}${i}-700.webp 700w, ${base}${i}.webp ${d[0]}w" sizes="(min-width: 1024px) 400px, (min-width: 640px) 46vw, 90vw" width="${d[0]}" height="${d[1]}" loading="${i === 1 ? 'eager' : 'lazy'}" decoding="async" class="screenshot-src w-full h-full object-cover relative z-10" alt="${alt} ${i}" onerror="this.onerror=null; this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');" />
+                <div class="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none hidden fallback-content">
+                    ${siteIcons.images}
+                    <span class="text-sm font-medium text-slate-400 px-4 text-center mt-3" data-i18n="noScreenshot">Image Coming Soon</span>
+                </div>
+            </div>`;
+    }
+    slider.innerHTML = html;
 }
 
 function highlightCurrentPage() {
@@ -811,19 +912,23 @@ function highlightCurrentPage() {
 function initSite() {
     highlightCurrentPage();
     initMenu();
+    initScreenshotSlider();
     initLang();
+    initChangelog();
     initBgCanvas();
 
-    // Inicjalizuj i dodaj nasłuchiwanie na scroll dla wyłączania strzałek
-    setTimeout(checkSliderButtons, 400);
-    const sliders = ['slider-mqol', 'slider-dtt'];
-    sliders.forEach(id => {
+    // Strzałki i wskaźnik pozycji sliderów
+    ['slider-mqol', 'slider-dtt'].forEach(id => {
         const s = document.getElementById(id);
-        if (s) {
-            s.addEventListener('scroll', checkSliderButtons);
-            window.addEventListener('resize', checkSliderButtons);
-        }
+        if (!s) return;
+        const indicator = document.createElement('div');
+        indicator.className = 'slider-indicator';
+        indicator.id = id + '-indicator';
+        s.parentElement.insertAdjacentElement('afterend', indicator);
+        s.addEventListener('scroll', checkSliderButtons, { passive: true });
     });
+    window.addEventListener('resize', checkSliderButtons);
+    checkSliderButtons();
 
     document.querySelectorAll('[data-lang]').forEach(button => {
         button.addEventListener('click', () => changeLanguage(button.dataset.lang));

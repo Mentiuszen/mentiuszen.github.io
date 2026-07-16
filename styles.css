@@ -46,10 +46,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-body.nav-open {
-  overflow: hidden;
-}
-
 a {
   color: inherit;
   text-decoration: none;
@@ -618,6 +614,21 @@ button {
   scrollbar-width: none;
 }
 
+/* Szachownica pod screenami (placeholder do momentu załadowania obrazka) */
+.checker-bg {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjMWUyOTNiIiBmaWxsLW9wYWNpdHk9IjAuNSI+PC9yZWN0Pgo8cGF0aCBkPSJNMCAwTDggOFpNMCA4TDggMFoiIHN0cm9rZT0iIzBmMTcyYSIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+Cjwvc3ZnPg==");
+}
+
+/* Wskaźnik pozycji slidera (np. "2 / 4") */
+.slider-indicator {
+  margin-top: 6px;
+  text-align: center;
+  color: var(--text-soft);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
 .lightbox {
   position: fixed;
   inset: 0;
@@ -1038,5 +1049,30 @@ html::view-transition {
 @media (max-width: 760px) {
   .hero-mark {
     display: none !important;
+  }
+}
+
+/* Ograniczony ruch: bez animacji wejścia, przejść między stronami i płynnego scrolla */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-fade-in,
+  .animate-fade-in-delayed,
+  .animate-fade-in-delayed-2 {
+    animation: none;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+
+  .project-card,
+  .pillar-card,
+  .hero-mark,
+  .button {
+    transition: none;
   }
 }
