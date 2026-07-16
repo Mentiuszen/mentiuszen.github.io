@@ -2,32 +2,31 @@ const translations = {
     en: {
         navHome: "Home",
         navProjects: "Projects",
-        heroStart: "Rendering work, addon tooling, and focused UI systems.",
-        heroHighlight: "Mentiuszen Hub",
-        heroDesc: "I work on C++ rendering, graphics tooling, and Lua addons with the same bias: predictable systems, fast iteration, and interfaces that stay out of the player's way.",
+        heroStart: "World of Warcraft addons and graphics tools.",
+        heroDesc: "I build Lua addons for World of Warcraft — mQoL and DungeonTeleportsTab — and work on C++ rendering. This site collects current releases, full changelogs, and screenshots in one place.",
         projectsDesc: "An overview of my active projects, including World of Warcraft addons, tools, and graphics utilities.",
-        indexWorkDesc: "I prefer small, observable systems over decorative complexity: code paths that are easy to profile, UI that keeps state clear, and tools that reduce repeated manual work.",
-        indexPillarsTitle: "Engineering Focus",
-        pillar1Title: "Predictable Systems",
-        pillar1Desc: "Low latency, ease of profiling, and clean C++ and Lua patterns built to survive real use.",
-        pillar2Title: "Zero Bloat",
-        pillar2Desc: "Refined, focused feature sets and direct execution paths instead of unnecessary bells and whistles.",
-        pillar3Title: "Focused UI",
-        pillar3Desc: "Aesthetic structure carried by spacing, typography, and visual hierarchy that stays out of the way.",
+        indexWorkDesc: "Both addons are open source: each one has a page here with a feature overview, screenshots, and a complete changelog in English and Polish.",
+        aboutEyebrow: "About",
+        pillarsEyebrow: "On this site",
+        indexPillarsTitle: "What you'll find here",
+        pillar1Title: "mQoL",
+        pillar1Desc: "A modular quality-of-life addon: account-wide overview of gold, professions, played time and Great Vault progress, UI settings sync across characters, fast autoloot, and Blizzard bug fixes. Over 220 published builds.",
+        pillar2Title: "DungeonTeleportsTab",
+        pillar2Desc: "A dungeon teleport tab built into the Group Finder: expansion filters, the current season by default, and unlock info for every portal. Available for Midnight and MoP Classic.",
+        pillar3Title: "Changelogs & releases",
+        pillar3Desc: "Every version of both addons is documented in English and Polish, split into stable and beta releases, with downloads straight from GitHub Releases.",
+        statLabel1: "open-source World of Warcraft addons",
+        statLabel2: "published builds documented in the changelogs",
+        statLabel3: "supported WoW client versions — Retail to Classic Era",
         btnBrowse: "Browse Projects",
-        feat1Title: "Open Source",
-        feat1Desc: "Explore the code behind my public repositories on GitHub.",
-        feat2Title: "Quality of Life",
-        feat2Desc: "Focusing on small improvements that make a big difference in daily usage.",
 
         // Index additions
         indexAboutTitle: "About Me",
-        indexAboutDesc: "I work close to the frame: C++ rendering, graphics tooling, and pragmatic Lua addons for World of Warcraft. This hub collects the public pieces of that work.",
-        indexSkillsTitle: "Technologies & Skills",
-        indexSocialTitle: "Find Me",
+        indexAboutDesc: "I'm a programmer focused on C++ rendering and Lua addon development for World of Warcraft. My two public projects — mQoL and DungeonTeleportsTab — are maintained and updated on a regular basis.",
         btnGithub: "My GitHub",
 
         projectsTitle: "Project Index",
+        projectsKicker: "Public releases",
         mQoLDesc: "A modular World of Warcraft quality-of-life addon focused on account overview, UI synchronization, weekly rewards, and small automation that removes repeated friction.",
         dttDesc: "A clean, lightweight addon that integrates a dedicated Dungeon Teleports tab directly into the World of Warcraft Group Finder, featuring expansion filters and quick access to all unlocked portals.",
         btnViewProject: "View Project",
@@ -36,9 +35,6 @@ const translations = {
         downloadBeta: "Download Beta",
         changelog: "Changelog",
         footerText: "&copy; 2026 Mentiuszen. All rights reserved.",
-        tagAdded: "[Added]",
-        tagFixed: "[Fixed]",
-        tagChanged: "[Changed]",
         addonBadge: "World of Warcraft Addon",
         projectFeaturesLabel: "Feature surface",
         supportedExpansions: "Supported expansions",
@@ -50,7 +46,6 @@ const translations = {
         dttCardFeat3: "Fully combat-safe execution model with detailed tooltips explaining unlock requirements.",
         descTitle: "Description",
         screenshotsTitle: "Screenshots",
-        buildText: "Build",
         noScreenshot: "Image Coming Soon",
 
         // Dungeon Teleports Tab Description
@@ -100,54 +95,36 @@ const translations = {
         mqolPlannedTitle: "Planned / Future Updates",
         mqolPlanned1: "Version 1.3.0 - Focus on overall changes, e.g., thorough redesign of First Setup and adding functional import/export profile settings (previously dummy).",
         mqolPlanned2: "Version 1.4.0 - Focus on Mailbox module changes (likely a complete rewrite).",
-        sourceCode: "Source Code",
-
-        tagRemoved: "[Removed]",
-        dtt_v1_6_1_1: "Fix for not working Seat of the Triumvirate teleport",
-        dtt_v1_6_1: "Added missing Dawn of the Infinite teleport",
-        dtt_v1_6_2: "Fixed active dungeon teleports tab color",
-        dtt_v1_5_1: "Added support for Mists of Pandaria Classic",
-        dtt_v1_4_1: "Fixed wrong Midnight Season 1 start date",
-        dtt_v1_4_2: "Removed TWW season tables",
-        dtt_v1_3_1: "Added other regions support for season timers",
-        dtt_v1_3_2: "Added season start/end info at season heading",
-        dtt_v1_3_3: "Minor bug fixes",
-        dtt_v1_2_1: "Fixed issue with not working Motherlode portal for Horde players",
-        dtt_v1_2_2: "Added a custom tooltip with information on how to unlock each portal",
-        dtt_v1_2_3: "Added information about season start and end dates on portal tooltip",
-        dtt_v1_1_1: "Fixed bug that prevented buttons from working for some players",
-        dtt_v1_1_2: "Fixed missing textures",
-        dtt_v1_0_1: "Added standalone addon (ported from mQoL module)"
+        sourceCode: "Source Code"
     },
     pl: {
         navHome: "Strona główna",
         navProjects: "Projekty",
-        heroStart: "Rendering, narzędzia addonów i skupione systemy UI.",
-        heroHighlight: "Mentiuszen Hub",
-        heroDesc: "Pracuję przy renderingu C++, narzędziach graficznych i addonach Lua z tym samym podejściem: przewidywalne systemy, szybka iteracja i interfejsy, które nie przeszkadzają graczowi.",
+        heroStart: "Addony do World of Warcraft i narzędzia graficzne.",
+        heroDesc: "Piszę addony Lua do World of Warcraft — mQoL i DungeonTeleportsTab — i zajmuję się renderingiem w C++. Ta strona zbiera aktualne wersje, pełne changelogi i zrzuty ekranu w jednym miejscu.",
         projectsDesc: "Przegląd moich aktywnych projektów, w tym addonów do World of Warcraft, narzędzi oraz programów graficznych.",
-        indexWorkDesc: "Wolę małe, obserwowalne systemy niż dekoracyjną złożoność: ścieżki kodu, które łatwo profilować, UI z czytelnym stanem i narzędzia zdejmujące powtarzalną pracę.",
-        indexPillarsTitle: "Filozofia projektowania",
-        pillar1Title: "Przewidywalne systemy",
-        pillar1Desc: "Niskie opóźnienia, łatwość profilowania i czyste wzorce C++ oraz Lua stworzone by przetrwać realne użytkowanie.",
-        pillar2Title: "Bez zbędnego kodu",
-        pillar2Desc: "Dopracowane, skupione zestawy funkcji i bezpośrednie ścieżki wykonania zamiast niepotrzebnych ozdobników.",
-        pillar3Title: "Użyteczny interfejs",
-        pillar3Desc: "Estetyczna struktura oparta na odstępach, typografii i hierarchii wizualnej, która nie rozprasza uwagi.",
+        indexWorkDesc: "Oba addony są open source: każdy ma tutaj podstronę z przeglądem funkcji, zrzutami ekranu i kompletną historią zmian po polsku i angielsku.",
+        aboutEyebrow: "O mnie",
+        pillarsEyebrow: "Na tej stronie",
+        indexPillarsTitle: "Co znajdziesz na stronie",
+        pillar1Title: "mQoL",
+        pillar1Desc: "Modułowy addon quality-of-life: przegląd całego konta — złoto, profesje, czas gry i postęp Great Vault — synchronizacja ustawień UI między postaciami, szybki autoloot i poprawki błędów Blizzarda. Ponad 220 opublikowanych buildów.",
+        pillar2Title: "DungeonTeleportsTab",
+        pillar2Desc: "Zakładka teleportów do lochów wbudowana w Group Finder: filtry dodatków, domyślnie bieżący sezon i informacje, jak odblokować każdy portal. Dostępny dla Midnight i MoP Classic.",
+        pillar3Title: "Changelogi i wydania",
+        pillar3Desc: "Każda wersja obu addonów jest opisana po polsku i angielsku, z podziałem na wydania stabilne i beta, a pobieranie prowadzi bezpośrednio do GitHub Releases.",
+        statLabel1: "addony open source do World of Warcraft",
+        statLabel2: "opublikowanych buildów opisanych w changelogach",
+        statLabel3: "wspieranych wersji klienta WoW — od Retail po Classic Era",
         btnBrowse: "Przeglądaj projekty",
-        feat1Title: "Otwarte Źródło",
-        feat1Desc: "Odkryj kod stojący za moimi publicznymi repozytoriami na GitHubie.",
-        feat2Title: "Jakość Życia",
-        feat2Desc: "Skupiam się na drobnych ulepszeniach, które robią wielką różnicę w codziennym użytkowaniu.",
 
         // Index additions
-        indexAboutTitle: "O mnie",
-        indexAboutDesc: "Pracuję blisko klatki: rendering C++, narzędzia graficzne i praktyczne addony Lua do World of Warcraft. Ten hub zbiera publiczne części tej pracy.",
-        indexSkillsTitle: "Technologie i umiejętności",
-        indexSocialTitle: "Znajdziesz mnie tutaj",
+        indexAboutTitle: "Kim jestem",
+        indexAboutDesc: "Jestem programistą — zajmuję się renderingiem w C++ i tworzeniem addonów Lua do World of Warcraft. Moje dwa publiczne projekty — mQoL i DungeonTeleportsTab — rozwijam i aktualizuję na bieżąco.",
         btnGithub: "Mój GitHub",
 
         projectsTitle: "Indeks projektów",
+        projectsKicker: "Publiczne wydania",
         mQoLDesc: "Modułowy addon quality-of-life do World of Warcraft skupiony na przeglądzie konta, synchronizacji UI, cotygodniowych nagrodach i automatyzacji drobnych powtórek.",
         dttDesc: "Lekki i minimalistyczny dodatek integrujący zakładkę teleportów bezpośrednio z blizzardowym Group Finderem, oferujący przejrzyste filtrowanie dodatków oraz natychmiastowy dostęp do wszystkich odblokowanych portali.",
         btnViewProject: "Zobacz projekt",
@@ -156,9 +133,6 @@ const translations = {
         downloadBeta: "Wersja Beta",
         changelog: "Historia Zmian",
         footerText: "&copy; 2026 Mentiuszen. Wszelkie prawa zastrzeżone.",
-        tagAdded: "[Dodano]",
-        tagFixed: "[Naprawiono]",
-        tagChanged: "[Zmieniono]",
         addonBadge: "Dodatek do World of Warcraft",
         projectFeaturesLabel: "Zakres funkcji",
         supportedExpansions: "Wspierane dodatki",
@@ -170,7 +144,6 @@ const translations = {
         dttCardFeat3: "Bezpieczny w walce (combat-safe) model działania z opisami wymagań do odblokowania portali.",
         descTitle: "Opis działania",
         screenshotsTitle: "Zrzuty ekranu",
-        buildText: "Kompilacja (Build)",
         noScreenshot: "Zdjęcie wkrótce",
 
         // Dungeon Teleports Tab Description
@@ -220,24 +193,7 @@ const translations = {
         mqolPlannedTitle: "Planowane Aktualizacje",
         mqolPlanned1: "Wersja 1.3.0 - Skupienie na ogólnych zmianach, np. gruntowna przebudowa First Setup oraz dodanie funkcjonalnego importu/eksportu profili (dotychczas nieaktywne).",
         mqolPlanned2: "Wersja 1.4.0 - Skupienie na zmianach w module skrzynki pocztowej (prawdopodobnie całkowity rewrite).",
-        sourceCode: "Kod źródłowy",
-
-        tagRemoved: "[Usunięto]",
-        dtt_v1_6_1_1: "Poprawka dla niedziałającego teleportu do Seat of the Triumvirate",
-        dtt_v1_6_1: "Dodano brakujący teleport do Dawn of the Infinite",
-        dtt_v1_6_2: "Naprawiono kolor aktywnej zakładki teleportów do lochów",
-        dtt_v1_5_1: "Dodano wsparcie dla Mists of Pandaria Classic",
-        dtt_v1_4_1: "Naprawiono błędną datę startu 1. Sezonu Midnight",
-        dtt_v1_4_2: "Usunięto tabele sezonowe z TWW",
-        dtt_v1_3_1: "Dodano wsparcie czasów sezonów dla innych regionów",
-        dtt_v1_3_2: "Dodano informacje o dacie rozpoczęcia/zakończenia przy nagłówku sezonu",
-        dtt_v1_3_3: "Drobne poprawki błędów",
-        dtt_v1_2_1: "Naprawiono problem z niedziałającym portalem Motherlode dla graczy Hordy",
-        dtt_v1_2_2: "Dodano niestandardowy tooltip z informacjami jak odblokować każdy portal",
-        dtt_v1_2_3: "Dodano informacje o datach startu i zakończenia sezonu w tooltipie portalu",
-        dtt_v1_1_1: "Naprawiono błąd uniemożliwiający działanie przycisków u niektórych graczy",
-        dtt_v1_1_2: "Naprawiono brakujące tekstury",
-        dtt_v1_0_1: "Wydano samodzielny addon (wcześniej jako moduł w mQoL)"
+        sourceCode: "Kod źródłowy"
     }
 };
 
@@ -384,7 +340,11 @@ function initMenu() {
 }
 
 function initLang() {
-    let lang = localStorage.getItem('lang') || 'en';
+    let lang = localStorage.getItem('lang');
+    if (lang !== 'en' && lang !== 'pl') {
+        // Pierwsza wizyta: dobierz język na podstawie ustawień przeglądarki
+        lang = (navigator.language || 'en').toLowerCase().startsWith('pl') ? 'pl' : 'en';
+    }
     changeLanguage(lang, true);
 }
 

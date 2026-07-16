@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mentiuszen portfolio hub for C++ rendering, graphics programming, and World of Warcraft Lua addon development.">
+    <meta name="description" content="World of Warcraft addons (mQoL, DungeonTeleportsTab) and graphics tools by Mentiuszen. Current releases, full changelogs in English and Polish, and screenshots.">
     <title>Mentiuszen - Graphics & Addon Development</title>
     <link rel="icon" href="media/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="media/favicon-32.png" type="image/png" sizes="32x32">
@@ -58,9 +58,9 @@
             <div class="container hero-grid">
                 <div class="animate-fade-in">
                     <span class="eyebrow">C++ / Rendering / Lua</span>
-                    <h1 id="hero-title" class="animate-fade-in-delayed" data-i18n="heroStart">Rendering work, addon tooling, and focused UI systems.</h1>
+                    <h1 id="hero-title" class="animate-fade-in-delayed" data-i18n="heroStart">World of Warcraft addons and graphics tools.</h1>
                     <p class="hero-copy animate-fade-in-delayed" data-i18n="heroDesc">
-                        I work on C++ rendering, graphics tooling, and Lua addons with the same bias: predictable systems, fast iteration, and interfaces that stay out of the player's way.
+                        I build Lua addons for World of Warcraft — mQoL and DungeonTeleportsTab — and work on C++ rendering. This site collects current releases, full changelogs, and screenshots in one place.
                     </p>
                     <div class="hero-actions animate-fade-in-delayed-2">
                         <a class="button button-primary" href="projects.html">
@@ -89,14 +89,14 @@
         <section class="section" id="about" aria-labelledby="about-title">
             <div class="container about-grid">
                 <div>
-                    <span class="eyebrow">About</span>
+                    <span class="eyebrow" data-i18n="aboutEyebrow">About</span>
                     <h2 class="section-title" id="about-title" data-i18n="indexAboutTitle">About Me</h2>
                     <div class="prose">
                         <p data-i18n="indexAboutDesc">
-                            I work close to the frame: C++ rendering, graphics tooling, and pragmatic Lua addons for World of Warcraft. This hub collects the public pieces of that work.
+                            I'm a programmer focused on C++ rendering and Lua addon development for World of Warcraft. My two public projects — mQoL and DungeonTeleportsTab — are maintained and updated on a regular basis.
                         </p>
                         <p data-i18n="indexWorkDesc">
-                            I prefer small, observable systems over decorative complexity: code paths that are easy to profile, UI that keeps state clear, and tools that reduce repeated manual work.
+                            Both addons are open source: each one has a page here with a feature overview, screenshots, and a complete changelog in English and Polish.
                         </p>
                     </div>
                     <div class="tag-list" aria-label="Technologies and skills">
@@ -110,18 +110,18 @@
                     </div>
                 </div>
 
-                <aside class="side-panel stats-panel" aria-label="Work focus">
+                <aside class="side-panel stats-panel" aria-label="Project stats">
                     <div class="stat">
-                        <span class="stat-value">01</span>
-                        <span class="stat-label">C++ rendering and graphics work</span>
+                        <span class="stat-value">2</span>
+                        <span class="stat-label" data-i18n="statLabel1">open-source World of Warcraft addons</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-value">02</span>
-                        <span class="stat-label">addon systems for repeated play</span>
+                        <span class="stat-value">230+</span>
+                        <span class="stat-label" data-i18n="statLabel2">published builds documented in the changelogs</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-value">03</span>
-                        <span class="stat-label">public releases and practical tooling</span>
+                        <span class="stat-value">5</span>
+                        <span class="stat-label" data-i18n="statLabel3">supported WoW client versions — Retail to Classic Era</span>
                     </div>
                 </aside>
             </div>
@@ -129,20 +129,32 @@
 
         <section class="section" aria-labelledby="pillars-title">
             <div class="container">
-                <span class="eyebrow">Philosophy</span>
-                <h2 class="section-title" id="pillars-title" data-i18n="indexPillarsTitle">Engineering Focus</h2>
+                <span class="eyebrow" data-i18n="pillarsEyebrow">On this site</span>
+                <h2 class="section-title" id="pillars-title" data-i18n="indexPillarsTitle">What you'll find here</h2>
                 <div class="pillars-grid">
                     <div class="pillar-card glass-card">
-                        <h3 data-i18n="pillar1Title">Predictable Systems</h3>
-                        <p data-i18n="pillar1Desc">Low latency, ease of profiling, and clean C++ and Lua patterns built to survive real use cases.</p>
+                        <h3 data-i18n="pillar1Title">mQoL</h3>
+                        <p data-i18n="pillar1Desc">A modular quality-of-life addon: account-wide overview of gold, professions, played time and Great Vault progress, UI settings sync across characters, fast autoloot, and Blizzard bug fixes. Over 220 published builds.</p>
+                        <a class="pillar-link" href="mQoL.html">
+                            <span data-i18n="btnViewProject">View Project</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
                     </div>
                     <div class="pillar-card glass-card">
-                        <h3 data-i18n="pillar2Title">Zero Bloat</h3>
-                        <p data-i18n="pillar2Desc">Refined, focused feature sets and direct execution paths instead of unnecessary bells and whistles.</p>
+                        <h3 data-i18n="pillar2Title">DungeonTeleportsTab</h3>
+                        <p data-i18n="pillar2Desc">A dungeon teleport tab built into the Group Finder: expansion filters, the current season by default, and unlock info for every portal. Available for Midnight and MoP Classic.</p>
+                        <a class="pillar-link" href="DungeonTeleportsTab.html">
+                            <span data-i18n="btnViewProject">View Project</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
                     </div>
                     <div class="pillar-card glass-card">
-                        <h3 data-i18n="pillar3Title">Focused UI</h3>
-                        <p data-i18n="pillar3Desc">Aesthetic structure carried by spacing, typography, and visual hierarchy that stays out of the way.</p>
+                        <h3 data-i18n="pillar3Title">Changelogs & releases</h3>
+                        <p data-i18n="pillar3Desc">Every version of both addons is documented in English and Polish, split into stable and beta releases, with downloads straight from GitHub Releases.</p>
+                        <a class="pillar-link" href="projects.html">
+                            <span data-i18n="btnBrowse">Browse Projects</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
                     </div>
                 </div>
             </div>
