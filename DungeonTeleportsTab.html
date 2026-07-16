@@ -7,6 +7,9 @@
     <title>DungeonTeleportsTab - World of Warcraft Group Finder Addon | Mentiuszen</title>
     <meta name="description"
         content="Dungeon Teleports Tab seamlessly integrates a custom portal tab into the default World of Warcraft Group Finder interface.">
+    <link rel="icon" href="media/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="media/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="media/apple-touch-icon.png">
     <link rel="preconnect" href="https://api.fontshare.com">
     <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=satoshi@500,700,900&display=swap"
         rel="stylesheet">
@@ -59,7 +62,7 @@
             <div class="nav-actions">
                 <div class="segmented" aria-label="Language">
                     <button type="button" id="btn-en" data-lang="en" aria-label="Switch language to English">EN</button>
-                    <button type="button" id="btn-pl" data-lang="pl" aria-label="Prze��cz j�zyk na polski">PL</button>
+                    <button type="button" id="btn-pl" data-lang="pl" aria-label="Przełącz język na polski">PL</button>
                 </div>
                 <button class="menu-toggle" type="button" id="menu-toggle" aria-label="Open menu" aria-expanded="false"
                     aria-controls="mobile-menu"><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -81,7 +84,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8">
             <div
                 class="project-mark rounded-lg bg-slate-900/60 border border-slate-700/50 shadow-[0_0_15px_rgba(61,220,132,0.15)] backdrop-blur-md overflow-hidden shrink-0">
-                <img src="media/logos/dungeonteleportstab.png" alt="DungeonTeleportsTab logo"
+                <img src="media/logos/dungeonteleportstab.png" alt="DungeonTeleportsTab logo" width="256" height="256"
                     class="w-full h-full object-cover" />
             </div>
             <div class="text-center md:text-left">
@@ -94,11 +97,11 @@
                     dedicated Dungeon Teleports tab directly into the World of Warcraft Group Finder, featuring
                     expansion filters and quick access to all unlocked portals.</p>
                 <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-                    <a href="https://github.com/mentiuszen/DungeonTeleportsTab/releases/latest" target="_blank"
+                    <a href="https://github.com/mentiuszen/DungeonTeleportsTab/releases/latest" target="_blank" rel="noopener noreferrer"
                         class="bg-green-600 hover:bg-green-500 text-white py-2 px-6 rounded-lg font-bold transition-colors flex items-center justify-center shadow-lg shadow-green-600/20 w-full sm:w-auto">
                         <i class="fa-solid fa-download mr-2"></i> <span data-i18n="download">Download Latest</span>
                     </a>
-                    <a href="https://github.com/mentiuszen/DungeonTeleportsTab" target="_blank"
+                    <a href="https://github.com/mentiuszen/DungeonTeleportsTab" target="_blank" rel="noopener noreferrer"
                         class="bg-slate-800 hover:bg-slate-700 text-white py-2 px-6 rounded-lg font-medium transition-colors border border-slate-700 flex items-center justify-center w-full sm:w-auto">
                         <i class="fa-brands fa-github mr-2"></i> <span data-i18n="sourceCode">Source Code</span>
                     </a>
@@ -133,8 +136,9 @@
                         <div
                             class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjMWUyOTNiIiBmaWxsLW9wYWNpdHk9IjAuNSI+PC9yZWN0Pgo8cGF0aCBkPSJNMCAwTDggOFpNMCA4TDggMFoiIHN0cm9rZT0iIzBmMTcyYSIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+Cjwvc3ZnPg==')] opacity-30 group-hover:opacity-10 transition-opacity">
                         </div>
-                        <img src="media/screens/DungeonTeleportsTab/dungeonteleports1.png"
-                            class="screenshot-src w-full h-full object-cover relative z-10" alt="Current Season"
+                        <img src="media/screens/DungeonTeleportsTab/dungeonteleports1.png" width="724" height="606"
+                            decoding="async" class="screenshot-src w-full h-full object-cover relative z-10"
+                            alt="Current Season"
                             onerror="this.onerror=null; this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');" />
                         <!-- Fallback (Brak zdjęcia) - ukryty dopóki zdjęcie działa -->
                         <div
@@ -152,7 +156,8 @@
                         <div
                             class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjMWUyOTNiIiBmaWxsLW9wYWNpdHk9IjAuNSI+PC9yZWN0Pgo8cGF0aCBkPSJNMCAwTDggOFpNMCA4TDggMFoiIHN0cm9rZT0iIzBmMTcyYSIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+Cjwvc3ZnPg==')] opacity-30 group-hover:opacity-10 transition-opacity">
                         </div>
-                        <img src="media/screens/DungeonTeleportsTab/dungeonteleports2.png"
+                        <img src="media/screens/DungeonTeleportsTab/dungeonteleports2.png" width="731" height="615"
+                            loading="lazy" decoding="async"
                             class="screenshot-src w-full h-full object-cover relative z-10" alt="Expansion Selection"
                             onerror="this.onerror=null; this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');" />
                         <!-- Fallback (Brak zdjęcia) - ukryty dopóki zdjęcie działa -->
@@ -209,7 +214,8 @@
                         </div>
                         <i
                             class="fa-solid fa-magnifying-glass-plus absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl text-white opacity-0 group-hover:opacity-100 transition-opacity z-20 drop-shadow-md"></i>
-                        <img src="media/screens/DungeonTeleportsTab/dungeonteleports1.png"
+                        <img src="media/screens/DungeonTeleportsTab/dungeonteleports1.png" width="724" height="606"
+                            loading="lazy" decoding="async"
                             class="screenshot-src w-full h-auto object-cover relative z-0" alt="Current Season" />
                     </div>
                 </div>
@@ -225,7 +231,8 @@
                         </div>
                         <i
                             class="fa-solid fa-magnifying-glass-plus absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl text-white opacity-0 group-hover:opacity-100 transition-opacity z-20 drop-shadow-md"></i>
-                        <img src="media/screens/DungeonTeleportsTab/dungeonteleports2.png"
+                        <img src="media/screens/DungeonTeleportsTab/dungeonteleports2.png" width="731" height="615"
+                            loading="lazy" decoding="async"
                             class="screenshot-src w-full h-auto object-cover relative z-0" alt="Expansion Selection" />
                     </div>
                 </div>

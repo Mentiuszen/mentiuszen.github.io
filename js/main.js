@@ -65,7 +65,7 @@ const translations = {
         dttExpansionDesc: "Easily switch between expansions using the menu.",
 
         // mQoL Description
-        mqolMainDesc: "MQoL is a modular quality-of-life addon focused on account-wide character overview, UI synchronization, Dungeon Teleports, Weekly Rewards tracking, and targeted improvements across supported World of Warcraft clients.",
+        mqolMainDesc: "mQoL is a modular quality-of-life addon focused on account-wide character overview, UI synchronization, Dungeon Teleports, Weekly Rewards tracking, and targeted improvements across supported World of Warcraft clients.",
         mqolNewFeatTitle: "New Features (v1.2.3)",
         mqolNewFeat1: "Played Time Tab - Tracks and graphs character played time and class percentages.",
         mqolNewFeat2: "Character Sorting - Sorts character lists by name, level, Vault, played time, or gold.",

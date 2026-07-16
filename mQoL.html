@@ -7,6 +7,9 @@
     <title>mQoL - World of Warcraft Quality of Life Addon | Mentiuszen</title>
     <meta name="description"
         content="mQoL is a modular World of Warcraft quality-of-life addon focused on account overview, UI synchronization, and daily automation.">
+    <link rel="icon" href="media/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="media/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="media/apple-touch-icon.png">
     <link rel="preconnect" href="https://api.fontshare.com">
     <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=satoshi@500,700,900&display=swap"
         rel="stylesheet">
@@ -59,7 +62,7 @@
             <div class="nav-actions">
                 <div class="segmented" aria-label="Language">
                     <button type="button" id="btn-en" data-lang="en" aria-label="Switch language to English">EN</button>
-                    <button type="button" id="btn-pl" data-lang="pl" aria-label="Prze��cz j�zyk na polski">PL</button>
+                    <button type="button" id="btn-pl" data-lang="pl" aria-label="Przełącz język na polski">PL</button>
                 </div>
                 <button class="menu-toggle" type="button" id="menu-toggle" aria-label="Open menu" aria-expanded="false"
                     aria-controls="mobile-menu"><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -81,7 +84,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8">
             <div
                 class="project-mark rounded-lg bg-slate-900/60 border border-slate-700/50 shadow-[0_0_15px_rgba(61,220,132,0.15)] backdrop-blur-md overflow-hidden shrink-0">
-                <img src="media/logos/mqol.png" alt="mQoL logo" class="w-full h-full object-cover" />
+                <img src="media/logos/mqol.png" alt="mQoL logo" width="256" height="256" class="w-full h-full object-cover" />
             </div>
             <div class="text-center md:text-left">
                 <span
@@ -92,16 +95,16 @@
                     for
                     a better experience.</p>
                 <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-                    <a href="https://github.com/Mentiuszen/mQoL/releases/latest" target="_blank"
+                    <a href="https://github.com/mentiuszen/mQoL/releases/latest" target="_blank" rel="noopener noreferrer"
                         class="bg-green-600 hover:bg-green-500 text-white py-2 px-6 rounded-lg font-bold transition-colors flex items-center justify-center shadow-lg shadow-green-600/20 w-full sm:w-auto">
                         <i class="fa-solid fa-download mr-2"></i> <span data-i18n="downloadStable">Download
                             Release</span>
                     </a>
-                    <a href="https://github.com/Mentiuszen/mQoL" target="_blank"
+                    <a href="https://github.com/mentiuszen/mQoL" target="_blank" rel="noopener noreferrer"
                         class="bg-amber-600 hover:bg-amber-500 text-white py-2 px-6 rounded-lg font-bold transition-colors flex items-center justify-center shadow-lg shadow-amber-600/20 w-full sm:w-auto">
                         <i class="fa-solid fa-flask mr-2"></i> <span data-i18n="downloadBeta">Download Beta</span>
                     </a>
-                    <a href="https://github.com/mentiuszen/mQoL" target="_blank"
+                    <a href="https://github.com/mentiuszen/mQoL" target="_blank" rel="noopener noreferrer"
                         class="bg-slate-800 hover:bg-slate-700 text-white py-2 px-6 rounded-lg font-medium transition-colors border border-slate-700 flex items-center justify-center w-full sm:w-auto">
                         <i class="fa-brands fa-github mr-2"></i> <span data-i18n="sourceCode">Source Code</span>
                     </a>
@@ -130,11 +133,12 @@
                 <div id="slider-mqol"
                     class="flex-grow flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 hide-scrollbar snap-always">
                     <script>
+                        const screenDims = [[1359, 810], [1350, 810], [1352, 810], [1352, 810], [1348, 809], [1347, 806], [1350, 807], [1346, 807], [1347, 807], [1343, 803], [1461, 875]];
                         for (let i = 1; i <= 11; i++) {
                             document.write(`
                             <div class="aspect-video bg-slate-800/40 rounded-xl border border-slate-700/60 flex flex-col items-center justify-center overflow-hidden relative group cursor-pointer snap-start shrink-0 w-[calc(100%-1rem)] sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.75rem)] hover:border-green-500/50 transition-colors" onclick="openLightbox(this)">
                                 <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjMWUyOTNiIiBmaWxsLW9wYWNpdHk9IjAuNSI+PC9yZWN0Pgo8cGF0aCBkPSJNMCAwTDggOFpNMCA4TDggMFoiIHN0cm9rZT0iIzBmMTcyYSIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+Cjwvc3ZnPg==')] opacity-30 group-hover:opacity-10 transition-opacity"></div>
-                                <img src="media/screens/mQoL/mQoL${i}.png" class="screenshot-src w-full h-full object-cover relative z-10" alt="Screenshot ${i}" onerror="this.onerror=null; this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');" />
+                                <img src="media/screens/mQoL/mQoL${i}.png" width="${screenDims[i - 1][0]}" height="${screenDims[i - 1][1]}" loading="${i === 1 ? 'eager' : 'lazy'}" decoding="async" class="screenshot-src w-full h-full object-cover relative z-10" alt="Screenshot ${i}" onerror="this.onerror=null; this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');" />
                                 <div class="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none hidden fallback-content">
                                      <i class="fa-regular fa-images text-4xl text-slate-500 mb-3 group-hover:scale-110 transition-transform"></i>
                                      <span class="text-sm font-medium text-slate-400 px-4 text-center" data-i18n="noScreenshot">Image Coming Soon</span>
@@ -160,7 +164,7 @@
             </h2>
             <div
                 class="bg-card p-6 sm:p-8 rounded-2xl border border-slate-800 text-slate-300 space-y-8 leading-relaxed text-lg">
-                <p data-i18n="mqolMainDesc">MQoL is a modular quality-of-life addon focused on account-wide character
+                <p data-i18n="mqolMainDesc">mQoL is a modular quality-of-life addon focused on account-wide character
                     overview, UI synchronization, Dungeon Teleports, Weekly Rewards tracking, and targeted improvements
                     across supported World of Warcraft clients.</p>
 
